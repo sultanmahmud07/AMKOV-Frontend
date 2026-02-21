@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
     <footer className="bg-[#023047] text-white overflow-hidden relative">
 
       {/* Decorative Background Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-[#3A9AFF]/20 blur-[120px] rounded-full pointer-events-none -z-0"></div>
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-[#3A9AFF]/20 blur-[120px] rounded-full pointer-events-none z-0"></div>
 
       {/* ========================================= */}
       {/* PRE-FOOTER CTA (Highly Modern) */}
@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
               Join thousands of creators using AMKOV digital imaging gear to tell their stories.
             </p>
           </div>
-          <div className="flex-shrink-0 w-full lg:w-auto">
+          <div className="shrink-0 w-full lg:w-auto">
             {/* Sleek inline newsletter form replacing standard component for a modern look */}
             <form className="flex items-center w-full lg:w-[400px] bg-white/5 border border-white/10 rounded-full p-1.5 focus-within:border-[#3A9AFF] focus-within:bg-white/10 transition-all duration-300">
               <input
