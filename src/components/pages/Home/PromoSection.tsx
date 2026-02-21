@@ -71,7 +71,7 @@ const PromoSection = () => {
               {/* Styled Link matching the reference image */}
               <Link
                 href={item.link}
-                className="inline-block text-sm font-bold text-[#023047] border-b-[2px] border-[#023047]/30 pb-1 hover:text-[#3A9AFF] hover:border-[#3A9AFF] transition-all duration-300"
+                className="inline-block text-sm font-bold text-[#023047] border-b-2 border-[#023047]/30 pb-1 hover:text-[#3A9AFF] hover:border-[#3A9AFF] transition-all duration-300"
               >
                 {item.btnText}
               </Link>
