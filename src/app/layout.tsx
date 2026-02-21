@@ -18,8 +18,8 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.nativeways.com'),
   title: {
-    default: "NativeWays - Local Guide and Private Tour Booking Platform",
-    template: "%s | NativeWays",
+    default: "AMKOV | Optical Camera-Sports Camera-Film Camera",
+    template: "%s | AMKOV",
   },
   description: "Discover customizable private tours with local guides. Personalize your travel experience by messaging guides at your chosen destination.",
   keywords: [
@@ -81,7 +81,7 @@ export default function RootLayout({
         className={`${geistOswald.variable} ${geistMono.variable} antialiased`}
       >
         <NextTopLoader
-          color="#14a800"
+          color="#3A9AFF"
           height={4}
         />
         {children}

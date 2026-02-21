@@ -52,15 +52,15 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  /* --primary: #14a800; */
-  --primary: #14a800;
+  /* --primary: #3A9AFF; */
+  --primary: #3A9AFF;
   --primary-foreground: oklch(0.985 0 0);
   --secondary: #023047;
-  --secondary-foreground: #14a800;
+  --secondary-foreground: #3A9AFF;
   --muted: #023047;
   --muted-foreground: oklch(0.556 0 0);
   --accent: oklch(0.97 0.03 250);
-  --accent-foreground: #14a800;
+  --accent-foreground: #3A9AFF;
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
@@ -72,10 +72,10 @@
   --chart-5: oklch(0.769 0.188 70.08);
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: #14a800;
+  --sidebar-primary: #3A9AFF;
   --sidebar-primary-foreground: oklch(0.985 0 0);
   --sidebar-accent: oklch(0.97 0.03 250);
-  --sidebar-accent-foreground: #14a800;
+  --sidebar-accent-foreground: #3A9AFF;
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
 }
@@ -85,20 +85,28 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
 }
+
 body {
   font-family: var(--font-sans);
   line-height: 1.6;
   font-size: 16px;
   background-color: #fff;
 }
+
 /* ============================
    Base Styles (Desktop Default)
    ============================ */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-oswald);
   font-weight: 600;
   /* font-size: 45px; */
@@ -111,9 +119,11 @@ p {
   font-family: var(--font-sans);
   line-height: 1.3em;
 }
-a{
+
+a {
   text-decoration: none;
 }
+
 /* a:hover{
   text-decoration: underline;
 } */
@@ -135,12 +145,14 @@ a{
    Tablet Landscape (≤ 992px)
    ============================ */
 @media (max-width: 992px) {
+
   /* h1, h2, h3, h4, h5, h6 {
     font-size: 34px;
   } */
   p {
     font-size: 15px;
   }
+
   .main-container {
     width: 92%;
   }
@@ -150,12 +162,14 @@ a{
    Tablet Portrait (≤ 768px)
    ============================ */
 @media (max-width: 768px) {
+
   /* h1, h2, h3, h4, h5, h6 {
     font-size: 28px;
   } */
   p {
     font-size: 14px;
   }
+
   .main-container {
     width: 94%;
   }
@@ -165,6 +179,7 @@ a{
    Mobile (≤ 576px)
    ============================ */
 @media (max-width: 576px) {
+
   /* h1, h2, h3, h4, h5, h6 {
     font-size: 24px;
     line-height: 1.25em;
@@ -172,6 +187,7 @@ a{
   p {
     font-size: 13px;
   }
+
   .main-container {
     width: 96%;
   }

@@ -29,7 +29,7 @@ export default function NewsletterForm() {
 
       <button
         type="submit"
-        className="px-4 py-2 rounded-md bg-[#14a800] text-[#023047] font-semibold hover:opacity-95 transition"
+        className="px-4 py-2 rounded-md bg-[#3A9AFF] text-[#023047] font-semibold hover:opacity-95 transition"
       >
         Subscribe
       </button>

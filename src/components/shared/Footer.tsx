@@ -100,7 +100,7 @@ const Footer: React.FC = () => {
 
             <div className="text-[#c7d8d4] space-y-3 text-sm">
               <div className="flex items-start gap-3">
-                <div className="mt-0.5 text-[#14a800]"><IoLocationSharp /></div>
+                <div className="mt-0.5 text-[#3A9AFF]"><IoLocationSharp /></div>
                 <div>
                   <div className="font-medium text-white">Head Office</div>
                   <div>Banani, Dhaka, Bangladesh</div>
@@ -108,7 +108,7 @@ const Footer: React.FC = () => {
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="mt-0.5 text-[#14a800]"><FaPhoneAlt /></div>
+                <div className="mt-0.5 text-[#3A9AFF]"><FaPhoneAlt /></div>
                 <div>
                   <div className="font-medium text-white">Phone</div>
                   <a href="tel:+8801327357894" className="text-[#c7d8d4] hover:text-white">+880 1327 357894</a>
@@ -116,7 +116,7 @@ const Footer: React.FC = () => {
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="mt-0.5 text-[#14a800]"><MdEmail /></div>
+                <div className="mt-0.5 text-[#3A9AFF]"><MdEmail /></div>
                 <div>
                   <div className="font-medium text-white">Email</div>
                   <a href="mailto:hello@nativeways.com" className="text-[#c7d8d4] hover:text-white">hello@nativeways.com</a>
@@ -126,7 +126,7 @@ const Footer: React.FC = () => {
 
             <div className="pt-2">
               <h6 className="text-sm font-semibold mb-2">Get updates & offers</h6>
-             <NewsletterForm />
+              <NewsletterForm />
               <p className="text-xs text-[#9fb4b0] mt-2">No spam — unsubscribe anytime.</p>
             </div>
           </div>
