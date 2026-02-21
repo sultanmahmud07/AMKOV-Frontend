@@ -1,8 +1,10 @@
 
+import CaptureAndCreate from "@/components/pages/Home/CaptureAndCreate";
 import CategoryGrid from "@/components/pages/Home/CategoryGrid";
 import CooperationMode from "@/components/pages/Home/CooperationMode";
 import Hero from "@/components/pages/Home/Hero";
 import LatestProducts from "@/components/pages/Home/LatestProducts";
+import PopularArticles from "@/components/pages/Home/PopularArticles";
 import PromoSection from "@/components/pages/Home/PromoSection";
 import ServiceFeatures from "@/components/pages/Home/ServiceFeatures";
 import TrendingProducts from "@/components/pages/Home/TrendingProducts";
@@ -22,12 +24,14 @@ export default function Home() {
       <Suspense fallback={<p>Loading latest products...</p>}>
         <LatestProducts />
       </Suspense>
-      {/* <Suspense fallback={<div>Loading Reviews...</div>}>
-        <Reviews />
-      </Suspense>
-      <FaqSection /> */}
+      {/* <FaqSection /> */}
+      <CaptureAndCreate />
       <CooperationMode />
+      {/* <Suspense fallback={<div>Loading Reviews...</div>}>
+        <ProductReviews />
+      </Suspense> */}
       <ServiceFeatures />
+      <PopularArticles />
     </div>
   );
 }

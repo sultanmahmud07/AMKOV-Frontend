@@ -58,14 +58,14 @@ const categoryData = [
 
 const CategoryGrid = () => {
   return (
-    <section className="py-20 bg-[#F8FAFC]">
-      <div className="container mx-auto px-4 md:px-6 lg:px-8">
+    <section className="py-16 bg-[#F8FAFC]">
+      <div className="container mx-auto">
         
         {/* Modern Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-          <div className="space-y-3 max-w-2xl">
-            <div className="inline-block px-3 py-1 bg-[#3A9AFF]/10 rounded-full">
-              <span className="text-sm font-bold text-[#3A9AFF] uppercase tracking-wider">Our Collections</span>
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+          <div className="space-y-1 max-w-2xl">
+            <div className="inline-block px-3 bg-[#3A9AFF]/10 rounded-full">
+              <span className="text-xs font-bold text-[#3A9AFF] uppercase tracking-wider">Our Collections</span>
             </div>
             <h2 className="text-3xl lg:text-5xl font-extrabold text-[#023047] tracking-tight">
               Shop By Categories
@@ -84,7 +84,7 @@ const CategoryGrid = () => {
         </div>
 
         {/* Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
           {categoryData.map((item) => (
             <Link 
               key={item.id} 
@@ -92,7 +92,7 @@ const CategoryGrid = () => {
               className="group relative flex items-center bg-white p-5 rounded-2xl border border-gray-100 shadow-[0_4px_20px_rgb(0,0,0,0.03)] hover:shadow-[0_15px_40px_rgba(58,154,255,0.12)] hover:border-[#3A9AFF]/20 transition-all duration-500 ease-out hover:-translate-y-1.5 overflow-hidden"
             >
               {/* Subtle hover background gleam */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#3A9AFF]/0 to-[#3A9AFF]/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="absolute inset-0 bg-linear-to-br from-[#3A9AFF]/0 to-[#3A9AFF]/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
               {/* Image Container with Animation */}
               <div className="relative w-28 h-28 lg:w-32 lg:h-32 shrink-0 overflow-hidden rounded-xl bg-gray-50 flex items-center justify-center">
