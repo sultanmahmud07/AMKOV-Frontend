@@ -1,4 +1,4 @@
-import SearchBar from "../Explore/SearchBar";
+
 
 export default function Hero() {
 
@@ -26,9 +26,6 @@ export default function Hero() {
           Choose Local Tour Guides at the Destination of Your Choice. Simply
           Message Them To Personalize Your Tour!
         </p>
-
-        {/* Search Box */}
-        <SearchBar />
       </div>
     </section>
   );
