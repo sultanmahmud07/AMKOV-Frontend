@@ -3,7 +3,6 @@
 import  { useState, useEffect } from "react";
 import Confetti from "react-confetti";
 import Image from "next/image";
-import successIcon from "@@/product/success-icon.svg"
 import { Button } from "@/components/ui/button";
 // Custom hook for window size
 function useWindowSize() {
@@ -36,7 +35,7 @@ const Success = () => {
                         <div className="flex flex-col items-center justify-center bg-white rounded-lg shadow-xl max-w-xl w-full text-center p-10">
                               {/* Success Icon */}
                               <div className=" mb-6">
-                                   <Image src={successIcon} alt="Success" width={160} height={160} />
+                                   <Image src="/product/success-icon.svg" alt="Success" width={160} height={160} />
                               </div>
 
                               {/* Title */}

@@ -12,8 +12,7 @@ export const metadata: Metadata = {
 export default function Page() {
       return (
             <div className="page">
-                  <div className='py-8 md:py-14'></div>
-                  <div className="main-container text-[#1F1C1466] py-5 text-sm font-semibold flex items-center gap-1">
+                  <div className="container mx-auto text-[#1F1C1466] py-5 text-sm font-semibold flex items-center gap-1">
                         <span className="text-xl"><GoHome /></span>
                         <Link href={`/`} className="hover:text-primary">Home</Link>
                         <span><IoIosArrowForward /></span>
