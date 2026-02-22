@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import Confetti from "react-confetti";
 import Image from "next/image";
 import successIcon from "@@/product/success-icon.svg"
