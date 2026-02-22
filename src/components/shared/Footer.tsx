@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
       {/* PRE-FOOTER CTA (Highly Modern) */}
       {/* ========================================= */}
       <div className="relative z-10 border-b border-white/10">
-        <div className="container mx-auto px-6 md:px-12 py-16 lg:py-20 flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div className="container mx-auto py-16 lg:py-20 flex flex-col lg:flex-row items-center justify-between gap-8">
           <div className="text-center lg:text-left">
             <h2 className="text-3xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
               Ready to <span className="text-[#3A9AFF]">capture</span> the world?
@@ -58,7 +58,7 @@ const Footer: React.FC = () => {
       {/* ========================================= */}
       {/* MAIN FOOTER LINKS */}
       {/* ========================================= */}
-      <div className="relative z-10 container mx-auto px-6 md:px-12 py-16">
+      <div className="relative z-10 container mx-auto  py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8">
 
           {/* Brand Column (Takes up more space) */}

@@ -1,10 +1,11 @@
+import Categories from "@/components/pages/Categories/Categories";
 
-export default async function Categories({searchParams}: {searchParams: {type?: string}}) {
-  const {type} = await searchParams;
+export default async function CategoriesPage({ searchParams }: { searchParams: { type?: string } }) {
+  const { type } = await searchParams;
   console.log(type)
   return (
     <div>
-    <h3>Categories</h3>
+      <Categories />
     </div>
   );
 }

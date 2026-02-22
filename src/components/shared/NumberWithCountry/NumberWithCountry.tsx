@@ -3,7 +3,7 @@
 import React from "react"
 import PhoneInput from "react-phone-number-input"
 import "react-phone-number-input/style.css"   // default styles
-import "flagpack/dist/flagpack.css"           // flags
+// import "flagpack/dist/flagpack.css"           // flags
 
 type Props = {
       value: string | undefined
