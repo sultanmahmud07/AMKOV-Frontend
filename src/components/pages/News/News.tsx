@@ -26,7 +26,7 @@ const News = async ({ blogs }: { blogs: INews[] }) => {
                               </div>
                               <div className="w-full md:w-1/4 mt-5 md:mt-8">
                                     <RecentBlogs></RecentBlogs>
-                                    <div className="contact-card my-5 md:mt-8 border-[1px] border-[#E2E2E2] rounded md:rounded-lg">
+                                    <div className="contact-card my-5 md:mt-8 border border-[#E2E2E2] rounded md:rounded-lg">
                                           <h4 className="p-2 text-xl md:text-2xl text-primary text-center border-b border-primary font-semibold rounded-t md:rounded-t-lg md:py-3">Free Quote</h4>
                                           {/* <div className="flex flex-col gap-2 md:gap-4 p-4  md:pb-6">
                                                 <p>Your Project, Our Expertise: Every project is different — and we’re here to make sure you get the right solution from the start. At T-Power, we take the time to understand your needs before offering a quote that truly fits your goals.</p>
