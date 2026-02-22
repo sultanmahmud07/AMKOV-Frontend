@@ -46,10 +46,12 @@ const Navbar = (props: Props) => {
 
   const navigationLinks = [
     { href: "/", label: "HOME", role: "PUBLIC" },
-    { href: "/shop", label: "SHOP", role: "PUBLIC", hasDropdown: true },
-    { href: "/categories", label: "CATEGORIES", role: "PUBLIC", badge: "SALE" },
-    { href: "/products", label: "PRODUCTS", role: "PUBLIC", badge: "HOT" },
-    { href: "/deals", label: "TOP DEALS", role: "PUBLIC", hasDropdown: true },
+    { href: "/categories", label: "CATEGORIES", role: "PUBLIC",  hasDropdown: true },
+    { href: "/products", label: "PRODUCTS", role: "PUBLIC", hasDropdown: true, },
+    { href: "/solution", label: "Solution", role: "PUBLIC" },
+    { href: "/support", label: "Support", role: "PUBLIC", badge: "24/7" },
+    { href: "/contact", label: "Contact", role: "PUBLIC" },
+    // { href: "/deals", label: "TOP DEALS", role: "PUBLIC", hasDropdown: true, badge: "HOT" },
   ];
 
   return (
@@ -61,9 +63,9 @@ const Navbar = (props: Props) => {
         <div className="container mx-auto flex justify-between items-center">
           <p>Get Upto 25% Discount On First Order: GET25OFF - <Link href="/shop" className="underline font-semibold hover:text-[#023047] transition">SHOP NOW</Link></p>
           <div className="flex items-center gap-4 font-medium">
-            <Link href="/track-order" className="hover:text-[#023047] transition">Track Order</Link>
+            <Link href="/news" className="hover:text-[#023047] transition">New Article</Link>
             <span className="w-px h-3 bg-white/50"></span>
-            <Link href="/help" className="hover:text-[#023047] transition">Help Center</Link>
+            <Link href="/about" className="hover:text-[#023047] transition">About Us</Link>
             <span className="w-px h-3 bg-white/50"></span>
             <button className="flex items-center gap-1 hover:text-[#023047] transition">English <ChevronDown size={12} /></button>
             <span className="w-px h-3 bg-white/50"></span>
@@ -157,7 +159,7 @@ const Navbar = (props: Props) => {
               <NavLink
                 key={index}
                 href={link.href}
-                className="group flex items-center gap-1 text-sm font-bold text-[#023047] hover:text-[#3A9AFF] transition-colors duration-300 h-full relative"
+                className="group flex items-center gap-1 text-sm font-bold text-[#023047] hover:text-[#3A9AFF] uppercase transition-colors duration-300 h-full relative"
               >
                 <span className={`h-full flex items-center border-b-2 transition-colors duration-300 ${link.label === "HOME" ? "border-[#3A9AFF] text-[#3A9AFF]" : "border-transparent group-hover:border-[#3A9AFF]"}`}>
                    {link.label}

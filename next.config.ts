@@ -20,6 +20,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: "images.pexels.com",
       },
+      {
+        protocol: 'https',
+        hostname: "t-power.s3.eu-north-1.amazonaws.com",
+      },
     ]
   }
 };
