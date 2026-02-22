@@ -1,4 +1,3 @@
-import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Heart, BarChart2, Eye, Star } from "lucide-react";
