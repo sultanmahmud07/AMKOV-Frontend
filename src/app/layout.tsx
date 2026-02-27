@@ -81,7 +81,7 @@ export default function RootLayout({
         className={`${geistOswald.variable} ${geistMono.variable} antialiased`}
       >
         <NextTopLoader
-          color="#3A9AFF"
+          color="#023047"
           height={4}
         />
         {children}

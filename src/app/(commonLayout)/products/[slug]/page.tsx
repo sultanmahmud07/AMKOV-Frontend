@@ -3,6 +3,7 @@ import ProductDetailLoader from "@/components/Loaders/Products/ProductDetailLoad
 import ProductDetails from "@/components/pages/Products/ProductDetails/ProductDetails";
 import ProductInfoTabs from "@/components/pages/Products/ProductDetails/ProductInfoTabs";
 import ProductReviewSection from "@/components/pages/Products/ProductDetails/ProductReviewSection";
+import RelatedProducts from "@/components/pages/Products/ProductDetails/RelatedProducts";
 import { IParams } from "@/types/index.interface";
 import { Suspense } from "react";
 
@@ -40,6 +41,7 @@ const page = async ({ params }: IParams) => {
       <Suspense key={slug} fallback={<ProductDetailLoader></ProductDetailLoader>}>
         <ProductDetails slug={slug}></ProductDetails>
         <ProductInfoTabs></ProductInfoTabs>
+        <RelatedProducts />
         <ProductReviewSection></ProductReviewSection>
       </Suspense>
 

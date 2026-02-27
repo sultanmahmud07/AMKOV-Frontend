@@ -24,6 +24,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: "t-power.s3.eu-north-1.amazonaws.com",
       },
+      {
+        protocol: 'https',
+        hostname: "omo-oss-image.thefastimg.com",
+      },
     ]
   }
 };

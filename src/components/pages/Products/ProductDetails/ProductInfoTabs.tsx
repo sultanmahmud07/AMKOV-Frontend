@@ -34,7 +34,7 @@ export default function ProductInfoTabs() {
     const element = document.getElementById(sectionId);
     if (element) {
       // The offset ensures the section isn't hidden behind the sticky menu
-      const offset = 80; 
+      const offset = 80;
       const bodyRect = document.body.getBoundingClientRect().top;
       const elementRect = element.getBoundingClientRect().top;
       const elementPosition = elementRect - bodyRect;
@@ -50,8 +50,8 @@ export default function ProductInfoTabs() {
   // Optional: Update active tab on scroll (Intersection Observer logic can be added here if desired)
 
   return (
-    <div className="w-full bg-white  border-t border-gray-100 rounded-b-3xl shadow-sm">
-      
+    <div className="w-full bg-white  border-t border-gray-100 rounded-b-3xl">
+
       {/* ========================================= */}
       {/* STICKY TOP MENU */}
       {/* ========================================= */}
@@ -59,36 +59,55 @@ export default function ProductInfoTabs() {
         <div className="container mx-auto">
           <ul className="flex items-center gap-8 text-sm md:text-base font-bold text-gray-500 overflow-x-auto no-scrollbar">
             <li>
-              <button 
+              <button
                 onClick={() => scrollToSection("description")}
-                className={`py-4 border-b-[3px] transition-colors whitespace-nowrap ${
-                  activeTab === "description" 
-                    ? "border-[#3A9AFF] text-[#023047]" 
+                className={`py-4 border-b-[3px] transition-colors whitespace-nowrap ${activeTab === "description"
+                    ? "border-[#3A9AFF] text-[#023047]"
                     : "border-transparent hover:text-[#023047]"
-                }`}
+                  }`}
               >
                 Description
               </button>
             </li>
             <li>
-              <button 
+              <button
                 onClick={() => scrollToSection("specifications")}
-                className={`py-4 border-b-[3px] transition-colors whitespace-nowrap ${
-                  activeTab === "specifications" 
-                    ? "border-[#3A9AFF] text-[#023047]" 
+                className={`py-4 border-b-[3px] transition-colors whitespace-nowrap ${activeTab === "specifications"
+                    ? "border-[#3A9AFF] text-[#023047]"
                     : "border-transparent hover:text-[#023047]"
-                }`}
+                  }`}
               >
                 Product Details
               </button>
             </li>
-            {/* You can add a Reviews tab here later */}
+            <li>
+              <button
+                onClick={() => scrollToSection("more_info")}
+                className={`py-4 border-b-[3px] transition-colors whitespace-nowrap ${activeTab === "more_info"
+                    ? "border-[#3A9AFF] text-[#023047]"
+                    : "border-transparent hover:text-[#023047]"
+                  }`}
+              >
+                More Information
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => scrollToSection("reviews")}
+                className={`py-4 border-b-[3px] transition-colors whitespace-nowrap ${activeTab === "reviews"
+                    ? "border-[#3A9AFF] text-[#023047]"
+                    : "border-transparent hover:text-[#023047]"
+                  }`}
+              >
+                Reviews
+              </button>
+            </li>
           </ul>
         </div>
       </div>
 
       <div className="container mx-auto  pt-8 lg:pt-12">
-        
+
         {/* ========================================= */}
         {/* DESCRIPTION SECTION */}
         {/* ========================================= */}
@@ -106,18 +125,18 @@ export default function ProductInfoTabs() {
           {/* Two Image Layout from your reference */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
             <div className="relative w-full aspect-4/3 rounded-xl overflow-hidden bg-gray-100">
-              <Image 
-                src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=800&auto=format&fit=crop" 
-                alt="Camera feature 1" 
-                fill 
+              <Image
+                src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=800&auto=format&fit=crop"
+                alt="Camera feature 1"
+                fill
                 className="object-cover hover:scale-105 transition-transform duration-700"
               />
             </div>
             <div className="relative w-full aspect-4/3 rounded-xl overflow-hidden bg-gray-100">
-              <Image 
-                src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=800&auto=format&fit=crop" 
-                alt="Camera feature 2" 
-                fill 
+              <Image
+                src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=800&auto=format&fit=crop"
+                alt="Camera feature 2"
+                fill
                 className="object-cover hover:scale-105 transition-transform duration-700"
               />
             </div>
@@ -128,9 +147,9 @@ export default function ProductInfoTabs() {
         {/* SPECIFICATIONS SECTION */}
         {/* ========================================= */}
         <div id="specifications" className="scroll-mt-24">
-          
+
           <div className="border border-gray-200 rounded-xl overflow-hidden">
-            
+
             {/* Table Group 1 */}
             <div className="bg-gray-50 px-6 py-3 border-b border-gray-200">
               <h3 className="text-sm font-bold text-[#3A9AFF] tracking-wider uppercase">Product Details</h3>
@@ -172,6 +191,17 @@ export default function ProductInfoTabs() {
 
           </div>
 
+        </div>
+        {/* ========================================= */}
+        {/* More Information SECTION */}
+        {/* ========================================= */}
+        <div id="more_info" className="scroll-mt-24 mt-6 md:mt-8">
+          <h2 className="text-xl md:text-2xl font-bold text-[#023047] my-4">More Information</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Image src="/temp/con-1.jpg" alt="More Information" width={800} height={400} className="rounded-xl w-full object-cover" />
+            <Image src="/temp/con-2.jpg" alt="More Information" width={800} height={400} className="rounded-xl w-full object-cover" />
+            <Image src="/temp/con-1.jpg" alt="More Information" width={800} height={400} className="rounded-xl w-full object-cover" />
+          </div>
         </div>
 
       </div>

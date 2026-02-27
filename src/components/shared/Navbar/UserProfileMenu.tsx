@@ -48,9 +48,17 @@ const UserProfileMenu: React.FC<Props> = ({ userInfo = null }) => {
                         aria-haspopup="true"
                         aria-expanded={open}
                         onClick={() => setOpen((v) => !v)}
-                        className={`flex items-center gap-2 px-2 py-1 rounded cursor-pointer  focus:outline-none transition ${open ? "ring-2 ring-offset-2 ring-green-500" : "hover:ring-2 hover:ring-offset-2 hover:ring-green-200"
+                        className={`flex items-center gap-1 rounded cursor-pointer  focus:outline-none transition ${open ? "ring-2 ring-offset-2 ring-primary" : "hover:ring-2 hover:ring-offset-2 hover:ring-blue-200"
                               }`}
                   >
+                        <svg
+                              className={`w-4 h-4 text-gray-500 transition-transform ${open ? "rotate-180" : "rotate-0"}`}
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                              aria-hidden="true"
+                        >
+                              <path d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" />
+                        </svg>
                         {/* avatar */}
                         <div className="w-10 h-10 border-2 border-primary rounded-full bg-gray-100 overflow-hidden flex items-center justify-center text-sm font-semibold text-gray-700">
                               {userInfo?.picture ? (
@@ -60,21 +68,13 @@ const UserProfileMenu: React.FC<Props> = ({ userInfo = null }) => {
 
                               )}
                         </div>
-                        <svg
-                              className={`w-4 h-4 text-gray-500 transition-transform ${open ? "rotate-180" : "rotate-0"}`}
-                              viewBox="0 0 20 20"
-                              fill="currentColor"
-                              aria-hidden="true"
-                        >
-                              <path d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" />
-                        </svg>
                   </button>
 
                   {/* Dropdown */}
                   <div
                         role="menu"
                         aria-hidden={!open}
-                        className={`absolute right-0 mt-2 w-56 rounded bg-white shadow-lg  z-50 transform transition-all ${open ? "opacity-100 scale-100 pointer-events-auto" : "opacity-0 scale-95 pointer-events-none"
+                        className={`absolute left-0 mt-2 w-56 rounded bg-white shadow-lg  z-50 transform transition-all ${open ? "opacity-100 scale-100 pointer-events-auto" : "opacity-0 scale-95 pointer-events-none"
                               }`}
                   >
                         {/* header showing avatar + name */}

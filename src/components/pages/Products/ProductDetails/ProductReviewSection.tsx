@@ -99,7 +99,7 @@ const ReviewItem = ({ review }: { review: typeof initialReviews[0] }) => {
       </div>
 
       {/* Right Column: Content */}
-      <div className="w-full md:w-3/4 flex flex-col">
+      <div className="w-full md:w-3/4 flex flex-col md:border-l border-gray-100 pl-0 md:pl-8">
         <h4 className="text-base font-bold text-[#023047] mb-2">{review.title}</h4>
         <p className="text-sm text-gray-600 leading-relaxed mb-4">{review.comment}</p>
         
@@ -135,10 +135,10 @@ export default function ProductReviewSection() {
   const averageRating = 5; // Static for demo, calculate dynamically in production
 
   return (
-    <div className="container mx-auto  py-5">
+    <div id="reviews" className="container mx-auto scroll-mt-20  py-5 mb-5 md:mb-10">
       
       {/* Header Bar (Matches the reference image style) */}
-      <div className="bg-gray-50 border border-gray-200 rounded-t-xl px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div className="bg-gray-100  px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
         <div className="flex items-center gap-2 text-[#023047] font-bold">
           <MessageSquare size={18} />
           <span>Comments ({totalReviews})</span>
@@ -152,7 +152,7 @@ export default function ProductReviewSection() {
       </div>
 
       {/* Review List Container */}
-      <div className="border-x border-b border-gray-200 rounded-b-xl px-6 lg:px-10 bg-white">
+      <div className="px-5 bg-white">
         {initialReviews.map((review) => (
           <ReviewItem key={review.id} review={review} />
         ))}
