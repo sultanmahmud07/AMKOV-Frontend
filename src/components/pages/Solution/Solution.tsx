@@ -48,9 +48,9 @@ export default function SolutionsPage() {
                               className="object-cover object-center opacity-20 mix-blend-overlay"
                               priority
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#023047] via-transparent to-[#023047]/80" />
+                        <div className="absolute inset-0 bg-linear-to-t from-[#023047] via-transparent to-[#023047]/80" />
 
-                        <div className="container mx-auto mx-auto relative z-10 flex flex-col items-center text-center">
+                        <div className="container mx-auto relative z-10 flex flex-col items-center text-center">
                               <ScrollReveal y={20}>
                                     <span className="inline-block py-1 px-3 rounded-full bg-[#3A9AFF]/20 border border-[#3A9AFF]/30 text-[#3A9AFF] text-xs font-bold uppercase tracking-widest backdrop-blur-sm mb-4">
                                           Global Manufacturing
@@ -89,7 +89,7 @@ export default function SolutionsPage() {
                               >
                                     {/* Image Side - Animated horizontally */}
                                     <ScrollReveal x={solution.reverse ? 50 : -50} className="w-full lg:w-1/2">
-                                          <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl group">
+                                          <div className="relative w-full aspect-4/3 rounded-3xl overflow-hidden shadow-2xl group">
                                                 <div className="absolute inset-4 border-2 border-white/20 rounded-2xl z-10 pointer-events-none"></div>
                                                 <Image
                                                       src={solution.image}
