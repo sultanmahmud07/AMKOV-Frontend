@@ -29,10 +29,10 @@ export default function NavLink({href, className, ...rest}: ComponentProps<typeo
     <Link
       aria-current={isActive ? 'page' : undefined}
       className={clsx(
-        ` ${className}`,
+        `border-b-2 ${className}`,
         isActive
-          ? `font-semibold ${isSticky ? "text-primary" : "text-primary"} px-2 `
-          : `px-2  ${ isSticky ? "text-[#080808]" : "" }`
+          ? `font-semibold text-primary border-[#3A9AFF] border-b px-2 `
+          : `px-2 border-transparent group-hover:border-[#3A9AFF] transition-colors duration-300`,
       )}
       href={href}
       {...rest}

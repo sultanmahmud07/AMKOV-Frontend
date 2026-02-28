@@ -1,4 +1,5 @@
 
+import SolutionsPage from '@/components/pages/Solution/Solution';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -9,9 +10,7 @@ export const metadata: Metadata = {
 
 const Solution = () => {
   return (
-    <div>
-      <h1>Solution</h1>
-    </div>
+    <SolutionsPage />
   );
 };
 

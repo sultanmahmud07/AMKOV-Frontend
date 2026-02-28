@@ -1,17 +1,18 @@
-
-import ViewCart from '@/components/pages/Cart/ViewCart';
+import Checkout from '@/components/pages/Checkout/Checkout';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Cart | NativeWays",
+  title: "Checkout | NativeWays",
   description: "Learn about the NativeWays story. We are bridging the gap between curious travelers and passionate local experts to create authentic, unforgettable journeys.",
 
 };
 
-const Cart = () => {
+const CheckoutPage = () => {
   return (
-    <ViewCart />
+    <div>
+      <Checkout></Checkout>
+    </div>
   );
 };
 
-export default Cart;
+export default CheckoutPage;

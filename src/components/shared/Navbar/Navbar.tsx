@@ -1,13 +1,13 @@
 "use client";
-
 import Image from "next/image";
-import Link from "next/link";
 import NavLink from "./NavLink";
 import { Button } from "@/components/ui/button";
 import React, { useEffect, useState } from "react";
 import { IUser } from "@/types/user.interface";
 import UserProfileMenu from "./UserProfileMenu";
-import { Search, Heart, ShoppingBag, Menu, ChevronDown, User, Download } from "lucide-react";
+import { Search, Heart, Menu, ChevronDown, User, Download } from "lucide-react";
+import Link from "next/link";
+import CartButton from "@/components/pages/Cart/CartButton";
 
 type Props = {
   accessToken?: string | null;
@@ -55,13 +55,13 @@ const Navbar = (props: Props) => {
   ];
 
   return (
-    <header className="w-full bg-white relative">
+    <header className="w-full bg-white relative shadow">
       {/* ========================================= */}
       {/* 1. TOP BAR (Promos & Quick Links) - Hidden on Mobile */}
       {/* ========================================= */}
       <div className="hidden lg:block bg-[#3A9AFF] text-white text-xs py-2">
         <div className="container mx-auto flex justify-between items-center">
-          <p>Get Upto 25% Discount On First Order: GET25OFF - <Link href="/shop" className="underline font-semibold hover:text-[#023047] transition">SHOP NOW</Link></p>
+          <p>Get Upto 25% Discount On First Order: GET25OFF - <NavLink href="/shop" className="underline font-semibold hover:text-[#023047] transition">SHOP NOW</NavLink></p>
           <div className="flex items-center gap-4 font-medium">
             <Link href="/news" className="hover:text-[#023047] transition">New Article</Link>
             <span className="w-px h-3 bg-white/50"></span>
@@ -111,9 +111,9 @@ const Navbar = (props: Props) => {
           {accessToken ? (
              <UserProfileMenu userInfo={userInfo} />
           ) : (
-            <Link href="/login" className="hover:text-[#3A9AFF] transition">
+            <NavLink href="/login" className="hover:text-[#3A9AFF] transition">
               <User size={24} strokeWidth={1.5} />
-            </Link>
+            </NavLink>
           )}
           
           <Link href="/wishlist" className="relative hover:text-[#3A9AFF] transition">
@@ -121,16 +121,7 @@ const Navbar = (props: Props) => {
             <span className="absolute -top-1.5 -right-1.5 bg-[#3A9AFF] text-white text-[10px] font-bold h-4 w-4 rounded-full flex items-center justify-center">0</span>
           </Link>
 
-          <Link href="/cart" className="flex items-center gap-2 hover:text-[#3A9AFF] transition">
-            <div className="relative">
-              <ShoppingBag size={24} strokeWidth={1.5} />
-              <span className="absolute -top-1.5 -right-1.5 bg-[#3A9AFF] text-white text-[10px] font-bold h-4 w-4 rounded-full flex items-center justify-center">3</span>
-            </div>
-            <div className="flex flex-col text-xs leading-tight">
-              <span className="text-gray-500 font-medium">My Cart</span>
-              <span className="font-bold text-[#023047]">$530.00</span>
-            </div>
-          </Link>
+          <CartButton />
         </div>
 
         {/* Mobile Toggle Icon */}
@@ -161,7 +152,7 @@ const Navbar = (props: Props) => {
                 href={link.href}
                 className="group flex items-center gap-1 text-sm font-bold text-[#023047] hover:text-[#3A9AFF] uppercase transition-colors duration-300 h-full relative"
               >
-                <span className={`h-full flex items-center border-b-2 transition-colors duration-300 ${link.label === "HOME" ? "border-[#3A9AFF] text-[#3A9AFF]" : "border-transparent group-hover:border-[#3A9AFF]"}`}>
+                <span className={`h-full flex items-center`}>
                    {link.label}
                 </span>
                 
@@ -177,10 +168,10 @@ const Navbar = (props: Props) => {
           </nav>
 
           {/* Today's Deal */}
-          <Link href="/download" className="flex items-center gap-2 text-sm font-bold text-green-600 hover:text-green-700 transition">
+          <NavLink href="/download" className="flex items-center gap-2 text-sm font-bold text-green-600 hover:text-green-700 transition">
              <span className="flex h-5 w-5 items-center justify-center bg-green-100 rounded-full"><Download size={14} className="text-green-600" /></span>
              Guid Download 
-          </Link>
+          </NavLink>
         </div>
       </div>
 
@@ -219,10 +210,10 @@ const Navbar = (props: Props) => {
               ) : (
                 <>
                   <Button asChild className="w-full bg-[#3A9AFF] hover:bg-blue-600 text-white rounded-md h-11">
-                    <Link href="/login" onClick={() => setNavToggle(false)}>Login</Link>
+                    <NavLink href="/login" onClick={() => setNavToggle(false)}>Login</NavLink>
                   </Button>
                   <Button asChild variant="outline" className="w-full border-[#023047] text-[#023047] rounded-md h-11">
-                    <Link href="/register" onClick={() => setNavToggle(false)}>Register</Link>
+                    <NavLink href="/register" onClick={() => setNavToggle(false)}>Register</NavLink>
                   </Button>
                 </>
               )}

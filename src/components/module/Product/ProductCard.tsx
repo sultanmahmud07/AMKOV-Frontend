@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Heart, BarChart2, Eye, Star } from "lucide-react";
+import { Heart, Eye, Star, ShoppingCart } from "lucide-react";
 
 // Define the type based on your data structure
 export interface ProductType {
@@ -52,11 +52,11 @@ export default function ProductCard({ product }: ProductCardProps) {
           <Heart size={16} />
         </button>
         <button className="w-8 h-8 bg-white shadow-md rounded-full flex items-center justify-center text-gray-500 hover:bg-[#3A9AFF] hover:text-white transition-colors">
-          <BarChart2 size={16} />
+          <ShoppingCart size={16} />
         </button>
-        <button className="w-8 h-8 bg-white shadow-md rounded-full flex items-center justify-center text-gray-500 hover:bg-[#3A9AFF] hover:text-white transition-colors">
+        <Link href={`/products/${"product-slug-here"}`} className="w-8 h-8 bg-white shadow-md rounded-full flex items-center justify-center text-gray-500 hover:bg-[#3A9AFF] hover:text-white transition-colors">
           <Eye size={16} />
-        </button>
+        </Link>
       </div>
 
       {/* Product Image Area */}
