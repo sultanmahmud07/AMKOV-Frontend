@@ -37,7 +37,7 @@ const TechnicalBanner = () => {
       </motion.div>
 
       {/* Static Gradient Overlay (Keeps text readable regardless of scroll) */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#023047] via-transparent to-[#023047]/80 pointer-events-none" />
+      <div className="absolute inset-0 bg-linear-to-t from-[#023047] via-transparent to-[#023047]/80 pointer-events-none" />
 
       {/* ========================================= */}
       {/* ANIMATED CONTENT WRAPPER */}

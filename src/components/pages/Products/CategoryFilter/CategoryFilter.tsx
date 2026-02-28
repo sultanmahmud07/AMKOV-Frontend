@@ -242,7 +242,7 @@ const CategoryFilter = ({ categories }: CategoryFilterProps) => {
             value={priceRange}
             onValueChange={setPriceRange} // Updates UI instantly while dragging
             onValueCommit={handlePriceCommit} // Updates URL only when user lets go
-            className="[&_[role=slider]]:border-[#3A9AFF] [&_[role=slider]]:focus-visible:ring-[#3A9AFF] [&_[data-orientation=horizontal]_span[data-radix-slider-track]]:bg-gray-200 [&_[data-orientation=horizontal]_span[data-radix-slider-range]]:bg-[#3A9AFF]"
+            className="**[[role=slider]]:border-[#3A9AFF] **[[role=slider]]:focus-visible:ring-[#3A9AFF] [&_[data-orientation=horizontal]_span[data-radix-slider-track]]:bg-gray-200 [&_[data-orientation=horizontal]_span[data-radix-slider-range]]:bg-[#3A9AFF]"
           />
         </div>
 

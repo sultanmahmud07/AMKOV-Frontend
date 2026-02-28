@@ -118,7 +118,7 @@ const ContactForm = () => {
         <label className="text-sm font-bold text-gray-700">Project Details / Message *</label>
         <textarea
           placeholder="Please describe your volume requirements, customization needs, or general inquiry..."
-          className={`w-full px-4 py-3 rounded-xl border bg-gray-50 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#3A9AFF] transition-all min-h-[160px] resize-none ${errors.message ? 'border-red-500' : 'border-gray-200 focus:border-[#3A9AFF]'}`}
+          className={`w-full px-4 py-3 rounded-xl border bg-gray-50 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#3A9AFF] transition-all min-h-40 resize-none ${errors.message ? 'border-red-500' : 'border-gray-200 focus:border-[#3A9AFF]'}`}
           {...register("message", { required: true })}
         />
         {errors.message && <span className="text-xs text-red-500 font-medium">Message is required</span>}

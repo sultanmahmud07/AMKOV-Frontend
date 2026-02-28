@@ -100,10 +100,10 @@ export default function SolutionsPage() {
                               />
 
                               {/* 2. The Brand Color Gradient Overlay (Ensures text is always readable) */}
-                              <div className="absolute inset-0 bg-gradient-to-br from-[#023047]/95 via-[#023047]/80 to-[#044160]/90"></div>
+                              <div className="absolute inset-0 bg-linear-to-br from-[#023047]/95 via-[#023047]/80 to-[#044160]/90"></div>
 
                               {/* 3. Subtle High-Tech Blueprint Grid */}
-                              <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none"></div>
+                              <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-size-[32px_32px] pointer-events-none"></div>
 
                               {/* 4. Enhanced Ambient Glow Orbs (Bigger & softer blur) */}
                               <div className="absolute top-0 left-0 w-96 h-96 bg-[#3A9AFF] rounded-full mix-blend-screen filter blur-[120px] opacity-30 transform -translate-x-1/2 -translate-y-1/3 pointer-events-none"></div>

@@ -70,7 +70,7 @@ const ContactSection = () => {
           </div>
 
           {/* Technical Support CTA Card */}
-          <div className="bg-gradient-to-br from-[#023047] to-[#044160] rounded-2xl shadow-lg p-8 md:p-10 text-white text-center relative overflow-hidden">
+          <div className="bg-linear-to-br from-[#023047] to-[#044160] rounded-2xl shadow-lg p-8 md:p-10 text-white text-center relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-[#3A9AFF] rounded-full mix-blend-multiply filter blur-2xl opacity-40 translate-x-1/2 -translate-y-1/2" />
             
             <div className="relative z-10 flex flex-col items-center">
