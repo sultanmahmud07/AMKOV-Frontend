@@ -1,9 +1,9 @@
-// NO "use client" here! This is now a pure Server Component.
 import Image from "next/image";
 import Link from "next/link";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 import WhyChooseUs from "./WhyChooseUs";
+import SolutionsBanner from "./SolutionsBanner";
 
 const solutionsData = [
       // ... (Keep your solutionsData array exactly the same as before)
@@ -36,46 +36,7 @@ const solutionsData = [
 export default function SolutionsPage() {
       return (
             <div className="bg-[#F8FAFC] min-h-screen pb-20 overflow-hidden">
-
-                  {/* ========================================= */}
-                  {/* PREMIUM PAGE HEADER BANNER */}
-                  {/* ========================================= */}
-                  <div className="relative w-full py-24 lg:py-32 flex flex-col items-center justify-center overflow-hidden bg-[#023047]">
-                        <Image
-                              src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1920&auto=format&fit=crop"
-                              alt="Solutions Background"
-                              fill
-                              className="object-cover object-center opacity-20 mix-blend-overlay"
-                              priority
-                        />
-                        <div className="absolute inset-0 bg-linear-to-t from-[#023047] via-transparent to-[#023047]/80" />
-
-                        <div className="main-container relative z-10 flex flex-col items-center text-center">
-                              <ScrollReveal y={20}>
-                                    <span className="inline-block py-1 px-3 rounded-full bg-[#3A9AFF]/20 border border-[#3A9AFF]/30 text-[#3A9AFF] text-xs font-bold uppercase tracking-widest backdrop-blur-sm mb-4">
-                                          Global Manufacturing
-                                    </span>
-                              </ScrollReveal>
-
-                              <ScrollReveal y={20} delay={0.1}>
-                                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 tracking-tight shadow-black drop-shadow-md">
-                                          Our Solutions
-                                    </h1>
-                              </ScrollReveal>
-
-                              <ScrollReveal y={20} delay={0.2}>
-                                    <h2 className="text-xl md:text-2xl font-semibold text-[#3A9AFF] mb-8">
-                                          Tailored to Your Needs
-                                    </h2>
-                              </ScrollReveal>
-
-                              <ScrollReveal delay={0.3}>
-                                    <p className="text-slate-300 leading-relaxed md:text-lg max-w-3xl">
-                                          We are a factory in China specializing in the development of high-quality cameras. We offer three key solutions: OEM, ODM, and AMKOV brand distribution.
-                                    </p>
-                              </ScrollReveal>
-                        </div>
-                  </div>
+                  <SolutionsBanner />
 
                   {/* ========================================= */}
                   {/* SOLUTIONS SECTIONS */}
@@ -128,22 +89,39 @@ export default function SolutionsPage() {
                   {/* BOTTOM B2B CALL TO ACTION */}
                   {/* ========================================= */}
                   <ScrollReveal y={30} className="main-container pt-5 pb-10">
-                        <div className="bg-linear-to-br from-[#023047]/80 to-[#044160] rounded-3xl p-10 md:p-16 text-center shadow-xl relative overflow-hidden">
-                              <div className="absolute top-0 left-0 w-64 h-64 bg-[#3A9AFF] rounded-full mix-blend-multiply filter blur-3xl opacity-20 transform -translate-x-1/2 -translate-y-1/2"></div>
-                              <div className="absolute bottom-0 right-0 w-64 h-64 bg-[#3A9AFF] rounded-full mix-blend-multiply filter blur-3xl opacity-20 transform translate-x-1/2 translate-y-1/2"></div>
+                        <div className="relative bg-[#023047] rounded-3xl p-10 md:p-16 text-center shadow-2xl overflow-hidden group">
 
+                              {/* 1. The Photographic Background */}
+                              <Image
+                                    src="https://images.unsplash.com/photo-1514315384763-ba401779410f?q=80&w=1920&auto=format&fit=crop"
+                                    alt="Camera Lens Background"
+                                    fill
+                                    className="object-cover opacity-40 mix-blend-luminosity group-hover:scale-105 transition-transform duration-1000 ease-out pointer-events-none"
+                              />
+
+                              {/* 2. The Brand Color Gradient Overlay (Ensures text is always readable) */}
+                              <div className="absolute inset-0 bg-gradient-to-br from-[#023047]/95 via-[#023047]/80 to-[#044160]/90"></div>
+
+                              {/* 3. Subtle High-Tech Blueprint Grid */}
+                              <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none"></div>
+
+                              {/* 4. Enhanced Ambient Glow Orbs (Bigger & softer blur) */}
+                              <div className="absolute top-0 left-0 w-96 h-96 bg-[#3A9AFF] rounded-full mix-blend-screen filter blur-[120px] opacity-30 transform -translate-x-1/2 -translate-y-1/3 pointer-events-none"></div>
+                              <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#3A9AFF] rounded-full mix-blend-screen filter blur-[120px] opacity-30 transform translate-x-1/3 translate-y-1/3 pointer-events-none"></div>
+
+                              {/* 5. The Content */}
                               <div className="relative z-10">
-                                    <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-6">
+                                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-6 tracking-tight drop-shadow-md">
                                           Ready to elevate your camera business?
                                     </h2>
-                                    <p className="text-slate-300 text-lg max-w-2xl mx-auto mb-10">
+                                    <p className="text-slate-300 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-light">
                                           Whether you need customized OEM manufacturing, innovative ODM design, or to become an official AMKOV distributor, our team is ready to support your success.
                                     </p>
                                     <Link
                                           href="/contact"
-                                          className="inline-flex items-center gap-2 bg-[#3A9AFF] hover:bg-white text-white hover:text-[#023047] font-bold py-3 px-10 rounded-full transition-colors duration-300 shadow-lg text-lg"
+                                          className="inline-flex items-center gap-2 bg-[#3A9AFF] hover:bg-white text-white hover:text-[#023047] font-bold py-3.5 px-10 rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(58,154,255,0.4)] hover:shadow-xl hover:-translate-y-1 text-lg"
                                     >
-                                          Get a Free Quote <ArrowRight size={20} />
+                                          Get a Free Quote <ArrowRight size={20} className="ml-1" />
                                     </Link>
                               </div>
                         </div>

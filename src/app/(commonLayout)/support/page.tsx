@@ -1,4 +1,5 @@
 
+import SupportPage from '@/components/pages/Support/Support';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -9,9 +10,7 @@ export const metadata: Metadata = {
 
 const Support = () => {
   return (
-    <div>
-      <h1>Support</h1>
-    </div>
+    <SupportPage />
   );
 };
 

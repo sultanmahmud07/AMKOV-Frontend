@@ -1,17 +1,14 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
 import { Send } from 'lucide-react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { toast } from 'sonner';
 
-// 1. Define the shape of your form data
+// B2B Specific Form Inputs
 type ContactFormInputs = {
   firstName: string;
   lastName: string;
+  companyName: string; // Added for B2B
   email: string;
   phone: string;
   subject: string;
@@ -19,7 +16,6 @@ type ContactFormInputs = {
 };
 
 const ContactForm = () => {
-  // 2. Initialize the hook
   const {
     register,
     handleSubmit,
@@ -27,103 +23,121 @@ const ContactForm = () => {
     formState: { errors, isSubmitting },
   } = useForm<ContactFormInputs>();
 
-  // 3. Define the submit handler
-  const onSubmit: SubmitHandler<ContactFormInputs> = async (data:any) => {
-    // This 'data' object contains all your values
+  const onSubmit: SubmitHandler<ContactFormInputs> = async (data) => {
     console.log("Form Values:", data);
 
-    // Simulate an API call (Optional: remove this setTimeout in real usage)
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    // Simulate an API call
+    await new Promise((resolve) => setTimeout(resolve, 1500));
 
     // Show Success Toast
-    toast.success("Message sent successfully!", {
-      description: "We'll get back to you shortly.",
+    toast.success("Inquiry sent successfully!", {
+      description: "Our B2B sales team will contact you within 24 hours.",
     });
 
-    // Reset the form
     reset();
   };
 
   return (
-    // 4. Connect handleSubmit to the form
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
       
+      {/* Name Row */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-2">
-          <label className="text-sm font-semibold text-gray-700">First Name</label>
-          <Input
-            placeholder="e.g. Sultan"
-            className={`bg-gray-50 border-gray-200 h-12 ${errors.firstName ? 'border-red-500' : ''}`}
+          <label className="text-sm font-bold text-gray-700">First Name *</label>
+          <input
+            placeholder="e.g. John"
+            className={`w-full px-4 py-3 rounded-xl border bg-gray-50 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#3A9AFF] transition-all ${errors.firstName ? 'border-red-500' : 'border-gray-200 focus:border-[#3A9AFF]'}`}
             {...register("firstName", { required: true })}
           />
-          {errors.firstName && <span className="text-xs text-red-500">First Name is required</span>}
+          {errors.firstName && <span className="text-xs text-red-500 font-medium">First Name is required</span>}
         </div>
         
         <div className="space-y-2">
-          <label className="text-sm font-semibold text-gray-700">Last Name</label>
-          <Input
-            placeholder="e.g. Mahmud"
-            className={`bg-gray-50 border-gray-200 h-12 ${errors.lastName ? 'border-red-500' : ''}`}
+          <label className="text-sm font-bold text-gray-700">Last Name *</label>
+          <input
+            placeholder="e.g. Doe"
+            className={`w-full px-4 py-3 rounded-xl border bg-gray-50 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#3A9AFF] transition-all ${errors.lastName ? 'border-red-500' : 'border-gray-200 focus:border-[#3A9AFF]'}`}
             {...register("lastName", { required: true })}
           />
-           {errors.lastName && <span className="text-xs text-red-500">Last Name is required</span>}
+           {errors.lastName && <span className="text-xs text-red-500 font-medium">Last Name is required</span>}
         </div>
       </div>
 
+      {/* Company & Email Row */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-2">
-          <label className="text-sm font-semibold text-gray-700">Email Address</label>
-          <Input
+          <label className="text-sm font-bold text-gray-700">Company Name *</label>
+          <input
+            placeholder="e.g. Tech Retailers Inc."
+            className={`w-full px-4 py-3 rounded-xl border bg-gray-50 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#3A9AFF] transition-all ${errors.companyName ? 'border-red-500' : 'border-gray-200 focus:border-[#3A9AFF]'}`}
+            {...register("companyName", { required: true })}
+          />
+           {errors.companyName && <span className="text-xs text-red-500 font-medium">Company Name is required</span>}
+        </div>
+
+        <div className="space-y-2">
+          <label className="text-sm font-bold text-gray-700">Business Email *</label>
+          <input
             type="email"
-            placeholder="you@example.com"
-            className={`bg-gray-50 border-gray-200 h-12 ${errors.email ? 'border-red-500' : ''}`}
+            placeholder="you@company.com"
+            className={`w-full px-4 py-3 rounded-xl border bg-gray-50 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#3A9AFF] transition-all ${errors.email ? 'border-red-500' : 'border-gray-200 focus:border-[#3A9AFF]'}`}
             {...register("email", { required: true })}
           />
-          {errors.email && <span className="text-xs text-red-500">Email is required</span>}
+          {errors.email && <span className="text-xs text-red-500 font-medium">Email is required</span>}
         </div>
-        
+      </div>
+
+      {/* Phone & Subject Row */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-2">
-          <label className="text-sm font-semibold text-gray-700">Phone (Optional)</label>
-          <Input
+          <label className="text-sm font-bold text-gray-700">Phone Number</label>
+          <input
             type="tel"
-            placeholder="+880..."
-            className="bg-gray-50 border-gray-200 h-12"
+            placeholder="+1 (555) 000-0000"
+            className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-[#3A9AFF] focus:outline-none focus:ring-1 focus:ring-[#3A9AFF] transition-all"
             {...register("phone")}
           />
         </div>
+
+        <div className="space-y-2">
+          <label className="text-sm font-bold text-gray-700">Inquiry Type</label>
+          <select
+            className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-[#3A9AFF] focus:outline-none focus:ring-1 focus:ring-[#3A9AFF] transition-all cursor-pointer"
+            {...register("subject")}
+          >
+            <option value="OEM/ODM Manufacturing">OEM / ODM Manufacturing</option>
+            <option value="Wholesale Pricing">Wholesale / Bulk Pricing</option>
+            <option value="Distributor Application">Become a Distributor</option>
+            <option value="General Corporate Inquiry">General Corporate Inquiry</option>
+          </select>
+        </div>
       </div>
 
+      {/* Message Area */}
       <div className="space-y-2">
-        <label className="text-sm font-semibold text-gray-700">Subject</label>
-        <select
-          className="flex h-12 w-full items-center justify-between rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-          {...register("subject")}
-        >
-          <option value="General Inquiry">General Inquiry</option>
-          <option value="Booking Issue">Booking Issue</option>
-          <option value="Become a Guide">Become a Guide</option>
-          <option value="Technical Support">Technical Support</option>
-        </select>
-      </div>
-
-      <div className="space-y-2">
-        <label className="text-sm font-semibold text-gray-700">Message</label>
-        <Textarea
-          placeholder="How can we help you today?"
-          className={`bg-gray-50 border-gray-200 min-h-[150px] resize-none ${errors.message ? 'border-red-500' : ''}`}
+        <label className="text-sm font-bold text-gray-700">Project Details / Message *</label>
+        <textarea
+          placeholder="Please describe your volume requirements, customization needs, or general inquiry..."
+          className={`w-full px-4 py-3 rounded-xl border bg-gray-50 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#3A9AFF] transition-all min-h-[160px] resize-none ${errors.message ? 'border-red-500' : 'border-gray-200 focus:border-[#3A9AFF]'}`}
           {...register("message", { required: true })}
         />
-        {errors.message && <span className="text-xs text-red-500">Message is required</span>}
+        {errors.message && <span className="text-xs text-red-500 font-medium">Message is required</span>}
       </div>
 
-      <Button 
+      {/* Submit Button */}
+      <button 
         type="submit" 
         disabled={isSubmitting}
-        className="w-full bg-emerald-600 cursor-pointer hover:bg-emerald-700 text-white font-bold py-6 text-base rounded-xl disabled:opacity-70"
+        className="w-full flex items-center justify-center gap-2 bg-[#023047] hover:bg-[#3A9AFF] text-white font-bold py-4 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed mt-4"
       >
-        <Send className="w-4 h-4 mr-2" /> 
-        {isSubmitting ? "Sending..." : "Send Message"}
-      </Button>
+        {isSubmitting ? (
+          <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+        ) : (
+          <>
+            <Send size={18} /> Send Inquiry
+          </>
+        )}
+      </button>
     </form>
   );
 };

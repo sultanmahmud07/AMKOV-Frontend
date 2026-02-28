@@ -22,7 +22,7 @@ const NewsCard = ({ news }: { news: INews }) => {
                         />
                   </div>
                   <h3 className="p-name capitalize md:pt-2 text-md md:text-xl text-black font-semibold">
-                        {news.title}
+                        {news.title.slice(0, 50)}..
                   </h3>
                   <p className="p-summary text-sm md:text-base">{news.metaDescription.slice(0, 140)}</p>
                   <p className='flex items-center gap-1 text-sm'><CalendarDays />

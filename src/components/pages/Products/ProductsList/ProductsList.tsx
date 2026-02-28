@@ -85,7 +85,7 @@ const ProductsList = async ({  searchParams }:ProductsProps) => {
  
     return (
         <div>
-            <Sorting>
+            <Sorting productsCount={allProducts?.meta?.totalItems || 9}>
                 <CategoryFilterWrapper></CategoryFilterWrapper> 
             </Sorting>
             {
@@ -108,7 +108,7 @@ const ProductsList = async ({  searchParams }:ProductsProps) => {
                         </span>
                     </div>
             }
-            <Pagination totalPages={allProducts.meta.totalPage} />
+            <Pagination totalPages={allProducts?.meta?.totalPage} />
         </div>
     )
 }

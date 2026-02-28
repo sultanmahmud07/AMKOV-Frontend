@@ -3,7 +3,6 @@ import { IoIosArrowForward } from "react-icons/io";
 import { Suspense } from "react";
 import CategoryFilterWrapper from "./CategoryFilter/CategoryFilterWrapper";
 import ProductsList from "./ProductsList/ProductsList";
-import ProductRightLoader from "@/components/Loaders/Products/ProductsRight";
 import ProductFilterLoader from "@/components/Loaders/Products/ProductFilter";
 import Link from "next/link";
 
@@ -29,7 +28,7 @@ const Products = ({ searchParams }: ProductsProps) => {
                               </Suspense>
                         </div>
                         <div className="category_product w-full md:w-3/4">
-                              <Suspense fallback={<ProductRightLoader></ProductRightLoader>}>
+                              <Suspense fallback={<ProductFilterLoader></ProductFilterLoader>}>
                                     <ProductsList
                                           searchParams={searchParams}
                                     ></ProductsList>
