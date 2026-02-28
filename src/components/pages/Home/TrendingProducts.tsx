@@ -85,8 +85,8 @@ const trendingProducts: ProductType[] = [
 export default function TrendingProducts() {
   return (
     <section className="py-10 bg-white">
-      <div className="container mx-auto">
-        
+      <div className="main-container">
+
         {/* Section Header */}
         <div className="text-center mb-10">
           <h2 className="text-3xl lg:text-4xl font-extrabold text-[#023047]">
@@ -105,8 +105,8 @@ export default function TrendingProducts() {
           >
             <CarouselContent className="-ml-4">
               {trendingProducts.map((product) => (
-                <CarouselItem 
-                  key={product.id} 
+                <CarouselItem
+                  key={product.id}
                   // Responsive sizing: 1 on mobile, 2 on tablet, 4 on desktop, 5 on large screens
                   className="pl-4 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5"
                 >

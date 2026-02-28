@@ -53,9 +53,8 @@ const renderStars = (rating: number) => {
     <Star
       key={index}
       size={16}
-      className={`${
-        index < rating ? "fill-yellow-400 text-yellow-400" : "fill-gray-200 text-gray-200"
-      }`}
+      className={`${index < rating ? "fill-yellow-400 text-yellow-400" : "fill-gray-200 text-gray-200"
+        }`}
     />
   ));
 };
@@ -90,7 +89,7 @@ const ReviewItem = ({ review }: { review: typeof initialReviews[0] }) => {
 
   return (
     <div className="flex flex-col md:flex-row gap-4 md:gap-8 py-8 border-b border-gray-100 last:border-0">
-      
+
       {/* Left Column: Meta Data */}
       <div className="w-full md:w-1/4 shrink-0 flex flex-col gap-2">
         <div className="flex gap-0.5 mb-1">{renderStars(review.rating)}</div>
@@ -102,16 +101,16 @@ const ReviewItem = ({ review }: { review: typeof initialReviews[0] }) => {
       <div className="w-full md:w-3/4 flex flex-col md:border-l border-gray-100 pl-0 md:pl-8">
         <h4 className="text-base font-bold text-[#023047] mb-2">{review.title}</h4>
         <p className="text-sm text-gray-600 leading-relaxed mb-4">{review.comment}</p>
-        
+
         {/* Interaction Actions */}
         <div className="flex items-center gap-6 mt-auto">
-          <button 
+          <button
             onClick={handleLike}
             className={`flex items-center gap-1.5 text-xs font-semibold transition-colors ${userVote === 'like' ? 'text-[#3A9AFF]' : 'text-gray-400 hover:text-gray-600'}`}
           >
             <ThumbsUp size={16} className={userVote === 'like' ? 'fill-current' : ''} /> {likes}
           </button>
-          <button 
+          <button
             onClick={handleDislike}
             className={`flex items-center gap-1.5 text-xs font-semibold transition-colors ${userVote === 'dislike' ? 'text-red-500' : 'text-gray-400 hover:text-gray-600'}`}
           >
@@ -129,14 +128,14 @@ const ReviewItem = ({ review }: { review: typeof initialReviews[0] }) => {
 // --- MAIN SECTION COMPONENT ---
 export default function ProductReviewSection() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  
+
   // Calculate aggregate
   const totalReviews = initialReviews.length;
   const averageRating = 5; // Static for demo, calculate dynamically in production
 
   return (
-    <div id="reviews" className="container mx-auto scroll-mt-20  py-5 mb-5 md:mb-10">
-      
+    <div id="reviews" className="main-container scroll-mt-20  py-5 mb-5 md:mb-10">
+
       {/* Header Bar (Matches the reference image style) */}
       <div className="bg-gray-100  px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
         <div className="flex items-center gap-2 text-[#023047] font-bold">
@@ -160,7 +159,7 @@ export default function ProductReviewSection() {
 
       {/* Call to Action Button */}
       <div className="mt-10 flex justify-center">
-        <button 
+        <button
           onClick={() => setIsModalOpen(true)}
           className="bg-[#3A9AFF] hover:bg-[#023047] text-white font-bold py-3.5 px-8 rounded-full transition-all duration-300 shadow-md flex items-center gap-2 uppercase tracking-wide text-sm"
         >
@@ -175,7 +174,7 @@ export default function ProductReviewSection() {
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
           <div className="bg-white rounded-2xl w-full max-w-lg p-6 relative shadow-2xl animate-in fade-in zoom-in duration-200">
-            
+
             {/* Modal Header */}
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-xl font-bold text-[#023047]">Write a Review</h3>
@@ -186,7 +185,7 @@ export default function ProductReviewSection() {
 
             {/* Modal Form */}
             <form onSubmit={(e) => { e.preventDefault(); setIsModalOpen(false); alert("Review submitted successfully!"); }} className="space-y-4">
-              
+
               {/* Rating Input */}
               <div>
                 <label className="block text-sm font-bold text-gray-700 mb-2">Your Rating</label>

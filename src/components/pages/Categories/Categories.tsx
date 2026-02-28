@@ -79,8 +79,8 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
-  show: { 
-    opacity: 1, 
+  show: {
+    opacity: 1,
     y: 0,
     transition: { type: "spring" as const, stiffness: 100, damping: 20 }
   },
@@ -89,11 +89,11 @@ const itemVariants = {
 const Categories = () => {
   return (
     <div className="min-h-screen bg-[#F8FAFC]  pb-16 pt-10 lg:pb-24">
-      <div className="container mx-auto">
-        
+      <div className="main-container">
+
         {/* Page Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -102,8 +102,8 @@ const Categories = () => {
             <Camera size={18} />
             <span>Our Collections</span>
           </motion.div>
-          
-          <motion.h1 
+
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -111,8 +111,8 @@ const Categories = () => {
           >
             Shop by Category
           </motion.h1>
-          
-          <motion.p 
+
+          <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -123,7 +123,7 @@ const Categories = () => {
         </div>
 
         {/* Categories Grid */}
-        <motion.div 
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="show"
@@ -131,7 +131,7 @@ const Categories = () => {
         >
           {categoryData.map((category) => (
             <motion.div key={category.id} variants={itemVariants}>
-              <Link 
+              <Link
                 href={category.href}
                 className="group flex flex-col bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 h-full"
               >
@@ -158,13 +158,13 @@ const Categories = () => {
                   <p className="text-gray-500 leading-relaxed mb-8 grow">
                     {category.description}
                   </p>
-                  
+
                   {/* Animated 'Explore' Link */}
                   <div className="flex items-center text-[#3A9AFF] font-bold text-sm uppercase tracking-wider mt-auto">
                     Explore Series
-                    <ArrowRight 
-                      size={18} 
-                      className="ml-2 transform group-hover:translate-x-2 transition-transform duration-300" 
+                    <ArrowRight
+                      size={18}
+                      className="ml-2 transform group-hover:translate-x-2 transition-transform duration-300"
                     />
                   </div>
                 </div>

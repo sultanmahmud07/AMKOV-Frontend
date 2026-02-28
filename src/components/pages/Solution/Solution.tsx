@@ -50,7 +50,7 @@ export default function SolutionsPage() {
                         />
                         <div className="absolute inset-0 bg-linear-to-t from-[#023047] via-transparent to-[#023047]/80" />
 
-                        <div className="container mx-auto relative z-10 flex flex-col items-center text-center">
+                        <div className="main-container relative z-10 flex flex-col items-center text-center">
                               <ScrollReveal y={20}>
                                     <span className="inline-block py-1 px-3 rounded-full bg-[#3A9AFF]/20 border border-[#3A9AFF]/30 text-[#3A9AFF] text-xs font-bold uppercase tracking-widest backdrop-blur-sm mb-4">
                                           Global Manufacturing
@@ -80,7 +80,7 @@ export default function SolutionsPage() {
                   {/* ========================================= */}
                   {/* SOLUTIONS SECTIONS */}
                   {/* ========================================= */}
-                  <div className="container mx-auto py-10 lg:py-12 space-y-10 lg:space-y-20">
+                  <div className="main-container py-10 lg:py-12 space-y-10 lg:space-y-20">
                         {solutionsData.map((solution) => (
                               <div
                                     key={solution.id}
@@ -127,7 +127,7 @@ export default function SolutionsPage() {
                   {/* ========================================= */}
                   {/* BOTTOM B2B CALL TO ACTION */}
                   {/* ========================================= */}
-                  <ScrollReveal y={30} className="container mx-auto pt-5 pb-10">
+                  <ScrollReveal y={30} className="main-container pt-5 pb-10">
                         <div className="bg-linear-to-br from-[#023047]/80 to-[#044160] rounded-3xl p-10 md:p-16 text-center shadow-xl relative overflow-hidden">
                               <div className="absolute top-0 left-0 w-64 h-64 bg-[#3A9AFF] rounded-full mix-blend-multiply filter blur-3xl opacity-20 transform -translate-x-1/2 -translate-y-1/2"></div>
                               <div className="absolute bottom-0 right-0 w-64 h-64 bg-[#3A9AFF] rounded-full mix-blend-multiply filter blur-3xl opacity-20 transform translate-x-1/2 translate-y-1/2"></div>

@@ -43,16 +43,16 @@ const featureCards = [
 export default function CaptureAndCreate() {
   return (
     <section className="py-10 lg:py-16 bg-white relative">
-      <div className="container mx-auto">
-        
+      <div className="main-container">
+
         {/* Main Layout Container: Splits into Left Sticky Sidebar and Right Grid */}
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 relative items-start">
-          
+
           {/* ========================================= */}
           {/* LEFT SIDEBAR: Sticky Text Content */}
           {/* ========================================= */}
           <div className="w-full lg:w-1/3 lg:sticky lg:top-32 z-10">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -61,17 +61,17 @@ export default function CaptureAndCreate() {
               <div className="w-14 h-14 rounded-full bg-[#F8FAFC] border border-gray-100 flex items-center justify-center mb-8">
                 <Camera size={24} className="text-[#3A9AFF]" />
               </div>
-              
+
               <h2 className="text-4xl lg:text-6xl font-extrabold text-[#023047] mb-6 tracking-tight leading-[1.1]">
-                Capture <br className="hidden lg:block"/> & Create
+                Capture <br className="hidden lg:block" /> & Create
               </h2>
-              
+
               <p className="text-lg text-gray-500 mb-10 leading-relaxed max-w-md">
                 Relive your best moments with innovative camera technology. Designed for every environment, from professional studio vlogs to extreme underwater dives.
               </p>
-              
-              <Link 
-                href="/explore" 
+
+              <Link
+                href="/explore"
                 className="group inline-flex items-center gap-3 text-[#023047] font-bold text-lg hover:text-[#3A9AFF] transition-colors duration-300"
               >
                 <span className="border-b-2 border-[#023047] group-hover:border-[#3A9AFF] pb-1 transition-colors">
@@ -98,8 +98,8 @@ export default function CaptureAndCreate() {
                   initial={{ opacity: 0, y: 80 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
-                  transition={{ 
-                    duration: 0.8, 
+                  transition={{
+                    duration: 0.8,
                     ease: [0.25, 0.46, 0.45, 0.94], // Smooth cinematic easing
                     delay: index * 0.1 // Slight delay for each card
                   }}

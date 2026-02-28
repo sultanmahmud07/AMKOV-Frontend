@@ -3,13 +3,13 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { 
-  Building2, 
-  MapPin, 
-  FileText, 
-  ChevronLeft, 
-  ShieldCheck, 
-  CheckCircle2, 
+import {
+  Building2,
+  MapPin,
+  FileText,
+  ChevronLeft,
+  ShieldCheck,
+  CheckCircle2,
   Truck
 } from 'lucide-react';
 
@@ -76,8 +76,8 @@ export default function Checkout() {
   // --- CHECKOUT / QUOTE FORM UI ---
   return (
     <div className="bg-[#F8FAFC] min-h-screen py-6 lg:py-10">
-      <div className="container mx-auto">
-        
+      <div className="main-container">
+
         {/* Header */}
         <div className="mb-8">
           <Link href="/cart" className="inline-flex items-center gap-2 text-sm font-bold text-gray-500 hover:text-[#3A9AFF] transition-colors mb-2">
@@ -88,12 +88,12 @@ export default function Checkout() {
         </div>
 
         <form onSubmit={handleSubmit} className="flex flex-col lg:flex-row gap-8 lg:gap-12">
-          
+
           {/* ========================================= */}
           {/* LEFT COLUMN: FORM SECTIONS */}
           {/* ========================================= */}
           <div className="w-full lg:w-2/3 space-y-8">
-            
+
             {/* 1. Company Information */}
             <div className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100">
               <h2 className="text-xl font-bold text-[#023047] mb-6 flex items-center gap-3 pb-4 border-b border-gray-100">
@@ -102,7 +102,7 @@ export default function Checkout() {
                 </div>
                 Company Information
               </h2>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div className="md:col-span-2">
                   <label className="block text-sm font-bold text-gray-700 mb-1.5">Company Name *</label>
@@ -135,7 +135,7 @@ export default function Checkout() {
                 </div>
                 Shipping Destination
               </h2>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div className="md:col-span-2">
                   <label className="block text-sm font-bold text-gray-700 mb-1.5">Country / Region *</label>
@@ -169,8 +169,8 @@ export default function Checkout() {
               {/* Billing Toggle */}
               <div className="mt-6 pt-6 border-t border-gray-100">
                 <label className="flex items-center gap-3 cursor-pointer group">
-                  <input 
-                    type="checkbox" 
+                  <input
+                    type="checkbox"
                     checked={billingSameAsShipping}
                     onChange={(e) => setBillingSameAsShipping(e.target.checked)}
                     className="w-5 h-5 rounded border-gray-300 text-[#3A9AFF] focus:ring-[#3A9AFF] cursor-pointer"
@@ -190,7 +190,7 @@ export default function Checkout() {
                 </div>
                 Purchase Order Details
               </h2>
-              
+
               <div className="space-y-5">
                 <div>
                   <label className="block text-sm font-bold text-gray-700 mb-1.5">PO Number (Optional)</label>
@@ -254,7 +254,7 @@ export default function Checkout() {
               </div>
 
               {/* Action Button */}
-              <button 
+              <button
                 type="submit"
                 disabled={isSubmitting}
                 className="w-full flex items-center justify-center gap-2 bg-[#023047] hover:bg-[#3A9AFF] text-white font-bold py-4 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed text-sm tracking-wide"
@@ -273,11 +273,11 @@ export default function Checkout() {
               {/* Trust Badges */}
               <div className="mt-8 pt-6 border-t border-gray-100 space-y-3">
                 <div className="flex items-center gap-3 text-sm text-gray-600">
-                  <ShieldCheck size={18} className="text-[#3A9AFF]" /> 
+                  <ShieldCheck size={18} className="text-[#3A9AFF]" />
                   <span>Secure B2B Processing</span>
                 </div>
                 <div className="flex items-center gap-3 text-sm text-gray-600">
-                  <Truck size={18} className="text-[#3A9AFF]" /> 
+                  <Truck size={18} className="text-[#3A9AFF]" />
                   <span>Global Logistics Support</span>
                 </div>
               </div>

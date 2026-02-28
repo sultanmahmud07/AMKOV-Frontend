@@ -27,7 +27,7 @@ const promoData = [
 // 2. The Arrow Function Component
 const PromoSection = () => {
   return (
-    <section className="container mx-auto  py-12">
+    <section className="main-container  py-12">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
         {promoData.map((item) => (
           // Main Container for each block
@@ -67,7 +67,7 @@ const PromoSection = () => {
               <h3 className="text-2xl lg:text-3xl font-extrabold text-[#023047] mb-6 leading-tight whitespace-pre-line">
                 {item.title}
               </h3>
-              
+
               {/* Styled Link matching the reference image */}
               <Link
                 href={item.link}

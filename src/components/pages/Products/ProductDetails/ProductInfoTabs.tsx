@@ -56,14 +56,14 @@ export default function ProductInfoTabs() {
       {/* STICKY TOP MENU */}
       {/* ========================================= */}
       <div className="sticky top-12 z-30 bg-white/90 backdrop-blur-md border-b border-gray-200">
-        <div className="container mx-auto">
+        <div className="main-container">
           <ul className="flex items-center gap-8 text-sm md:text-base font-bold text-gray-500 overflow-x-auto no-scrollbar">
             <li>
               <button
                 onClick={() => scrollToSection("description")}
                 className={`py-4 border-b-[3px] transition-colors whitespace-nowrap ${activeTab === "description"
-                    ? "border-[#3A9AFF] text-[#023047]"
-                    : "border-transparent hover:text-[#023047]"
+                  ? "border-[#3A9AFF] text-[#023047]"
+                  : "border-transparent hover:text-[#023047]"
                   }`}
               >
                 Description
@@ -73,8 +73,8 @@ export default function ProductInfoTabs() {
               <button
                 onClick={() => scrollToSection("specifications")}
                 className={`py-4 border-b-[3px] transition-colors whitespace-nowrap ${activeTab === "specifications"
-                    ? "border-[#3A9AFF] text-[#023047]"
-                    : "border-transparent hover:text-[#023047]"
+                  ? "border-[#3A9AFF] text-[#023047]"
+                  : "border-transparent hover:text-[#023047]"
                   }`}
               >
                 Product Details
@@ -84,8 +84,8 @@ export default function ProductInfoTabs() {
               <button
                 onClick={() => scrollToSection("more_info")}
                 className={`py-4 border-b-[3px] transition-colors whitespace-nowrap ${activeTab === "more_info"
-                    ? "border-[#3A9AFF] text-[#023047]"
-                    : "border-transparent hover:text-[#023047]"
+                  ? "border-[#3A9AFF] text-[#023047]"
+                  : "border-transparent hover:text-[#023047]"
                   }`}
               >
                 More Information
@@ -95,8 +95,8 @@ export default function ProductInfoTabs() {
               <button
                 onClick={() => scrollToSection("reviews")}
                 className={`py-4 border-b-[3px] transition-colors whitespace-nowrap ${activeTab === "reviews"
-                    ? "border-[#3A9AFF] text-[#023047]"
-                    : "border-transparent hover:text-[#023047]"
+                  ? "border-[#3A9AFF] text-[#023047]"
+                  : "border-transparent hover:text-[#023047]"
                   }`}
               >
                 Reviews
@@ -106,7 +106,7 @@ export default function ProductInfoTabs() {
         </div>
       </div>
 
-      <div className="container mx-auto  pt-8 lg:pt-12">
+      <div className="main-container  pt-8 lg:pt-12">
 
         {/* ========================================= */}
         {/* DESCRIPTION SECTION */}

@@ -48,23 +48,23 @@ const containerVariants: Variants = {
     transition: {
       staggerChildren: 0.2,
     },
-  }, 
+  },
 };
 
 const cardVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
-  show: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { type: "spring", stiffness: 80, damping: 15 } 
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring", stiffness: 80, damping: 15 }
   },
 };
 
 export default function PopularArticles() {
   return (
     <section className="pb-12 lg:pb-20 bg-white">
-      <div className="container mx-auto ">
-        
+      <div className="main-container ">
+
         {/* Header with the center-aligned horizontal line behind it */}
         <div className="relative flex items-center justify-center mb-12">
           {/* Faint horizontal line */}
@@ -80,7 +80,7 @@ export default function PopularArticles() {
         </div>
 
         {/* Article Grid */}
-        <motion.div 
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="show"
@@ -88,13 +88,13 @@ export default function PopularArticles() {
           className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8"
         >
           {articles.map((article) => (
-            <motion.div 
-              key={article.id} 
+            <motion.div
+              key={article.id}
               variants={cardVariants}
               // Added Framer Motion hover animation for a premium lifting effect
               whileHover={{ y: -8, transition: { type: "spring", stiffness: 300 } }}
             >
-              <Link 
+              <Link
                 href={article.href}
                 className="group relative block h-80 lg:h-[380px] w-full rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-shadow duration-500"
               >
@@ -112,7 +112,7 @@ export default function PopularArticles() {
 
                 {/* Content Container (Anchored to bottom) */}
                 <div className="absolute bottom-0 left-0 w-full p-6 lg:p-8 flex flex-col justify-end z-10">
-                  
+
                   {/* Category Badge */}
                   <div className="mb-4">
                     <span className="inline-block bg-[#3A9AFF] text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1.5 rounded shadow-sm">
@@ -124,7 +124,7 @@ export default function PopularArticles() {
                   <h3 className="text-white font-bold text-lg lg:text-xl line-clamp-3 leading-snug group-hover:text-[#3A9AFF] transition-colors duration-300">
                     {article.title}
                   </h3>
-                  
+
                 </div>
               </Link>
             </motion.div>

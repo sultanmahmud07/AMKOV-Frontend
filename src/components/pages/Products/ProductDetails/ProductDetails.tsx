@@ -3,15 +3,15 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { 
-  ChevronRight, 
-  Home, 
-  ChevronUp, 
-  ChevronDown, 
-  ChevronLeft, 
-  Star, 
-  Heart, 
-  BarChart2, 
+import {
+  ChevronRight,
+  Home,
+  ChevronUp,
+  ChevronDown,
+  ChevronLeft,
+  Star,
+  Heart,
+  BarChart2,
   Check,
   Facebook,
   Twitter,
@@ -67,12 +67,12 @@ export default function ProductDetails({ slug }: { slug?: string }) {
 
   return (
     <div className="bg-white min-h-screen">
-      
+
       {/* ========================================= */}
       {/* BREADCRUMBS */}
       {/* ========================================= */}
       <div className="bg-[#F8FAFC] border-b border-gray-100">
-        <div className="container mx-auto py-4 text-sm text-gray-500 font-medium flex items-center gap-2 overflow-x-auto whitespace-nowrap">
+        <div className="main-container py-4 text-sm text-gray-500 font-medium flex items-center gap-2 overflow-x-auto whitespace-nowrap">
           <Link href="/" className="hover:text-[#3A9AFF] transition-colors flex items-center gap-1">
             <Home size={16} /> Home
           </Link>
@@ -88,9 +88,9 @@ export default function ProductDetails({ slug }: { slug?: string }) {
       {/* ========================================= */}
       {/* MAIN PRODUCT SECTION */}
       {/* ========================================= */}
-      <div className="container mx-auto py-8 lg:py-12">
+      <div className="main-container py-8 lg:py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-start">
-          
+
           {/* LEFT: IMAGE GALLERY */}
           <div className="flex flex-col-reverse md:flex-row gap-4">
             {/* Thumbnails (Vertical on Desktop, Horizontal on Mobile) */}
@@ -98,15 +98,14 @@ export default function ProductDetails({ slug }: { slug?: string }) {
               <button className="hidden md:flex w-full h-8 items-center justify-center bg-gray-50 text-gray-400 hover:text-[#3A9AFF] rounded-t-lg border border-b-0 border-gray-200">
                 <ChevronUp size={20} />
               </button>
-              
+
               <div className="flex md:flex-col gap-3">
                 {product.images.map((img, idx) => (
                   <button
                     key={idx}
                     onClick={() => setActiveImage(idx)}
-                    className={`relative w-20 h-20 md:w-full md:h-24 rounded-lg overflow-hidden border-2 transition-all shrink-0 bg-gray-50 ${
-                      activeImage === idx ? "border-[#3A9AFF]" : "border-gray-200 hover:border-gray-300"
-                    }`}
+                    className={`relative w-20 h-20 md:w-full md:h-24 rounded-lg overflow-hidden border-2 transition-all shrink-0 bg-gray-50 ${activeImage === idx ? "border-[#3A9AFF]" : "border-gray-200 hover:border-gray-300"
+                      }`}
                   >
                     <Image src={img} alt={`Thumbnail ${idx}`} fill className="object-cover" />
                   </button>
@@ -120,21 +119,21 @@ export default function ProductDetails({ slug }: { slug?: string }) {
 
             {/* Main Image */}
             <div className="relative w-full aspect-square md:aspect-4/3 lg:aspect-square bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 flex items-center justify-center">
-              <Image 
-                src={product.images[activeImage]} 
-                alt={product.title} 
-                fill 
+              <Image
+                src={product.images[activeImage]}
+                alt={product.title}
+                fill
                 className="object-contain p-8 mix-blend-multiply"
                 priority
               />
               {/* Navigation Arrows */}
-              <button 
+              <button
                 onClick={() => setActiveImage(prev => prev === 0 ? product.images.length - 1 : prev - 1)}
                 className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 backdrop-blur shadow-md rounded-full flex items-center justify-center text-gray-600 hover:text-[#3A9AFF] transition-colors"
               >
                 <ChevronLeft size={24} />
               </button>
-              <button 
+              <button
                 onClick={() => setActiveImage(prev => prev === product.images.length - 1 ? 0 : prev + 1)}
                 className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 backdrop-blur shadow-md rounded-full flex items-center justify-center text-gray-600 hover:text-[#3A9AFF] transition-colors"
               >
@@ -185,9 +184,8 @@ export default function ProductDetails({ slug }: { slug?: string }) {
                   <button
                     key={color.name}
                     onClick={() => setSelectedColor(color)}
-                    className={`w-8 h-8 rounded-full border-2 transition-all flex items-center justify-center ${
-                      selectedColor.name === color.name ? "border-[#3A9AFF] scale-110" : "border-transparent hover:scale-110 shadow-sm"
-                    }`}
+                    className={`w-8 h-8 rounded-full border-2 transition-all flex items-center justify-center ${selectedColor.name === color.name ? "border-[#3A9AFF] scale-110" : "border-transparent hover:scale-110 shadow-sm"
+                      }`}
                     style={{ backgroundColor: color.hex }}
                   >
                     {selectedColor.name === color.name && color.name === "Matte Black" && <Check size={14} className="text-white" />}
@@ -216,12 +214,12 @@ export default function ProductDetails({ slug }: { slug?: string }) {
             <div className="flex flex-col sm:flex-row gap-4 mb-6">
               {/* Quantity Selector */}
               <div className="flex items-center justify-between border border-gray-200 rounded-full w-32 shrink-0 bg-white">
-                <button 
+                <button
                   onClick={() => setQuantity(prev => Math.max(1, prev - 1))}
                   className="w-10 h-12 flex items-center justify-center text-gray-500 hover:text-[#3A9AFF] transition-colors"
                 >-</button>
                 <span className="font-bold text-[#023047]">{quantity}</span>
-                <button 
+                <button
                   onClick={() => setQuantity(prev => prev + 1)}
                   className="w-10 h-12 flex items-center justify-center text-gray-500 hover:text-[#3A9AFF] transition-colors"
                 >+</button>

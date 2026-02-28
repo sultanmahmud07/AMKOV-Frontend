@@ -59,8 +59,8 @@ const categoryData = [
 const CategoryGrid = () => {
   return (
     <section className="py-16 bg-[#F8FAFC]">
-      <div className="container mx-auto">
-        
+      <div className="main-container">
+
         {/* Modern Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
           <div className="space-y-1 max-w-2xl">
@@ -74,9 +74,9 @@ const CategoryGrid = () => {
               Explore our specialized range of digital imaging solutions tailored for every need and environment.
             </p>
           </div>
-          
-          <Link 
-            href="/categories" 
+
+          <Link
+            href="/categories"
             className="hidden md:flex items-center gap-2 text-sm font-bold text-[#023047] hover:text-[#3A9AFF] transition-colors pb-2 border-b-2 border-transparent hover:border-[#3A9AFF]"
           >
             VIEW ALL CATEGORIES <ArrowRight size={16} />
@@ -86,8 +86,8 @@ const CategoryGrid = () => {
         {/* Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
           {categoryData.map((item) => (
-            <Link 
-              key={item.id} 
+            <Link
+              key={item.id}
               href={item.href}
               className="group relative flex items-center bg-white p-5 rounded-2xl border border-gray-100 shadow-[0_4px_20px_rgb(0,0,0,0.03)] hover:shadow-[0_15px_40px_rgba(58,154,255,0.12)] hover:border-[#3A9AFF]/20 transition-all duration-500 ease-out hover:-translate-y-1.5 overflow-hidden"
             >
@@ -110,20 +110,20 @@ const CategoryGrid = () => {
                 <h3 className="text-lg lg:text-xl font-bold text-[#023047] group-hover:text-[#3A9AFF] transition-colors duration-300">
                   {item.title}
                 </h3>
-                
+
                 <p className="mt-1.5 text-sm text-gray-500 line-clamp-2 pr-4 transition-colors duration-300 group-hover:text-gray-600">
                   {item.description}
                 </p>
 
                 {/* Modern Animated Link Button */}
                 <div className="mt-4 flex items-center">
-                   <span className="text-sm font-bold text-[#023047] group-hover:text-[#3A9AFF] transition-colors duration-300">
-                     Shop Now
-                   </span>
-                   {/* Arrow slides in and changes color */}
-                   <div className="ml-2 flex items-center justify-center w-6 h-6 rounded-full bg-gray-100 text-gray-400 group-hover:bg-[#3A9AFF] group-hover:text-white transition-all duration-300 -translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100">
-                     <ArrowRight size={14} strokeWidth={2.5} />
-                   </div>
+                  <span className="text-sm font-bold text-[#023047] group-hover:text-[#3A9AFF] transition-colors duration-300">
+                    Shop Now
+                  </span>
+                  {/* Arrow slides in and changes color */}
+                  <div className="ml-2 flex items-center justify-center w-6 h-6 rounded-full bg-gray-100 text-gray-400 group-hover:bg-[#3A9AFF] group-hover:text-white transition-all duration-300 -translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100">
+                    <ArrowRight size={14} strokeWidth={2.5} />
+                  </div>
                 </div>
               </div>
             </Link>
@@ -132,8 +132,8 @@ const CategoryGrid = () => {
 
         {/* Mobile "View All" button */}
         <div className="mt-10 flex justify-center md:hidden">
-          <Link 
-            href="/categories" 
+          <Link
+            href="/categories"
             className="flex items-center gap-2 text-sm font-bold text-white bg-[#023047] px-6 py-3 rounded-full hover:bg-[#3A9AFF] transition-colors"
           >
             VIEW ALL CATEGORIES <ArrowRight size={16} />

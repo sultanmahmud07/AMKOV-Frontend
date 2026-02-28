@@ -111,9 +111,8 @@ const RatingStars = ({ rating, reviews }: { rating: number; reviews: number }) =
           <Star
             key={star}
             size={14}
-            className={`${
-              star <= rating ? "fill-yellow-400 text-yellow-400" : "fill-gray-200 text-gray-200"
-            }`}
+            className={`${star <= rating ? "fill-yellow-400 text-yellow-400" : "fill-gray-200 text-gray-200"
+              }`}
           />
         ))}
       </div>
@@ -140,7 +139,7 @@ export default function LatestProducts() {
     autoplay: true,
     autoplaySpeed: 3500,
     pauseOnHover: true,
-    arrows: true, 
+    arrows: true,
     prevArrow: <CustomPrevArrow />, // Inject Custom Prev Arrow
     nextArrow: <CustomNextArrow />, // Inject Custom Next Arrow
     responsive: [
@@ -165,8 +164,8 @@ export default function LatestProducts() {
   return (
     <section className="py-16 bg-white overflow-hidden">
       {/* Increased side padding to ensure arrows have room and don't get cut off */}
-      <div className="container mx-auto relative">
-        
+      <div className="main-container relative">
+
         <div className="text-center mb-10">
           <h2 className="text-3xl lg:text-4xl font-extrabold text-[#023047] mb-2">
             Deal Of The Week
@@ -179,9 +178,9 @@ export default function LatestProducts() {
         <div className="-mx-3 relative">
           <Slider {...sliderSettings}>
             {latestProducts.map((product) => (
-              <div key={product.id} className="px-3 pb-8 pt-2"> 
+              <div key={product.id} className="px-3 pb-8 pt-2">
                 <div className="group flex flex-row bg-white border border-gray-200 hover:border-[#3A9AFF] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-300 rounded-lg p-4 gap-2 h-full">
-                  
+
                   {/* Left Side: Image & Badge */}
                   <div className="relative w-2/5 shrink-0 flex items-center justify-center bg-gray-50/50 rounded-md p-2">
                     <div className="absolute top-2 left-2 z-10">
@@ -189,7 +188,7 @@ export default function LatestProducts() {
                         {product.discount}
                       </span>
                     </div>
-                    
+
                     <div className="relative w-full aspect-square">
                       <Image
                         src={product.image}
@@ -203,7 +202,7 @@ export default function LatestProducts() {
 
                   {/* Right Side: Product Details */}
                   <div className="flex flex-col w-3/5 justify-between py-1">
-                    
+
                     <div>
                       <Link href={`/product/${product.id}`}>
                         <h3 className="text-sm font-semibold text-[#023047] line-clamp-2 hover:text-[#3A9AFF] transition-colors leading-snug h-10">

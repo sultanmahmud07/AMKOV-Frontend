@@ -20,7 +20,7 @@ const sliderData = [
     id: 1,
     tagline: "AMAZING TIME OFFER!",
     title: "Upto 50% Discount \nOn New 5K V-Log Cameras",
-    image: "/home/main-banner-1.jpg", 
+    image: "/home/main-banner-1.jpg",
     link: "/shop/v-log-cameras",
     btnText: "SHOP NOW",
   },
@@ -28,7 +28,7 @@ const sliderData = [
     id: 2,
     tagline: "NEW ARRIVALS",
     title: "Capture the Depths \nWith 48MP Waterproof Cameras",
-    image: "/home/main-banner-2.jpg", 
+    image: "/home/main-banner-2.jpg",
     link: "/shop/waterproof-cameras",
     btnText: "DISCOVER MORE",
   },
@@ -72,14 +72,13 @@ export default function HeroSlider() {
             <CarouselItem key={slide.id} className="w-full">
               {/* Main Slide Container */}
               <div className="relative w-full h-[450px] lg:h-[600px] overflow-hidden flex items-center">
-                
+
                 {/* Background Image with Slow Slide/Zoom Animation */}
                 <div
-                  className={`absolute inset-0 w-full h-full transition-transform ease-out ${
-                    current === index
+                  className={`absolute inset-0 w-full h-full transition-transform ease-out ${current === index
                       ? "scale-105 duration-10000" // Slow zoom/slide effect when active
                       : "scale-100 duration-500" // Resets when not active
-                  }`}
+                    }`}
                 >
                   <Image
                     src={slide.image}
@@ -94,13 +93,12 @@ export default function HeroSlider() {
                 <div className="absolute inset-0 bg-linear-to-r from-white/80 via-secondary/40 to-transparent z-0 pointer-events-none" />
 
                 {/* Left-Aligned Text Content */}
-                <div className="container mx-auto  relative z-10 flex justify-start">
+                <div className="main-container  relative z-10 flex justify-start">
                   <div
-                    className={`max-w-xl space-y-5 ${
-                      current === index
+                    className={`max-w-xl space-y-5 ${current === index
                         ? "animate-in slide-in-from-bottom-10 fade-in duration-700 ease-out"
                         : "opacity-0"
-                    }`}
+                      }`}
                   >
                     <p className="font-bold text-sm tracking-widest text-[#023047] uppercase">
                       {slide.tagline}
@@ -139,11 +137,10 @@ export default function HeroSlider() {
             key={index}
             onClick={() => api?.scrollTo(index)}
             aria-label={`Go to slide ${index + 1}`}
-            className={`transition-all duration-300 rounded-full ${
-              current === index
+            className={`transition-all duration-300 rounded-full ${current === index
                 ? "bg-[#3A9AFF] w-8 h-2.5"
                 : "bg-white/50 hover:bg-white w-2.5 h-2.5"
-            }`}
+              }`}
           />
         ))}
       </div>

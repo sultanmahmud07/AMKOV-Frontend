@@ -56,8 +56,8 @@ export default function ViewCart() {
 
   return (
     <div className="bg-[#F8FAFC] py-6 lg:py-8">
-      <div className="container mx-auto">
-        
+      <div className="main-container">
+
         {/* Page Header */}
         <div className="mb-5 md:mb-6">
           <h1 className="text-3xl md:text-4xl font-extrabold text-[#023047] mb-2">Shopping Cart</h1>
@@ -75,12 +75,12 @@ export default function ViewCart() {
           </div>
         ) : (
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-10">
-            
+
             {/* ========================================= */}
             {/* LEFT COLUMN: CART ITEMS TABLE */}
             {/* ========================================= */}
             <div className="w-full lg:w-2/3 flex flex-col gap-6">
-              
+
               <div className="bg-white rounded-lg shadow-sm border-t border-gray-100 overflow-hidden">
                 {/* Desktop Table Header */}
                 <div className="hidden md:grid grid-cols-12 gap-4 bg-gray-50 px-6 py-4 border-b border-gray-100 text-sm font-bold text-gray-500 uppercase tracking-wider">
@@ -94,7 +94,7 @@ export default function ViewCart() {
                 <div className="divide-y divide-gray-100">
                   {cartItems.map((item) => (
                     <div key={item.id} className="p-4 md:p-6 flex flex-col md:grid md:grid-cols-12 gap-4 items-center">
-                      
+
                       {/* Product Info (Col 1-6) */}
                       <div className="col-span-6 w-full flex items-center gap-4">
                         <div className="relative w-20 h-20 md:w-24 md:h-24 bg-gray-50 rounded-lg border border-gray-100 shrink-0 p-2">
@@ -106,7 +106,7 @@ export default function ViewCart() {
                           </Link>
                           <span className="text-xs text-gray-500 mb-1">SKU: {item.sku}</span>
                           <span className="text-xs text-gray-500 mb-3">{item.attributes}</span>
-                          
+
                           {/* Mobile Remove Button */}
                           <button onClick={() => removeItem(item.id)} className="md:hidden text-xs text-gray-400 hover:text-red-500 flex items-center gap-1 w-fit transition-colors">
                             <Trash2 size={14} /> Remove
@@ -118,10 +118,10 @@ export default function ViewCart() {
                       <div className="col-span-2 w-full md:w-auto flex justify-between md:justify-center items-center font-bold text-[#023047]">
                         <span className="md:hidden text-sm text-gray-500 font-normal">Price:</span>
                         <div className="flex flex-col items-end md:items-center">
-                           <span className="text-[#3A9AFF]">${item.price.toFixed(2)}</span>
-                           {item.originalPrice && (
-                             <span className="text-xs text-gray-400 line-through">${item.originalPrice.toFixed(2)}</span>
-                           )}
+                          <span className="text-[#3A9AFF]">${item.price.toFixed(2)}</span>
+                          {item.originalPrice && (
+                            <span className="text-xs text-gray-400 line-through">${item.originalPrice.toFixed(2)}</span>
+                          )}
                         </div>
                       </div>
 
@@ -139,7 +139,7 @@ export default function ViewCart() {
                       <div className="col-span-2 w-full md:w-auto flex justify-between md:justify-end items-center gap-4">
                         <span className="md:hidden text-sm text-gray-500 font-normal">Total:</span>
                         <span className="font-extrabold text-[#023047]">${(item.price * item.quantity).toFixed(2)}</span>
-                        
+
                         <button onClick={() => removeItem(item.id)} className="hidden md:flex w-8 h-8 items-center justify-center rounded-full bg-gray-50 text-gray-400 hover:bg-red-50 hover:text-red-500 transition-colors shrink-0">
                           <Trash2 size={16} />
                         </button>
@@ -155,10 +155,10 @@ export default function ViewCart() {
                 <label className="block text-sm font-bold text-[#023047] mb-2">
                   Special instructions for seller / Purchase Order (PO) Details
                 </label>
-                <textarea 
+                <textarea
                   value={specialInstructions}
                   onChange={(e) => setSpecialInstructions(e.target.value)}
-                  rows={3} 
+                  rows={3}
                   placeholder="Enter your PO number or specific shipping requirements..."
                   className="w-full p-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-[#3A9AFF] focus:ring-1 focus:ring-[#3A9AFF] transition-all resize-none"
                 />
@@ -196,9 +196,9 @@ export default function ViewCart() {
                 <div className="mb-6">
                   <label className="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">Have a Distributor Code?</label>
                   <div className="flex gap-2">
-                    <input 
-                      type="text" 
-                      placeholder="Promo code" 
+                    <input
+                      type="text"
+                      placeholder="Promo code"
                       value={promoCode}
                       onChange={(e) => setPromoCode(e.target.value)}
                       className="flex-1 px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-[#3A9AFF] transition-all"
@@ -211,9 +211,9 @@ export default function ViewCart() {
 
                 {/* Terms Agreement */}
                 <div className="flex items-start gap-3 mb-6">
-                  <input 
-                    type="checkbox" 
-                    id="terms" 
+                  <input
+                    type="checkbox"
+                    id="terms"
                     checked={agreedToTerms}
                     onChange={(e) => setAgreedToTerms(e.target.checked)}
                     className="mt-1 w-4 h-4 rounded border-gray-300 text-[#3A9AFF] focus:ring-[#3A9AFF] cursor-pointer"
@@ -224,13 +224,12 @@ export default function ViewCart() {
                 </div>
 
                 {/* Action Button */}
-                <button 
+                <button
                   disabled={!agreedToTerms}
-                  className={`w-full flex items-center justify-center gap-2 font-bold py-4 rounded-xl transition-all duration-300 text-sm tracking-wide ${
-                    agreedToTerms 
-                      ? "bg-[#023047] hover:bg-[#3A9AFF] text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5" 
+                  className={`w-full flex items-center justify-center gap-2 font-bold py-4 rounded-xl transition-all duration-300 text-sm tracking-wide ${agreedToTerms
+                      ? "bg-[#023047] hover:bg-[#3A9AFF] text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5"
                       : "bg-gray-100 text-gray-400 cursor-not-allowed"
-                  }`}
+                    }`}
                 >
                   PROCEED TO QUOTE <ArrowRight size={18} />
                 </button>
@@ -238,11 +237,11 @@ export default function ViewCart() {
                 {/* Trust Badges */}
                 <div className="mt-8 pt-6 border-t border-gray-100 space-y-3">
                   <div className="flex items-center gap-3 text-sm text-gray-600">
-                    <Truck size={18} className="text-[#3A9AFF]" /> 
+                    <Truck size={18} className="text-[#3A9AFF]" />
                     <span>Global B2B Freight Options Available</span>
                   </div>
                   <div className="flex items-center gap-3 text-sm text-gray-600">
-                    <ShieldCheck size={18} className="text-[#3A9AFF]" /> 
+                    <ShieldCheck size={18} className="text-[#3A9AFF]" />
                     <span>Verified Wholesale Security Policy</span>
                   </div>
                 </div>
