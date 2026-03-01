@@ -108,8 +108,8 @@ export default function Culture() {
                   layout: { type: "spring", stiffness: 60, damping: 15 },
                   opacity: { duration: 0.5, delay: index * 0.1 }
                 }}
-                className={`relative overflow-hidden rounded-[32px] cursor-pointer group flex items-end ${
-                  isActive ? "flex-[4] lg:flex-[5]" : "flex-[1]"
+                className={`relative overflow-hidden rounded-4xl cursor-pointer group flex items-end ${
+                  isActive ? "flex-4 lg:flex-5" : "flex-1"
                 }`}
               >
                 {/* Background Image */}
@@ -122,7 +122,7 @@ export default function Culture() {
                 
                 {/* Dark Gradient Overlay for Readability */}
                 <div className={`absolute inset-0 transition-opacity duration-500 ${
-                  isActive ? "bg-gradient-to-t from-[#023047] via-[#023047]/60 to-transparent opacity-90" : "bg-[#023047]/60"
+                  isActive ? "bg-linear-to-t from-[#023047] via-[#023047]/60 to-transparent opacity-90" : "bg-[#023047]/60"
                 }`} />
 
                 {/* Massive Watermark Text (Only visible when active) */}
