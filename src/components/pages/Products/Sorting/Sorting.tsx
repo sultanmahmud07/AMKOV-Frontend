@@ -4,7 +4,7 @@ import React, { Suspense, useState } from 'react';
 import { FiFilter } from 'react-icons/fi';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { IoClose } from 'react-icons/io5';
-import ProductFilterForMobileLoader from '@/components/Loaders/Products/ProductFilterForMobile';
+// import ProductFilterForMobileLoader from '@/components/Loaders/Products/ProductFilterForMobile';
 
 const limitData = ["09", "18", "27", "36", "45"]; // Adjusted to multiples of 3 for nice grid layouts
 
@@ -112,7 +112,7 @@ const Sorting = ({
         </div>
         
         <div className="flex-1 overflow-y-auto p-4 custom-scrollbar">
-          <Suspense fallback={<ProductFilterForMobileLoader />}>
+          <Suspense fallback={<p>Loading....</p>}>
             {children}
           </Suspense>
         </div>
