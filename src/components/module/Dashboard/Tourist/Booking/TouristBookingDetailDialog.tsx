@@ -2,9 +2,9 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { BOOKING_STATUS, IBooking } from "@/types/booking.interface";
 import { format } from "date-fns";
 import { useRouter } from "next/navigation";
+import { BOOKING_STATUS, IBooking } from "@/types/booking.interface";
 
 interface Props {
   booking: IBooking | null;

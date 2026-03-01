@@ -4,11 +4,11 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
-import { BOOKING_STATUS, IBooking } from "@/types/booking.interface";
 import { useState } from "react";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
 import { changeBookingStatus } from "@/services/booking/myBooking.service";
+import { BOOKING_STATUS, IBooking } from "@/types/booking.interface";
 
 interface Props {
   booking: IBooking;

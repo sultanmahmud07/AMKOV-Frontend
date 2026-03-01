@@ -192,3 +192,10 @@ a {
     width: 96%;
   }
 }
+.swiper {
+  padding-bottom: 40px;
+}
+
+.swiper-slide {
+  transition: transform 0.4s ease;
+}

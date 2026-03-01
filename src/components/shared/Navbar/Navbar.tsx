@@ -49,8 +49,8 @@ const Navbar = (props: Props) => {
     { href: "/categories", label: "CATEGORIES", role: "PUBLIC", hasDropdown: true },
     { href: "/products", label: "PRODUCTS", role: "PUBLIC", hasDropdown: true, },
     { href: "/solution", label: "Solution", role: "PUBLIC" },
-    { href: "/support", label: "Support", role: "PUBLIC", badge: "24/7" },
-    { href: "/contact", label: "Contact", role: "PUBLIC" },
+    { href: "/about", label: "About", role: "PUBLIC" },
+    { href: "/contact", label: "Contact", role: "PUBLIC", badge: "24/7" },
     // { href: "/deals", label: "TOP DEALS", role: "PUBLIC", hasDropdown: true, badge: "HOT" },
   ];
 
@@ -65,7 +65,7 @@ const Navbar = (props: Props) => {
           <div className="flex items-center gap-4 font-medium">
             <Link href="/news" className="hover:text-[#023047] transition">New Article</Link>
             <span className="w-px h-3 bg-white/50"></span>
-            <Link href="/about" className="hover:text-[#023047] transition">About Us</Link>
+            <Link href="/support" className="hover:text-[#023047] transition">Support</Link>
             <span className="w-px h-3 bg-white/50"></span>
             <button className="flex items-center gap-1 hover:text-[#023047] transition">English <ChevronDown size={12} /></button>
             <span className="w-px h-3 bg-white/50"></span>

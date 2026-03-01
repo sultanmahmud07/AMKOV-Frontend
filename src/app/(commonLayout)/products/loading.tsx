@@ -1,6 +1,6 @@
 
-import ProductRightLoader from "@/components/Loaders/Products/ProductsRight";
 import ProductFilterLoader from "@/components/Loaders/Products/ProductFilter";
+import ProductRightLoader from "@/components/loaders/Products/ProductsRight";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
 

@@ -3,13 +3,13 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator"; // New Import
-import { BOOKING_STATUS, IBooking, PAYMENT_STATUS } from "@/types/booking.interface";
 import { format } from "date-fns";
 import { useState } from "react";
 import TourReviewDialog from "./TourReviewDialog";
 import { CheckCircle, Clock, XCircle } from "lucide-react"; // Icons for Status
 import PayNowButton from "@/components/shared/PaymentButton";
 import ReviewCard from "./ReviewCard";
+import { BOOKING_STATUS, IBooking, PAYMENT_STATUS } from "@/types/booking.interface";
 
 export default function TouristBookingDetailView({ booking }: { booking: IBooking }) {
       const [reviewOpen, setReviewOpen] = useState(false);

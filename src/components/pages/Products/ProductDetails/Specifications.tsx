@@ -1,4 +1,5 @@
-import { ISpecification } from '@/types';
+import { ISpecification } from "@/types/product.interface"
+
 
 const Specifications = ({specification}:{specification:ISpecification[]}) => {
     

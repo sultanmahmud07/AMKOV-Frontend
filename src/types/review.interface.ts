@@ -1,6 +1,4 @@
-import { IAppointment } from "./appointments.interface";
-import { IDoctor } from "./doctor.interface";
-import { IPatient } from "./patient.interface";
+
 interface ITourBase {
     _id: string;
     title: string;
@@ -19,11 +17,11 @@ export interface IReview {
     tour?: ITourBase;
     guide?: IUserBase;
     user?: IUserBase;
-    patient?: IPatient;
+    // patient?: IPatient;
     doctorId: string;
-    doctor?: IDoctor;
+    // doctor?: IDoctor;
     appointmentId: string;
-    appointment?: IAppointment;
+    // appointment?: IAppointment;
     rating: number;
     comment: string;
     createdAt: string;

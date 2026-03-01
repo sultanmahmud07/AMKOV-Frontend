@@ -6,7 +6,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { IoMdArrowDropdown, IoMdArrowDropright } from "react-icons/io";
-import { ICategory } from "@/types";
+import { ICategory } from "@/types/product.interface";
 
 // Price Range Data
 const priceRanges = [
@@ -67,6 +67,7 @@ const CategoryFilterForMobile = ({ categories, categorySlug }: CategoryFilterPro
   useEffect(() => {
     const categoryParam = searchParams.get("category");
     if (categoryParam) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setSelectedCategory(categoryParam);
     } else if (categorySlug) {
       setSelectedCategory(categorySlug);
@@ -78,6 +79,7 @@ const CategoryFilterForMobile = ({ categories, categorySlug }: CategoryFilterPro
   // 🧩 Handle price range parsing
   useEffect(() => {
     if (!selectedPrice || selectedPrice === "All Price") {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setMinPrice("");
       setMaxPrice("");
       return;
@@ -134,7 +136,7 @@ const CategoryFilterForMobile = ({ categories, categorySlug }: CategoryFilterPro
   };
 
   return (
-    <div className="z-50 border-[1px] p-3 border-[#E2E2E2] rounded md:rounded-md">
+    <div className="z-50 border p-3 border-[#E2E2E2] rounded md:rounded-md">
       {/* CATEGORY FILTER */}
       <h6 className="text-[#000000] text-xs md:text-sm font-semibold flex items-center justify-between">
         Category
@@ -158,7 +160,7 @@ const CategoryFilterForMobile = ({ categories, categorySlug }: CategoryFilterPro
                 <RadioGroupItem
                   value={category.slug}
                   id={category.slug}
-                  className="h-[20px] w-[20px]"
+                  className="h-5 w-5"
                   
                 />
                 <Label
@@ -251,7 +253,7 @@ const CategoryFilterForMobile = ({ categories, categorySlug }: CategoryFilterPro
           <button
             key={index}
             onClick={() => handleTagFilter(tag)}
-            className={`px-3 py-1 text-xs md:text-sm rounded-lg border-[1px] ${
+            className={`px-3 py-1 text-xs md:text-sm rounded-lg border ${
               selectedTags.includes(tag)
                 ? "bg-primary text-white border-primary"
                 : "border-[#E2E2E2]"

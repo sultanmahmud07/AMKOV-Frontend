@@ -2,9 +2,9 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import ManagementTable from "@/components/shared/ManagementTable";
-import {IBooking } from "@/types/booking.interface";
 import { touristBookingColumns } from "./touristBookingColumns";
 import TouristBookingDetailDialog from "./TouristBookingDetailDialog";
+import { IBooking } from "@/types/booking.interface";
 
 interface TouristBookingTableProps {
   bookings: IBooking[];
