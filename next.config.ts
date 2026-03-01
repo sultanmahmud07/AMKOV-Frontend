@@ -28,6 +28,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: "omo-oss-image.thefastimg.com",
       },
+      {
+        protocol: 'https',
+        hostname: "www.transparenttextures.com",
+      },
     ]
   }
 };
