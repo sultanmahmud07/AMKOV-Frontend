@@ -1,5 +1,5 @@
 
-import ProductDetailLoader from "@/components/Loaders/Products/ProductDetailLoader";
+import ProductDetailLoader from "@/components/loaders/Products/ProductDetailLoader";
 import ProductDetails from "@/components/pages/Products/ProductDetails/ProductDetails";
 import ProductInfoTabs from "@/components/pages/Products/ProductDetails/ProductInfoTabs";
 import ProductReviewSection from "@/components/pages/Products/ProductDetails/ProductReviewSection";

@@ -1,10 +1,9 @@
-import ProductDetailLoader from "@/components/Loaders/Products/ProductDetailLoader";
-
+import ProductDetailLoader from "@/components/loaders/Products/ProductDetailLoader";
 
 const Loading = () => {
   return (
     <div className="ll">
-      <ProductDetailLoader></ProductDetailLoader>
+      <ProductDetailLoader />
     </div>
   );
 };
