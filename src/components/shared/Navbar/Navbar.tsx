@@ -8,6 +8,9 @@ import UserProfileMenu from "./UserProfileMenu";
 import { Search, Heart, Menu, ChevronDown, User, Download } from "lucide-react";
 import Link from "next/link";
 import CartButton from "@/components/pages/Cart/CartButton";
+import MegaMenu from "./MegaMenu";
+import CategorySubmenu from "./CategorySubmenu";
+import ProductSubmenu from "./ProductSubmenu";
 
 type Props = {
   accessToken?: string | null;
@@ -61,7 +64,7 @@ const Navbar = (props: Props) => {
       {/* ========================================= */}
       <div className="hidden lg:block bg-[#3A9AFF] text-white text-xs py-2">
         <div className="main-container flex justify-between items-center">
-          <p>Get Upto 25% Discount On First Order: GET25OFF - <NavLink href="/shop" className="underline font-semibold hover:text-[#023047] transition">SHOP NOW</NavLink></p>
+          <p>OEM • ODM • Bulk Supply Available Worldwide</p>
           <div className="flex items-center gap-4 font-medium">
             <Link href="/news" className="hover:text-[#023047] transition">New Article</Link>
             <span className="w-px h-3 bg-white/50"></span>
@@ -145,7 +148,7 @@ const Navbar = (props: Props) => {
           </button>
 
           {/* Main Navigation Links */}
-          <nav className="flex items-center gap-8 h-full">
+          {/* <nav className="flex items-center gap-8 h-full">
             {navigationLinks.map((link, index) => (
               <NavLink
                 key={index}
@@ -165,8 +168,35 @@ const Navbar = (props: Props) => {
                 )}
               </NavLink>
             ))}
-          </nav>
+          </nav> */}
 
+          <nav className="flex items-center gap-8 h-full">
+            {navigationLinks.map((link, index) => (
+              <div key={index} className=" group h-full flex items-center">
+
+                <NavLink
+                  href={link.href}
+                  className="flex items-center gap-1 text-sm font-bold text-[#023047] hover:text-[#3A9AFF] uppercase transition-colors duration-300 h-full"
+                >
+                  {link.label}
+                  {link.hasDropdown && <ChevronDown size={14} />}
+                </NavLink>
+
+                {link.label === "CATEGORIES" && (
+                  <MegaMenu>
+                    <CategorySubmenu />
+                  </MegaMenu>
+                )}
+
+                {link.label === "PRODUCTS" && (
+                  <MegaMenu>
+                    <ProductSubmenu />
+                  </MegaMenu>
+                )}
+
+              </div>
+            ))}
+          </nav>
           {/* Today's Deal */}
           <Link href="/download" className="flex items-center gap-2 text-sm font-bold text-green-600 hover:text-green-700 transition">
             <span className="flex h-5 w-5 items-center justify-center bg-green-100 rounded-full"><Download size={14} className="text-green-600" /></span>

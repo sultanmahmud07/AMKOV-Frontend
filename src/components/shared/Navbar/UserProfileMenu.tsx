@@ -1,11 +1,10 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { FiLogOut, FiUser, FiMap, FiBriefcase, FiSettings, FiLayers, FiUsers } from "react-icons/fi";
+import { FiLogOut, FiUser, FiBriefcase, FiLayers } from "react-icons/fi";
 import { IUser } from "@/types/user.interface";
 import Image from "next/image";
 import { logoutUser } from "@/services/auth/logoutUser";
-import { HiShoppingBag } from "react-icons/hi";
 import { CiShop } from "react-icons/ci";
 
 type Props = {
