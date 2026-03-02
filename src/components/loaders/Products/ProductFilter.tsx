@@ -1,12 +1,8 @@
-'use client';
 
-import React from 'react';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
 const ProductFilterLoader = () => {
-  // Dummy array for grid items
-  const placeholders = new Array(12).fill(null);
 
   return (
     <SkeletonTheme baseColor="#b6bdd136" highlightColor="#19b4ef4d">

@@ -1,4 +1,6 @@
 
+import ProductFilterLoader from "@/components/loaders/Products/ProductFilter";
+import ProductRightLoader from "@/components/loaders/Products/ProductsRight";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
 
@@ -18,12 +20,11 @@ const Loading = () => {
                   </SkeletonTheme>
                   <div className="main-container flex gap-3 md:gap-6 py-5 md:py-8">
                         <div className="category_menu w-full md:w-1/4 hidden md:block">
-                              {/* <ProductFilterLoader></ProductFilterLoader> */}
-                              Loading...
+                              <ProductFilterLoader></ProductFilterLoader>
+                          
                         </div>
                         <div className="category_product w-full md:w-3/4">
-                              {/* <ProductRightLoader></ProductRightLoader> */}
-                              Loading...
+                              <ProductRightLoader></ProductRightLoader>
                         </div>
                   </div>
             </div>

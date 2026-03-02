@@ -88,7 +88,7 @@ const CategoryGrid = () => {
           {categoryData.map((item) => (
             <Link
               key={item.id}
-              href={item.href}
+              href={`/products?category=${item.id}`}
               className="group relative flex items-center bg-white p-5 rounded-2xl border border-gray-100 shadow-[0_4px_20px_rgb(0,0,0,0.03)] hover:shadow-[0_15px_40px_rgba(58,154,255,0.12)] hover:border-[#3A9AFF]/20 transition-all duration-500 ease-out hover:-translate-y-1.5 overflow-hidden"
             >
               {/* Subtle hover background gleam */}

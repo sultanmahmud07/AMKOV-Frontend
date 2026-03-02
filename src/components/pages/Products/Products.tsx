@@ -3,8 +3,9 @@ import { IoIosArrowForward } from "react-icons/io";
 import { Suspense } from "react";
 import CategoryFilterWrapper from "./CategoryFilter/CategoryFilterWrapper";
 import ProductsList from "./ProductsList/ProductsList";
-// import ProductFilterLoader from "@/components/Loaders/Products/ProductFilter";
+import ProductFilterLoader from "@/components/loaders/Products/ProductFilter";
 import Link from "next/link";
+import ProductRightLoader from "@/components/loaders/Products/ProductsRight";
 
 type ProductsProps = {
       searchParams?: { [key: string]: string | string[] | undefined };
@@ -23,12 +24,12 @@ const Products = ({ searchParams }: ProductsProps) => {
                   </div>
                   <div className="main-container flex gap-3 md:gap-6 py-5 md:py-8">
                         <div className="category_menu w-full md:w-1/4 hidden md:block">
-                              <Suspense fallback={<p>filter loading....</p>}>
+                              <Suspense fallback={<ProductFilterLoader />}>
                                     <CategoryFilterWrapper ></CategoryFilterWrapper>
                               </Suspense>
                         </div>
                         <div className="category_product w-full md:w-3/4">
-                              <Suspense fallback={<p>products loading....</p>}>
+                              <Suspense fallback={<ProductRightLoader />}>
                                     <ProductsList
                                           searchParams={searchParams}
                                     ></ProductsList>

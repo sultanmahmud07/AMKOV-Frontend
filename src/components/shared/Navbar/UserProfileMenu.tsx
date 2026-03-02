@@ -2,10 +2,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { FiLogOut, FiUser, FiMap, FiBriefcase, FiSettings, FiLayers, FiUsers } from "react-icons/fi";
-import { IUser, Role } from "@/types/user.interface";
+import { IUser } from "@/types/user.interface";
 import Image from "next/image";
 import { logoutUser } from "@/services/auth/logoutUser";
-import { IoListSharp } from "react-icons/io5";
+import { HiShoppingBag } from "react-icons/hi";
+import { CiShop } from "react-icons/ci";
 
 type Props = {
       userInfo?: IUser | null;
@@ -48,8 +49,7 @@ const UserProfileMenu: React.FC<Props> = ({ userInfo = null }) => {
                         aria-haspopup="true"
                         aria-expanded={open}
                         onClick={() => setOpen((v) => !v)}
-                        className={`flex items-center gap-1 rounded cursor-pointer  focus:outline-none transition ${open ? "ring-2 ring-offset-2 ring-primary" : "hover:ring-2 hover:ring-offset-2 hover:ring-blue-200"
-                              }`}
+                        className={`flex items-center gap-1 rounded cursor-pointer  focus:outline-none transition `}
                   >
                         <svg
                               className={`w-4 h-4 text-gray-500 transition-transform ${open ? "rotate-180" : "rotate-0"}`}
@@ -94,68 +94,33 @@ const UserProfileMenu: React.FC<Props> = ({ userInfo = null }) => {
                               </div>
                         </div>
 
-                        {/* menu items */}
-                        <div className="py-1">
-                              {/* --- 1. TOURIST / GUIDE Common Item --- */}
-                              {(userInfo?.role === Role.TOURIST || userInfo?.role === Role.GUIDE) && (
-                                    <Link href="/explore" className="flex items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50" role="menuitem">
-                                          <FiMap className="w-4 h-4" />
-                                          Explore Tours
-                                    </Link>
-                              )}
-
-                              {/* --- 2. ROLE-SPECIFIC DASHBOARD/BOOKING LINKS --- */}
-
-                              {/* TOURIST: My Bookings */}
-                              {userInfo?.role === Role.TOURIST && (
-                                    <Link href="/dashboard/my-booking" className="flex items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50" role="menuitem">
-                                          <FiBriefcase className="w-4 h-4" />
-                                          My Trips
-                                    </Link>
-                              )}
-
-                              {/* GUIDE: Dashboard (My Listings, Bookings) */}
-                              {userInfo?.role === Role.GUIDE && (
-                                    <>
-                                          <Link href="/guide/dashboard" className="flex items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50" role="menuitem">
-                                                <FiLayers className="w-4 h-4" />
-                                                Dashboard
-                                          </Link>
-                                          <Link href="/guide/dashboard" className="flex items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50" role="menuitem">
-                                                <IoListSharp className="w-4 h-4" />
-                                                My listing
-                                          </Link>
-                                    </>
-                              )}
-
-                              {/* ADMIN/SUPER_ADMIN: Admin Dashboard */}
-                              {(userInfo?.role === Role.ADMIN || userInfo?.role === Role.SUPER_ADMIN) && (
-                                    <>
-                                          <Link href="/admin/dashboard" className="flex items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50" role="menuitem">
-                                                <FiSettings className="w-4 h-4" />
-                                                Admin Dashboard
-                                          </Link>
-                                          <Link href="/admin/user-management" className="flex items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50" role="menuitem">
-                                                <FiUsers className="w-4 h-4" />
-                                                Manage Users
-                                          </Link>
-                                          <Link href="/admin/booking-management" className="flex items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50" role="menuitem">
-                                                <FiBriefcase className="w-4 h-4" />
-                                                Manage Listings
-                                          </Link>
-                                    </>
-                              )}
-
-                              {/* --- 3. UNIVERSAL LINKS --- */}
-
-                              <Link href="/my-profile" className="flex items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50" role="menuitem">
-                                    <FiUser className="w-4 h-4" />
-                                    Profile
+                     {/* menu items */}
+                        <div className="py-2 flex flex-col gap-1">
+                              <Link href="/products" className="flex items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-[#F8FAFC] hover:text-[#3A9AFF] transition-colors" role="menuitem">
+                                    <CiShop className="w-5 h-5" />
+                                    All Cameras
                               </Link>
+
+                              <Link href="/dashboard/my-booking" className="flex items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-[#F8FAFC] hover:text-[#3A9AFF] transition-colors" role="menuitem">
+                                    <FiBriefcase className="w-4 h-4" />
+                                    My Orders
+                              </Link>
+
+                              <Link href="/download" className="flex items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-[#F8FAFC] hover:text-[#3A9AFF] transition-colors" role="menuitem">
+                                    <FiLayers className="w-4 h-4" />
+                                    Downloads & Manuals
+                              </Link>
+
+                              <Link href="/my-profile" className="flex items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-[#F8FAFC] hover:text-[#3A9AFF] transition-colors" role="menuitem">
+                                    <FiUser className="w-4 h-4" />
+                                    Profile Settings
+                              </Link>
+
+                              <div className="border-t border-gray-100 my-1"></div>
 
                               <button
                                     onClick={handleSignOut}
-                                    className="w-full hover:text-red-600 text-left flex items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                                    className="w-full text-left flex items-center gap-3 px-4 py-2 text-sm text-red-500 hover:bg-red-50 hover:text-red-600 transition-colors"
                                     role="menuitem"
                                     type="button"
                               >

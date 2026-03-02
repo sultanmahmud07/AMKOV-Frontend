@@ -1,6 +1,6 @@
 
 import ProductRightLoader from "@/components/loaders/Products/ProductsRight";
-// import ProductFilterLoader from "@/components/Loaders/Products/ProductFilter";
+import ProductFilterLoader from "@/components/loaders/Products/ProductFilter";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
 
@@ -23,7 +23,7 @@ const Loading = () => {
                               <ProductRightLoader></ProductRightLoader>
                         </div>
                         <div className="category_menu w-full md:w-1/4 hidden md:block">
-                              {/* <ProductFilterLoader></ProductFilterLoader> */}
+                              <ProductFilterLoader></ProductFilterLoader>
                         </div>
                   </div>
             </div>

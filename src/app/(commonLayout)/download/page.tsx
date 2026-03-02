@@ -1,4 +1,5 @@
 
+import DownloadsContent from '@/components/module/Download/DownloadsContent';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -9,9 +10,7 @@ export const metadata: Metadata = {
 
 const Download = () => {
   return (
-    <div>
-      <h1>Download</h1>
-    </div>
+    <DownloadsContent />
   );
 };
 

@@ -168,10 +168,10 @@ const Navbar = (props: Props) => {
           </nav>
 
           {/* Today's Deal */}
-          <NavLink href="/download" className="flex items-center gap-2 text-sm font-bold text-green-600 hover:text-green-700 transition">
+          <Link href="/download" className="flex items-center gap-2 text-sm font-bold text-green-600 hover:text-green-700 transition">
             <span className="flex h-5 w-5 items-center justify-center bg-green-100 rounded-full"><Download size={14} className="text-green-600" /></span>
             Guid Download
-          </NavLink>
+          </Link>
         </div>
       </div>
 
