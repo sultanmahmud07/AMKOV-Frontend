@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import React, { useEffect, useState } from "react";
 import { IUser } from "@/types/user.interface";
 import UserProfileMenu from "./UserProfileMenu";
-import { Search, Heart, Menu, ChevronDown, User, Download } from "lucide-react";
+import { Search, Heart, Menu, ChevronDown, User, Download, X } from "lucide-react";
 import Link from "next/link";
 import CartButton from "@/components/pages/Cart/CartButton";
 import MegaMenu from "./MegaMenu";
@@ -14,6 +14,7 @@ import ProductSubmenu from "./ProductSubmenu";
 import SearchBar from "./SearchBar";
 import { AnimatePresence } from "framer-motion";
 import LoginModal from "@/components/auth/login-modal";
+import MobileSidebar from "./MobileSidebar";
 type Props = {
   accessToken?: string | null;
   userInfo?: IUser | null;
@@ -123,15 +124,14 @@ const Navbar = (props: Props) => {
 
         {/* Mobile Toggle Icon */}
         <div className="lg:hidden z-50">
+          <button >
+            <Search size={28} strokeWidth={1.5} className="text-[#023047] hover:text-[#3A9AFF] transition" />
+          </button>
           <button onClick={() => setNavToggle(!navToggle)} className="text-[#023047] p-2">
-            {navToggle ? <span className="text-2xl font-bold">&times;</span> : <Menu size={28} />}
+            {navToggle ? <span className="text-2xl font-bold"><X /></span> : <Menu size={28} />}
           </button>
         </div>
       </div>
-
-      {/* ========================================= */}
-      {/* 3. BOTTOM MENU BAR (Sticky on Scroll) */}
-      {/* ========================================= */}
       <div className={`hidden lg:block w-full border-t border-gray-100 bg-white transition-all duration-300 ${isSticky ? "fixed top-0 left-0 right-0 z-40 shadow-md animate-in slide-in-from-top-2" : ""}`}>
         <div className="main-container flex justify-between items-center h-14">
 
@@ -140,29 +140,6 @@ const Navbar = (props: Props) => {
             <Menu size={20} />
             SHOP BY CATEGORIES
           </button>
-
-          {/* Main Navigation Links */}
-          {/* <nav className="flex items-center gap-8 h-full">
-            {navigationLinks.map((link, index) => (
-              <NavLink
-                key={index}
-                href={link.href}
-                className="group flex items-center gap-1 text-sm font-bold text-[#023047] hover:text-[#3A9AFF] uppercase transition-colors duration-300 h-full relative"
-              >
-                <span className={`h-full flex items-center`}>
-                  {link.label}
-                </span>
-
-                {link.hasDropdown && <ChevronDown size={14} className="text-gray-400 group-hover:text-[#3A9AFF]" />}
-
-                {link.badge && (
-                  <span className={`absolute top-0 -right-4 text-[9px] text-white px-1.5 py-0.5 rounded-sm ${link.badge === 'SALE' ? 'bg-[#3A9AFF]' : 'bg-red-500'}`}>
-                    {link.badge}
-                  </span>
-                )}
-              </NavLink>
-            ))}
-          </nav> */}
 
           <nav className="flex items-center gap-8 h-full">
             {navigationLinks.map((link, index) => (
@@ -198,52 +175,15 @@ const Navbar = (props: Props) => {
           </Link>
         </div>
       </div>
-
+{/* ========================================= */}
+      {/* SEPARATED MOBILE SLIDE-OUT MENU */}
       {/* ========================================= */}
-      {/* 4. MOBILE SLIDE-OUT MENU */}
-      {/* ========================================= */}
-      <div className={`fixed top-20 left-0 w-full h-[calc(100vh-80px)] bg-white shadow-xl transition-transform duration-300 ease-in-out transform z-30 overflow-y-auto ${navToggle ? "translate-x-0" : "-translate-x-full"} lg:hidden`}>
-        <div className="p-4 space-y-6">
-          {/* Mobile Search */}
-          <div className="flex border border-gray-300 rounded-md overflow-hidden">
-            <input type="text" placeholder="Search..." className="flex-1 p-3 text-sm outline-none" />
-            <button className="bg-[#3A9AFF] text-white px-4"><Search size={18} /></button>
-          </div>
-
-          {/* Mobile Links */}
-          <div className="flex flex-col space-y-1">
-            {navigationLinks.map((link, index) => (
-              <NavLink
-                key={index}
-                onClick={() => setNavToggle(false)}
-                href={link.href}
-                className="flex items-center justify-between text-base font-semibold text-[#023047] p-3 border-b border-gray-100 hover:text-[#3A9AFF] hover:bg-gray-50"
-              >
-                {link.label}
-                {link.hasDropdown && <ChevronDown size={16} />}
-              </NavLink>
-            ))}
-          </div>
-
-          {/* Mobile Auth/Profile */}
-          <div className="pt-4 flex flex-col gap-3">
-            {accessToken ? (
-              <div className="border border-gray-200 p-3 rounded-md flex justify-center">
-                <UserProfileMenu userInfo={userInfo} />
-              </div>
-            ) : (
-              <>
-                <Button asChild className="w-full bg-[#3A9AFF] hover:bg-blue-600 text-white rounded-md h-11">
-                  <NavLink href="/login" onClick={() => setNavToggle(false)}>Login</NavLink>
-                </Button>
-                <Button asChild variant="outline" className="w-full border-[#023047] text-[#023047] rounded-md h-11">
-                  <NavLink href="/register" onClick={() => setNavToggle(false)}>Register</NavLink>
-                </Button>
-              </>
-            )}
-          </div>
-        </div>
-      </div>
+      <MobileSidebar 
+        isOpen={navToggle} 
+        onClose={() => setNavToggle(false)} 
+        accessToken={accessToken} 
+        userInfo={userInfo} 
+      />
 
       <AnimatePresence>
         {isLoginModalOpen && (

@@ -1,9 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Minus, Plus, Trash2, ChevronLeft, ArrowRight, Truck, ShieldCheck } from "lucide-react";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 // --- MOCK B2B CART DATA ---
 const initialCart = [
@@ -34,7 +36,7 @@ export default function ViewCart() {
   const [specialInstructions, setSpecialInstructions] = useState("");
   const [promoCode, setPromoCode] = useState("");
   const [agreedToTerms, setAgreedToTerms] = useState(false);
-
+const router = useRouter();
   // --- CART FUNCTIONALITY ---
   const updateQuantity = (id: number, delta: number) => {
     setCartItems(prev => prev.map(item => {
@@ -53,7 +55,14 @@ export default function ViewCart() {
   // --- CALCULATIONS ---
   const subtotal = cartItems.reduce((acc, item) => acc + (item.price * item.quantity), 0);
   const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+const handleProcessToQuote = () => {
+  if (!agreedToTerms) {
+    toast.warning("Please agree to the terms and conditions before proceeding.");
+    return;
+  }
+  router.push("/checkout"); // Redirect to a confirmation page (create this page as needed)
 
+}
   return (
     <div className="bg-[#F8FAFC] py-6 lg:py-8">
       <div className="main-container">
@@ -225,9 +234,10 @@ export default function ViewCart() {
 
                 {/* Action Button */}
                 <button
+                onClick={handleProcessToQuote}
                   disabled={!agreedToTerms}
                   className={`w-full flex items-center justify-center gap-2 font-bold py-4 rounded-xl transition-all duration-300 text-sm tracking-wide ${agreedToTerms
-                      ? "bg-[#023047] hover:bg-[#3A9AFF] text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+                      ? "bg-[#023047] cursor-pointer hover:bg-[#3A9AFF] text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5"
                       : "bg-gray-100 text-gray-400 cursor-not-allowed"
                     }`}
                 >

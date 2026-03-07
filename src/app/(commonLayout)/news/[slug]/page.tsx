@@ -27,14 +27,9 @@ export const generateMetadata = async ({
 };
 
 const page = async ({ params }: IParams) => {
-      return (
-            <div className="pt-20 md:pt-32">
-                  {/* <Suspense fallback={<BlogDetailsLoader></BlogDetailsLoader>}>
-                <BlogDetails slug={params?.slug}></BlogDetails>
-            </Suspense> */}
-                  <BlogDetails params={params}></BlogDetails>
-            </div>
-      )
+  return (
+    <BlogDetails params={params}></BlogDetails>
+  )
 }
 
 export default page;

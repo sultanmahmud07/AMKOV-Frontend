@@ -6,6 +6,7 @@ import LogoutSuccessToast from "@/components/shared/LogoutSuccessToast";
 import { Toaster } from "sonner";
 import { Suspense } from "react";
 import NextTopLoader from 'nextjs-toploader';
+import MobileNavbar from "@/components/shared/Navbar/BottomNavbar";
 const geistOswald = Oswald({
   variable: "--font-geist-oswald",
   subsets: ["latin"],
@@ -85,7 +86,7 @@ export default function RootLayout({
           height={4}
         />
         {children}
-
+        <MobileNavbar />
         <Toaster position="bottom-right" richColors />
         <Suspense fallback={null}>
           <LoginSuccessToast />

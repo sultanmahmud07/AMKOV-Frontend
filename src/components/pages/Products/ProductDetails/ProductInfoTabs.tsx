@@ -77,7 +77,7 @@ export default function ProductInfoTabs() {
                   : "border-transparent hover:text-[#023047]"
                   }`}
               >
-                Product Details
+                Specifications
               </button>
             </li>
             <li>
@@ -88,7 +88,7 @@ export default function ProductInfoTabs() {
                   : "border-transparent hover:text-[#023047]"
                   }`}
               >
-                More Information
+                Features
               </button>
             </li>
             <li>
@@ -196,7 +196,7 @@ export default function ProductInfoTabs() {
         {/* More Information SECTION */}
         {/* ========================================= */}
         <div id="more_info" className="scroll-mt-24 mt-6 md:mt-8">
-          <h2 className="text-xl md:text-2xl font-bold text-[#023047] my-4">More Information</h2>
+          <h2 className="text-xl md:text-2xl font-bold text-[#023047] my-4">Product Features</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Image src="/temp/con-1.jpg" alt="More Information" width={800} height={400} className="rounded-xl w-full object-cover" />
             <Image src="/temp/con-2.jpg" alt="More Information" width={800} height={400} className="rounded-xl w-full object-cover" />
