@@ -36,7 +36,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   };
 
   return (
-    <div className="bg-white border border-gray-100 rounded-xl p-4 flex flex-col h-full group/card hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-300 relative overflow-hidden">
+    <div className="bg-white border border-gray-100 rounded-xl p-3 md:p-4 flex flex-col h-full group/card hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-300 relative overflow-hidden">
       {/* Top Badges */}
       {product.badge && (
         <div className="absolute top-4 left-4 z-10">
@@ -91,7 +91,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         </Link>
 
         {/* Ratings */}
-        <div className="flex items-center gap-1 mb-3">
+        <div className="flex items-center gap-1 mb-1 md:mb-3">
           <div className="flex gap-0.5">
             {renderStars(product.rating)}
           </div>
@@ -106,13 +106,13 @@ export default function ProductCard({ product }: ProductCardProps) {
                 ${product.originalPrice.toFixed(2)}
               </span>
             )}
-            <span className="text-base font-bold text-[#3A9AFF]">
+            <span className="text-sm md:text-base font-bold text-[#3A9AFF]">
               ${product.price.toFixed(2)}
             </span>
           </div>
 
           {/* Add to Cart Button */}
-          <button className="w-full bg-[#F4F5F7] hover:bg-[#3A9AFF] text-[#023047] hover:text-white text-xs font-bold py-3 px-4 rounded-full transition-all duration-300 flex items-center justify-center gap-2">
+          <button className="w-full bg-[#F4F5F7] hover:bg-[#3A9AFF] text-[#023047] hover:text-white text-xs font-bold py-2 md:py-3 px-4 rounded-full transition-all duration-300 flex items-center justify-center gap-2">
             <span>ADD TO CART</span>
           </button>
         </div>

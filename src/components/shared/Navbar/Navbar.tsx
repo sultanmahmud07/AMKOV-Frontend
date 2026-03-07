@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import NavLink from "./NavLink";
-import { Button } from "@/components/ui/button";
 import React, { useEffect, useState } from "react";
 import { IUser } from "@/types/user.interface";
 import UserProfileMenu from "./UserProfileMenu";

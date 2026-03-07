@@ -88,14 +88,14 @@ export default function TrendingProducts() {
       <div className="main-container">
 
         {/* Section Header */}
-        <div className="text-center mb-10">
+        <div className="md:text-center md:mb-10 mb-6">
           <h2 className="text-3xl lg:text-4xl font-extrabold text-[#023047]">
             Trending Products
           </h2>
         </div>
 
         {/* Carousel Wrapper */}
-        <div className="relative group">
+        <div className="relative group hidden md:block">
           <Carousel
             opts={{
               align: "start",
@@ -119,6 +119,16 @@ export default function TrendingProducts() {
             <CarouselPrevious className="hidden md:flex -left-6 lg:-left-12 h-10 w-10 border-gray-200 bg-gray-50 text-gray-500 hover:bg-[#3A9AFF] hover:text-white hover:border-[#3A9AFF] transition-colors" />
             <CarouselNext className="hidden md:flex -right-6 lg:-right-12 h-10 w-10 border-gray-200 bg-gray-50 text-gray-500 hover:bg-[#3A9AFF] hover:text-white hover:border-[#3A9AFF] transition-colors" />
           </Carousel>
+        </div>
+
+        <div className="md:hidden grid grid-cols-2 gap-2">
+          {
+            trendingProducts.map((product) => {
+              return (
+                <ProductCard key={product.id} product={product} />
+              )
+            })
+          }
         </div>
       </div>
     </section>
