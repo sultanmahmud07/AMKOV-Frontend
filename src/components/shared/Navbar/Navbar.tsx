@@ -11,6 +11,7 @@ import CartButton from "@/components/pages/Cart/CartButton";
 import MegaMenu from "./MegaMenu";
 import CategorySubmenu from "./CategorySubmenu";
 import ProductSubmenu from "./ProductSubmenu";
+import SearchBar from "./SearchBar";
 
 type Props = {
   accessToken?: string | null;
@@ -95,19 +96,7 @@ const Navbar = (props: Props) => {
         </div>
 
         {/* Search Bar - Desktop Only */}
-        <div className="hidden lg:flex flex-1 max-w-2xl border border-gray-300 rounded-full items-center pl-4 pr-1 h-12 focus-within:border-[#3A9AFF] transition-colors">
-          <button className="flex items-center gap-2 text-sm text-gray-600 font-medium whitespace-nowrap pr-4 border-r border-gray-300">
-            All Categories <ChevronDown size={16} />
-          </button>
-          <input
-            type="text"
-            placeholder="Search product here..."
-            className="flex-1 px-4 h-full outline-none text-sm bg-transparent"
-          />
-          <button className="h-10 w-10 flex items-center justify-center bg-transparent text-gray-500 hover:text-[#3A9AFF] transition">
-            <Search size={20} />
-          </button>
-        </div>
+        <SearchBar />
 
         {/* Action Icons - Desktop Only */}
         <div className="hidden lg:flex items-center gap-6 text-[#023047]">

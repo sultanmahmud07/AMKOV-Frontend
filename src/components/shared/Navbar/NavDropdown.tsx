@@ -88,10 +88,10 @@ export default function NavDropdown({ item, isMobile, onLinkClick }: Props) {
       </div>
 
       {/* Invisible bridge so mouse doesn't lose hover when moving down */}
-      <div className="absolute top-[100%] left-0 w-full h-4 bg-transparent z-40"></div>
+      <div className="absolute top-full left-0 w-full h-4 bg-transparent z-40"></div>
 
       {/* Desktop Dropdown Panel */}
-      <div className="absolute left-0 top-[100%] mt-2 hidden group-hover:flex flex-col bg-white shadow-lg border border-gray-100 rounded-md min-w-[200px] z-50 overflow-hidden py-2 transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+      <div className="absolute left-0 top-full mt-2 hidden group-hover:flex flex-col bg-white shadow-lg border border-gray-100 rounded-md min-w-[200px] z-50 overflow-hidden py-2 transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
         {item.subLinks.map((sub, i) => (
           <Link
             key={i}

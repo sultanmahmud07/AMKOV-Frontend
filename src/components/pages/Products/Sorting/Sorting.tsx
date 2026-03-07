@@ -6,7 +6,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { IoClose } from 'react-icons/io5';
 // import ProductFilterForMobileLoader from '@/components/Loaders/Products/ProductFilterForMobile';
 
-const limitData = ["09", "18", "27", "36", "45"]; // Adjusted to multiples of 3 for nice grid layouts
+const limitData = ["12", "24", "36", "48", "60"]; // Adjusted to multiples of 3 for nice grid layouts
 
 const Sorting = ({
   productsCount,
