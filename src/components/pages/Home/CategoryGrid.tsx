@@ -129,7 +129,7 @@ const CategoryGrid = () => {
                 
                 {/* Spinning Vector 'Focus Ring' */}
                 <svg 
-                  className="absolute inset-0 w-full h-full text-[#3A9AFF]/20 group-hover:text-[#3A9AFF]/80 transition-colors duration-500 transform group-hover:rotate-180 transition-transform ease-in-out duration-1000 scale-110" 
+                  className="absolute inset-0 w-full h-full text-[#3A9AFF]/20 group-hover:text-[#3A9AFF]/80 transition-colors duration-500 transform group-hover:rotate-180 ease-in-out scale-110" 
                   viewBox="0 0 100 100" 
                   fill="none"
                 >

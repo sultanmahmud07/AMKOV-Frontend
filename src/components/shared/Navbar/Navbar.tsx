@@ -12,7 +12,8 @@ import MegaMenu from "./MegaMenu";
 import CategorySubmenu from "./CategorySubmenu";
 import ProductSubmenu from "./ProductSubmenu";
 import SearchBar from "./SearchBar";
-
+import { AnimatePresence } from "framer-motion";
+import LoginModal from "@/components/auth/login-modal";
 type Props = {
   accessToken?: string | null;
   userInfo?: IUser | null;
@@ -21,6 +22,7 @@ type Props = {
 const Navbar = (props: Props) => {
   const [navToggle, setNavToggle] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const { accessToken, userInfo } = props;
 
   // Prevent background scrolling when mobile menu is open
@@ -103,9 +105,12 @@ const Navbar = (props: Props) => {
           {accessToken ? (
             <UserProfileMenu userInfo={userInfo} />
           ) : (
-            <NavLink href="/login" className="hover:text-[#3A9AFF] transition">
+            <button
+              onClick={() => setIsLoginModalOpen(true)}
+              className="hover:text-[#3A9AFF] transition cursor-pointer"
+            >
               <User size={24} strokeWidth={1.5} />
-            </NavLink>
+            </button>
           )}
 
           <Link href="/wishlist" className="relative hover:text-[#3A9AFF] transition">
@@ -239,6 +244,12 @@ const Navbar = (props: Props) => {
           </div>
         </div>
       </div>
+
+      <AnimatePresence>
+        {isLoginModalOpen && (
+          <LoginModal onClose={() => setIsLoginModalOpen(false)} />
+        )}
+      </AnimatePresence>
     </header>
   );
 };
