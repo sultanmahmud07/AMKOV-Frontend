@@ -10,7 +10,7 @@ const promoData = [
     id: 1,
     tagline: "BEST COLLECTION",
     title: "Explore The World \nWith 5K V-Log Cameras",
-    image: "/home/sub-banner-1.jpg", // Replace with your actual image path
+    image: "/home/sub-banner-3.jpg", // Replace with your actual image path
     link: "/shop/v-log-cameras",
     btnText: "SHOP NOW",
   },
@@ -18,7 +18,7 @@ const promoData = [
     id: 2,
     tagline: "TODAY'S BEST DEAL",
     title: "Underwater Mastery \n48MP Waterproof Gear",
-    image: "/home/sub-banner-2.jpg", // Replace with your actual image path
+    image: "/home/sub-banner-1.jpg", // Replace with your actual image path
     link: "/shop/waterproof-cameras",
     btnText: "SHOP NOW",
   },
