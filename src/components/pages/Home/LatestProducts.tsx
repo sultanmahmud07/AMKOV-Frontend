@@ -204,7 +204,7 @@ export default function LatestProducts() {
                   <div className="flex flex-col w-3/5 justify-between py-1">
 
                     <div>
-                      <Link href={`/product/${product.id}`}>
+                      <Link href={`/products/${product.id}`}>
                         <h3 className="text-sm font-semibold text-[#023047] line-clamp-2 hover:text-[#3A9AFF] transition-colors leading-snug h-10">
                           {product.name}
                         </h3>
@@ -278,7 +278,7 @@ export default function LatestProducts() {
                 <div className="flex flex-col w-3/5 justify-between py-1">
 
                   <div>
-                    <Link href={`/product/${product.id}`}>
+                    <Link href={`/products/${product.id}`}>
                       <h3 className="text-sm font-semibold text-[#023047] line-clamp-2 hover:text-[#3A9AFF] transition-colors leading-snug h-10">
                         {product.name}
                       </h3>

@@ -149,7 +149,12 @@ const Navbar = (props: Props) => {
                   className="flex items-center gap-1 text-sm font-bold text-[#023047] hover:text-[#3A9AFF] uppercase transition-colors duration-300 h-full"
                 >
                   {link.label}
-                  {link.hasDropdown && <ChevronDown size={14} />}
+        {link.hasDropdown && (
+          <ChevronDown 
+            size={14} 
+            className="transition-transform duration-300 group-hover:-rotate-180" 
+          />
+        )}
                 </NavLink>
 
                 {link.label === "CATEGORIES" && (
@@ -168,10 +173,10 @@ const Navbar = (props: Props) => {
             ))}
           </nav>
           {/* Today's Deal */}
-          <Link href="/download" className="flex items-center gap-2 text-sm font-bold text-green-600 hover:text-green-700 transition">
+          <NavLink href="/download" className="flex items-center gap-2 text-sm font-bold text-green-600 hover:text-green-700 transition">
             <span className="flex h-5 w-5 items-center justify-center bg-green-100 rounded-full"><Download size={14} className="text-green-600" /></span>
             Guid Download
-          </Link>
+          </NavLink>
         </div>
       </div>
 {/* ========================================= */}

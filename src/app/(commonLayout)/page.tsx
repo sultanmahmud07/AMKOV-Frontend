@@ -1,8 +1,8 @@
 
+import BannerSlider from "@/components/pages/Home/Banner";
 import CaptureAndCreate from "@/components/pages/Home/CaptureAndCreate";
 import CategoryGrid from "@/components/pages/Home/CategoryGrid";
 import CooperationMode from "@/components/pages/Home/CooperationMode";
-import Hero from "@/components/pages/Home/Hero";
 import LatestProducts from "@/components/pages/Home/LatestProducts";
 import PopularArticles from "@/components/pages/Home/PopularArticles";
 import PromoSection from "@/components/pages/Home/PromoSection";
@@ -13,7 +13,8 @@ import { Suspense } from "react";
 export default function Home() {
   return (
     <div>
-      <Hero />
+      {/* <Hero /> */}
+      <BannerSlider />
       <Suspense fallback={<p>Loading categories...</p>}>
         <CategoryGrid />
       </Suspense>

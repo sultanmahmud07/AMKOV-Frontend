@@ -55,7 +55,7 @@ export default function ProductInfoTabs() {
       {/* ========================================= */}
       {/* STICKY TOP MENU */}
       {/* ========================================= */}
-      <div className="sticky top-12 z-30 bg-white/90 backdrop-blur-md border-b border-gray-200">
+      <div className="sticky top-0 md:top-12 z-30 bg-white/90 backdrop-blur-md border-b border-gray-200">
         <div className="main-container">
           <ul className="flex items-center gap-8 text-sm md:text-base font-bold text-gray-500 overflow-x-auto no-scrollbar">
             <li>

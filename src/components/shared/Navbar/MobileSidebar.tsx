@@ -10,6 +10,10 @@ import {
       Package,
       Info,
       Phone,
+      House,
+      MessageSquareDot,
+      Download,
+      HandHelping,
 } from "lucide-react";
 import UserProfileMenu from "./UserProfileMenu"; // Adjust path if needed
 import Image from "next/image";
@@ -80,6 +84,34 @@ const MobileSidebar = ({ isOpen, onClose, accessToken, userInfo }: MobileSidebar
                               </button>
                         </div>
 
+                        {/* Footer / Auth Section */}
+                        {/* <div className="p-3">
+                              {!accessToken ? (
+                                    <div className="flex flex-col gap-3">
+                                          <div className="flex items-center gap-3 p-3 bg-[#F4F7F9] rounded-xl border border-gray-200">
+                                               
+                                          <UserProfileMenu userInfo={userInfo} />
+                                                <div className="flex flex-col">
+                                                      <span className="text-sm font-bold text-[#023047]">{userInfo?.name || "Welcome Back"}</span>
+                                                      <span className="text-xs font-medium text-gray-500">Manage Account</span>
+                                                </div>
+                                          </div>
+                                    </div>
+                              ) : (
+                                    <div className="flex gap-3">
+                                          <Link href="/login" onClick={onClose} className="flex-1">
+                                                <button className="w-full h-12 flex items-center justify-center bg-[#F4F7F9] text-[#023047] hover:bg-gray-200 font-bold rounded-xl transition-colors">
+                                                      Log In
+                                                </button>
+                                          </Link>
+                                          <Link href="/register" onClick={onClose} className="flex-1">
+                                                <button className="w-full h-12 flex items-center justify-center bg-[#023047] text-white hover:bg-[#3A9AFF] font-bold rounded-xl transition-colors shadow-sm">
+                                                      Register
+                                                </button>
+                                          </Link>
+                                    </div>
+                              )}
+                        </div> */}
                         {/* Scrollable Navigation Area */}
                         <div className="flex-1 overflow-y-auto custom-scrollbar p-5 space-y-2">
 
@@ -87,8 +119,9 @@ const MobileSidebar = ({ isOpen, onClose, accessToken, userInfo }: MobileSidebar
                               <Link
                                     href="/"
                                     onClick={onClose}
-                                    className="flex items-center text-base font-bold text-[#023047] p-3 rounded-xl hover:bg-[#F4F7F9] hover:text-[#3A9AFF] transition-colors"
+                                    className="flex items-center gap-3 text-base font-bold text-[#023047] p-3 rounded-xl hover:bg-[#F4F7F9] hover:text-[#3A9AFF] transition-colors"
                               >
+                                    <House size={18} className="text-gray-400" />
                                     Home
                               </Link>
 
@@ -168,45 +201,42 @@ const MobileSidebar = ({ isOpen, onClose, accessToken, userInfo }: MobileSidebar
 
                               {/* Static Link: Contact */}
                               <Link
+                                    href="/solution"
+                                    onClick={onClose}
+                                    className="flex items-center gap-3 text-base font-bold text-[#023047] p-3 rounded-xl hover:bg-[#F4F7F9] hover:text-[#3A9AFF] transition-colors"
+                              >
+                                    <MessageSquareDot size={18} className="text-gray-400" />
+                                    Solution
+                              </Link>
+                              {/* Static Link: Contact */}
+                              <Link
+                                    href="/download"
+                                    onClick={onClose}
+                                    className="flex items-center gap-3 text-base font-bold text-[#023047] p-3 rounded-xl hover:bg-[#F4F7F9] hover:text-[#3A9AFF] transition-colors"
+                              >
+                                    <Download size={18} className="text-gray-400" />
+                                    Download
+                              </Link>
+                              {/* Static Link: Contact */}
+                              <Link
+                                    href="/support"
+                                    onClick={onClose}
+                                    className="flex items-center gap-3 text-base font-bold text-[#023047] p-3 rounded-xl hover:bg-[#F4F7F9] hover:text-[#3A9AFF] transition-colors"
+                              >
+                                    <HandHelping size={18} className="text-gray-400" />
+                                    Support
+                              </Link>
+                              {/* Static Link: Contact */}
+                              <Link
                                     href="/contact"
                                     onClick={onClose}
                                     className="flex items-center gap-3 text-base font-bold text-[#023047] p-3 rounded-xl hover:bg-[#F4F7F9] hover:text-[#3A9AFF] transition-colors"
                               >
                                     <Phone size={18} className="text-gray-400" />
-                                    Support
+                                    Contact
                               </Link>
                         </div>
 
-                        {/* Footer / Auth Section */}
-                        <div className="p-5 border-t border-gray-100 bg-white shadow-[0_-4px_20px_rgba(0,0,0,0.02)]">
-                              {accessToken ? (
-                                    <div className="flex flex-col gap-3">
-                                          <div className="flex items-center gap-3 p-3 bg-[#F4F7F9] rounded-xl border border-gray-200">
-                                                <div className="w-10 h-10 bg-[#023047] rounded-full flex items-center justify-center text-white font-bold">
-                                                      {userInfo?.name ? userInfo.name.charAt(0) : "U"}
-                                                </div>
-                                                <div className="flex flex-col">
-                                                      <span className="text-sm font-bold text-[#023047]">{userInfo?.name || "Welcome Back"}</span>
-                                                      <span className="text-xs font-medium text-gray-500">Manage Account</span>
-                                                </div>
-                                          </div>
-                                          <UserProfileMenu userInfo={userInfo} />
-                                    </div>
-                              ) : (
-                                    <div className="flex gap-3">
-                                          <Link href="/login" onClick={onClose} className="flex-1">
-                                                <button className="w-full h-12 flex items-center justify-center bg-[#F4F7F9] text-[#023047] hover:bg-gray-200 font-bold rounded-xl transition-colors">
-                                                      Log In
-                                                </button>
-                                          </Link>
-                                          <Link href="/register" onClick={onClose} className="flex-1">
-                                                <button className="w-full h-12 flex items-center justify-center bg-[#023047] text-white hover:bg-[#3A9AFF] font-bold rounded-xl transition-colors shadow-sm">
-                                                      Register
-                                                </button>
-                                          </Link>
-                                    </div>
-                              )}
-                        </div>
 
                   </div>
             </>
