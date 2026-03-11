@@ -4,7 +4,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Slider from "react-slick";
 
@@ -103,23 +103,6 @@ const latestProducts = [
   },
 ];
 
-const RatingStars = ({ rating, reviews }: { rating: number; reviews: number }) => {
-  return (
-    <div className="flex items-center gap-1 mb-2 mt-1">
-      <div className="flex">
-        {[1, 2, 3, 4, 5].map((star) => (
-          <Star
-            key={star}
-            size={14}
-            className={`${star <= rating ? "fill-yellow-400 text-yellow-400" : "fill-gray-200 text-gray-200"
-              }`}
-          />
-        ))}
-      </div>
-      <span className="text-xs text-gray-500">({reviews})</span>
-    </div>
-  );
-};
 
 export default function LatestProducts() {
   const [mounted, setMounted] = useState(false);
