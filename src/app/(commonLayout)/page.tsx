@@ -13,7 +13,6 @@ import { Suspense } from "react";
 export default function Home() {
   return (
     <div>
-      {/* <Hero /> */}
       <BannerSlider />
       <Suspense fallback={<p>Loading categories...</p>}>
         <CategoryGrid />

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import React, { useState } from "react";
@@ -99,34 +100,6 @@ export default function ProductDetails({ slug }: { slug?: string }) {
               {product.title}
             </h1>
 
-            {/* Price & Rating */}
-            <div className="flex flex-wrap items-center gap-4 mb-6">
-              <div className="flex items-end gap-2">
-                <span className="text-gray-400 line-through text-lg">
-                  ${oldPrice.toFixed(2)}
-                </span>
-                <span className="text-3xl font-extrabold text-[#3A9AFF]">
-                  ${currentPrice.toFixed(2)}
-                </span>
-              </div>
-              <div className="h-6 w-px bg-gray-200 hidden sm:block"></div>
-              <div className="flex items-center gap-1 text-yellow-400">
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <Star
-                    key={star}
-                    size={16}
-                    className={
-                      star <= Math.floor(product.rating)
-                        ? "fill-current"
-                        : "text-gray-200 fill-current"
-                    }
-                  />
-                ))}
-                <span className="text-sm text-gray-500 ml-2">
-                  ({product.reviews} Reviews)
-                </span>
-              </div>
-            </div>
 
             {/* Bullet Points */}
             <ul className="space-y-2 mb-8 text-gray-600 text-sm md:text-base">
@@ -169,24 +142,6 @@ export default function ProductDetails({ slug }: { slug?: string }) {
                 ))}
               </div>
             </div>
-
-            {/* Stock & Delivery Notification */}
-            <div className="flex items-center gap-3 mb-6 bg-gray-50 p-4 rounded-xl border border-gray-100">
-              <div className="flex flex-col">
-                <div className="flex items-center gap-4 text-sm font-bold">
-                  <span className="text-green-600 bg-green-50 px-2 py-0.5 rounded text-xs flex items-center gap-1">
-                    <Check size={12} /> In Stock
-                  </span>
-                  <span className="text-red-500 bg-red-50 px-2 py-0.5 rounded text-xs">
-                    Save {discountPercent}%
-                  </span>
-                </div>
-                <span className="text-xs text-gray-500 mt-1">
-                  Est. Delivery Time: {product.deliveryTime}
-                </span>
-              </div>
-            </div>
-
             <ProductActions />
           </div>
         </div>

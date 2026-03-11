@@ -1,81 +1,91 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 
-const demoProducts = [
-      {
-            name: "5K V-Log Camera",
-            img: "/home/product/1.jpg",
-            price: "$200",
-      },
-      {
-            name: "Smart Watch Series 5",
-            img: "/home/product/4.jpg",
-            price: "$150",
-      },
-      {
-            name: "Action Cam Waterproof",
-            img: "/home/product/2.jpg",
-            price: "$170",
-      },
-      {
-            name: "Digital Zoom Camera",
-            img: "/home/product/3.jpg",
-            price: "$120",
-      },
+// Matching the exact items from your reference image
+const productCategories = [
+  {
+    name: "Optical Zoom Camera",
+    img: "/home/product/1.jpg", // Replace with your actual image paths
+    href: "/shop/optical-zoom",
+  },
+  {
+    name: "Digital Zoom Camera",
+    img: "/home/product/2.jpg",
+    href: "/shop/digital-zoom",
+  },
+  {
+    name: "V-Log Camera",
+    img: "/home/product/3.jpg",
+    href: "/shop/v-log",
+  },
+  {
+    name: "Video Camera",
+    img: "/home/product/4.jpg",
+    href: "/shop/video",
+  },
+  {
+    name: "Waterproof Camera",
+    img: "/home/product/5.jpg",
+    href: "/shop/waterproof",
+  },
+  {
+    name: "Instant Print Camera",
+    img: "/home/product/6.jpg",
+    href: "/shop/instant-print",
+  },
+  {
+    name: "Kids Camera",
+    img: "/home/product/7.jpg",
+    href: "/shop/kids",
+  },
+  {
+    name: "Kids Camera",
+    img: "/home/product/8.jpg",
+    href: "/shop/kids",
+  },
 ];
 
 const ProductSubmenu = () => {
-      return (
-            <div className="grid grid-cols-5 gap-10">
-
-                  {/* Links */}
-                  <div>
-                        <h4 className="font-bold text-[#023047] mb-4">
-                              Shop
-                        </h4>
-                        <ul className="space-y-2">
-                              <li><Link href="/products/new" className="text-sm text-gray-600 hover:text-[#3A9AFF]">New Arrivals</Link></li>
-                              <li><Link href="/products/best" className="text-sm text-gray-600 hover:text-[#3A9AFF]">Best Sellers</Link></li>
-                              <li><Link href="/products/trending" className="text-sm text-gray-600 hover:text-[#3A9AFF]">Trending</Link></li>
-                        </ul>
-                  </div>
-
-                  <div>
-                        <h4 className="font-bold text-[#023047] mb-4">
-                              Business
-                        </h4>
-                        <ul className="space-y-2">
-                              <li><Link href="/bulk" className="text-sm text-gray-600 hover:text-[#3A9AFF]">Bulk Orders</Link></li>
-                              <li><Link href="/oem" className="text-sm text-gray-600 hover:text-[#3A9AFF]">OEM</Link></li>
-                              <li><Link href="/rfq" className="text-sm text-gray-600 hover:text-[#3A9AFF]">Request Quote</Link></li>
-                        </ul>
-                  </div>
-
-                  {/* Product Grid */}
-                  <div className="col-span-3 grid grid-cols-4 gap-4">
-                        {demoProducts.map((item, i) => (
-                              <Link key={i} href="/products" className="group">
-                                    <div className="border rounded-lg p-3 hover:shadow-md transition text-center">
-                                          <Image
-                                                src={item.img}
-                                                alt={item.name}
-                                                width={100}
-                                                height={100}
-                                                className="h-24 mx-auto object-contain"
-                                          />
-                                          <p className="text-sm mt-2 text-[#023047] group-hover:text-[#3A9AFF]">
-                                                {item.name}
-                                          </p>
-                                          <span className="text-xs text-gray-500">
-                                                {item.price}
-                                          </span>
-                                    </div>
-                              </Link>
-                        ))}
-                  </div>
-
+  return (
+    // Removed opacity-0 so it shows up natively inside your MegaMenu wrapper
+    <div className="w-full py-5">
+      <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 md:gap-6 lg:gap-10">
+        
+        {productCategories.map((item, i) => (
+          <Link 
+            key={i} 
+            href={item.href} 
+            className="group "
+          >
+            {/* Image Container with Animation */}
+            <div className="relative aspect-square w-full  transition-all duration-500 ease-out group-hover:-translate-y-3 group-hover:scale-110">
+              {/* Added drop shadow that intensifies on hover */}
+              <div className="absolute w-full inset-0  transition-all duration-500">
+                <Image
+                  src={item.img}
+                  alt={item.name}
+                  fill
+                  className="h-full w-full"
+                  sizes="150px"
+                />
+              </div>
             </div>
-      );
+
+            {/* Text with Color Hover */}
+            <h6 className="text-sm text-center font-semibold text-gray-600  transition-colors duration-300">
+              {item.name}
+            </h6>
+
+            {/* Subtle animated underline dot indicator (Optional, adds a premium feel) */}
+            <span className="w-1 h-1 rounded-full bg-[#3A9AFF] mt-2 opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"></span>
+          </Link>
+        ))}
+
+      </div>
+    </div>
+  );
 };
 
 export default ProductSubmenu;

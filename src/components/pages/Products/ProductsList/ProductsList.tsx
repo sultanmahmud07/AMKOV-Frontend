@@ -1,8 +1,6 @@
 import getProductsByCategory from '@/lib/getProductsByCategory';
-import Sorting from '../Sorting/Sorting';
 import Pagination from './Pagination';
 import { BsSearch } from "react-icons/bs";
-import CategoryFilterWrapper from '../CategoryFilter/CategoryFilterWrapper';
 type ProductsProps = {
       searchParams?: { [key: string]: string | string[] | undefined };
 };
@@ -119,32 +117,7 @@ const trendingProducts: ProductType[] = [
     rating: 4,
     reviews: 3,
     image: "/home/product/4.jpg",
-  },
-  {
-    id: 5,
-    brand: "SmartShop",
-    name: "Premium Noise Cancelling Headphones",
-    price: 175.5,
-    originalPrice: 195.0,
-    rating: 4,
-    reviews: 3,
-    image: "/home/product/5.jpg",
-    badge: "-10%",
-    badgeColor: "bg-red-500",
-    hasTimer: true, // Mock UI for the timer shown in reference
-  },
-  {
-    id: 6,
-    brand: "Amkov",
-    name: "48MP Waterproof Action Camera",
-    price: 120.0,
-    originalPrice: 150.0,
-    rating: 5,
-    reviews: 12,
-    image: "/home/product/6.jpg",
-    badge: "HOT",
-    badgeColor: "bg-orange-500",
-  },
+  }
 
 ];
 
@@ -152,13 +125,13 @@ const ProductsList = async ({  searchParams }:ProductsProps) => {
     const allProducts = await getProductsByCategory(searchParams);
  
     return (
-        <div>
-            <Sorting productsCount={allProducts?.meta?.totalItems || 12}>
+        <div className="main-container py-3 md:py-5">
+            {/* <Sorting productsCount={allProducts?.meta?.totalItems || 12}>
                 <CategoryFilterWrapper></CategoryFilterWrapper> 
-            </Sorting>
+            </Sorting> */}
             {
                 trendingProducts?.length > 0 ?
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-3 py-2">
+                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-3 py-2">
                         {
                             trendingProducts.map((product:ProductType) => {
                                 return (

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Heart, Eye, Star, ShoppingCart } from "lucide-react";
+import { Eye, Star, Send } from "lucide-react";
 
 // Define the type based on your data structure
 export interface ProductType {
@@ -49,10 +49,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       {/* Action Buttons (Hover Reveal) */}
       <div className="absolute top-4 right-4 z-10 flex flex-col gap-2 translate-x-10 opacity-0 group-hover/card:translate-x-0 group-hover/card:opacity-100 transition-all duration-300">
         <button className="w-8 h-8 bg-white shadow-md rounded-full flex items-center justify-center text-gray-500 hover:bg-[#3A9AFF] hover:text-white transition-colors">
-          <Heart size={16} />
-        </button>
-        <button className="w-8 h-8 bg-white shadow-md rounded-full flex items-center justify-center text-gray-500 hover:bg-[#3A9AFF] hover:text-white transition-colors">
-          <ShoppingCart size={16} />
+          <Send size={16} />
         </button>
         <Link href={`/products/${"product-slug-here"}`} className="w-8 h-8 bg-white shadow-md rounded-full flex items-center justify-center text-gray-500 hover:bg-[#3A9AFF] hover:text-white transition-colors">
           <Eye size={16} />
@@ -90,31 +87,12 @@ export default function ProductCard({ product }: ProductCardProps) {
           </h3>
         </Link>
 
-        {/* Ratings */}
-        <div className="flex items-center gap-1 mb-1 md:mb-3">
-          <div className="flex gap-0.5">
-            {renderStars(product.rating)}
-          </div>
-          <span className="text-xs text-gray-400 ml-1">({product.reviews})</span>
-        </div>
-
         <div className="mt-auto">
-          {/* Pricing */}
-          <div className="flex items-center gap-2 mb-4">
-            {product.originalPrice && (
-              <span className="text-sm text-gray-400 line-through">
-                ${product.originalPrice.toFixed(2)}
-              </span>
-            )}
-            <span className="text-sm md:text-base font-bold text-[#3A9AFF]">
-              ${product.price.toFixed(2)}
-            </span>
-          </div>
 
           {/* Add to Cart Button */}
-          <button className="w-full bg-[#F4F5F7] hover:bg-[#3A9AFF] text-[#023047] hover:text-white text-xs font-bold py-2 md:py-3 px-4 rounded-full transition-all duration-300 flex items-center justify-center gap-2">
-            <span>ADD TO CART</span>
-          </button>
+          <Link href={`/products/${"product-slug-here"}`} className="w-full border border-primary/35 bg-[#F4F5F7] hover:bg-[#3A9AFF] text-[#023047] hover:text-white text-xs font-bold py-2 md:py-3 px-4 rounded-full transition-all duration-300 flex items-center justify-center gap-2">
+            <span>View More</span>
+          </Link>
         </div>
       </div>
     </div>

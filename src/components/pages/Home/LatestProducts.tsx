@@ -184,8 +184,8 @@ export default function LatestProducts() {
                   {/* Left Side: Image & Badge */}
                   <div className="relative w-2/5 shrink-0 flex items-center justify-center bg-gray-50/50 rounded-md p-2">
                     <div className="absolute top-2 left-2 z-10">
-                      <span className="bg-[#EF4444] text-white text-[10px] font-bold px-1.5 py-0.5 rounded-sm">
-                        {product.discount}
+                      <span className="bg-green-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-sm">
+                        New
                       </span>
                     </div>
 
@@ -203,23 +203,11 @@ export default function LatestProducts() {
                   {/* Right Side: Product Details */}
                   <div className="flex flex-col w-3/5 justify-between py-1">
 
-                    <div>
-                      <Link href={`/products/${product.id}`}>
+                   <Link href={`/products/${product.id}`}>
                         <h3 className="text-sm font-semibold text-[#023047] line-clamp-2 hover:text-[#3A9AFF] transition-colors leading-snug h-10">
                           {product.name}
                         </h3>
                       </Link>
-                      <RatingStars rating={product.rating} reviews={product.reviews} />
-                    </div>
-
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className="text-sm text-gray-400 line-through">
-                        ${product.oldPrice.toFixed(2)}
-                      </span>
-                      <span className="text-base font-bold text-[#3A9AFF]">
-                        ${product.newPrice.toFixed(2)}
-                      </span>
-                    </div>
 
                     <div className="flex items-center gap-1.5 mb-4">
                       <div className="flex flex-col items-center bg-gray-100/80 rounded px-1.5 py-1 min-w-8">
@@ -241,7 +229,7 @@ export default function LatestProducts() {
                     </div>
 
                     <Button className="w-full bg-[#3A9AFF] hover:bg-[#023047] text-white text-xs font-bold uppercase rounded-md h-7 transition-colors duration-300">
-                      Add To Cart
+                      View Details
                     </Button>
 
                   </div>
@@ -252,75 +240,63 @@ export default function LatestProducts() {
         </div>
         <div className="grid grid-cols-1 gap-3 md:hidden">
           {latestProducts.map((product) => (
-            <div key={product.id} className="px-3">
-              <div className="group flex flex-row bg-white border border-gray-200 hover:border-[#3A9AFF] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-300 rounded-lg p-4 gap-2 h-full">
+            <div key={product.id} className="px-3 pb-8 pt-2">
+                <div className="group flex flex-row bg-white border border-gray-200 hover:border-[#3A9AFF] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-300 rounded-lg p-4 gap-2 h-full">
 
-                {/* Left Side: Image & Badge */}
-                <div className="relative w-2/5 shrink-0 flex items-center justify-center bg-gray-50/50 rounded-md p-2">
-                  <div className="absolute top-2 left-2 z-10">
-                    <span className="bg-[#EF4444] text-white text-[10px] font-bold px-1.5 py-0.5 rounded-sm">
-                      {product.discount}
-                    </span>
-                  </div>
-
-                  <div className="relative w-full aspect-square">
-                    <Image
-                      src={product.image}
-                      alt={product.name}
-                      fill
-                      className="object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-500"
-                      sizes="(max-width: 768px) 40vw, 15vw"
-                    />
-                  </div>
-                </div>
-
-                {/* Right Side: Product Details */}
-                <div className="flex flex-col w-3/5 justify-between py-1">
-
-                  <div>
-                    <Link href={`/products/${product.id}`}>
-                      <h3 className="text-sm font-semibold text-[#023047] line-clamp-2 hover:text-[#3A9AFF] transition-colors leading-snug h-10">
-                        {product.name}
-                      </h3>
-                    </Link>
-                    <RatingStars rating={product.rating} reviews={product.reviews} />
-                  </div>
-
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-sm text-gray-400 line-through">
-                      ${product.oldPrice.toFixed(2)}
-                    </span>
-                    <span className="text-base font-bold text-[#3A9AFF]">
-                      ${product.newPrice.toFixed(2)}
-                    </span>
-                  </div>
-
-                  <div className="flex items-center gap-1.5 mb-4">
-                    <div className="flex flex-col items-center bg-gray-100/80 rounded px-1.5 py-1 min-w-8">
-                      <span className="text-xs font-bold text-[#023047] leading-none mb-0.5">{product.timeLeft.days}</span>
-                      <span className="text-[8px] text-gray-500 uppercase leading-none">Days</span>
+                  {/* Left Side: Image & Badge */}
+                  <div className="relative w-2/5 shrink-0 flex items-center justify-center bg-gray-50/50 rounded-md p-2">
+                    <div className="absolute top-2 left-2 z-10">
+                      <span className="bg-green-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-sm">
+                        New
+                      </span>
                     </div>
-                    <div className="flex flex-col items-center bg-gray-100/80 rounded px-1.5 py-1 min-w-8">
-                      <span className="text-xs font-bold text-[#023047] leading-none mb-0.5">{product.timeLeft.hours}</span>
-                      <span className="text-[8px] text-gray-500 uppercase leading-none">Hrs</span>
-                    </div>
-                    <div className="flex flex-col items-center bg-gray-100/80 rounded px-1.5 py-1 min-w-8">
-                      <span className="text-xs font-bold text-[#023047] leading-none mb-0.5">{product.timeLeft.minutes}</span>
-                      <span className="text-[8px] text-gray-500 uppercase leading-none">Min</span>
-                    </div>
-                    <div className="flex flex-col items-center bg-red-50 rounded px-1.5 py-1 min-w-8">
-                      <span className="text-xs font-bold text-[#EF4444] leading-none mb-0.5">{product.timeLeft.seconds}</span>
-                      <span className="text-[8px] text-[#EF4444] uppercase leading-none">Sec</span>
+
+                    <div className="relative w-full aspect-square">
+                      <Image
+                        src={product.image}
+                        alt={product.name}
+                        fill
+                        className="object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-500"
+                        sizes="(max-width: 768px) 40vw, 15vw"
+                      />
                     </div>
                   </div>
 
-                  <Button className="w-full bg-[#3A9AFF] hover:bg-[#023047] text-white text-xs font-bold uppercase rounded-md h-7 transition-colors duration-300">
-                    Add To Cart
-                  </Button>
+                  {/* Right Side: Product Details */}
+                  <div className="flex flex-col w-3/5 justify-between py-1">
 
+                   <Link href={`/products/${product.id}`}>
+                        <h3 className="text-sm font-semibold text-[#023047] line-clamp-2 hover:text-[#3A9AFF] transition-colors leading-snug h-10">
+                          {product.name}
+                        </h3>
+                      </Link>
+
+                    <div className="flex items-center gap-1.5 mb-4">
+                      <div className="flex flex-col items-center bg-gray-100/80 rounded px-1.5 py-1 min-w-8">
+                        <span className="text-xs font-bold text-[#023047] leading-none mb-0.5">{product.timeLeft.days}</span>
+                        <span className="text-[8px] text-gray-500 uppercase leading-none">Days</span>
+                      </div>
+                      <div className="flex flex-col items-center bg-gray-100/80 rounded px-1.5 py-1 min-w-8">
+                        <span className="text-xs font-bold text-[#023047] leading-none mb-0.5">{product.timeLeft.hours}</span>
+                        <span className="text-[8px] text-gray-500 uppercase leading-none">Hrs</span>
+                      </div>
+                      <div className="flex flex-col items-center bg-gray-100/80 rounded px-1.5 py-1 min-w-8">
+                        <span className="text-xs font-bold text-[#023047] leading-none mb-0.5">{product.timeLeft.minutes}</span>
+                        <span className="text-[8px] text-gray-500 uppercase leading-none">Min</span>
+                      </div>
+                      <div className="flex flex-col items-center bg-red-50 rounded px-1.5 py-1 min-w-8">
+                        <span className="text-xs font-bold text-[#EF4444] leading-none mb-0.5">{product.timeLeft.seconds}</span>
+                        <span className="text-[8px] text-[#EF4444] uppercase leading-none">Sec</span>
+                      </div>
+                    </div>
+
+                    <Button className="w-full bg-[#3A9AFF] hover:bg-[#023047] text-white text-xs font-bold uppercase rounded-md h-7 transition-colors duration-300">
+                      View Details
+                    </Button>
+
+                  </div>
                 </div>
               </div>
-            </div>
           ))}
         </div>
       </div>

@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import ProductInquiry from "./ProductInquiry";
 
 // Mock data tailored for an AMKOV Camera
 const productSpecs = {
@@ -55,7 +56,7 @@ export default function ProductInfoTabs() {
       {/* ========================================= */}
       {/* STICKY TOP MENU */}
       {/* ========================================= */}
-      <div className="sticky top-0 md:top-12 z-30 bg-white/90 backdrop-blur-md border-b border-gray-200">
+      <div className="sticky top-0 md:top-20 z-30 bg-white/90 backdrop-blur-md border-b border-gray-200">
         <div className="main-container">
           <ul className="flex items-center gap-8 text-sm md:text-base font-bold text-gray-500 overflow-x-auto no-scrollbar">
             <li>
@@ -93,25 +94,25 @@ export default function ProductInfoTabs() {
             </li>
             <li>
               <button
-                onClick={() => scrollToSection("reviews")}
-                className={`py-4 border-b-[3px] transition-colors whitespace-nowrap ${activeTab === "reviews"
+                onClick={() => scrollToSection("inquiry")}
+                className={`py-4 border-b-[3px] transition-colors whitespace-nowrap ${activeTab === "inquiry"
                   ? "border-[#3A9AFF] text-[#023047]"
                   : "border-transparent hover:text-[#023047]"
                   }`}
               >
-                Reviews
+                Inquiry
               </button>
             </li>
           </ul>
         </div>
       </div>
 
-      <div className="main-container  pt-8 lg:pt-12">
+      <div className="main-container ">
 
         {/* ========================================= */}
         {/* DESCRIPTION SECTION */}
         {/* ========================================= */}
-        <div id="description" className="scroll-mt-24 mb-16">
+        <div id="description" className="scroll-mt-24 pt-5 md:pt-16">
           <h2 className="text-2xl font-bold text-[#023047] mb-4">Product Highlights</h2>
           <p className="text-gray-600 leading-relaxed mb-8">
             Embrace a bold, high-tech aesthetic with the AMKOV 5K V-Log Camera. Designed specifically for content creators, it captures life in stunning Ultra-HD. Whether you are filming a bustling city street at night, capturing wide-angle travel shots, or recording intimate studio tutorials, this camera delivers uncompromised clarity and color depth. The intuitive interface ensures that both beginners and seasoned pros can start shooting immediately.
@@ -146,7 +147,7 @@ export default function ProductInfoTabs() {
         {/* ========================================= */}
         {/* SPECIFICATIONS SECTION */}
         {/* ========================================= */}
-        <div id="specifications" className="scroll-mt-24">
+        <div id="specifications" className="scroll-mt-24 pt-5 md:pt-16">
 
           <div className="border border-gray-200 rounded-xl overflow-hidden">
 
@@ -195,15 +196,18 @@ export default function ProductInfoTabs() {
         {/* ========================================= */}
         {/* More Information SECTION */}
         {/* ========================================= */}
-        <div id="more_info" className="scroll-mt-24 mt-6 md:mt-8">
-          <h2 className="text-xl md:text-2xl font-bold text-[#023047] my-4">Product Features</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div id="more_info" className="scroll-mt-24 pt-6 md:pt-14">
+          {/* <h2 className="text-xl md:text-2xl font-bold text-[#023047] my-4">Product Features</h2> */}
+          <div className="grid grid-cols-1 md:max-w-5xl mx-auto gap-6">
             <Image src="/temp/con-1.jpg" alt="More Information" width={800} height={400} className="rounded-xl w-full object-cover" />
             <Image src="/temp/con-2.jpg" alt="More Information" width={800} height={400} className="rounded-xl w-full object-cover" />
             <Image src="/temp/con-1.jpg" alt="More Information" width={800} height={400} className="rounded-xl w-full object-cover" />
           </div>
         </div>
-
+    {/* ========================================= */}
+        {/* INQUIRY SECTION */}
+        {/* ========================================= */}
+        <ProductInquiry />
       </div>
     </div>
   );

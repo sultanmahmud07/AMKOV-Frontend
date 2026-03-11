@@ -6,6 +6,9 @@ import ProductsList from "./ProductsList/ProductsList";
 import ProductFilterLoader from "@/components/loaders/Products/ProductFilter";
 import Link from "next/link";
 import ProductRightLoader from "@/components/loaders/Products/ProductsRight";
+import ProductBanner from "./ProductBanner";
+import CategoryMenubar from "./CategoryMenubar";
+import ProductsLoader from "@/components/loaders/Products/ProductsLoader";
 
 type ProductsProps = {
       searchParams?: { [key: string]: string | string[] | undefined };
@@ -16,7 +19,14 @@ const Products = ({ searchParams }: ProductsProps) => {
 
       return (
             <div className="">
-                  <div className="main-container pt-3 text-[#1F1C1466] text-sm font-semibold flex items-center gap-1">
+                  <ProductBanner />
+                  <CategoryMenubar />
+                  <Suspense fallback={<ProductsLoader />}>
+                        <ProductsList
+                              searchParams={searchParams}
+                        ></ProductsList>
+                  </Suspense>
+                  {/* <div className="main-container pt-3 text-[#1F1C1466] text-sm font-semibold flex items-center gap-1">
                         <span className="text-xl"><GoHome /></span>
                         <Link href={`/`} className="hover:text-primary">Home</Link>
                         <span><IoIosArrowForward /></span>
@@ -35,7 +45,7 @@ const Products = ({ searchParams }: ProductsProps) => {
                                     ></ProductsList>
                               </Suspense>
                         </div>
-                  </div>
+                  </div> */}
             </div>
       )
 }

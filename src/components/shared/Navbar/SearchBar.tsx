@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import { ChevronDown, Search, X } from 'lucide-react';
+import { CheckCheck, ChevronDown, Search, X } from 'lucide-react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -117,7 +117,7 @@ const SearchBar = () => {
       {/* ========================================= */}
       {/* SEARCH BAR COMPONENT */}
       {/* ========================================= */}
-      <div ref={wrapperRef} className="hidden lg:flex flex-1 max-w-2xl relative z-50">
+      <div ref={wrapperRef} className="flex flex-1 max-w-2xl relative z-50">
         
         {/* Input Container */}
         <div className={`w-full flex items-center bg-white h-12 transition-all duration-300 pl-4 pr-1 ${
@@ -129,9 +129,9 @@ const SearchBar = () => {
           {/* Category Dropdown (Static for UI matching) */}
           <button 
             type="button"
-            className="flex items-center gap-2 text-sm text-gray-600 font-medium whitespace-nowrap pr-4 border-r border-gray-200 hover:text-[#3A9AFF] transition-colors"
+            className="hidden md:flex items-center gap-2 text-sm text-gray-600 font-medium whitespace-nowrap pr-4 border-r border-gray-200 hover:text-[#3A9AFF] transition-colors"
           >
-            All Categories <ChevronDown size={16} />
+            All Categories <CheckCheck size={16} />
           </button>
 
           {/* Text Input */}

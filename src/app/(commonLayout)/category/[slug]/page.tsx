@@ -1,9 +1,13 @@
 
 import ProductDetailLoader from "@/components/loaders/Products/ProductDetailLoader";
+import ProductsLoader from "@/components/loaders/Products/ProductsLoader";
+import CategoryMenubar from "@/components/pages/Products/CategoryMenubar";
+import ProductBanner from "@/components/pages/Products/ProductBanner";
 import ProductDetails from "@/components/pages/Products/ProductDetails/ProductDetails";
 import ProductInfoTabs from "@/components/pages/Products/ProductDetails/ProductInfoTabs";
 import ProductReviewSection from "@/components/pages/Products/ProductDetails/ProductReviewSection";
 import RelatedProducts from "@/components/pages/Products/ProductDetails/RelatedProducts";
+import ProductsList from "@/components/pages/Products/ProductsList/ProductsList";
 import { IParams } from "@/types/index.interface";
 import { Suspense } from "react";
 
@@ -35,13 +39,16 @@ import { Suspense } from "react";
 const page = async ({ params }: IParams) => {
   // const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
   // await delay(5 * 60 * 1000);
- const slug = (await params).slug
+  const slug = (await params).slug
+  const searchParams = { slug }
   return (
     <div>
-      <Suspense key={slug} fallback={<ProductDetailLoader></ProductDetailLoader>}>
-        <ProductDetails slug={slug}></ProductDetails>
-        <ProductInfoTabs></ProductInfoTabs>
-        <RelatedProducts />
+      <ProductBanner />
+      <CategoryMenubar />
+      <Suspense fallback={<ProductsLoader />}>
+        <ProductsList
+          searchParams={searchParams}
+        ></ProductsList>
       </Suspense>
 
     </div>
