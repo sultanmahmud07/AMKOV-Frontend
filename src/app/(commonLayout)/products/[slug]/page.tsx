@@ -2,7 +2,6 @@
 import ProductDetailLoader from "@/components/loaders/Products/ProductDetailLoader";
 import ProductDetails from "@/components/pages/Products/ProductDetails/ProductDetails";
 import ProductInfoTabs from "@/components/pages/Products/ProductDetails/ProductInfoTabs";
-import ProductReviewSection from "@/components/pages/Products/ProductDetails/ProductReviewSection";
 import RelatedProducts from "@/components/pages/Products/ProductDetails/RelatedProducts";
 import { IParams } from "@/types/index.interface";
 import { Suspense } from "react";

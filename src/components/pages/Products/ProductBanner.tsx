@@ -40,9 +40,9 @@ export default function ProductBanner({
       {/* 2. CINEMATIC GRADIENT OVERLAYS */}
       {/* ========================================= */}
       {/* Darkens the edges so the text stays readable */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/20 to-black/80 z-0" />
+      <div className="absolute inset-0 bg-linear-to-r from-black/80 via-black/20 to-black/80 z-0" />
       {/* Deep blue blend at the bottom to match the brand color */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#023047]/80 via-transparent to-black/40 z-0" />
+      <div className="absolute inset-0 bg-linear-to-t from-[#023047]/80 via-transparent to-black/40 z-0" />
 
       {/* ========================================= */}
       {/* 3. CENTERED TEXT CONTENT */}
