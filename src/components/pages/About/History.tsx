@@ -81,7 +81,7 @@ export default function History() {
           priority
         />
       </motion.div>
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/70 to-[#F8FAFC] z-10 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-linear-to-b from-transparent via-white/70 to-[#F8FAFC] z-10 pointer-events-none"></div>
 
       <div className="main-container relative z-20 flex flex-col items-center">
         
@@ -198,7 +198,7 @@ export default function History() {
             >
               
               {/* Abstract Vector Accent inside the card */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-[#3A9AFF]/10 to-transparent rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+              <div className="absolute top-0 right-0 w-64 h-64 bg-linear-to-br from-[#3A9AFF]/10 to-transparent rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
 
               {/* Left Side: Image */}
               <div className="w-full lg:w-5/12 relative aspect-video lg:aspect-auto shrink-0 bg-gray-100 p-2">
