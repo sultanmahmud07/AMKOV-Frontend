@@ -8,42 +8,42 @@ const productCategories = [
   {
     name: "Optical Zoom Camera",
     img: "/home/product/1.jpg", // Replace with your actual image paths
-    href: "/shop/optical-zoom",
+    href: "/products/optical-zoom",
   },
   {
     name: "Digital Zoom Camera",
     img: "/home/product/2.jpg",
-    href: "/shop/digital-zoom",
+    href: "/products/digital-zoom",
   },
   {
     name: "V-Log Camera",
     img: "/home/product/3.jpg",
-    href: "/shop/v-log",
+    href: "/products/v-log",
   },
   {
     name: "Video Camera",
     img: "/home/product/4.jpg",
-    href: "/shop/video",
+    href: "/products/video",
   },
   {
     name: "Waterproof Camera",
     img: "/home/product/5.jpg",
-    href: "/shop/waterproof",
+    href: "/products/waterproof",
   },
   {
     name: "Instant Print Camera",
     img: "/home/product/6.jpg",
-    href: "/shop/instant-print",
+    href: "/products/instant-print",
   },
   {
     name: "Kids Camera",
     img: "/home/product/7.jpg",
-    href: "/shop/kids",
+    href: "/products/kids",
   },
   {
     name: "Kids Camera",
     img: "/home/product/8.jpg",
-    href: "/shop/kids",
+    href: "/products/kids",
   },
 ];
 

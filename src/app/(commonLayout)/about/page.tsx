@@ -3,8 +3,8 @@ import AboutBanner from '@/components/pages/About/AboutBanner';
 import Certification from '@/components/pages/About/Certification';
 import History from '@/components/pages/About/History';
 import Culture from '@/components/pages/About/Culture';
-import RAndDManufacturing from '@/components/pages/About/RAndDManufacturing';
 import Company from '@/components/pages/About/Company';
+import FactoryImages from '@/components/pages/About/FactoryImages';
 
 export const metadata: Metadata = {
   title: "About | Our Mission to Connect the World",
@@ -27,7 +27,7 @@ const AboutPage = () => {
       <Company />
       <History />
       <Culture />
-      <RAndDManufacturing />
+      <FactoryImages />
       <Certification />
     </div>
   );

@@ -121,9 +121,9 @@ export default function Company() {
               <Image 
                 src="/about/about-company.jpg" // Placeholder - replace with actual image URL
                 alt="AMKOV Headquarters"
-                fill
-                className="object-cover transition-transform duration-1000 group-hover:scale-105"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                width={800}
+                height={600}
+                className=" w-full transition-transform duration-1000 group-hover:scale-105"
               />
               
               {/* Subtle Overlay to make the image look premium */}
