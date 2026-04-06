@@ -65,15 +65,6 @@ const ContactForm = () => {
 
       {/* Company & Email Row */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="space-y-2">
-          <label className="text-sm font-bold text-gray-700">Company Name *</label>
-          <input
-            placeholder="e.g. Tech Retailers Inc."
-            className={`w-full px-4 py-3 rounded-xl border bg-gray-50 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#3A9AFF] transition-all ${errors.companyName ? 'border-red-500' : 'border-gray-200 focus:border-[#3A9AFF]'}`}
-            {...register("companyName", { required: true })}
-          />
-           {errors.companyName && <span className="text-xs text-red-500 font-medium">Company Name is required</span>}
-        </div>
 
         <div className="space-y-2">
           <label className="text-sm font-bold text-gray-700">Business Email *</label>
@@ -85,11 +76,7 @@ const ContactForm = () => {
           />
           {errors.email && <span className="text-xs text-red-500 font-medium">Email is required</span>}
         </div>
-      </div>
-
-      {/* Phone & Subject Row */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="space-y-2">
+         <div className="space-y-2">
           <label className="text-sm font-bold text-gray-700">Phone Number</label>
           <input
             type="tel"
@@ -98,6 +85,20 @@ const ContactForm = () => {
             {...register("phone")}
           />
         </div>
+      </div>
+
+      {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <div className="space-y-2">
+          <label className="text-sm font-bold text-gray-700">Company Name *</label>
+          <input
+            placeholder="e.g. Tech Retailers Inc."
+            className={`w-full px-4 py-3 rounded-xl border bg-gray-50 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#3A9AFF] transition-all ${errors.companyName ? 'border-red-500' : 'border-gray-200 focus:border-[#3A9AFF]'}`}
+            {...register("companyName", { required: true })}
+          />
+           {errors.companyName && <span className="text-xs text-red-500 font-medium">Company Name is required</span>}
+        </div>
+       
 
         <div className="space-y-2">
           <label className="text-sm font-bold text-gray-700">Inquiry Type</label>
@@ -111,11 +112,11 @@ const ContactForm = () => {
             <option value="General Corporate Inquiry">General Corporate Inquiry</option>
           </select>
         </div>
-      </div>
+      </div> */}
 
       {/* Message Area */}
       <div className="space-y-2">
-        <label className="text-sm font-bold text-gray-700">Project Details / Message *</label>
+        <label className="text-sm font-bold text-gray-700">Message *</label>
         <textarea
           placeholder="Please describe your volume requirements, customization needs, or general inquiry..."
           className={`w-full px-4 py-3 rounded-xl border bg-gray-50 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#3A9AFF] transition-all min-h-40 resize-none ${errors.message ? 'border-red-500' : 'border-gray-200 focus:border-[#3A9AFF]'}`}
