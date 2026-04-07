@@ -57,8 +57,8 @@ const Navbar = (props: Props) => {
   const navigationLinks = [
     { href: "/", label: "HOME", role: "PUBLIC" },
     { href: "/products", label: "PRODUCTS", role: "PUBLIC", hasDropdown: true },
-    { href: "/solution", label: "Solution", role: "PUBLIC", hasDropdown: false  },
-    { href: "/about", label: "About", role: "PUBLIC", hasDropdown: false  },
+    { href: "/solution", label: "Solution", role: "PUBLIC", hasDropdown: false },
+    { href: "/about", label: "About", role: "PUBLIC", hasDropdown: false },
     { href: "/download", label: "Download", role: "PUBLIC" },
     { href: "/news", label: "News", role: "PUBLIC" },
     { href: "/contact", label: "Contact", role: "PUBLIC", badge: "24/7" },
@@ -94,8 +94,8 @@ const Navbar = (props: Props) => {
 
       <div
         className={`w-full bg-white transition-all duration-300 border-b border-gray-100 ${isSticky
-            ? "fixed top-0 left-0 right-0 z-50 shadow-md animate-in slide-in-from-top-2"
-            : "relative z-40 shadow-sm"
+          ? "fixed top-0 left-0 right-0 z-50 shadow-md animate-in slide-in-from-top-2"
+          : "relative z-40 shadow-sm"
           }`}
       >
         <div className="main-container py-5 flex justify-between items-center gap-8">
@@ -135,7 +135,7 @@ const Navbar = (props: Props) => {
                       <ProductSubmenu />
                     </MegaMenu>
                   )}
-                   {link.label === "Solution" && (
+                  {link.label === "Solution" && (
                     <MegaMenu>
                       <SolutionSubmenu />
                     </MegaMenu>
@@ -156,7 +156,7 @@ const Navbar = (props: Props) => {
               onClick={() => setIsSearchOpen(!isSearchOpen)}
               className="search-button cursor-pointer hover:text-[#3A9AFF] transition"
             >
-              {isSearchOpen ? <X size={24} strokeWidth={1.5} /> : <Search size={24} strokeWidth={1.5} />}
+              {isSearchOpen ? <Search size={24} strokeWidth={1.5} className="text-primary" /> : <Search size={24} strokeWidth={1.5} />}
             </button>
             {accessToken ? (
               <UserProfileMenu userInfo={userInfo} />
@@ -205,9 +205,15 @@ const Navbar = (props: Props) => {
               transition={{ duration: 0.3, ease: "easeInOut" }}
               className="absolute top-full left-0 w-full bg-white shadow-xl  border-t border-gray-100 z-40"
             >
-              <div className="main-container flex items-center justify-center py-6">
+              <div className="main-container flex items-center justify-center gap-4 py-4">
                 {/* Pass onClose if your SearchBar accepts it to close the menu on submit */}
                 <SearchBar />
+                <button
+                  onClick={() => setIsSearchOpen(!isSearchOpen)}
+                  className="search-button cursor-pointer hover:text-[#3A9AFF] transition"
+                >
+                  {isSearchOpen ? <X size={24} strokeWidth={1.5} /> : <Search size={24} strokeWidth={1.5} />}
+                </button>
               </div>
             </motion.div>
           )}

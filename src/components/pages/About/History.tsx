@@ -235,31 +235,6 @@ export default function History() {
 
       </div>
 
-      {/* ========================================= */}
-      {/* 5. SCROLL DOWN INDICATOR */}
-      {/* ========================================= */}
-      <motion.div 
-        animate={{ y: [0, 8, 0] }}
-        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center text-gray-400 z-20"
-      >
-        <span className="text-[10px] font-bold uppercase tracking-widest mb-1 text-gray-400">Scroll</span>
-        <MousePointer2 size={16} className="mb-1" />
-        <ChevronDown size={14} className="opacity-50" />
-      </motion.div>
-
-      {/* Tailwind CSS adjustments for scrollbars */}
-      <style dangerouslySetInnerHTML={{__html: `
-        /* Hide scrollbar for the horizontal timeline */
-        .scrollbar-hide::-webkit-scrollbar { display: none; }
-        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-
-        /* Elegant thin scrollbar for the long text content */
-        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
-        .custom-scrollbar::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 4px; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #3A9AFF; }
-      `}} />
     </section>
   );
 }

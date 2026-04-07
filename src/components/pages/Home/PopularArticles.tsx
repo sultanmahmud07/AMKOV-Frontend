@@ -21,14 +21,14 @@ const articles: Article[] = [
     title: "10 Essential Tips for Vlogging in Low Light Environments",
     category: "Tutorials",
     image: "https://images.unsplash.com/photo-1551636898-47668aa61de2?q=80&w=800&auto=format&fit=crop",
-    href: "/blog/vlogging-low-light",
+    href: "/news/vlogging-low-light",
   },
   {
     id: "optical-digital-zoom",
     title: "Optical vs. Digital Zoom: Which Camera Gear is Right for You?",
     category: "Gear Guide",
     image: "https://images.unsplash.com/photo-1519183071298-a2962feb14f4?q=80&w=800&auto=format&fit=crop",
-    href: "/blog/optical-vs-digital-zoom",
+    href: "/news/optical-vs-digital-zoom",
   },
   {
     id: "landscape-photography",
@@ -36,7 +36,7 @@ const articles: Article[] = [
     category: "Tips & Tricks",
     // Replaced 3rd image with a high-quality landscape/adventure photography shot
     image: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=800&auto=format&fit=crop",
-    href: "/blog/landscape-photography",
+    href: "/news/landscape-photography",
   },
 ];
 

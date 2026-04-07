@@ -38,7 +38,7 @@ export default function CooperationMode() {
             <span className="w-2 h-2 rounded-full bg-[#3A9AFF] animate-pulse"></span>
             Partnership
           </div>
-          <h2 className="text-4xl lg:text-5xl font-extrabold text-[#023047] tracking-tight mb-4">
+          <h2 className="text-3xl lg:text-5xl font-extrabold text-[#023047] tracking-tight mb-4">
             Cooperation Mode
           </h2>
           <p className="text-lg text-gray-500">

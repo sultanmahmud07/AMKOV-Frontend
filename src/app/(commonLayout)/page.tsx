@@ -1,9 +1,9 @@
 
+import AboutHero from "@/components/pages/Home/AboutHero";
 import BannerSlider from "@/components/pages/Home/Banner";
 import CaptureAndCreate from "@/components/pages/Home/CaptureAndCreate";
 import CategoryGrid from "@/components/pages/Home/CategoryGrid";
 import CooperationMode from "@/components/pages/Home/CooperationMode";
-import LatestProducts from "@/components/pages/Home/LatestProducts";
 import PopularArticles from "@/components/pages/Home/PopularArticles";
 import PromoSection from "@/components/pages/Home/PromoSection";
 import ServiceFeatures from "@/components/pages/Home/ServiceFeatures";
@@ -14,18 +14,15 @@ export default function Home() {
   return (
     <div>
       <BannerSlider />
-      <Suspense fallback={<p>Loading categories...</p>}>
-        <CategoryGrid />
-      </Suspense>
-      <PromoSection />
       <Suspense fallback={<p>Loading trending products...</p>}>
         <TrendingProducts />
       </Suspense>
-      <Suspense fallback={<p>Loading latest products...</p>}>
-        <LatestProducts />
+      <PromoSection />
+      <Suspense fallback={<p>Loading categories...</p>}>
+        <CategoryGrid />
       </Suspense>
-      {/* <FaqSection /> */}
       <CaptureAndCreate />
+      <AboutHero />
       <CooperationMode />
       {/* <Suspense fallback={<div>Loading Reviews...</div>}>
         <ProductReviews />
