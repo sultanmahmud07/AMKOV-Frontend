@@ -7,6 +7,7 @@ import { Toaster } from "sonner";
 import { Suspense } from "react";
 import NextTopLoader from 'nextjs-toploader';
 import MobileNavbar from "@/components/shared/Navbar/BottomNavbar";
+import SocialIcons from "@/components/shared/SocialIcons";
 const geistOswald = Oswald({
   variable: "--font-geist-oswald",
   subsets: ["latin"],
@@ -79,7 +80,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistOswald.variable} ${geistMono.variable} antialiased`}
+        className={`${geistOswald.variable} ${geistMono.variable} antialiased relative`}
       >
         <NextTopLoader
           color="#023047"
@@ -87,6 +88,7 @@ export default function RootLayout({
         />
         {children}
         <MobileNavbar />
+        <SocialIcons />
         <Toaster position="bottom-right" richColors />
         <Suspense fallback={null}>
           <LoginSuccessToast />

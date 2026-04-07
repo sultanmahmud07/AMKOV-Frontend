@@ -27,7 +27,7 @@ const itemVariants = {
 
 export default function Company() {
   return (
-    <section className="py-16 lg:py-28 bg-white overflow-hidden">
+    <section id="company" className="py-16 lg:py-28 bg-white overflow-hidden">
       <div className="main-container mx-auto">
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">

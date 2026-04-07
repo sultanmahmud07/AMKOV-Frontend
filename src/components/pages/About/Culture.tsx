@@ -54,7 +54,7 @@ export default function Culture() {
   const [active, setActive] = useState<number>(0);
 
   return (
-    <section className="py-10 lg:py-20 bg-white overflow-hidden">
+    <section id="culture" className="py-10 lg:py-20 bg-white overflow-hidden">
       <div className="main-container">
         
         {/* Section Header */}

@@ -34,7 +34,7 @@ const certificates = [
 
 export default function Certification() {
   return (
-    <section className="py-8 md:py-20 bg-[#F8FAFC] text-center relative overflow-hidden">
+    <section id="certification" className="py-8 md:py-20 bg-[#F8FAFC] text-center relative overflow-hidden">
       
       <div className="mb-8 md:mb-12">
         <h2 className="text-3xl md:text-5xl font-extrabold text-[#023047] tracking-tight mb-4">

@@ -13,6 +13,8 @@ import { AnimatePresence, motion } from "framer-motion"; // Added motion import
 import LoginModal from "@/components/auth/login-modal";
 import MobileSidebar from "./MobileSidebar";
 import LanguageSwitcher from "./LanguageSwitcher";
+import SolutionSubmenu from "./SolutionSubmenu";
+import AboutSubmenu from "./AboutSubmenu";
 
 type Props = {
   accessToken?: string | null;
@@ -55,8 +57,8 @@ const Navbar = (props: Props) => {
   const navigationLinks = [
     { href: "/", label: "HOME", role: "PUBLIC" },
     { href: "/products", label: "PRODUCTS", role: "PUBLIC", hasDropdown: true },
-    { href: "/solution", label: "Solution", role: "PUBLIC" },
-    { href: "/about", label: "About", role: "PUBLIC" },
+    { href: "/solution", label: "Solution", role: "PUBLIC", hasDropdown: false  },
+    { href: "/about", label: "About", role: "PUBLIC", hasDropdown: false  },
     { href: "/download", label: "Download", role: "PUBLIC" },
     { href: "/news", label: "News", role: "PUBLIC" },
     { href: "/contact", label: "Contact", role: "PUBLIC", badge: "24/7" },
@@ -131,6 +133,16 @@ const Navbar = (props: Props) => {
                   {link.label === "PRODUCTS" && (
                     <MegaMenu>
                       <ProductSubmenu />
+                    </MegaMenu>
+                  )}
+                   {link.label === "Solution" && (
+                    <MegaMenu>
+                      <SolutionSubmenu />
+                    </MegaMenu>
+                  )}
+                  {link.label === "About" && (
+                    <MegaMenu>
+                      <AboutSubmenu />
                     </MegaMenu>
                   )}
                 </div>

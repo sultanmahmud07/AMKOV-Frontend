@@ -23,7 +23,7 @@ const factoryImages = [
 
 export default function FactoryImages() {
   return (
-    <section className="py-8 md:py-20 bg-white text-center relative overflow-hidden">
+    <section id="manufacturing" className="py-8 md:py-20 bg-white text-center relative overflow-hidden">
       
       {/* ========================================= */}
       {/* HEADER SECTION */}

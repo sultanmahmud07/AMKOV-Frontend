@@ -2,16 +2,17 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  FileText, 
-  DownloadCloud, 
-  Smartphone, 
-  Apple, 
-  PlaySquare, 
-  ChevronRight, 
-  Home 
+import {
+  FileText,
+  DownloadCloud,
+  Smartphone,
+  Apple,
+  PlaySquare,
+  ChevronRight,
+  Home
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 // --- MOCK DATA ---
 const manuals = [
@@ -34,7 +35,7 @@ export default function DownloadsContent() {
 
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
-      
+
       {/* ========================================= */}
       {/* 1. TOP BANNER & BREADCRUMBS */}
       {/* ========================================= */}
@@ -59,8 +60,8 @@ export default function DownloadsContent() {
           >
             <DownloadCloud size={32} className="text-[#3A9AFF]" />
           </motion.div>
-          
-          <motion.h1 
+
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -68,8 +69,8 @@ export default function DownloadsContent() {
           >
             Downloads & Resources
           </motion.h1>
-          
-          <motion.p 
+
+          <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -84,15 +85,14 @@ export default function DownloadsContent() {
       {/* 2. MAIN CONTENT AREA */}
       {/* ========================================= */}
       <div className="main-container  py-12 lg:py-16 ">
-        
+
         {/* Tab Navigation */}
         <div className="flex justify-center mb-12">
           <div className="inline-flex bg-white p-1.5 rounded-2xl shadow-sm border border-gray-100">
-            <button 
+            <button
               onClick={() => setActiveTab("app")}
-              className={`relative px-6 md:px-8 py-3 rounded-xl font-bold text-sm md:text-base transition-all duration-300 flex items-center gap-2 ${
-                activeTab === "app" ? "text-white" : "text-gray-500 hover:text-[#023047]"
-              }`}
+              className={`relative px-6 md:px-8 py-3 rounded-xl font-bold text-sm md:text-base transition-all duration-300 flex items-center gap-2 ${activeTab === "app" ? "text-white" : "text-gray-500 hover:text-[#023047]"
+                }`}
             >
               {activeTab === "app" && (
                 <motion.div layoutId="activeTab" className="absolute inset-0 bg-[#3A9AFF] rounded-xl shadow-md" />
@@ -102,11 +102,10 @@ export default function DownloadsContent() {
               </span>
             </button>
 
-            <button 
+            <button
               onClick={() => setActiveTab("manuals")}
-              className={`relative px-6 md:px-8 py-3 rounded-xl font-bold text-sm md:text-base transition-all duration-300 flex items-center gap-2 ${
-                activeTab === "manuals" ? "text-white" : "text-gray-500 hover:text-[#023047]"
-              }`}
+              className={`relative px-6 md:px-8 py-3 rounded-xl font-bold text-sm md:text-base transition-all duration-300 flex items-center gap-2 ${activeTab === "manuals" ? "text-white" : "text-gray-500 hover:text-[#023047]"
+                }`}
             >
               {activeTab === "manuals" && (
                 <motion.div layoutId="activeTab" className="absolute inset-0 bg-[#3A9AFF] rounded-xl shadow-md" />
@@ -120,7 +119,7 @@ export default function DownloadsContent() {
 
         {/* Tab Content */}
         <AnimatePresence mode="wait">
-          
+
           {/* --- TAB: INSTRUCTION MANUALS --- */}
           {activeTab === "manuals" && (
             <motion.div
@@ -137,8 +136,8 @@ export default function DownloadsContent() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
                 {manuals.map((manual) => (
-                  <div 
-                    key={manual.id} 
+                  <div
+                    key={manual.id}
                     className="bg-white rounded-2xl p-6 border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_10px_40px_rgba(58,154,255,0.08)] hover:border-[#3A9AFF]/30 transition-all duration-300 flex flex-col items-center text-center group"
                   >
                     <div className="w-16 h-16 bg-red-50 text-red-500 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-red-500 group-hover:text-white transition-colors duration-300 shrink-0">
@@ -147,14 +146,14 @@ export default function DownloadsContent() {
                         PDF
                       </div>
                     </div>
-                    
+
                     <h3 className="font-bold text-[#023047] mb-2 leading-tight line-clamp-2 h-10 group-hover:text-[#3A9AFF] transition-colors">
                       {manual.title}
                     </h3>
                     <p className="text-xs text-gray-400 font-medium mb-6">
                       English • {manual.size}
                     </p>
-                    
+
                     <button className="w-full mt-auto py-2.5 bg-gray-50 hover:bg-[#023047] text-[#023047] hover:text-white rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all duration-300 border border-gray-200 hover:border-[#023047]">
                       <DownloadCloud size={16} /> Download
                     </button>
@@ -184,7 +183,7 @@ export default function DownloadsContent() {
                 <p className="text-gray-500 text-lg mb-8 leading-relaxed">
                   Unlock the full potential of your camera. Download the official app to transfer photos wirelessly, control your camera remotely, and update firmware instantly.
                 </p>
-                
+
                 <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                   <button className="flex items-center justify-center gap-3 bg-black hover:bg-gray-800 text-white px-6 py-3.5 rounded-xl transition-colors">
                     <Apple size={28} />
@@ -193,7 +192,7 @@ export default function DownloadsContent() {
                       <p className="text-sm font-bold leading-tight">App Store</p>
                     </div>
                   </button>
-                  
+
                   <button className="flex items-center justify-center gap-3 bg-black hover:bg-gray-800 text-white px-6 py-3.5 rounded-xl transition-colors">
                     <PlaySquare size={28} />
                     <div className="text-left">
@@ -205,16 +204,19 @@ export default function DownloadsContent() {
               </div>
 
               <div className="shrink-0 flex flex-col items-center">
-                <div className="w-48 h-48 bg-gray-50 border-2 border-dashed border-gray-200 rounded-2xl flex items-center justify-center p-4">
-                   <div className="text-center">
-                     <Smartphone size={40} className="mx-auto text-gray-300 mb-2" />
-                     <p className="text-xs text-gray-400 font-bold uppercase">Scan to Download</p>
-                   </div>
+                <div className="w-48 h-48 bg-gray-50 border-2 border-dashed border-gray-200 rounded-2xl flex items-center justify-center p-2">
+                  <Image
+                    src={"/download/app-download-qr-code.png"}
+                    width={200}
+                    height={200}
+                     alt="QR Code for App Download"
+                    className="w-full h-full"
+                  />
                 </div>
               </div>
             </motion.div>
           )}
-          
+
         </AnimatePresence>
 
       </div>

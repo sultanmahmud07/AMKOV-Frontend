@@ -97,7 +97,7 @@ export default function BannerSlider() {
 
                                     return (
                                           <CarouselItem key={slide.id} className="w-full">
-                                                <div className="relative w-full h-[500px] lg:h-[650px] overflow-hidden flex items-center">
+                                                <div className="relative w-full h-[86vh] overflow-hidden flex items-center">
 
                                                       {/* ========================================= */}
                                                       {/* BACKGROUND MEDIA (Video or Image) */}

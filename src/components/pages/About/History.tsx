@@ -63,7 +63,7 @@ export default function History() {
   const progressPercentage = (activeIndex / (historyData.length - 1)) * 100;
 
   return (
-    <section className="relative w-full min-h-[90vh] py-20 overflow-hidden bg-[#F8FAFC]">
+    <section id="history" className="relative w-full min-h-[90vh] py-20 overflow-hidden bg-[#F8FAFC]">
       
       {/* ========================================= */}
       {/* 1. CINEMATIC BACKGROUND ANIMATION */}

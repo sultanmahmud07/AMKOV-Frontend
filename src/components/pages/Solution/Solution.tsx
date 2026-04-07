@@ -44,6 +44,7 @@ export default function SolutionsPage() {
                   <div className="main-container py-10 lg:py-12 space-y-10 lg:space-y-20">
                         {solutionsData.map((solution) => (
                               <div
+                                    id={solution.id}
                                     key={solution.id}
                                     className={`flex flex-col lg:flex-row items-center gap-10 lg:gap-20 ${solution.reverse ? "lg:flex-row-reverse" : ""
                                           }`}
