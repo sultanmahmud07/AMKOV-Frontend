@@ -1,68 +1,24 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
-
 import React, { useState } from "react";
 import Link from "next/link";
 import ProductImageGallery from "./ProductImageGallery"; // Adjust the import path as needed
-
 import {
   ChevronRight,
   Home,
-  Star,
   Check,
 } from "lucide-react";
 import ProductActions from "./ProductActions";
+import { IProduct } from "@/types/product.interface";
 
-// --- MOCK DATA FOR AMKOV CAMERA ---
-const product = {
-  id: "amkov-5k-vlog",
-  brand: "AMKOV",
-  title: "AMKOV 5K V-Log Camera with Flip Screen",
-  price: 247.0,
-  originalPrice: 260.0,
-  rating: 4.8,
-  reviews: 124,
-  stock: true,
-  deliveryTime: "2-3 Days",
-  features: [
-    "5K Ultra HD video resolution for crystal clear content creation",
-    "180-degree flip screen perfect for vlogging and selfies",
-    "Built-in electronic image stabilization (EIS) for smooth footage",
-    "Compatible with external microphones and wide-angle lenses",
-  ],
-  images: [
-    "/home/product/5.jpg",
-    "/home/product/2.jpg",
-    "/home/product/3.jpg",
-    "/home/product/4.jpg",
-    "/home/product/6.jpg",
-  ],
-  colors: [
-    { name: "Matte Black", hex: "#1f2022" },
-    { name: "Silver", hex: "#e2e8f0" },
-  ],
-  bundles: [
-    { name: "Camera Only", priceModifier: 0 },
-    { name: "Creator Kit (+ Mic & Tripod)", priceModifier: 45 },
-    { name: "Pro Bundle (+ Extra Batt & Lens)", priceModifier: 85 },
-  ],
-};
-
-export default function ProductDetails({ slug }: { slug?: string }) {
-  const [selectedColor, setSelectedColor] = useState(product.colors[0]);
-  const [selectedBundle, setSelectedBundle] = useState(product.bundles[0]);
-
-
-  // Calculate final price based on bundle
-  const currentPrice = product.price + selectedBundle.priceModifier;
-  const oldPrice = product.originalPrice + selectedBundle.priceModifier;
-  const discountPercent = Math.round(((oldPrice - currentPrice) / oldPrice) * 100);
-
+export default function ProductDetails({ product }: { product?: IProduct }) {
+  const uniqueColors = Array.from(
+    new Set(product?.variations.map((variation) => variation.color))
+  );
+  const [selectedColor, setSelectedColor] = useState(uniqueColors[0] || "");
+  // console.log("Product Details: ", product)
   return (
     <div className="bg-white min-h-screen">
-      {/* ========================================= */}
-      {/* BREADCRUMBS */}
-      {/* ========================================= */}
       <div className="bg-[#F8FAFC] border-b border-gray-100">
         <div className="main-container py-4 text-sm text-gray-500 font-medium flex items-center gap-2 overflow-x-auto whitespace-nowrap">
           <Link href="/" className="hover:text-[#3A9AFF] transition-colors flex items-center gap-1">
@@ -77,33 +33,24 @@ export default function ProductDetails({ slug }: { slug?: string }) {
             V-Log Cameras
           </Link>
           <ChevronRight size={14} className="text-gray-400" />
-          <span className="text-[#023047] font-semibold">{product.title}</span>
+          <span className="text-[#023047] font-semibold">{product?.slug}</span>
         </div>
       </div>
 
-      {/* ========================================= */}
-      {/* MAIN PRODUCT SECTION */}
-      {/* ========================================= */}
-      {/* Important: Ensure the container holding the grid is `relative` so the zoom panel anchors correctly */}
       <div className="main-container py-8 lg:py-12 relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-start">
 
-          {/* LEFT: ISOLATED IMAGE GALLERY COMPONENT */}
-          <ProductImageGallery images={product.images} title={product.title} />
-
-          {/* RIGHT: PRODUCT DETAILS */}
+          <ProductImageGallery images={product?.images ?? []} title={product?.name ?? ""} />
           <div className="flex flex-col">
             <span className="text-sm font-bold text-[#3A9AFF] uppercase tracking-wider mb-2">
-              {product.brand}
+              product brand
             </span>
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-[#023047] mb-4 leading-tight">
-              {product.title}
+              {product?.name}
             </h1>
 
-
-            {/* Bullet Points */}
             <ul className="space-y-2 mb-8 text-gray-600 text-sm md:text-base">
-              {product.features.map((feature, idx) => (
+              {product?.bulletPoints.map((feature, idx) => (
                 <li key={idx} className="flex items-start gap-2">
                   <span className="text-[#3A9AFF] mt-1 shrink-0">•</span>
                   <span>{feature}</span>
@@ -111,35 +58,43 @@ export default function ProductDetails({ slug }: { slug?: string }) {
               ))}
             </ul>
 
-            {/* Color Selection */}
             <div className="mb-6">
               <h3 className="text-sm font-bold text-[#023047] mb-3">
                 Color:{" "}
                 <span className="text-gray-500 font-normal">
-                  {selectedColor.name}
+                  {selectedColor}
                 </span>
               </h3>
+
               <div className="flex gap-3">
-                {product.colors.map((color) => (
-                  <button
-                    key={color.name}
-                    onClick={() => setSelectedColor(color)}
-                    className={`w-8 h-8 rounded-full border-2 transition-all flex items-center justify-center ${selectedColor.name === color.name
-                        ? "border-[#3A9AFF] scale-110"
-                        : "border-transparent hover:scale-110 shadow-sm"
-                      }`}
-                    style={{ backgroundColor: color.hex }}
-                  >
-                    {selectedColor.name === color.name &&
-                      color.name === "Matte Black" && (
-                        <Check size={14} className="text-white" />
+                {uniqueColors.map((colorName) => {
+                  const isSelected = selectedColor === colorName;
+                  const cssColor = colorName.toLowerCase().replace("matte ", "").replace(" ", "");
+
+                  return (
+                    <button
+                      key={colorName}
+                      onClick={() => setSelectedColor(colorName)}
+                      className={`w-8 h-8 rounded-full border-2 transition-all flex items-center justify-center ${isSelected
+                          ? "border-[#3A9AFF] scale-110"
+                          : "border-gray-200 hover:scale-110 shadow-sm" // Changed to gray-200 so white buttons are visible
+                        }`}
+                      style={{ backgroundColor: cssColor }}
+                    >
+                      {isSelected && (
+                        <Check
+                          size={14}
+                          // Dynamic checkmark color: white for dark backgrounds, dark blue for light ones
+                          className={
+                            colorName.toLowerCase().includes("black")
+                              ? "text-white"
+                              : "text-[#023047]"
+                          }
+                        />
                       )}
-                    {selectedColor.name === color.name &&
-                      color.name !== "Matte Black" && (
-                        <Check size={14} className="text-[#023047]" />
-                      )}
-                  </button>
-                ))}
+                    </button>
+                  );
+                })}
               </div>
             </div>
             <ProductActions />

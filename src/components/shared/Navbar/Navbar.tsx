@@ -15,8 +15,10 @@ import MobileSidebar from "./MobileSidebar";
 import LanguageSwitcher from "./LanguageSwitcher";
 import SolutionSubmenu from "./SolutionSubmenu";
 import AboutSubmenu from "./AboutSubmenu";
+import { IProduct } from "@/types/product.interface";
 
 type Props = {
+  products?: IProduct[] | null;
   accessToken?: string | null;
   userInfo?: IUser | null;
 };
@@ -27,7 +29,7 @@ const Navbar = (props: Props) => {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false); // New state for Search Box
 
-  const { accessToken, userInfo } = props;
+  const {products, accessToken, userInfo } = props;
 
   // Prevent background scrolling when mobile menu is open
   useEffect(() => {
@@ -132,7 +134,7 @@ const Navbar = (props: Props) => {
                   </NavLink>
                   {link.label === "PRODUCTS" && (
                     <MegaMenu>
-                      <ProductSubmenu />
+                      <ProductSubmenu products={products} />
                     </MegaMenu>
                   )}
                   {link.label === "Solution" && (

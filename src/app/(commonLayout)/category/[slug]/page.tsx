@@ -1,40 +1,34 @@
-
-import ProductDetailLoader from "@/components/loaders/Products/ProductDetailLoader";
 import ProductsLoader from "@/components/loaders/Products/ProductsLoader";
 import CategoryMenubar from "@/components/pages/Products/CategoryMenubar";
 import ProductBanner from "@/components/pages/Products/ProductBanner";
-import ProductDetails from "@/components/pages/Products/ProductDetails/ProductDetails";
-import ProductInfoTabs from "@/components/pages/Products/ProductDetails/ProductInfoTabs";
-import ProductReviewSection from "@/components/pages/Products/ProductDetails/ProductReviewSection";
-import RelatedProducts from "@/components/pages/Products/ProductDetails/RelatedProducts";
 import ProductsList from "@/components/pages/Products/ProductsList/ProductsList";
-import { getCategories } from "@/services/category/category.service";
-import { IParams } from "@/types/index.interface";
+import { getCategories, getCategoryBySlug } from "@/services/category/category.service";
+import { ICategory } from "@/types/product.interface";
 import { Suspense } from "react";
 
-// export const generateStaticParams = async () => {
-//   const projects = await getAllProjects({limit:20});
-//   return projects.data.map((project: IProject) => ({
-//     slug: String(project.slug),
-//   }));
-// };
+export const generateStaticParams = async () => {
+  const categories = await getCategories("limit=100");
+  return categories.data.map((category: ICategory) => ({
+    slug: String(category.slug),
+  }));
+};
 
-// export const generateMetadata = async ({
-//   params,
-// }: {
-//   params: Promise<{ slug: string }>;
-// }) => {
-//   const { slug } = await params;
-//   const project = await getProductDetails(slug);
+export const generateMetadata = async ({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) => {
+  const { slug } = await params;
+  const category = await getCategoryBySlug(slug);
 
-//   return {
-//     title: project?.meta?.title,
-//     description: project?.meta?.description, 
-//     openGraph: {
-//       images: ['/some-specific-page-image.jpg', ...project.images],
-//     },
-//   };
-// };
+  return {
+    title: category?.name,
+    description: category?.description,
+    openGraph: {
+      images: ['/some-specific-page-image.jpg', ...category?.thumbnail ? [category.thumbnail] : []],
+    },
+  };
+};
 
 
 const page = async ({ params, searchParams }: { params: { slug: string }, searchParams: { page?: string } }) => {
@@ -45,18 +39,18 @@ const page = async ({ params, searchParams }: { params: { slug: string }, search
   const slug = (await params).slug
   const pageNum = searchParams.page || "1";
   const searchParamsObj = { category_slug: slug, page: pageNum, limit: "20" }
-  return (
-    <div>
-      <ProductBanner />
-      <CategoryMenubar slug={slug} categories={categories?.data} />
-      <Suspense fallback={<ProductsLoader />}>
-        <ProductsList
-          searchParams={searchParamsObj}
-        ></ProductsList>
-      </Suspense>
+    return (
+      <div>
+        <ProductBanner />
+        <CategoryMenubar slug={slug} categories={categories?.data} />
+        <Suspense fallback={<ProductsLoader />}>
+          <ProductsList
+            searchParams={searchParamsObj}
+          ></ProductsList>
+        </Suspense>
 
-    </div>
-  )
+      </div>
+    )
 }
 
 export default page

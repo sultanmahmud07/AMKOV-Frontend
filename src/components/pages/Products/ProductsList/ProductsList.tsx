@@ -1,4 +1,3 @@
-import getProductsByCategory from '@/lib/getProductsByCategory';
 import Pagination from './Pagination';
 import { BsSearch } from "react-icons/bs";
 type ProductsProps = {
@@ -6,12 +5,13 @@ type ProductsProps = {
 };
 import ProductCard from "@/components/module/Product/ProductCard";
 import { IProduct } from '@/types/product.interface';
+import { getProducts } from '@/services/product/product.service';
 
 
 
 const ProductsList = async ({ searchParams }: ProductsProps) => {
-  const allProducts = await getProductsByCategory(searchParams);
-// console.log("Product :", allProducts)
+  const queryString = `${searchParams?.category_slug ? `category_slug=${searchParams?.category_slug}&` : ''}page=${searchParams?.page || "1"}&limit=${searchParams?.limit || "20"}`;
+  const allProducts = await getProducts(queryString);
   return (
     <div className="main-container py-3 md:py-5">
       {

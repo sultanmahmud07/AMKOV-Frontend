@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import ProductInquiry from "./ProductInquiry";
+import { IProduct } from "@/types/product.interface";
 
 // Mock data tailored for an AMKOV Camera
 const productSpecs = {
@@ -26,7 +27,7 @@ const productSpecs = {
   ]
 };
 
-export default function ProductInfoTabs() {
+export default function ProductInfoTabs({ product }: { product?: IProduct }) {
   const [activeTab, setActiveTab] = useState("description");
 
   // Smooth scroll handler
@@ -113,85 +114,74 @@ export default function ProductInfoTabs() {
         {/* DESCRIPTION SECTION */}
         {/* ========================================= */}
         <div id="description" className="scroll-mt-24 pt-5 md:pt-16">
-          <h2 className="text-2xl font-bold text-[#023047] mb-4">Product Highlights</h2>
-          <p className="text-gray-600 leading-relaxed mb-8">
-            Embrace a bold, high-tech aesthetic with the AMKOV 5K V-Log Camera. Designed specifically for content creators, it captures life in stunning Ultra-HD. Whether you are filming a bustling city street at night, capturing wide-angle travel shots, or recording intimate studio tutorials, this camera delivers uncompromised clarity and color depth. The intuitive interface ensures that both beginners and seasoned pros can start shooting immediately.
-          </p>
+          <h2 className="text-2xl md:text-3xl font-extrabold text-[#023047] mb-6 md:mb-8">
+            Product Highlights
+          </h2>
 
-          <h2 className="text-2xl font-bold text-[#023047] mb-4">The Creator Connection</h2>
-          <p className="text-gray-600 leading-relaxed mb-8">
-            This camera brings together advanced optics and seamless connectivity to create a workflow that is as futuristic as it is functional. Instantly transfer your raw 5K footage or 48MP photos directly to your smartphone via our dedicated Wi-Fi chip. From blinking recording tally lights to the sturdy, articulated flip screen, every piece of hardware is placed to put the creator first.
-          </p>
+          {product?.description ? (
+            <div
+              className="text-gray-600 text-base md:text-lg leading-relaxed 
+        /* Paragraph Spacing */
+        [&>p]:mb-5 
+        
+        /* List Styling (Makes the numbers look clean and aligns the text) */
+        [&>ol]:list-decimal [&>ol]:pl-6 [&>ol]:mb-8 [&>ol>li]:mb-3 [&>ol>li]:pl-2
+        
+        /* Bold Text (Forces bold text to use your brand blue/dark color instead of default black) */
+        [&_strong]:font-bold [&_strong]:text-[#023047]
+        
+        /* Image Styling (Makes images responsive, rounded, and adds a nice shadow) */
+        [&_img]:w-full [&_img]:max-w-4xl [&_img]:h-auto [&_img]:rounded-2xl [&_img]:shadow-[0_10px_40px_rgba(0,0,0,0.1)] [&_img]:my-10 [&_img]:mx-auto [&_img]:border [&_img]:border-gray-100
+        
+        /* Overriding inline editor colors (Forces the HTML to use our Tailwind text-gray-600) */
+        [&_span]:text-inherit!"
 
-          {/* Two Image Layout from your reference */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
-            <div className="relative w-full aspect-4/3 rounded-xl overflow-hidden bg-gray-100">
-              <Image
-                src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=800&auto=format&fit=crop"
-                alt="Camera feature 1"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-700"
-              />
-            </div>
-            <div className="relative w-full aspect-4/3 rounded-xl overflow-hidden bg-gray-100">
-              <Image
-                src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=800&auto=format&fit=crop"
-                alt="Camera feature 2"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-700"
-              />
-            </div>
-          </div>
+              // This injects your HTML safely
+              dangerouslySetInnerHTML={{ __html: product.description }}
+            />
+          ) : (
+            <p className="text-gray-400 italic">No description available for this product.</p>
+          )}
         </div>
 
         {/* ========================================= */}
         {/* SPECIFICATIONS SECTION */}
         {/* ========================================= */}
         <div id="specifications" className="scroll-mt-24 pt-5 md:pt-16">
-
           <div className="border border-gray-200 rounded-xl overflow-hidden">
 
-            {/* Table Group 1 */}
+            {/* Table Header */}
             <div className="bg-gray-50 px-6 py-3 border-b border-gray-200">
-              <h3 className="text-sm font-bold text-[#3A9AFF] tracking-wider uppercase">Product Details</h3>
-            </div>
-            <div className="bg-white">
-              {productSpecs.details.map((item, index) => (
-                <div key={index} className={`flex flex-col sm:flex-row sm:items-center px-6 py-4 text-sm ${index !== productSpecs.details.length - 1 ? "border-b border-gray-100" : ""}`}>
-                  <div className="w-full sm:w-1/3 font-semibold text-gray-700 mb-1 sm:mb-0">{item.label}</div>
-                  <div className="w-full sm:w-2/3 text-gray-600">{item.value}</div>
-                </div>
-              ))}
+              <h3 className="text-sm font-bold text-[#3A9AFF] tracking-wider uppercase">
+                Specifications
+              </h3>
             </div>
 
-            {/* Table Group 2 */}
-            <div className="bg-gray-50 px-6 py-3 border-y border-gray-200">
-              <h3 className="text-sm font-bold text-[#3A9AFF] tracking-wider uppercase">General Information</h3>
-            </div>
+            {/* Specifications List */}
             <div className="bg-white">
-              {productSpecs.general.map((item, index) => (
-                <div key={index} className={`flex flex-col sm:flex-row sm:items-center px-6 py-4 text-sm ${index !== productSpecs.general.length - 1 ? "border-b border-gray-100" : ""}`}>
-                  <div className="w-full sm:w-1/3 font-semibold text-gray-700 mb-1 sm:mb-0">{item.label}</div>
-                  <div className="w-full sm:w-2/3 text-gray-600">{item.value}</div>
+              {product?.specifications && product?.specifications?.length > 0 ? (
+                product?.specifications.map((spec, index) => (
+                  <div
+                    key={index}
+                    className={`flex flex-col sm:flex-row sm:items-center px-6 py-4 text-sm ${index !== product.specifications.length - 1 ? "border-b border-gray-100" : ""
+                      }`}
+                  >
+                    <div className="w-full sm:w-1/3 font-semibold text-gray-700 mb-1 sm:mb-0">
+                      {spec.name}
+                    </div>
+                    <div className="w-full sm:w-2/3 text-gray-600">
+                      {spec.value}
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <div className="px-6 py-8 text-sm text-gray-400 text-center font-medium">
+                  No specifications available for this product.
                 </div>
-              ))}
-            </div>
-
-            {/* Table Group 3 */}
-            <div className="bg-gray-50 px-6 py-3 border-y border-gray-200">
-              <h3 className="text-sm font-bold text-[#3A9AFF] tracking-wider uppercase">Connectivity</h3>
-            </div>
-            <div className="bg-white">
-              {productSpecs.connectivity.map((item, index) => (
-                <div key={index} className={`flex flex-col sm:flex-row sm:items-center px-6 py-4 text-sm ${index !== productSpecs.connectivity.length - 1 ? "border-b border-gray-100" : ""}`}>
-                  <div className="w-full sm:w-1/3 font-semibold text-gray-700 mb-1 sm:mb-0">{item.label}</div>
-                  <div className="w-full sm:w-2/3 text-gray-600">{item.value}</div>
-                </div>
-              ))}
+              )}
             </div>
 
           </div>
-
         </div>
         {/* ========================================= */}
         {/* More Information SECTION */}
@@ -199,12 +189,20 @@ export default function ProductInfoTabs() {
         <div id="more_info" className="scroll-mt-24 pt-6 md:pt-14">
           {/* <h2 className="text-xl md:text-2xl font-bold text-[#023047] my-4">Product Features</h2> */}
           <div className="grid grid-cols-1 md:max-w-5xl mx-auto gap-6">
-            <Image src="/temp/con-1.jpg" alt="More Information" width={800} height={400} className="rounded-xl w-full object-cover" />
-            <Image src="/temp/con-2.jpg" alt="More Information" width={800} height={400} className="rounded-xl w-full object-cover" />
-            <Image src="/temp/con-1.jpg" alt="More Information" width={800} height={400} className="rounded-xl w-full object-cover" />
+            {
+              product?.featureImages && product?.featureImages?.length > 0 ? (
+                product.featureImages.map((imgUrl, idx) => (
+                  <Image key={idx} src={imgUrl} alt={`Feature ${idx + 1}`} width={800} height={400} className="rounded-xl w-full object-cover" />
+                ))
+              ) : (
+                <div className="w-full h-64 bg-gray-100 rounded-xl flex items-center justify-center text-gray-400">
+                  No feature images available.
+                </div>
+              )
+            }
           </div>
         </div>
-    {/* ========================================= */}
+        {/* ========================================= */}
         {/* INQUIRY SECTION */}
         {/* ========================================= */}
         <ProductInquiry />

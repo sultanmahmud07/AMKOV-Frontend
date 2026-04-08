@@ -1,62 +1,18 @@
 "use client";
 
+import { IProduct } from "@/types/product.interface";
 import Image from "next/image";
 import Link from "next/link";
 
-// Matching the exact items from your reference image
-const productCategories = [
-  {
-    name: "Optical Zoom Camera",
-    img: "/home/product/1.jpg", // Replace with your actual image paths
-    href: "/products/optical-zoom",
-  },
-  {
-    name: "Digital Zoom Camera",
-    img: "/home/product/2.jpg",
-    href: "/products/digital-zoom",
-  },
-  {
-    name: "V-Log Camera",
-    img: "/home/product/3.jpg",
-    href: "/products/v-log",
-  },
-  {
-    name: "Video Camera",
-    img: "/home/product/4.jpg",
-    href: "/products/video",
-  },
-  {
-    name: "Waterproof Camera",
-    img: "/home/product/5.jpg",
-    href: "/products/waterproof",
-  },
-  {
-    name: "Instant Print Camera",
-    img: "/home/product/6.jpg",
-    href: "/products/instant-print",
-  },
-  {
-    name: "Kids Camera",
-    img: "/home/product/7.jpg",
-    href: "/products/kids",
-  },
-  {
-    name: "Kids Camera",
-    img: "/home/product/8.jpg",
-    href: "/products/kids",
-  },
-];
-
-const ProductSubmenu = () => {
+const ProductSubmenu = ({ products }: { products?: IProduct[] | null }) => {
   return (
-    // Removed opacity-0 so it shows up natively inside your MegaMenu wrapper
     <div className="w-full py-5">
       <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 md:gap-6 lg:gap-10">
         
-        {productCategories.map((item, i) => (
+        {products?.map((item, i) => (
           <Link 
             key={i} 
-            href={item.href} 
+            href={item.slug ? `/products/${item.slug}` : "/products"}
             className="group "
           >
             {/* Image Container with Animation */}
@@ -64,7 +20,7 @@ const ProductSubmenu = () => {
               {/* Added drop shadow that intensifies on hover */}
               <div className="absolute w-full inset-0  transition-all duration-500">
                 <Image
-                  src={item.img}
+                  src={item.images?.[0] || "/default.png"}
                   alt={item.name}
                   fill
                   className="h-full w-full"
@@ -75,7 +31,7 @@ const ProductSubmenu = () => {
 
             {/* Text with Color Hover */}
             <h6 className="text-sm text-center font-semibold text-gray-600  transition-colors duration-300">
-              {item.name}
+              {item.name.slice(0, 30)} {/* Limit to 30 characters for better display */}
             </h6>
 
             {/* Subtle animated underline dot indicator (Optional, adds a premium feel) */}
