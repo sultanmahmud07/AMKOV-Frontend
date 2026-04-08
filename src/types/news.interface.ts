@@ -4,7 +4,7 @@ export interface INews  {
 _id?: string;
 title: string
 slug: string
-thambnail: string
+thumbnail: string
 content: string
 category?: {
   _id: string

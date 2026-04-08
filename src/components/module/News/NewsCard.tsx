@@ -14,7 +14,7 @@ const NewsCard = ({ news }: { news: INews }) => {
             >
                   <div className="news-image overflow-hidden rounded md:rounded-xl ">
                         <Image
-                              src={news.thambnail}
+                              src={news.thumbnail || "/default.png"}
                               alt={news.title}
                               width={400}
                               height={400}

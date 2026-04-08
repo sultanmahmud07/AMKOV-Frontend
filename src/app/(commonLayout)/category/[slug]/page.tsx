@@ -8,6 +8,7 @@ import ProductInfoTabs from "@/components/pages/Products/ProductDetails/ProductI
 import ProductReviewSection from "@/components/pages/Products/ProductDetails/ProductReviewSection";
 import RelatedProducts from "@/components/pages/Products/ProductDetails/RelatedProducts";
 import ProductsList from "@/components/pages/Products/ProductsList/ProductsList";
+import { getCategories } from "@/services/category/category.service";
 import { IParams } from "@/types/index.interface";
 import { Suspense } from "react";
 
@@ -36,18 +37,21 @@ import { Suspense } from "react";
 // };
 
 
-const page = async ({ params }: IParams) => {
+const page = async ({ params, searchParams }: { params: { slug: string }, searchParams: { page?: string } }) => {
   // const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
   // await delay(5 * 60 * 1000);
+  const queryString = "limit=50";
+  const categories = await getCategories(queryString);
   const slug = (await params).slug
-  const searchParams = { slug }
+  const pageNum = searchParams.page || "1";
+  const searchParamsObj = { category_slug: slug, page: pageNum, limit: "20" }
   return (
     <div>
       <ProductBanner />
-      <CategoryMenubar />
+      <CategoryMenubar slug={slug} categories={categories?.data} />
       <Suspense fallback={<ProductsLoader />}>
         <ProductsList
-          searchParams={searchParams}
+          searchParams={searchParamsObj}
         ></ProductsList>
       </Suspense>
 

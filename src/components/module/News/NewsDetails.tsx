@@ -15,7 +15,7 @@ import { formattedDate } from '@/utils/dateFormated';
 const BlogDetails = async ({ params }: IParams) => {
   const slug = (await params).slug
   const blogData = await getBlogDetails(slug);
-  const blog = blogData?.data;
+  const blog = blogData?.data?.data;
   return (
     <div className="">
       <div className="category_top bg-base-100 py-4 md:py-6">
@@ -36,10 +36,11 @@ const BlogDetails = async ({ params }: IParams) => {
           <div className="blog_details w-full md:w-2/3">
             <div className="pb-4">
               <Image
-                src={blog?.thambnail || "/default.png"}
+                src={blog?.thumbnail || "/default.png"}
                 alt={blog?.title}
                 width={1000}
                 height={700}
+                loading="lazy"
                 className="w-full"
               />
             </div>
@@ -62,7 +63,7 @@ const BlogDetails = async ({ params }: IParams) => {
 
             </div>
             <h1 className='text-2xl md:text-3xl my-1 md:py-3 font-bold text-[#191C1F]'>{blog?.title}</h1>
-            {/* <p>{blog?.description || blog?.metaDescription}</p> */}
+            <p>{blog?.description || blog?.metaDescription}</p>
             <div
               className="blog_content py-4"
               dangerouslySetInnerHTML={{ __html: blog?.content }}

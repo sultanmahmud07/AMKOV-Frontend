@@ -1,63 +1,19 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Aperture } from "lucide-react";
+import { getCategories } from "@/services/category/category.service";
+import { ICategory } from "@/types/product.interface";
 
-// Using local image paths from your public folder
-const categoryData = [
-  {
-    id: "optical-zoom",
-    title: "Optical Zoom Camera",
-    description: "Long-range photography with crystal clear detail.",
-    image: "/category/1.jpg",
-    href: "/shop/optical-zoom",
-  },
-  {
-    id: "digital-zoom",
-    title: "Digital Zoom Camera",
-    description: "Compact and efficient digital scaling for everyday capture.",
-    image: "/category/2.jpg",
-    href: "/shop/digital-zoom",
-  },
-  {
-    id: "v-log",
-    title: "V-Log Camera",
-    description: "Designed for content creators with external mic support.",
-    image: "/category/3.jpg",
-    href: "/shop/v-log",
-  },
-  {
-    id: "video-cam",
-    title: "Video Camera",
-    description: "High-definition camcorders for capturing moving moments.",
-    image: "/category/4.jpg",
-    href: "/shop/video",
-  },
-  {
-    id: "waterproof",
-    title: "Waterproof Camera",
-    description: "Rugged, submersible gear for adventure photography.",
-    image: "/category/5.jpg",
-    href: "/shop/waterproof",
-  },
-  {
-    id: "instant-print",
-    title: "Instant Print Camera",
-    description: "Snap and share immediately with built-in printing.",
-    image: "/category/6.jpg",
-    href: "/shop/instant-print",
-  }
-];
-
-const CategoryGrid = () => {
+const CategoryGrid = async () => {
+  const queryString = "limit=10";
+  const categories = await getCategories(queryString);
   return (
     <section className="py-16 lg:py-24 bg-[#F4F7F9] relative overflow-hidden">
-      
+
       {/* ========================================= */}
       {/* BACKGROUND VECTORS */}
       {/* ========================================= */}
-      
+
       {/* Viewfinder Corners (Subtle framing) */}
       <div className="absolute top-6 left-6 w-12 h-12 border-t-2 border-l-2 border-[#023047]/10 pointer-events-none"></div>
       <div className="absolute top-6 right-6 w-12 h-12 border-t-2 border-r-2 border-[#023047]/10 pointer-events-none"></div>
@@ -82,9 +38,9 @@ const CategoryGrid = () => {
           <div className="flex items-center gap-4">
             {/* Tech Vector Icon */}
             <div className="w-12 h-12 rounded-full bg-white border border-gray-200 flex items-center justify-center text-[#3A9AFF] shadow-sm shrink-0">
-               <Aperture size={22} className="animate-[spin_10s_linear_infinite]" />
+              <Aperture size={22} className="animate-[spin_10s_linear_infinite]" />
             </div>
-            
+
             {/* Simple Title */}
             <div>
               <h2 className="text-2xl md:text-3xl font-extrabold text-[#023047] tracking-tight">
@@ -108,29 +64,29 @@ const CategoryGrid = () => {
         {/* HEXAGONAL GRID CARDS */}
         {/* ========================================= */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-y-4 lg:gap-8">
-          {categoryData.map((item) => (
+          {categories?.data?.map((item: ICategory) => (
             <Link
-              key={item.id}
-              href={`/products?category=${item.id}`}
+              key={item._id}
+              href={`/category/${item.slug}`}
               className="group relative flex items-center bg-white p-6 rounded-xl border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_40px_rgba(58,154,255,0.08)] hover:border-[#3A9AFF]/30 transition-all duration-500 ease-out hover:-translate-y-1.5 overflow-hidden"
             >
               {/* Background Vector Dot Grid */}
               <div className="absolute inset-0 opacity-[0.02] group-hover:opacity-[0.05] transition-opacity duration-500 pointer-events-none text-[#023047]">
                 <svg width="100%" height="100%">
-                  <pattern id={`pattern-${item.id}`} x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+                  <pattern id={`pattern-${item._id}`} x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
                     <circle cx="2" cy="2" r="1.5" fill="currentColor" />
                   </pattern>
-                  <rect width="100%" height="100%" fill={`url(#pattern-${item.id})`} />
+                  <rect width="100%" height="100%" fill={`url(#pattern-${item._id})`} />
                 </svg>
               </div>
 
               {/* Image Container with Hexagon Clip-Path & Animated Vector Ring */}
               <div className="relative w-24 h-24 lg:w-28 lg:h-28 shrink-0 flex items-center justify-center">
-                
+
                 {/* Spinning Vector 'Focus Ring' */}
-                <svg 
-                  className="absolute inset-0 w-full h-full text-[#3A9AFF]/20 group-hover:text-[#3A9AFF]/80 transition-colors duration-500 transform group-hover:rotate-180 ease-in-out scale-110" 
-                  viewBox="0 0 100 100" 
+                <svg
+                  className="absolute inset-0 w-full h-full text-[#3A9AFF]/20 group-hover:text-[#3A9AFF]/80 transition-colors duration-500 transform group-hover:rotate-180 ease-in-out scale-110"
+                  viewBox="0 0 100 100"
                   fill="none"
                 >
                   <circle cx="50" cy="50" r="48" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" />
@@ -140,8 +96,8 @@ const CategoryGrid = () => {
                 {/* Hexagon Image Wrapper */}
                 <div className="w-[85%] h-[85%] overflow-hidden bg-gray-50 [clip-path:polygon(25%_0%,75%_0%,100%_50%,75%_100%,25%_100%,0%_50%)] shadow-inner">
                   <Image
-                    src={item.image}
-                    alt={item.title}
+                    src={item.thumbnail || "/default.png"}
+                    alt={item.name}
                     fill
                     className="object-cover group-hover:scale-125 transition-transform duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
                     sizes="(max-width: 768px) 96px, 112px"
@@ -152,7 +108,7 @@ const CategoryGrid = () => {
               {/* Text Content */}
               <div className="ml-5 flex flex-col justify-center flex-1 z-10">
                 <h3 className="text-lg font-bold text-[#023047] group-hover:text-[#3A9AFF] transition-colors duration-300 leading-tight">
-                  {item.title}
+                  {item.name}
                 </h3>
 
                 <p className="mt-1.5 text-xs text-gray-500 line-clamp-2 pr-2 transition-colors duration-300 group-hover:text-gray-600 font-medium leading-relaxed">
@@ -164,7 +120,7 @@ const CategoryGrid = () => {
                   <span className="text-[11px] font-bold uppercase tracking-wider text-[#023047] group-hover:text-[#3A9AFF] transition-colors duration-300">
                     Explore
                   </span>
-                  
+
                   {/* Arrow Vector Element */}
                   <div className="ml-2 flex items-center justify-center w-5 h-5 rounded bg-[#F0F4F8] text-[#023047] group-hover:bg-[#3A9AFF] group-hover:text-white transition-all duration-300 -translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100">
                     <ArrowRight size={12} strokeWidth={2.5} />

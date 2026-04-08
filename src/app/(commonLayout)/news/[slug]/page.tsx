@@ -7,7 +7,7 @@ import { INews } from "@/types/news.interface";
 
 export const generateStaticParams = async () => {
   const blogs = await getAllBlogs(20);
-  return blogs.data.data.map((blog: INews) => ({
+  return blogs?.data?.map((blog: INews) => ({
     slug: String(blog.slug),
   }));
 };
@@ -21,8 +21,8 @@ export const generateMetadata = async ({
   const blog = await getBlogDetails(slug);
 
   return {
-    title: blog?.data.metaTitle,
-    description: blog?.data?.metaDescription,
+    title: blog?.data?.data?.metaTitle,
+    description: blog?.data?.data?.metaDescription,
   };
 };
 

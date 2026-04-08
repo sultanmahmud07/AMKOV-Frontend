@@ -11,9 +11,6 @@ export const metadata: Metadata = {
 export default async function Page() {
       const blogs = await getAllBlogs(1000);
       return (
-            <div className="page">
-                  {/* <TopBanner data={bannerData.data[0]}></TopBanner> */}
-                  <News blogs={blogs.data.data}></News>
-            </div>
+            <News blogs={blogs?.data}></News>
       );
 }

@@ -4,8 +4,6 @@ import RecentBlogs from "./RecentBlogs"
 import { INews } from "@/types/news.interface"
 
 const News = async ({ blogs }: { blogs: INews[] }) => {
-      // const contactInfo = await getContactInfo()
-      // const contact = contactInfo.data;
       return (
             <section className="py-5 md:py-8">
                   <div className="main-container">
@@ -14,7 +12,7 @@ const News = async ({ blogs }: { blogs: INews[] }) => {
                                     <h2 className="main-title text-2xl md:text-4xl text-black py-4 md:py-5 font-bold">Our Blogs</h2>
                                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 md:gap-y-10 py-5 ">
                                           {
-                                                blogs.map((news, i) => {
+                                                blogs?.map((news, i) => {
                                                       return (
                                                             <NewsCard key={i} news={news}></NewsCard>
 

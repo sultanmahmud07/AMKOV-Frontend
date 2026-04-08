@@ -12,12 +12,10 @@ export default async function Page({
       searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }) {
       const filters = (await searchParams)
-   
+
       return (
-            <div className="page">
-                  <Products
-                        searchParams={filters}
-                  ></Products>
-            </div>
+            <Products
+                  searchParams={filters}
+            ></Products>
       );
 }

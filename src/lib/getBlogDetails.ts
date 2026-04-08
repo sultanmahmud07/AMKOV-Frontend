@@ -3,7 +3,7 @@ import { BASEURL } from "@/utils/constant";
 export default async function getBlogDetails(slug:string) {
     try {
         const response = await fetch(
-            `${BASEURL}/news/retrieve/slug/${slug}`,
+            `${BASEURL}/blog/${slug}`,
             // {
             //     cache: "no-store"
             // }
