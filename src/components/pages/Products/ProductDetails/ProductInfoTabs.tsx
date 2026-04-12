@@ -5,31 +5,8 @@ import Image from "next/image";
 import ProductInquiry from "./ProductInquiry";
 import { IProduct } from "@/types/product.interface";
 
-// Mock data tailored for an AMKOV Camera
-const productSpecs = {
-  details: [
-    { label: "Color", value: "Matte Black / Silver" },
-    { label: "Form Factor", value: "Compact Point-and-Shoot" },
-    { label: "Sensor Type", value: "CMOS" },
-    { label: "Effective Pixels", value: "48 Megapixels" },
-  ],
-  general: [
-    { label: "Name of Seller", value: "AMKOV Digital Imaging Ltd." },
-    { label: "Month and Year of Commodity", value: "Manufactured January 2026" },
-    { label: "Commodity Name", value: "Digital V-Log Camera" },
-    { label: "Item Width", value: "11.5 cm" },
-    { label: "Item Height", value: "6.5 cm" },
-    { label: "Item Weight", value: "245 g (with battery)" },
-  ],
-  connectivity: [
-    { label: "Wireless", value: "Wi-Fi 802.11b/g/n, Bluetooth 5.0" },
-    { label: "Ports", value: "USB Type-C, Micro HDMI, 3.5mm Mic Jack" },
-  ]
-};
-
-export default function ProductInfoTabs({ product }: { product?: IProduct }) {
+export default function ProductInfoTabs({ product, allProducts }: { product: IProduct; allProducts: IProduct[] }) {
   const [activeTab, setActiveTab] = useState("description");
-
   // Smooth scroll handler
   const scrollToSection = (sectionId: string) => {
     setActiveTab(sectionId);
@@ -205,7 +182,7 @@ export default function ProductInfoTabs({ product }: { product?: IProduct }) {
         {/* ========================================= */}
         {/* INQUIRY SECTION */}
         {/* ========================================= */}
-        <ProductInquiry />
+        <ProductInquiry productId={product._id} allProducts={allProducts} />
       </div>
     </div>
   );

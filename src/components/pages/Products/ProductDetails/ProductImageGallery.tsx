@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
@@ -21,12 +21,41 @@ interface ProductImageGalleryProps {
 export default function ProductImageGallery({ images, title }: ProductImageGalleryProps) {
   const [activeImage, setActiveImage] = useState(0);
 
-  // --- States and Refs for Hover Zoom ---
+  // --- States and Refs ---
   const [zoomedImage, setZoomedImage] = useState<string | null>(null);
   const [zoomSettings, setZoomSettings] = useState({
     backgroundPosition: "0% 0%",
   });
   const mainImageRef = useRef<HTMLDivElement>(null);
+  const thumbnailsRef = useRef<HTMLDivElement>(null); // Ref for thumbnail sliding
+
+  // --- Auto-scroll active thumbnail into view ---
+  useEffect(() => {
+    if (thumbnailsRef.current) {
+      const activeElement = thumbnailsRef.current.children[activeImage] as HTMLElement;
+      if (activeElement) {
+        activeElement.scrollIntoView({
+          behavior: "smooth",
+          block: "nearest",
+          inline: "center", // Keeps it centered on mobile horizontal scroll
+        });
+      }
+    }
+  }, [activeImage]);
+
+  // --- Thumbnail Scrolling Handlers ---
+  // 108px = Thumbnail Height (96px/h-24) + Gap (12px/gap-3)
+  const handleScrollUp = () => {
+    if (thumbnailsRef.current) {
+      thumbnailsRef.current.scrollBy({ top: -108, behavior: "smooth" });
+    }
+  };
+
+  const handleScrollDown = () => {
+    if (thumbnailsRef.current) {
+      thumbnailsRef.current.scrollBy({ top: 108, behavior: "smooth" });
+    }
+  };
 
   // --- Hover Zoom Logic ---
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -46,20 +75,17 @@ export default function ProductImageGallery({ images, title }: ProductImageGalle
 
   return (
     <PhotoProvider>
-      {/* HOVER ZOOM PANEL
-        Note: The parent container in the main layout needs `relative` positioning 
-        so this absolute div aligns perfectly on the right side.
-      */}
+      {/* HOVER ZOOM PANEL */}
       {zoomedImage && (
         <div
           className="hidden lg:block absolute z-50 border-2 border-gray-200 rounded-2xl shadow-2xl bg-white overflow-hidden pointer-events-none"
           style={{
-            right: "0", 
-            top: "4rem", // Adjust based on your header height
-            width: "calc(50% - 0.4rem)", // Half the container width minus gap
+            right: "0",
+            top: "4rem", 
+            width: "calc(50% - 0.4rem)", 
             height: "600px",
             backgroundImage: `url(${zoomedImage})`,
-            backgroundSize: "200%", 
+            backgroundSize: "200%",
             backgroundRepeat: "no-repeat",
             backgroundPosition: zoomSettings.backgroundPosition,
           }}
@@ -68,13 +94,27 @@ export default function ProductImageGallery({ images, title }: ProductImageGalle
 
       {/* LEFT: IMAGE GALLERY */}
       <div className="flex flex-col-reverse md:flex-row gap-4 lg:sticky lg:top-24">
-        {/* Thumbnails */}
-        <div className="flex md:flex-col gap-3 md:w-24 shrink-0 overflow-x-auto md:overflow-visible relative">
-          <button className="hidden md:flex w-full h-8 items-center justify-center bg-gray-50 text-gray-400 hover:text-[#3A9AFF] rounded-t-lg border border-b-0 border-gray-200">
-            <ChevronUp size={20} />
-          </button>
+        
+        {/* Thumbnails Wrapper */}
+        <div className="flex md:flex-col gap-3 md:w-24 shrink-0 relative">
+          
+          {/* Scroll Up Button (Only show if more than 5 images) */}
+          {images.length > 5 && (
+            <button 
+              onClick={handleScrollUp}
+              className="hidden md:flex w-full h-8 items-center justify-center bg-gray-50 text-gray-400 hover:text-[#3A9AFF] rounded-t-lg border border-b-0 border-gray-200 shrink-0"
+            >
+              <ChevronUp size={20} />
+            </button>
+          )}
 
-          <div className="flex md:flex-col gap-3">
+          {/* Scrollable Thumbnails Container */}
+          <div 
+            ref={thumbnailsRef}
+            className={`flex md:flex-col gap-3 overflow-x-auto md:overflow-y-hidden scroll-smooth scrollbar-hide ${
+              images.length > 5 ? "md:max-h-[528px]" : "" // 528px fits exactly 5 images + 4 gaps
+            }`}
+          >
             {images.map((img, idx) => (
               <button
                 key={idx}
@@ -90,9 +130,15 @@ export default function ProductImageGallery({ images, title }: ProductImageGalle
             ))}
           </div>
 
-          <button className="hidden md:flex w-full h-8 items-center justify-center bg-gray-50 text-gray-400 hover:text-[#3A9AFF] rounded-b-lg border border-t-0 border-gray-200">
-            <ChevronDown size={20} />
-          </button>
+          {/* Scroll Down Button (Only show if more than 5 images) */}
+          {images.length > 5 && (
+            <button 
+              onClick={handleScrollDown}
+              className="hidden md:flex w-full h-8 items-center justify-center bg-gray-50 text-gray-400 hover:text-[#3A9AFF] rounded-b-lg border border-t-0 border-gray-200 shrink-0"
+            >
+              <ChevronDown size={20} />
+            </button>
+          )}
         </div>
 
         {/* Main Image Container */}
@@ -150,6 +196,12 @@ export default function ProductImageGallery({ images, title }: ProductImageGalle
           </button>
         </div>
       </div>
+
+      {/* Global style to hide the physical scrollbar while keeping the logic functional */}
+      <style dangerouslySetInnerHTML={{__html: `
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+      `}} />
     </PhotoProvider>
   );
 }

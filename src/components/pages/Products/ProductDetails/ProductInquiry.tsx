@@ -1,47 +1,54 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+"use client";
 
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { X, Trash2, Plus, Search, CheckSquare, Square } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { IProduct } from "@/types/product.interface";
+import axios from "axios";
+import { toast } from "sonner";
+import { BASEURL } from "@/utils/constant";
 
-// --- MOCK DATA (Based on your reference image) ---
-const allProducts = [
-  { id: "1", name: "V02 8X optical zoom PIP shooting vlog camera 5K dual lens...", img: "/home/product/1.jpg" },
-  { id: "2", name: "F3B 1300MA Big capacity Battery 3 Lens 13MP 2.8\"IPS Screen...", img: "/home/product/2.jpg" },
-  { id: "3", name: "48MP 1080P Waterproof Camera with 5 Meters Waterproof", img: "/home/product/3.jpg" },
-  { id: "4", name: "CD-F3L 64MP 5K WiFi Digital Beauty Camera with Dual Lens...", img: "/home/product/4.jpg" },
-  { id: "5", name: "CD-R2H 64MP 4K Digital Zoom Camera with 180° Flipping...", img: "/home/product/5.jpg" },
-  { id: "6", name: "CD-V01 64MP 5K 16X Digital VLOG Camera with Remote...", img: "/home/product/6.jpg" },
-  { id: "7", name: "Waterproof Kids Camera with 3 Meters Waterproof and 2.0...", img: "/home/product/7.jpg" },
-];
+export default function ProductInquiry({ productId, allProducts }: { productId: string; allProducts: IProduct[] }) {
 
-export default function ProductInquiry() {
-  // Main form state (Defaults to the second product like your reference image)
-  const [selectedProducts, setSelectedProducts] = useState([allProducts[1]]);
-  
+  // 1. Initialize selected products by finding the one that matches productId
+  const [selectedProducts, setSelectedProducts] = useState<IProduct[]>(() => {
+    const defaultProduct = allProducts.find(p => p._id === productId);
+    return defaultProduct ? [defaultProduct] : [];
+  });
+
   // Modal state
   const [isModalOpen, setIsModalOpen] = useState(false);
-  
+
   // Temporary state for the modal's checkboxes before hitting "OK"
   const [modalSelectedIds, setModalSelectedIds] = useState<string[]>([]);
-  
-  // Form input state
+
+  // 2. Form input state updated to include 'phone'
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     message: ""
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Handle generic input changes
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
   // When opening modal, sync the temporary state with the currently selected products
   const handleOpenModal = () => {
-    setModalSelectedIds(selectedProducts.map(p => p.id));
+    setModalSelectedIds(selectedProducts.map(p => p._id));
     setIsModalOpen(true);
   };
 
   // Toggle individual checkbox inside modal
   const handleToggleProduct = (id: string) => {
-    setModalSelectedIds(prev => 
+    setModalSelectedIds(prev =>
       prev.includes(id) ? prev.filter(pid => pid !== id) : [...prev, id]
     );
   };
@@ -51,30 +58,64 @@ export default function ProductInquiry() {
     if (modalSelectedIds.length === allProducts.length) {
       setModalSelectedIds([]); // Deselect all
     } else {
-      setModalSelectedIds(allProducts.map(p => p.id)); // Select all
+      setModalSelectedIds(allProducts.map(p => p._id)); // Select all
     }
   };
 
   // Confirm selection from modal
   const handleModalOk = () => {
-    const newlySelected = allProducts.filter(p => modalSelectedIds.includes(p.id));
+    const newlySelected = allProducts.filter(p => modalSelectedIds.includes(p._id));
     setSelectedProducts(newlySelected);
     setIsModalOpen(false);
   };
 
   // Remove product from main form
   const handleRemoveProduct = (id: string) => {
-    setSelectedProducts(prev => prev.filter(p => p.id !== id));
+    setSelectedProducts(prev => prev.filter(p => p._id !== id));
+  };
+
+  // 3. API Submit Handler
+  const handleSubmit = async () => {
+    // Basic validation
+    if (!formData.email || !formData.message) {
+      toast.warning("Please fill in your email and message.");
+      return;
+    }
+
+    try {
+      setIsSubmitting(true);
+
+      // Construct payload exactly as requested
+      const payload = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        message: formData.message,
+        inquiryType: "PRODUCT",
+        products: selectedProducts.map(p => p._id)
+      };
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_BASE_API_URL}/contact/create`, payload);
+      if (response.data) {
+        toast.success("Inquiry submitted successfully!");
+        setFormData({ name: "", email: "", phone: "", message: "" });
+        setSelectedProducts([]);
+      }
+    } catch (error) {
+      console.error("Error submitting inquiry:", error);
+      alert("Failed to submit inquiry. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <div id="inquiry" className="scroll-mt-24 pt-6 md:pt-16 w-full">
-      
+
       {/* ========================================= */}
       {/* 1. MAIN INQUIRY FORM */}
       {/* ========================================= */}
       <div className="">
-        
+
         <div className="mb-8">
           <h2 className="text-2xl md:text-3xl font-extrabold text-[#023047] mb-2 tracking-tight">
             Product Inquiry
@@ -104,18 +145,18 @@ export default function ProductInquiry() {
                   </tr>
                 ) : (
                   selectedProducts.map((product) => (
-                    <tr key={product.id} className="hover:bg-gray-50 transition-colors">
+                    <tr key={product._id} className="hover:bg-gray-50 transition-colors">
                       <td className="p-4">
                         <div className="w-12 h-12 relative bg-white border border-gray-100 rounded overflow-hidden flex items-center justify-center">
                           {/* Fallback styling if image fails to load */}
                           <div className="absolute inset-0 bg-gray-100/50 flex items-center justify-center text-[8px] text-gray-400 text-center">Img</div>
-                          <Image src={product.img || "/home/product/1.jpg"} alt="Product" fill className="object-contain p-1 relative z-10" />
+                          <Image src={product?.images[0] || "/default.png"} alt="Product" fill className="object-contain p-1 relative z-10" />
                         </div>
                       </td>
                       <td className="p-4 text-[#023047] font-semibold">{product.name}</td>
                       <td className="p-4 text-center">
-                        <button 
-                          onClick={() => handleRemoveProduct(product.id)}
+                        <button
+                          onClick={() => handleRemoveProduct(product._id)}
                           className="text-gray-400 hover:text-red-500 bg-gray-50 hover:bg-red-50 p-2 rounded-lg transition-colors"
                           title="Remove"
                         >
@@ -131,7 +172,7 @@ export default function ProductInquiry() {
         </div>
 
         {/* Add Products Button */}
-        <button 
+        <button
           onClick={handleOpenModal}
           className="flex items-center gap-2 bg-[#3A9AFF] hover:bg-[#023047] text-white px-5 py-2.5 rounded cursor-pointer text-xs md:text-sm font-bold transition-all shadow-sm hover:shadow-md mb-8"
         >
@@ -146,6 +187,9 @@ export default function ProductInquiry() {
             </label>
             <input
               type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleInputChange}
               placeholder="John Doe"
               className="w-full rounded bg-gray-50 border border-gray-200 p-3.5 text-sm outline-none focus:border-[#3A9AFF] focus:bg-white transition-all"
             />
@@ -156,7 +200,23 @@ export default function ProductInquiry() {
             </label>
             <input
               type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
               placeholder="john@example.com"
+              className="w-full rounded bg-gray-50 border border-gray-200 p-3.5 text-sm outline-none focus:border-[#3A9AFF] focus:bg-white transition-all"
+            />
+          </div>
+          <div>
+            <label className="block text-xs font-bold text-[#023047] uppercase tracking-widest mb-2">
+              Phone Number
+            </label>
+            <input
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleInputChange}
+              placeholder="+1 (555) 000-0000"
               className="w-full rounded bg-gray-50 border border-gray-200 p-3.5 text-sm outline-none focus:border-[#3A9AFF] focus:bg-white transition-all"
             />
           </div>
@@ -168,14 +228,21 @@ export default function ProductInquiry() {
           </label>
           <textarea
             rows={5}
+            name="message"
+            value={formData.message}
+            onChange={handleInputChange}
             placeholder="Please enter your inquiry details, quantity needed, etc..."
             className="w-full rounded bg-gray-50 border border-gray-200 p-3.5 text-sm outline-none focus:border-[#3A9AFF] focus:bg-white transition-all resize-none"
           ></textarea>
         </div>
 
-        <div className="flex justify-center">
-          <button className="w-full md:w-auto bg-secondary hover:bg-primary cursor-pointer text-white px-12 py-4 rounded text-sm font-black uppercase tracking-widest transition-all shadow-md hover:shadow-xl">
-            Submit Inquiry
+        <div className="flex justify-center md:justify-start">
+          <button
+            onClick={handleSubmit}
+            disabled={isSubmitting}
+            className="w-full md:w-auto bg-secondary hover:bg-primary cursor-pointer text-white px-12 py-4 rounded text-sm font-black uppercase tracking-widest transition-all shadow-md hover:shadow-xl disabled:opacity-50"
+          >
+            {isSubmitting ? "Submitting..." : "Submit Inquiry"}
           </button>
         </div>
 
@@ -187,27 +254,27 @@ export default function ProductInquiry() {
       <AnimatePresence>
         {isModalOpen && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-            
+
             {/* Backdrop */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
               onClick={() => setIsModalOpen(false)}
               className="absolute inset-0 bg-[#023047]/60 backdrop-blur-sm cursor-pointer"
             />
 
             {/* Modal Container */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
               className="relative w-full max-w-4xl bg-white rounded-2xl shadow-2xl overflow-hidden z-10 flex flex-col max-h-[90vh]"
             >
-              
+
               {/* Modal Header */}
               <div className="bg-secondary px-6 py-4 flex items-center justify-between text-white shrink-0">
                 <h3 className="text-lg font-bold tracking-wide">Select Products</h3>
-                <button 
+                <button
                   onClick={() => setIsModalOpen(false)}
                   className="hover:bg-white/20 p-1.5 rounded-full transition-colors"
                 >
@@ -242,11 +309,11 @@ export default function ProductInquiry() {
                   </thead>
                   <tbody className="divide-y divide-gray-100">
                     {allProducts.map((product) => {
-                      const isSelected = modalSelectedIds.includes(product.id);
+                      const isSelected = modalSelectedIds.includes(product._id);
                       return (
-                        <tr 
-                          key={product.id} 
-                          onClick={() => handleToggleProduct(product.id)}
+                        <tr
+                          key={product._id}
+                          onClick={() => handleToggleProduct(product._id)}
                           className={`hover:bg-[#F4F7F9] transition-colors cursor-pointer ${isSelected ? "bg-[#3A9AFF]/5" : ""}`}
                         >
                           <td className="p-4 text-center">
@@ -262,7 +329,7 @@ export default function ProductInquiry() {
                           <td className="p-4">
                             <div className="w-10 h-10 relative bg-white border border-gray-100 rounded-md overflow-hidden flex items-center justify-center">
                               <div className="absolute inset-0 bg-gray-50 flex items-center justify-center text-[8px] text-gray-400">Img</div>
-                              <Image src={product.img} alt="Product" fill className="object-contain p-0.5 relative z-10" />
+                              <Image src={product?.images?.[0] || "/default.png"} alt="Product" fill className="object-contain p-0.5 relative z-10" />
                             </div>
                           </td>
                           <td className="p-4 text-[#023047] font-medium leading-relaxed">
@@ -277,9 +344,9 @@ export default function ProductInquiry() {
 
               {/* Modal Footer (Pagination & Actions) */}
               <div className="border-t border-gray-200 p-4 bg-white flex flex-col sm:flex-row items-center justify-between gap-4 shrink-0">
-                
+
                 {/* Select All */}
-                <button 
+                <button
                   onClick={handleSelectAll}
                   className="flex items-center gap-2 text-sm font-bold text-gray-600 hover:text-[#3A9AFF]"
                 >
@@ -302,13 +369,13 @@ export default function ProductInquiry() {
 
                 {/* Action Buttons */}
                 <div className="flex items-center gap-3">
-                  <button 
+                  <button
                     onClick={() => setIsModalOpen(false)}
                     className="px-6 py-2 rounded cursor-pointer border border-gray-300 text-gray-600 text-sm font-bold hover:bg-gray-50 transition-colors"
                   >
                     Cancel
                   </button>
-                  <button 
+                  <button
                     onClick={handleModalOk}
                     className="px-8 py-2 rounded cursor-pointer bg-primary hover:bg-[#023047] text-white text-sm font-bold transition-colors shadow-sm"
                   >

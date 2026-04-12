@@ -1,5 +1,6 @@
 "use client";
 
+import axios from 'axios';
 import { Send } from 'lucide-react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { toast } from 'sonner';
@@ -8,10 +9,8 @@ import { toast } from 'sonner';
 type ContactFormInputs = {
   firstName: string;
   lastName: string;
-  companyName: string; // Added for B2B
   email: string;
   phone: string;
-  subject: string;
   message: string;
 };
 
@@ -23,18 +22,34 @@ const ContactForm = () => {
     formState: { errors, isSubmitting },
   } = useForm<ContactFormInputs>();
 
-  const onSubmit: SubmitHandler<ContactFormInputs> = async (data) => {
-    console.log("Form Values:", data);
+const onSubmit: SubmitHandler<ContactFormInputs> = async (data) => {
+    try {
+      const payload = {
+        name: `${data.firstName} ${data.lastName}`.trim(),
+        email: data.email,
+        phone: data.phone,
+        message: data.message,
+        inquiryType: "GENERAL",
+        products: [] 
+      };
 
-    // Simulate an API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_BASE_API_URL}/contact/create`, payload);
 
-    // Show Success Toast
-    toast.success("Inquiry sent successfully!", {
-      description: "Our B2B sales team will contact you within 24 hours.",
-    });
+      if (response.data) {
+        // Show Success Toast
+        toast.success("Inquiry sent successfully!", {
+          description: "Our B2B sales team will contact you within 24 hours.",
+        });
 
-    reset();
+        // Reset react-hook-form inputs
+        reset();
+      }
+    } catch (error) {
+      console.error("Error submitting inquiry:", error);
+      toast.error("Failed to send inquiry.", {
+        description: "Please try again later or contact us directly."
+      });
+    }
   };
 
   return (

@@ -1,7 +1,7 @@
 
 import ProductDetailLoader from "@/components/loaders/Products/ProductDetailLoader";
 import ProductDetails from "@/components/pages/Products/ProductDetails/ProductDetails";
-import ProductInfoTabs from "@/components/pages/Products/ProductDetails/ProductInfoTabs";
+import ProductInformationWrapper from "@/components/pages/Products/ProductDetails/ProductInformationWrapper";
 import RelatedProducts from "@/components/pages/Products/ProductDetails/RelatedProducts";
 import { getProductBySlug } from "@/services/product/product.service";
 import { IParams } from "@/types/index.interface";
@@ -33,17 +33,22 @@ import { Suspense } from "react";
 
 
 const page = async ({ params }: IParams) => {
-  // const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-  // await delay(5 * 60 * 1000);
   const slug = (await params).slug
   const productData = await getProductBySlug(slug)
-  // console.log("Pppp:", productData)
   return (
     <div>
       <Suspense key={slug} fallback={<ProductDetailLoader></ProductDetailLoader>}>
         <ProductDetails product={productData?.data}></ProductDetails>
-        <ProductInfoTabs product={productData?.data}></ProductInfoTabs>
-        <RelatedProducts productSlug={slug} />
+        <Suspense fallback={
+          <div className="h-96 flex items-center justify-center"><span className="text-gray-500">Loading product information...</span></div>}
+        >
+          <ProductInformationWrapper product={productData?.data} />
+        </Suspense>
+        <Suspense fallback={
+          <div className="h-96 flex items-center justify-center"><span className="text-gray-500">Loading related products...</span></div>}
+        >
+          <RelatedProducts productSlug={slug} />
+        </Suspense>
       </Suspense>
 
     </div>

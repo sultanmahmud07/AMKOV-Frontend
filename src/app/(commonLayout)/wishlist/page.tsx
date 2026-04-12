@@ -1,5 +1,4 @@
 
-import WishList from '@/components/pages/Wish/WishList';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -11,7 +10,7 @@ export const metadata: Metadata = {
 const Wishlist = () => {
   return (
     <div>
-      <WishList></WishList>
+      {/* <WishList></WishList> */}
     </div>
   );
 };
