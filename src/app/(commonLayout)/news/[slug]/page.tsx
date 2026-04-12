@@ -1,16 +1,14 @@
 
 import BlogDetails from "@/components/module/News/NewsDetails";
-import getAllBlogs from "@/lib/getAllBlogs";
 import getBlogDetails from "@/lib/getBlogDetails";
 import { IParams } from "@/types/index.interface";
-import { INews } from "@/types/news.interface";
 
-export const generateStaticParams = async () => {
-  const blogs = await getAllBlogs(20);
-  return blogs?.data?.map((blog: INews) => ({
-    slug: String(blog.slug),
-  }));
-};
+// export const generateStaticParams = async () => {
+//   const blogs = await getAllBlogs(20);
+//   return blogs?.data?.map((blog: INews) => ({
+//     slug: String(blog.slug),
+//   }));
+// };
 
 export const generateMetadata = async ({
   params,
