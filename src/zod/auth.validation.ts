@@ -4,19 +4,7 @@ import z from "zod";
 export const registerUserValidationZodSchema = z.object({
     name: z.string().min(1, { message: "Name is required" }),
     address: z.string().optional(),
-    role: z.string().optional(),
-    phone: z
-        .string()
-        .optional()
-        .refine(
-            (val) => {
-                if (!val) return true; // optional → skip validation when empty
-                const phoneRegex =
-                    /^(\+?\d{1,4}[- ]?)?\d{6,15}$/; // flexible international format
-                return phoneRegex.test(val);
-            },
-            { message: "Invalid phone number format" }
-        ),
+    phone: z.string().optional(),
     email: z.email({ message: "Valid email is required" }),
     password: z.string().min(6, {
         error: "Password is required and must be at least 6 characters long",

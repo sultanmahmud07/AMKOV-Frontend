@@ -17,10 +17,19 @@ const RegisterForm = () => {
   // UI only logic for password toggles
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
-  useEffect(() => {
-    if (state && !state.success && state.message) {
-      toast.error(state.message);
+useEffect(() => {
+    if (state && !state.success) {
+      if (state.errorSources && state.errorSources.length > 0) {
+        const combinedErrors = state.errorSources
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          .map((err:any) => `${err.path}: ${err.message}`)
+          .join(" | "); 
+          
+        toast.error(`Validation Failed: ${combinedErrors}`);
+      } 
+      else if (state.message) {
+        toast.error(state.message);
+      }
     }
   }, [state]);
 

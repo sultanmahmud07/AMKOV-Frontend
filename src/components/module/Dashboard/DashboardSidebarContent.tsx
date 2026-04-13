@@ -26,13 +26,13 @@ const DashboardSidebarContent = ({
       {/* Logo/Brand */}
       <div className="flex h-16 items-center border-b px-6">
         <Link href={"/"} className="flex items-center space-x-2">
-           <Image
-                        src="/logo/site-logo.png"
-                        alt="logo"
-                        width={200}
-                        height={100}
-                        className="w-20"
-                      />
+          <Image
+            src="/logo/logo.png"
+            alt="logo"
+            width={200}
+            height={100}
+            className="w-36"
+          />
         </Link>
       </div>
 

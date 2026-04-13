@@ -16,9 +16,9 @@ export const registerUser = async (_currentState: any, formData: any): Promise<a
             address: formData.get('address'),
             password: formData.get('password'),
             confirmPassword: formData.get('confirmPassword'),
-            role: formData.get('role'),
+            // role: "USER",
         }
-
+ console.log("1st payload:", payload)
         if (zodValidator(payload, registerUserValidationZodSchema).success === false) {
             return zodValidator(payload, registerUserValidationZodSchema);
         }
@@ -30,11 +30,11 @@ export const registerUser = async (_currentState: any, formData: any): Promise<a
             password: validatedPayload.password,
             phone: validatedPayload.phone,
             address: validatedPayload.address,
-            role: validatedPayload.role,
+            role: "USER",
         }
-        
+        console.log("REgister payload:", registerData)
         const res = await serverFetch.post("/user/register", {
-             body: JSON.stringify(registerData),
+            body: JSON.stringify(registerData),
             headers: {
                 "Content-Type": "application/json",
             }
@@ -63,7 +63,7 @@ export const registerUser = async (_currentState: any, formData: any): Promise<a
 export const createAdmin = async (payload: any) => {
     try {
         const res = await serverFetch.post("/user/register", {
-             body: JSON.stringify(payload),
+            body: JSON.stringify(payload),
             headers: {
                 "Content-Type": "application/json",
             }
