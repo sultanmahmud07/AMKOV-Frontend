@@ -58,7 +58,8 @@ const cardVariants: Variants = {
   },
 };
 
-export default function PopularArticles() {
+export default function PopularArticles({ blogs }: { blogs: Article[] }) {
+  console.log(blogs)
   return (
     <section className="pb-12 lg:pb-20 bg-white">
       <div className="main-container ">
