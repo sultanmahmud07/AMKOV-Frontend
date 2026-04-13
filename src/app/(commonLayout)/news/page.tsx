@@ -1,6 +1,6 @@
 
 import News from '@/components/pages/News/News';
-import getAllBlogs from '@/lib/getAllBlogs';
+import { getBlogs } from '@/services/blog/blog.service';
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -9,7 +9,8 @@ export const metadata: Metadata = {
 }
 
 export default async function Page() {
-      const blogs = await getAllBlogs(1000);
+
+      const blogs = await getBlogs("page=1&limit=100");
       return (
             <News blogs={blogs?.data}></News>
       );

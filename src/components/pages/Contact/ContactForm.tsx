@@ -1,5 +1,6 @@
 "use client";
 
+import { BASEURL } from '@/utils/constant';
 import axios from 'axios';
 import { Send } from 'lucide-react';
 import { useForm, SubmitHandler } from 'react-hook-form';
@@ -33,7 +34,7 @@ const onSubmit: SubmitHandler<ContactFormInputs> = async (data) => {
         products: [] 
       };
 
-      const response = await axios.post(`${process.env.NEXT_PUBLIC_BASE_API_URL}/contact/create`, payload);
+      const response = await axios.post(`${BASEURL || "https://api.devshimul.com/api/v1"}/contact/create`, payload);
 
       if (response.data) {
         // Show Success Toast

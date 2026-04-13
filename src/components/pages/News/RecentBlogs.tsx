@@ -1,4 +1,4 @@
-import getAllBlogs from '@/lib/getAllBlogs';
+import { getBlogs } from '@/services/blog/blog.service';
 import { INews } from '@/types/news.interface';
 import { formattedDate } from '@/utils/dateFormated';
 import { CalendarDays } from 'lucide-react'
@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const RecentBlogs = async () => {
-      const blogs = await getAllBlogs(10);
+      const blogs = await getBlogs("page=1&limit=10");
 
       return (
             <div className='border border-[#C7C7C7] rounded-md'>

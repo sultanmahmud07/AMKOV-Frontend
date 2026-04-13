@@ -1,6 +1,6 @@
 
 import BlogDetails from "@/components/module/News/NewsDetails";
-import getBlogDetails from "@/lib/getBlogDetails";
+import { getBlogBySlug } from "@/services/blog/blog.service";
 import { IParams } from "@/types/index.interface";
 
 // export const generateStaticParams = async () => {
@@ -16,11 +16,11 @@ export const generateMetadata = async ({
   params: Promise<{ slug: string }>;
 }) => {
   const { slug } = await params;
-  const blog = await getBlogDetails(slug);
+  const blog = await getBlogBySlug(slug);
 
   return {
-    title: blog?.data?.data?.metaTitle,
-    description: blog?.data?.data?.metaDescription,
+    title: blog?.data?.metaTitle,
+    description: blog?.data?.metaDescription,
   };
 };
 

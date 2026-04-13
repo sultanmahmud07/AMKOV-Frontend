@@ -94,15 +94,15 @@ export default function ProductInquiry({ productId, allProducts }: { productId: 
         inquiryType: "PRODUCT",
         products: selectedProducts.map(p => p._id)
       };
-      const response = await axios.post(`${process.env.NEXT_PUBLIC_BASE_API_URL}/contact/create`, payload);
+      const response = await axios.post(`${BASEURL || "https://api.devshimul.com/api/v1"}/contact/create`, payload);
       if (response.data) {
         toast.success("Inquiry submitted successfully!");
         setFormData({ name: "", email: "", phone: "", message: "" });
         setSelectedProducts([]);
       }
     } catch (error) {
-      console.error("Error submitting inquiry:", error);
-      alert("Failed to submit inquiry. Please try again later.");
+      console.log("Error submitting inquiry:", error);
+      toast.error("Failed to submit inquiry. Please try again later.");
     } finally {
       setIsSubmitting(false);
     }

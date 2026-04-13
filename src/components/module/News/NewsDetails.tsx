@@ -1,5 +1,4 @@
 import './news-style.css'
-import getBlogDetails from "@/lib/getBlogDetails";
 import Image from "next/image";
 import { CiCalendar } from "react-icons/ci";
 import { FaRegUser } from "react-icons/fa6";
@@ -10,12 +9,13 @@ import Link from 'next/link';
 import RecentBlogs from '@/components/pages/News/RecentBlogs';
 import { IParams } from '@/types/index.interface';
 import { formattedDate } from '@/utils/dateFormated';
+import { getBlogBySlug } from '@/services/blog/blog.service';
 
 
 const BlogDetails = async ({ params }: IParams) => {
   const slug = (await params).slug
-  const blogData = await getBlogDetails(slug);
-  const blog = blogData?.data?.data;
+  const blogData = await getBlogBySlug(slug);
+  const blog = blogData?.data;
   return (
     <div className="">
       <div className="category_top bg-base-100 py-4 md:py-6">

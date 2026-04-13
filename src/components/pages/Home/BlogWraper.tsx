@@ -1,8 +1,8 @@
-import getAllBlogs from '@/lib/getAllBlogs';
 import PopularArticles from './PopularArticles';
+import { getBlogs } from '@/services/blog/blog.service';
 
 const BlogWrapper = async () => {
-      const blogs = await getAllBlogs(3);
+      const blogs = await getBlogs("page=1&limit=3");
       return (
             <PopularArticles blogs={blogs?.data} />
       )
