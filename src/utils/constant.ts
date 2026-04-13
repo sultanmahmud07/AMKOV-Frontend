@@ -1,2 +1,2 @@
 
-export const BASEURL = "http://localhost:9000/api/v1";
+export const BASEURL = "https://api.devshimul.com/api/v1";
