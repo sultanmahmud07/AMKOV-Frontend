@@ -81,8 +81,8 @@ export default function ProductImageGallery({ images, title }: ProductImageGalle
           className="hidden lg:block absolute z-50 border-2 border-gray-200 rounded-2xl shadow-2xl bg-white overflow-hidden pointer-events-none"
           style={{
             right: "0",
-            top: "4rem", 
-            width: "calc(50% - 0.4rem)", 
+            top: "4rem",
+            width: "calc(50% - 0.4rem)",
             height: "600px",
             backgroundImage: `url(${zoomedImage})`,
             backgroundSize: "200%",
@@ -94,13 +94,13 @@ export default function ProductImageGallery({ images, title }: ProductImageGalle
 
       {/* LEFT: IMAGE GALLERY */}
       <div className="flex flex-col-reverse md:flex-row gap-4 lg:sticky lg:top-24">
-        
+
         {/* Thumbnails Wrapper */}
         <div className="flex md:flex-col gap-3 md:w-24 shrink-0 relative">
-          
+
           {/* Scroll Up Button (Only show if more than 5 images) */}
           {images.length > 5 && (
-            <button 
+            <button
               onClick={handleScrollUp}
               className="hidden md:flex w-full h-8 items-center justify-center bg-gray-50 text-gray-400 hover:text-[#3A9AFF] rounded-t-lg border border-b-0 border-gray-200 shrink-0"
             >
@@ -109,21 +109,19 @@ export default function ProductImageGallery({ images, title }: ProductImageGalle
           )}
 
           {/* Scrollable Thumbnails Container */}
-          <div 
+          <div
             ref={thumbnailsRef}
-            className={`flex md:flex-col gap-3 overflow-x-auto md:overflow-y-hidden scroll-smooth scrollbar-hide ${
-              images.length > 5 ? "md:max-h-[528px]" : "" // 528px fits exactly 5 images + 4 gaps
-            }`}
+            className={`flex md:flex-col gap-3 overflow-x-auto md:overflow-y-hidden scroll-smooth scrollbar-hide ${images.length > 5 ? "md:max-h-[528px]" : "" // 528px fits exactly 5 images + 4 gaps
+              }`}
           >
             {images.map((img, idx) => (
               <button
                 key={idx}
                 onClick={() => setActiveImage(idx)}
-                className={`relative w-20 h-20 md:w-full md:h-24 rounded-lg overflow-hidden border-2 transition-all shrink-0 bg-gray-50 ${
-                  activeImage === idx
+                className={`relative w-20 h-20 md:w-full md:h-24 rounded-lg overflow-hidden border-2 transition-all shrink-0 bg-gray-50 ${activeImage === idx
                     ? "border-[#3A9AFF]"
                     : "border-gray-200 hover:border-gray-300"
-                }`}
+                  }`}
               >
                 <Image src={img} alt={`${title} Thumbnail ${idx}`} fill className="object-cover" />
               </button>
@@ -132,7 +130,7 @@ export default function ProductImageGallery({ images, title }: ProductImageGalle
 
           {/* Scroll Down Button (Only show if more than 5 images) */}
           {images.length > 5 && (
-            <button 
+            <button
               onClick={handleScrollDown}
               className="hidden md:flex w-full h-8 items-center justify-center bg-gray-50 text-gray-400 hover:text-[#3A9AFF] rounded-b-lg border border-t-0 border-gray-200 shrink-0"
             >
@@ -153,8 +151,9 @@ export default function ProductImageGallery({ images, title }: ProductImageGalle
             <Image
               src={images[activeImage]}
               alt={title}
-              fill
-              className="object-contain p-8 mix-blend-multiply transition-opacity duration-300 group-hover:opacity-0 lg:group-hover:opacity-100"
+              width={800}
+              height={600}
+              className="object-contain w-full p-8 mix-blend-multiply transition-opacity duration-300 group-hover:opacity-0 lg:group-hover:opacity-100"
               priority
             />
           </PhotoView>
@@ -198,7 +197,8 @@ export default function ProductImageGallery({ images, title }: ProductImageGalle
       </div>
 
       {/* Global style to hide the physical scrollbar while keeping the logic functional */}
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         .scrollbar-hide::-webkit-scrollbar { display: none; }
         .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
       `}} />

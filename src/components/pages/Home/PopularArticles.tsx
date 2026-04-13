@@ -2,43 +2,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
+import { INews } from "@/types/news.interface";
 
-// 1. Explicit TypeScript Interface to solve type errors
-interface Article {
-  id: string;
-  title: string;
-  category: string;
-  image: string;
-  href: string;
-}
-
-// 2. Updated data with the new 3rd image URL
-const articles: Article[] = [
-  {
-    id: "vlogging-tips",
-    title: "10 Essential Tips for Vlogging in Low Light Environments",
-    category: "Tutorials",
-    image: "https://images.unsplash.com/photo-1551636898-47668aa61de2?q=80&w=800&auto=format&fit=crop",
-    href: "/news/vlogging-low-light",
-  },
-  {
-    id: "optical-digital-zoom",
-    title: "Optical vs. Digital Zoom: Which Camera Gear is Right for You?",
-    category: "Gear Guide",
-    image: "https://images.unsplash.com/photo-1519183071298-a2962feb14f4?q=80&w=800&auto=format&fit=crop",
-    href: "/news/optical-vs-digital-zoom",
-  },
-  {
-    id: "landscape-photography",
-    title: "Mastering Landscape Photography on Your Next Adventure",
-    category: "Tips & Tricks",
-    // Replaced 3rd image with a high-quality landscape/adventure photography shot
-    image: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=800&auto=format&fit=crop",
-    href: "/news/landscape-photography",
-  },
-];
-
-// 3. Explicitly typed Framer Motion Variants
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   show: {
@@ -58,8 +23,8 @@ const cardVariants: Variants = {
   },
 };
 
-export default function PopularArticles({ blogs }: { blogs: Article[] }) {
-  console.log(blogs)
+export default function PopularArticles({ blogs }: { blogs: INews[] }) {
+ 
   return (
     <section className="pb-12 lg:pb-20 bg-white">
       <div className="main-container ">
@@ -86,23 +51,24 @@ export default function PopularArticles({ blogs }: { blogs: Article[] }) {
           viewport={{ once: true, margin: "-50px" }}
           className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8"
         >
-          {articles.map((article) => (
+          {blogs.map((article) => (
             <motion.div
-              key={article.id}
+              key={article._id}
               variants={cardVariants}
               // Added Framer Motion hover animation for a premium lifting effect
               whileHover={{ y: -8, transition: { type: "spring", stiffness: 300 } }}
             >
               <Link
-                href={article.href}
+                href={article.slug ? `/news/${article.slug}` : "/news"}
                 className="group relative block h-80 lg:h-[380px] w-full rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-shadow duration-500"
               >
                 {/* Background Image */}
                 <Image
-                  src={article.image}
+                  src={article.thumbnail || "/default.png"}
                   alt={article.title}
-                  fill
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  width={400}
+                  height={300}
+                  className="object-cover w-full aspect-square transition-transform duration-700 ease-out group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
 
@@ -115,7 +81,7 @@ export default function PopularArticles({ blogs }: { blogs: Article[] }) {
                   {/* Category Badge */}
                   <div className="mb-4">
                     <span className="inline-block bg-[#3A9AFF] text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1.5 rounded shadow-sm">
-                      {article.category}
+                      {article.category || "Uncategorized"}
                     </span>
                   </div>
 

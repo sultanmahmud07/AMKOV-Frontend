@@ -1,4 +1,3 @@
-import { StaticImageData } from "next/image";
 
 export interface INews  {
 _id?: string;
@@ -6,10 +5,7 @@ title: string
 slug: string
 thumbnail: string
 content: string
-category?: {
-  _id: string
-}
-image: StaticImageData;
+category?: string
 offer?: number
 metaTitle: string
 tags:string[]
