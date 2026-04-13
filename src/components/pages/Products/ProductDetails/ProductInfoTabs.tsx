@@ -1,13 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import ProductInquiry from "./ProductInquiry";
 import { IProduct } from "@/types/product.interface";
 
 export default function ProductInfoTabs({ product, allProducts }: { product: IProduct; allProducts: IProduct[] }) {
   const [activeTab, setActiveTab] = useState("description");
-  // Smooth scroll handler
   const scrollToSection = (sectionId: string) => {
     setActiveTab(sectionId);
     const element = document.getElementById(sectionId);
