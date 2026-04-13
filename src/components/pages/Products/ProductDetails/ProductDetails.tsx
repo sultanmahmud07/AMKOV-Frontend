@@ -39,7 +39,7 @@ export default function ProductDetails({ product }: { product?: IProduct }) {
       <div className="main-container py-8 lg:py-12 relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-start">
 
-          <ProductImageGallery images={product?.images ?? []} title={product?.name ?? ""} />
+          <ProductImageGallery video={product?.video} images={product?.images ?? []} title={product?.name ?? ""} />
           <div className="flex flex-col">
             <span className="text-sm font-bold text-[#3A9AFF] uppercase tracking-wider mb-2">
               product brand

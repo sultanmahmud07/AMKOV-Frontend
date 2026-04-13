@@ -51,6 +51,7 @@ export interface IProduct {
   metaDescription: string;
   specifications: ISpecification[];
   images: string[];
+  video?: string;
   deleteImages: string[];
   isFeatured: boolean;
   isMenu: boolean;

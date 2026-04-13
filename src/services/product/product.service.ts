@@ -38,6 +38,24 @@ export async function getProductSortInfo(queryString?: string) {
         };
     }
 }
+export async function getRelativeProducts(queryString?: string) {
+    try {
+        const response = await serverFetch.get(`/product/relative${queryString ? `?${queryString}` : ""}`);
+        const result = await response.json();
+        return {
+            success: result.success,
+            data: Array.isArray(result.data) ? result.data : [],
+            meta: result.meta,
+        };
+    } catch (error: any) {
+        console.log(error);
+        return {
+            success: false,
+            data: [],
+            message: `${process.env.NODE_ENV === 'development' ? error.message : 'Something went wrong'}`
+        };
+    }
+}
 export async function getProductBySlug(slug: string) {
     try {
         const response = await serverFetch.get(`/product/${slug}`);

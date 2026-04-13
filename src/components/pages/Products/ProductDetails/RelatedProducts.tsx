@@ -1,11 +1,11 @@
 import ProductCard from "@/components/module/Product/ProductCard";
-import { getProducts } from "@/services/product/product.service";
+import { getRelativeProducts } from "@/services/product/product.service";
 import { IProduct } from "@/types/product.interface";
 
 
-const RelatedProducts = async ({ productSlug }: { productSlug: string }) => {
-  const queryString = `category_slug=${productSlug}&page=1&limit=20`;
-  const relatedProducts = await getProducts(queryString);
+const RelatedProducts = async ({ productId, CategoryId }: { productId: string; CategoryId: string }) => {
+  const queryString = `category_id=${CategoryId}&current_product_id=${productId}&page=1&limit=20`;
+  const relatedProducts = await getRelativeProducts(queryString);
   return (
     <section className="py-6 md:pb-10">
       <div className="main-container">

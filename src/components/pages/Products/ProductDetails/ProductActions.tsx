@@ -17,7 +17,7 @@ const ProductActions = () => {
       const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
 
       const product = { _id: "123", name: "AMKOV 5K V-Log Camera" };
- 
+
 
       // Smooth scroll handler
       const scrollToSection = (sectionId: string) => {
@@ -37,7 +37,59 @@ const ProductActions = () => {
                   });
             }
       };
+      // =========================================
+      // SOCIAL SHARE HANDLER
+      // =========================================
+      const handleShare = async (platform: string) => {
+            // Get current URL dynamically
+            const currentUrl = window.location.href;
+            const shareText = `Check out this amazing product: ${product.name}`;
 
+            switch (platform) {
+                  case "facebook":
+                        window.open(
+                              `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`,
+                              "_blank",
+                              "width=600,height=400"
+                        );
+                        break;
+
+                  case "twitter":
+                        window.open(
+                              `https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl)}&text=${encodeURIComponent(shareText)}`,
+                              "_blank",
+                              "width=600,height=400"
+                        );
+                        break;
+
+                  case "instagram":
+                        // Instagram doesn't have a direct web-share link. 
+                        // Try native mobile sharing first, otherwise fallback to copying the link.
+                        if (navigator.share) {
+                              try {
+                                    await navigator.share({
+                                          title: product.name,
+                                          text: shareText,
+                                          url: currentUrl,
+                                    });
+                              } catch (error) {
+                                    console.error("Error sharing to mobile native share", error);
+                              }
+                        } else {
+                              navigator.clipboard.writeText(currentUrl);
+                              toast.success("Link copied! Paste it in Instagram to share.");
+                        }
+                        break;
+
+                  case "copy":
+                        navigator.clipboard.writeText(currentUrl);
+                        toast.success("Product link copied to clipboard!");
+                        break;
+
+                  default:
+                        break;
+            }
+      };
       return (
             <div className="w-full flex flex-col gap-6">
 
@@ -77,7 +129,7 @@ const ProductActions = () => {
                         {/* ========================================= */}
                         {/* SOCIAL SHARE */}
                         {/* ========================================= */}
-                        <div className="flex items-center  flex-wrap gap-4">
+                        <div className="flex items-center flex-wrap gap-4">
 
                               <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
                                     Share:
@@ -85,19 +137,35 @@ const ProductActions = () => {
 
                               <div className="flex items-center gap-2">
 
-                                    <button className="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 hover:text-[#1877F2] hover:border-[#1877F2] transition">
+                                    <button
+                                          onClick={() => handleShare("facebook")}
+                                          className="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 hover:text-[#1877F2] hover:border-[#1877F2] transition"
+                                          aria-label="Share on Facebook"
+                                    >
                                           <Facebook size={16} />
                                     </button>
 
-                                    <button className="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 hover:text-[#1DA1F2] hover:border-[#1DA1F2] transition">
+                                    <button
+                                          onClick={() => handleShare("twitter")}
+                                          className="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 hover:text-[#1DA1F2] hover:border-[#1DA1F2] transition"
+                                          aria-label="Share on Twitter"
+                                    >
                                           <Twitter size={16} />
                                     </button>
 
-                                    <button className="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 hover:text-[#E4405F] hover:border-[#E4405F] transition">
+                                    <button
+                                          onClick={() => handleShare("instagram")}
+                                          className="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 hover:text-[#E4405F] hover:border-[#E4405F] transition"
+                                          aria-label="Share on Instagram"
+                                    >
                                           <Instagram size={16} />
                                     </button>
 
-                                    <button className="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 hover:text-[#023047] hover:border-[#023047] transition">
+                                    <button
+                                          onClick={() => handleShare("copy")}
+                                          className="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 hover:text-[#023047] hover:border-[#023047] transition"
+                                          aria-label="Copy Link"
+                                    >
                                           <Link2 size={16} />
                                     </button>
 
@@ -117,10 +185,7 @@ const ProductActions = () => {
   }
 `}} />
 
-
                   </div>
-
-
 
                   {/* ========================================= */}
                   {/* MODAL */}

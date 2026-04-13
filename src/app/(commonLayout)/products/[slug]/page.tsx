@@ -47,7 +47,7 @@ const page = async ({ params }: IParams) => {
         <Suspense fallback={
           <div className="h-96 flex items-center justify-center"><span className="text-gray-500">Loading related products...</span></div>}
         >
-          <RelatedProducts productSlug={slug} />
+          <RelatedProducts productId={productData?.data?._id} CategoryId={productData?.data?.category?._id} />
         </Suspense>
       </Suspense>
 
