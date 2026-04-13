@@ -6,7 +6,6 @@ import { IProduct } from "@/types/product.interface";
 const RelatedProducts = async ({ productSlug }: { productSlug: string }) => {
   const queryString = `category_slug=${productSlug}&page=1&limit=20`;
   const relatedProducts = await getProducts(queryString);
-// console.log("relatedProducts", relatedProducts);
   return (
     <section className="py-6 md:pb-10">
       <div className="main-container">
