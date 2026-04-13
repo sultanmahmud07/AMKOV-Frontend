@@ -4,7 +4,7 @@ import PopularArticles from './PopularArticles';
 const BlogWrapper = async () => {
       const blogs = await getAllBlogs(3);
       return (
-            <PopularArticles blogs={blogs.data} />
+            <PopularArticles blogs={blogs?.data} />
       )
 }
 
