@@ -23,7 +23,7 @@ const sliderData = [
             fallbackImage: "/home/main-banner-1.jpg", // Shows while video loads
             tagline: "AMAZING TIME OFFER!",
             title: "Upto 50% Discount \nOn New 5K V-Log Cameras",
-            link: "/products/v-log-camera",
+            link: "/products",
             btnText: "SHOP NOW",
       },
       {
@@ -34,7 +34,7 @@ const sliderData = [
             fallbackImage: "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?q=80&w=2000&auto=format&fit=crop",
             tagline: "AMAZING TIME OFFER!",
             title: "Up to 50% Discount \nOn New 5K V-Log Cameras",
-            link: "/products/v-log",
+            link: "/products",
             btnText: "SHOP NOW",
       },
       {
@@ -43,7 +43,7 @@ const sliderData = [
             src: "/home/main-banner-2.jpg",
             tagline: "NEW ARRIVALS",
             title: "Capture the Depths \nWith 48MP Waterproof Cameras",
-            link: "/products/waterproof",
+            link: "/products",
             btnText: "DISCOVER MORE",
       },
       {
@@ -53,7 +53,7 @@ const sliderData = [
             fallbackImage: "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?q=80&w=2000&auto=format&fit=crop",
             tagline: "NEW ARRIVALS",
             title: "Capture the Depths \nWith 48MP Waterproof Cameras",
-            link: "/products/waterproof",
+            link: "/products",
             btnText: "DISCOVER MORE",
       },
 ];
@@ -104,8 +104,8 @@ export default function BannerSlider() {
                                                       {/* ========================================= */}
                                                       <div
                                                             className={`absolute inset-0 w-full h-full transition-transform ease-out ${isActive
-                                                                        ? "scale-105 duration-10000" // Slow Ken Burns zoom effect
-                                                                        : "scale-100 duration-700"
+                                                                  ? "scale-105 duration-10000" // Slow Ken Burns zoom effect
+                                                                  : "scale-100 duration-700"
                                                                   }`}
                                                       >
                                                             {slide.type === "video" ? (
@@ -143,8 +143,8 @@ export default function BannerSlider() {
                                                                   {/* Tagline */}
                                                                   <p
                                                                         className={`font-black text-sm tracking-[0.2em] text-[#3A9AFF] uppercase transition-all duration-700 ease-out ${isActive
-                                                                                    ? "opacity-100 translate-y-0 delay-300"
-                                                                                    : "opacity-0 translate-y-8"
+                                                                              ? "opacity-100 translate-y-0 delay-300"
+                                                                              : "opacity-0 translate-y-8"
                                                                               }`}
                                                                   >
                                                                         {slide.tagline}
@@ -153,8 +153,8 @@ export default function BannerSlider() {
                                                                   {/* Title */}
                                                                   <h1
                                                                         className={`text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-[1.15] tracking-tight whitespace-pre-line transition-all duration-700 ease-out ${isActive
-                                                                                    ? "opacity-100 translate-y-0 delay-500"
-                                                                                    : "opacity-0 translate-y-8"
+                                                                              ? "opacity-100 translate-y-0 delay-500"
+                                                                              : "opacity-0 translate-y-8"
                                                                               }`}
                                                                   >
                                                                         {slide.title}
@@ -163,8 +163,8 @@ export default function BannerSlider() {
                                                                   {/* Button */}
                                                                   <div
                                                                         className={`pt-4 transition-all duration-700 ease-out ${isActive
-                                                                                    ? "opacity-100 translate-y-0 delay-700"
-                                                                                    : "opacity-0 translate-y-8"
+                                                                              ? "opacity-100 translate-y-0 delay-700"
+                                                                              : "opacity-0 translate-y-8"
                                                                               }`}
                                                                   >
                                                                         <Button
@@ -202,8 +202,8 @@ export default function BannerSlider() {
                                     onClick={() => api?.scrollTo(index)}
                                     aria-label={`Go to slide ${index + 1}`}
                                     className={`transition-all duration-500 ease-out rounded-full ${current === index
-                                                ? "bg-[#3A9AFF] w-10 h-2 shadow-[0_0_10px_rgba(58,154,255,0.8)]"
-                                                : "bg-white/40 hover:bg-white/80 w-2 h-2"
+                                          ? "bg-[#3A9AFF] w-10 h-2 shadow-[0_0_10px_rgba(58,154,255,0.8)]"
+                                          : "bg-white/40 hover:bg-white/80 w-2 h-2"
                                           }`}
                               />
                         ))}
