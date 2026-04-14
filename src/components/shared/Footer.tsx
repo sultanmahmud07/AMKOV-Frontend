@@ -136,16 +136,16 @@ const Footer: React.FC = () => {
                 <li className="flex items-start gap-3 group">
                   <IoLocationSharp size={18} className="text-[#3A9AFF] mt-0.5 shrink-0" />
                   <span className="leading-relaxed group-hover:text-white transition-colors">
-                    Banani, Dhaka,<br />Bangladesh
+                    2/F, Building C, Aike Industrial Park, No.1, Lane 1, Dabao Road, Xin&apos;an Street, Bao&apos;an District, Shenzhen
                   </span>
                 </li>
                 <li className="flex items-center gap-3 group">
                   <FaPhoneAlt size={16} className="text-[#3A9AFF] shrink-0" />
-                  <a href="tel:+8801327357894" className="group-hover:text-white transition-colors">+880 1327 357894</a>
+                  <a href="tel:+8801327357894" className="group-hover:text-white transition-colors">0086 13713986978</a>
                 </li>
                 <li className="flex items-center gap-3 group">
                   <MdEmail size={18} className="text-[#3A9AFF] shrink-0" />
-                  <a href="mailto:support@amkov.com" className="group-hover:text-white transition-colors">support@amkov.com</a>
+                  <a href="mailto:services@amkov.com" className="group-hover:text-white transition-colors">services@amkov.com</a>
                 </li>
               </ul>
             </div>

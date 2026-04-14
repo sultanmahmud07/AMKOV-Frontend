@@ -9,28 +9,64 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 const historyData = [
   {
     year: "2003",
-    image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1000&auto=format&fit=crop",
-    text: "In 2003, KIM LEE, the founder of AMKOV, entered the camera manufacturing industry and experienced the transition from CCD cameras to CMOS cameras. Recognizing the shift in digital imaging, AMKOV realized how important it was to do every detail well for the quality of a camera. This early dedication to precision engineering and optical excellence laid the groundwork for decades of innovation, ensuring that every lens and sensor combination was optimized for the best possible user experience."
+    image: "/about/story/3.jpg",
+    text: "In 2003, KIM LEE, the founder of AMKOV, entered the camera manufacturing industry and experienced the transition from CCD cameras to CMOS cameras. More importantly, AMKOV realized how important it was to do every detail well for the quality of a camera."
   },
   {
     year: "2007",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000&auto=format&fit=crop",
-    text: "In 2007, AMKOV established a factory in Dongguan -- Dongguan Amkovery (Huirui Technology) -- and participated in the structural design, mold development, and production of camera housings and components for digital cameras. They manufactured parts for some well-known camera Brands, gaining invaluable experience in mass production, quality control, and advanced supply chain management that would later empower their own proprietary product lines."
+    image: "/about/story/7.jpg",
+    text: "In 2007, AMKOV established a factory in Dongguan -- Dongguan Amkovery (Huirui Technology) -- and participated in the structural design, mold development, and production of camera housings and components for digital cameras.  They manufactured parts for some well-known camera Brands and also sold digital cameras and digital camcorders."
   },
   {
     year: "2010",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000&auto=format&fit=crop",
-    text: "AMKOV expanded its R&D capabilities, heavily investing in optical zoom lens technology and solidifying its foundation as a premium digital imaging manufacturer. During this time, the engineering team filed several patents for advanced lens stabilization and compact sensor housing."
+    image: "/about/story/10.jpg",
+    text: "In 2010, AMKOV independently developed its first camera (DC-110). In the same year, we registered the Brand - AMKOV, for manufacturing cameras. From then on, AMKOV officially started manufacturing digital cameras."
   },
-  { year: "2013", image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1000&auto=format&fit=crop", text: "The brand AMKOV was officially registered worldwide. We shifted our focus towards creating the perfect combination of Intelligence and Vision, gathering global feedback to improve our product lines." },
-  { year: "2014", image: "https://images.unsplash.com/photo-1507208773393-40d9fc670acf?q=80&w=1000&auto=format&fit=crop", text: "Expanded our global distribution channels, partnering with major retail chains across Europe and North America to bring AMKOV products to a wider audience." },
-  { year: "2016", image: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?q=80&w=1000&auto=format&fit=crop", text: "Launched our first generation of creative cameras specifically designed for kids and outdoor sports, expanding our market reach beyond traditional digital cameras." },
-  { year: "2017", image: "https://images.unsplash.com/photo-1516961642265-531546e84af2?q=80&w=1000&auto=format&fit=crop", text: "Introduced advanced optical stabilization systems into our compact camera lines, setting a new industry standard for affordable, high-quality video capture." },
-  { year: "2018", image: "https://images.unsplash.com/photo-1512756290469-ec264b7fbf87?q=80&w=1000&auto=format&fit=crop", text: "Reached a major milestone of 5 million units sold globally. We also began early research into AI-assisted image processing algorithms." },
-  { year: "2021", image: "https://images.unsplash.com/photo-1520390138845-fd2d229dd553?q=80&w=1000&auto=format&fit=crop", text: "Achieved breakthroughs in instant print camera technology, bringing joy and immediate physical memories to thousands of customers worldwide." },
-  { year: "2022", image: "https://images.unsplash.com/photo-1580828369019-2238b6938a53?q=80&w=1000&auto=format&fit=crop", text: "Opened a state-of-the-art, automated manufacturing facility in Shenzhen to drastically increase production capacity while reducing our carbon footprint." },
-  { year: "2024", image: "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?q=80&w=1000&auto=format&fit=crop", text: "Embraced advanced AI algorithms for autofocus and image processing, launching our newest line of V-Log and Action cameras." },
-  { year: "2025", image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1000&auto=format&fit=crop", text: "Celebrating over two decades of innovation. AMKOV continues to redefine digital imaging, pushing the boundaries of what is possible in compact consumer electronics." }
+  {
+    year: "2013",
+    image: "/about/story/13.jpg",
+    text: "In 2013, AMKOV successfully developed two optical zoom cameras: the DC-110H and the DC-X3. The DC-110 is a 5x optical zoom compact camera equipped with an 8MP sensor. The DC-X3 is a 5x optical zoom camera equipped with a 16MP sensor, supporting 1080P video recording and film scanning functions.  It also holds a registered utility model patent in Germany."
+  },
+  {
+    year: "2014",
+    image: "/about/story/14.jpg",
+    text: "In 2014, AMKOV developed the sports camera (AMK-5000S), a product that made AMKOV famous in the market. Later, we continued to develop sports camera Models: AMK-6000, AMK-7000"
+  },
+  {
+    year: "2016",
+    image: "/about/story/16.jpg",
+    text: "In 2016, AMKOV successfully developed the optical zoom CD-OX5 mobile phone lens camera and successfully applied for a patent. In the same year, it developed a second digital camera, CDR2, and its classic design led to a successful patent registration in the United States."
+  },
+  {
+    year: "2017",
+    image: "/about/story/17.jpg",
+    text: " In 2017, the AMKOV panoramic camera (Model: V360) was successfully launched. This camera boasted the smallest size in the industry at the time and was the first panoramic camera with a screen. It was exhibited at the Hong Kong Spring Electronics Fair in 2017 and received market recognition."
+  },
+  {
+    year: "2018",
+    image: "/about/story/18.jpg",
+    text: "In 2018, AMKOV developed children's cameras and thermal printers, and successfully applied for a national invention patent. This series of cameras is also a product for which AMKOV is known in the market."
+  },
+  {
+    year: "2021",
+    image: "/about/story/21.jpg",
+    text: "In 2021, AMKOV developed the Children's Magic Camera (AMK-M1), designed to inspire children's creativity.  This product features a unique AI scene replacement function, complete with a green screen, allowing children to create their own imaginative backgrounds and learn video creation and editing through the camera."
+  },
+  {
+    year: "2022",
+    image: "/about/story/22.jpg",
+    text: "In 2022, AMKOV launched the V-LOG camera (CD-V01), specifically designed for V-loggers. It offers enhanced video quality and ease of use, making it an ideal tool for content creators."
+  },
+  {
+    year: "2024",
+    image: "/about/story/24.jpg",
+    text: "In 2024, AMKOV launched the beauty camera (CD-F3L), which features a beauty fill light and beauty function. The fill light provides significant illumination in dark environments.  That same year, they also launched the optical zoom V-LOG camera (CD-R5H)."
+  },
+  {
+    year: "2025",
+    image: "/about/story/25.jpg",
+    text: "As we enter 2025, our journey continues to advance in optical zoom cameras, digital cameras, and digital video. We look forward to launching more innovative products to meet the evolving needs of our customers."
+  }
 ];
 
 export default function History() {
@@ -64,16 +100,16 @@ export default function History() {
 
   return (
     <section id="history" className="relative w-full min-h-[90vh] py-20 overflow-hidden bg-[#F8FAFC]">
-      
+
       {/* ========================================= */}
       {/* 1. CINEMATIC BACKGROUND ANIMATION */}
       {/* ========================================= */}
-      <motion.div 
+      <motion.div
         animate={{ scale: [1, 1.08, 1], rotate: [0, 0.5, 0] }}
         transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
         className="absolute inset-0 w-full h-full z-0 pointer-events-none"
       >
-        <Image 
+        <Image
           src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2500&auto=format&fit=crop"
           alt="Mountain Peak Background"
           fill
@@ -84,12 +120,12 @@ export default function History() {
       <div className="absolute inset-0 bg-linear-to-b from-transparent via-white/70 to-[#F8FAFC] z-10 pointer-events-none"></div>
 
       <div className="main-container relative z-20 flex flex-col items-center">
-        
+
         {/* ========================================= */}
         {/* 2. REFINED HEADER */}
         {/* ========================================= */}
         <div className="mb-14 text-center">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -97,14 +133,14 @@ export default function History() {
           >
             AMKOV Story
           </motion.h2>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
             className="text-gray-500 text-sm md:text-base font-medium leading-relaxed max-w-2xl mx-auto"
           >
-            Registered worldwide in 2013, with over 22 years of cultivation in the camera industry. Follow the timeline to explore our history, progress, and future orientation.
+            AMKOV was registered worldwide at 2013, while behind it, was a 22 years’ cultivation in the camera industry. Here we would like to follow the time clue to show you AMKOV history, progressing and future orientation.
           </motion.p>
         </div>
 
@@ -112,8 +148,8 @@ export default function History() {
         {/* 3. VECTOR/SHAPE TIMELINE NAVIGATOR */}
         {/* ========================================= */}
         <div className="relative flex items-center mb-4 md:mb-16 px-12 w-full max-w-6xl">
-          
-          <button 
+
+          <button
             onClick={handlePrev}
             disabled={activeIndex === 0}
             className="absolute left-0 w-10 h-10 rounded-full border border-gray-200 bg-white shadow-sm flex items-center justify-center text-[#3A9AFF] hover:border-[#3A9AFF] hover:shadow-md transition-all disabled:opacity-30 disabled:pointer-events-none z-30"
@@ -122,15 +158,15 @@ export default function History() {
           </button>
 
           {/* Timeline Container */}
-          <div 
+          <div
             ref={timelineRef}
             className="w-full flex items-center overflow-x-auto scrollbar-hide snap-x relative py-6"
           >
             {/* Base Line */}
             <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gray-200 -translate-y-1/2 z-0"></div>
-            
+
             {/* Animated Active Line */}
-            <motion.div 
+            <motion.div
               className="absolute top-1/2 left-0 h-0.5 bg-[#3A9AFF] -translate-y-1/2 z-0"
               initial={{ width: 0 }}
               animate={{ width: `${progressPercentage}%` }}
@@ -142,7 +178,7 @@ export default function History() {
               const isPast = index <= activeIndex;
 
               return (
-                <button 
+                <button
                   key={item.year}
                   onClick={() => setActiveIndex(index)}
                   className="relative flex flex-col items-center justify-center min-w-[100px] sm:min-w-[120px] shrink-0 group z-10 snap-center outline-none"
@@ -151,22 +187,20 @@ export default function History() {
                   <div className="relative flex items-center justify-center w-8 h-8 mb-3">
                     {/* Active Halo */}
                     {isActive && (
-                      <motion.div 
+                      <motion.div
                         layoutId="activeTimelineShape"
                         className="absolute inset-0 border-2 border-[#3A9AFF] rotate-45 rounded-sm"
                         transition={{ type: "spring", stiffness: 300, damping: 25 }}
                       />
                     )}
                     {/* Inner Diamond */}
-                    <div className={`w-2.5 h-2.5 rotate-45 rounded-sm transition-all duration-300 z-10 ${
-                      isPast ? "bg-[#3A9AFF]" : "bg-gray-300 group-hover:bg-[#3A9AFF]/50"
-                    }`} />
+                    <div className={`w-2.5 h-2.5 rotate-45 rounded-sm transition-all duration-300 z-10 ${isPast ? "bg-[#3A9AFF]" : "bg-gray-300 group-hover:bg-[#3A9AFF]/50"
+                      }`} />
                   </div>
-                  
+
                   {/* Year Text */}
-                  <span className={`text-sm font-bold transition-colors duration-300 ${
-                    isActive ? "text-[#3A9AFF]" : "text-gray-500 group-hover:text-[#3A9AFF]"
-                  }`}>
+                  <span className={`text-sm font-bold transition-colors duration-300 ${isActive ? "text-[#3A9AFF]" : "text-gray-500 group-hover:text-[#3A9AFF]"
+                    }`}>
                     {item.year}
                   </span>
                 </button>
@@ -174,7 +208,7 @@ export default function History() {
             })}
           </div>
 
-          <button 
+          <button
             onClick={handleNext}
             disabled={activeIndex === historyData.length - 1}
             className="absolute right-0 w-10 h-10 rounded-full border border-gray-200 bg-white shadow-sm flex items-center justify-center text-[#3A9AFF] hover:border-[#3A9AFF] hover:shadow-md transition-all disabled:opacity-30 disabled:pointer-events-none z-30"
@@ -196,18 +230,19 @@ export default function History() {
               transition={{ duration: 0.4, ease: "easeOut" }}
               className="w-full bg-white/80 backdrop-blur-xl border border-white/50 shadow-[0_20px_60px_rgba(2,48,71,0.08)] rounded-3xl overflow-hidden flex flex-col lg:flex-row relative z-20"
             >
-              
+
               {/* Abstract Vector Accent inside the card */}
               <div className="absolute top-0 right-0 w-64 h-64 bg-linear-to-br from-[#3A9AFF]/10 to-transparent rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
 
               {/* Left Side: Image */}
               <div className="w-full lg:w-5/12 relative aspect-video lg:aspect-auto shrink-0 bg-gray-100 p-2">
                 <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-inner">
-                  <Image 
+                  <Image
                     src={historyData[activeIndex].image}
                     alt={`AMKOV History ${historyData[activeIndex].year}`}
-                    fill
-                    className="object-cover transition-transform duration-[1.5s] hover:scale-105"
+                    width={800}
+                    height={600}
+                    className="w-full transition-transform duration-[1.5s] hover:scale-105"
                     sizes="(max-width: 1024px) 100vw, 40vw"
                     priority
                   />
@@ -222,7 +257,7 @@ export default function History() {
                   </h3>
                   <div className="h-0.5 w-12 bg-[#3A9AFF] rounded-full"></div>
                 </div>
-                
+
                 {/* Scrollable text container */}
                 <div className="text-gray-600 text-sm md:text-base leading-[1.8] max-h-[220px] overflow-y-auto pr-4 custom-scrollbar">
                   {historyData[activeIndex].text}

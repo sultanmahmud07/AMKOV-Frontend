@@ -184,7 +184,7 @@ export default function SupportPage() {
                                           </div>
 
                                           <div className="flex flex-col sm:flex-row items-center gap-4 shrink-0 w-full md:w-auto">
-                                                <a href="mailto:support@amkov.com" className="w-full sm:w-auto flex items-center justify-center gap-2 bg-gray-50 hover:bg-gray-100 border border-gray-200 text-[#023047] font-bold py-3.5 px-6 rounded-full transition-colors duration-300">
+                                                <a href="mailto:service@amkov.com" className="w-full sm:w-auto flex items-center justify-center gap-2 bg-gray-50 hover:bg-gray-100 border border-gray-200 text-[#023047] font-bold py-3.5 px-6 rounded-full transition-colors duration-300">
                                                       <Mail size={18} /> Email Us
                                                 </a>
                                                 <Link href="/contact" className="w-full sm:w-auto flex items-center justify-center gap-2 bg-primary hover:bg-[#023047] text-white font-bold py-3.5 px-6 rounded-full transition-colors duration-300 shadow-md">

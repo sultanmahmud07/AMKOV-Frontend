@@ -9,7 +9,7 @@ import { Sparkles, Target, Eye, Gem } from "lucide-react";
 const cultureData = [
   {
     id: 1,
-    title: "Logo Meaning",
+    title: "AMKOV Logo Meaning",
     desc: "The Perfect Combination of Intelligence and Vision.",
     watermark: "LOGO",
     icon: Sparkles,
@@ -28,7 +28,7 @@ const cultureData = [
   {
     id: 3,
     title: "Our Vision",
-    desc: "Make AMKOV your Well-laying Choice for global partnerships.",
+    desc: "Make AMKOV your Well laying Choice.",
     watermark: "VISION",
     icon: Eye,
     image: "/about/culture/3.jpg", 
@@ -37,7 +37,7 @@ const cultureData = [
   {
     id: 4,
     title: "Our Values",
-    desc: "The core principles that drive our innovation and teamwork.",
+    desc: "Passion, Commitment, Responsibility, Appreciation, Give,Trust, Win-win,Possibility",
     watermark: "VALUES",
     icon: Gem,
     image: "/about/culture/4.jpg", 

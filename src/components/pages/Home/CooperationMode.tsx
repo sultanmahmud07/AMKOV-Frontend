@@ -7,22 +7,22 @@ const cooperationData = [
   {
     id: "oem",
     title: "OEM Solution",
-    description: "Our OEM service is suitable for enterprises that wish to provide high-quality cameras under their own brand. With our advanced technology and facilities, we can tailor products that meet market demands for you. Our R&D team will work closely with you to design the ideal product.",
-    href: "/solutions/oem",
+    description: "Our OEM service is suitable for enterprises that wish to provide high-quality cameras under their own brand. With our advanced technology and facilities, we can tailor products that meet market demands for you. Our R&D team will work closely with you to design the ideal product. We also have advanced mold development and injection molding capabilities to ensure smooth, efficient, and high-quality product design and manufacturing processes.",
+    href: "/solution#oem",
     image: "/home/cooperation/1.jpg",
   },
   {
     id: "odm",
     title: "ODM Solution",
-    description: "From conceptualization to mass production, our ODM solutions turn your vision into reality. Leverage our experienced R&D engineers to create unique, market-ready digital imaging products from scratch. We handle the entire design, prototyping, testing, and manufacturing lifecycle.",
-    href: "/solutions/odm",
+    description: "Our ODM services are perfect for clients seeking unique designs and innovative technology. Our R&D team handles the design, development, and production, and we use test equipment to ensure high product quality.",
+    href: "/solution#odm",
     image: "/home/cooperation/2.jpg",
   },
   {
     id: "distribution",
     title: "AMKOV Distribution",
-    description: "Partner with Amkov as an authorized global distributor. We offer highly competitive wholesale margins, comprehensive marketing materials, and dedicated account support. Join our growing network and bring our innovative digital imaging solutions to retail markets worldwide.",
-    href: "/distribution",
+    description: "In addition to OEM and ODM services, we offer the opportunity to distribute our own AMKOV brand. AMKOV cameras are known for their excellent performance and reliability, trusted by consumers worldwide. We provide full support to help global distributors succeed in their local markets.",
+    href: "/solution#distribution",
     image: "/home/cooperation/3.jpg",
   },
 ];
@@ -66,7 +66,6 @@ export default function CooperationMode() {
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
-
               {/* Gradient Overlay for Text Readability */}
               <div className="absolute inset-0 bg-linear-to-t from-[#023047] via-[#023047]/60 to-transparent opacity-90 transition-opacity duration-700 group-hover:opacity-70" />
 

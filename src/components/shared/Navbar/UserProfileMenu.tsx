@@ -1,11 +1,12 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { FiLogOut, FiUser, FiBriefcase, FiLayers } from "react-icons/fi";
+import { FiLogOut, FiUser } from "react-icons/fi";
 import { IUser } from "@/types/user.interface";
 import Image from "next/image";
 import { logoutUser } from "@/services/auth/logoutUser";
 import { CiShop } from "react-icons/ci";
+import { ArrowDownToLine, Newspaper } from "lucide-react";
 
 type Props = {
       userInfo?: IUser | null;
@@ -93,27 +94,34 @@ const UserProfileMenu: React.FC<Props> = ({ userInfo = null }) => {
                               </div>
                         </div>
 
-                     {/* menu items */}
+                        {/* menu items */}
                         <div className="py-2 flex flex-col gap-1">
                               <Link href="/products" className="flex items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-[#F8FAFC] hover:text-[#3A9AFF] transition-colors" role="menuitem">
                                     <CiShop className="w-5 h-5" />
-                                    All Cameras
+                                    Our Cameras
                               </Link>
 
-                              <Link href="/dashboard/my-booking" className="flex items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-[#F8FAFC] hover:text-[#3A9AFF] transition-colors" role="menuitem">
-                                    <FiBriefcase className="w-4 h-4" />
-                                    My Orders
+                              <Link href="/news" className="flex items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-[#F8FAFC] hover:text-[#3A9AFF] transition-colors" role="menuitem">
+                                    <Newspaper className="w-4 h-4" />
+                                    News & Updates
                               </Link>
-
                               <Link href="/download" className="flex items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-[#F8FAFC] hover:text-[#3A9AFF] transition-colors" role="menuitem">
-                                    <FiLayers className="w-4 h-4" />
+                                    <ArrowDownToLine className="w-4 h-4" />
                                     Downloads & Manuals
                               </Link>
+                              <Link href="/support" className="flex items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-[#F8FAFC] hover:text-[#3A9AFF] transition-colors" role="menuitem">
+                                    <FiUser className="w-4 h-4" />
+                                    Support Center
+                              </Link>
 
-                              <Link href="/my-profile" className="flex items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-[#F8FAFC] hover:text-[#3A9AFF] transition-colors" role="menuitem">
+                              {/* <Link href="/dashboard/my-booking" className="flex items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-[#F8FAFC] hover:text-[#3A9AFF] transition-colors" role="menuitem">
+                                    <FiBriefcase className="w-4 h-4" />
+                                    My Orders
+                              </Link> */}
+                              {/* <Link href="/my-profile" className="flex items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-[#F8FAFC] hover:text-[#3A9AFF] transition-colors" role="menuitem">
                                     <FiUser className="w-4 h-4" />
                                     Profile Settings
-                              </Link>
+                              </Link> */}
 
                               <div className="border-t border-gray-100 my-1"></div>
 

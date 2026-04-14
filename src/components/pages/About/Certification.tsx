@@ -13,29 +13,26 @@ import "swiper/css/pagination";
 import "react-photo-view/dist/react-photo-view.css";
 
 const certificates = [
-  "/certificates/c1.jpg",
-  "/certificates/c1.jpg",
-  "/certificates/c1.jpg",
-  "/certificates/c1.jpg",
-  "/certificates/c1.jpg",
-  "/certificates/c1.jpg",
-  "/certificates/c1.jpg",
-  "/certificates/c1.jpg",
-  "/certificates/c1.jpg",
-  "/certificates/c1.jpg",
-  "/certificates/c1.jpg",
-  "/certificates/c1.jpg",
-  "/certificates/c1.jpg",
-  "/certificates/c1.jpg",
-  "/certificates/c1.jpg",
-  "/certificates/c1.jpg",
-  "/certificates/c1.jpg",
+  "/about/certification/1.jpg",
+  "/about/certification/2.jpg",
+  "/about/certification/3.jpg",
+  "/about/certification/4.jpg",
+  "/about/certification/5.jpg",
+  "/about/certification/6.jpg",
+  "/about/certification/7.jpg",
+  "/about/certification/8.jpg",
+  "/about/certification/9.jpg",
+  "/about/certification/10.jpg",
+  "/about/certification/11.jpg",
+  "/about/certification/12.jpg",
+  "/about/certification/13.jpg",
+  "/about/certification/14.jpg",
 ];
 
 export default function Certification() {
   return (
     <section id="certification" className="py-8 md:py-20 bg-[#F8FAFC] text-center relative overflow-hidden">
-      
+
       <div className="mb-8 md:mb-12">
         <h2 className="text-3xl md:text-5xl font-extrabold text-[#023047] tracking-tight mb-4">
           Industry Certifications
@@ -55,10 +52,10 @@ export default function Certification() {
             delay: 3000,
             disableOnInteraction: false,
           }}
-          pagination={{ 
+          pagination={{
             clickable: true,
             // Custom class for our pagination container so we can style it
-            el: '.custom-swiper-pagination', 
+            el: '.custom-swiper-pagination',
           }}
           slidesPerView={4}
           coverflowEffect={{
@@ -84,7 +81,7 @@ export default function Certification() {
                   Added cursor-zoom-in and a hover overlay with a search icon for better UX.
                 */}
                 <div className="relative bg-white shadow-[0_10px_30px_rgba(0,0,0,0.05)] rounded-2xl border border-gray-100 p-3 flex items-center justify-center h-[300px] md:h-[400px] cursor-zoom-in overflow-hidden transition-all duration-300 group-hover:shadow-[0_20px_40px_rgba(58,154,255,0.15)] group-hover:border-[#3A9AFF]/30">
-                  
+
                   <Image
                     src={src}
                     alt={`Certificate ${index + 1}`}
@@ -92,7 +89,7 @@ export default function Certification() {
                     height={800}
                     className="max-h-full w-auto object-contain transition-transform duration-500 group-hover:scale-105"
                   />
-                  
+
                   {/* Hover Overlay Hint */}
                   <div className="absolute inset-0 bg-[#023047]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                     <div className="bg-white/90 backdrop-blur shadow-md p-3 rounded-full text-[#3A9AFF] translate-y-4 group-hover:translate-y-0 transition-all duration-300">

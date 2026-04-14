@@ -24,8 +24,8 @@ const ContactSection = () => {
                 </div>
                 <div className="flex flex-col justify-center h-12">
                   <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-0.5">Global Sales</p>
-                  <a href="mailto:sales@amkov.com" className="text-[#023047] font-semibold hover:text-[#3A9AFF] transition-colors">
-                    sales@amkov.com
+                  <a href="mailto:service@amkov.com" className="text-[#023047] font-semibold hover:text-[#3A9AFF] transition-colors">
+                    service@amkov.com
                   </a>
                 </div>
               </div>
@@ -37,8 +37,8 @@ const ContactSection = () => {
                 </div>
                 <div className="flex flex-col justify-center h-12">
                   <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-0.5">Call Us</p>
-                  <a href="tel:+8801327357894" className="text-[#023047] font-semibold hover:text-[#3A9AFF] transition-colors">
-                    +880 1327 357894
+                  <a href="tel:008613713986978" className="text-[#023047] font-semibold hover:text-[#3A9AFF] transition-colors">
+                    0086 13713986978
                   </a>
                 </div>
               </div>
@@ -51,7 +51,7 @@ const ContactSection = () => {
                 <div>
                   <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-0.5">Headquarters</p>
                   <p className="text-[#023047] font-semibold leading-relaxed">
-                    Level 4, Corporate Avenue<br />Dhaka 1212, Bangladesh
+                    2/F, Building C, Aike Industrial Park, No.1, Lane 1, Dabao Road, Xin&apos;an Street, Bao&apos;an District, Shenzhen
                   </p>
                 </div>
               </div>

@@ -14,7 +14,7 @@ const serviceData = [
     title: "Where to buy",
     description: "Find authorized Amkov dealers and retail partners near you.",
     icon: Store,
-    href: "/where-to-buy",
+    href: "/products",
     // Cool Gray/Slate
     bgClass: "bg-slate-100",
     iconClass: "text-slate-600",
@@ -24,7 +24,7 @@ const serviceData = [
     title: "Use Help",
     description: "Access user manuals, setup guides, and troubleshooting FAQs.",
     icon: BookOpen,
-    href: "/help",
+    href: "/contact",
     // Warm Sand/Amber neutral
     bgClass: "bg-amber-50",
     iconClass: "text-amber-600",

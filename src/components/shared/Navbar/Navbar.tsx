@@ -4,7 +4,7 @@ import NavLink from "./NavLink";
 import React, { useEffect, useState } from "react";
 import { IUser } from "@/types/user.interface";
 import UserProfileMenu from "./UserProfileMenu";
-import { Search, Menu, ChevronDown, User, X } from "lucide-react";
+import { Search, Menu, ChevronDown, User, X, Linkedin, Instagram, Twitter, Facebook } from "lucide-react";
 import Link from "next/link";
 import MegaMenu from "./MegaMenu";
 import ProductSubmenu from "./ProductSubmenu";
@@ -29,7 +29,7 @@ const Navbar = (props: Props) => {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false); // New state for Search Box
 
-  const {products, accessToken, userInfo } = props;
+  const { products, accessToken, userInfo } = props;
 
   // Prevent background scrolling when mobile menu is open
   useEffect(() => {
@@ -80,9 +80,23 @@ const Navbar = (props: Props) => {
             <span className="w-px h-3 bg-white/50"></span>
             <Link href="/support" className="hover:text-[#023047] transition">Support</Link>
             <span className="w-px h-3 bg-white/50"></span>
-            <button className="flex items-center gap-1 hover:text-[#023047] transition">
-              English <ChevronDown size={12} />
-            </button>
+
+            {/* Social Media Links */}
+            <div className="flex items-center gap-3 ml-2">
+              <a href="https://facebook.com/amkov" target="_blank" rel="noopener noreferrer" className="hover:text-[#023047] transition-colors" aria-label="Facebook">
+                <Facebook size={14} />
+              </a>
+              <a href="https://twitter.com/amkov" target="_blank" rel="noopener noreferrer" className="hover:text-[#023047] transition-colors" aria-label="Twitter">
+                <Twitter size={14} />
+              </a>
+              <a href="https://instagram.com/amkov" target="_blank" rel="noopener noreferrer" className="hover:text-[#023047] transition-colors" aria-label="Instagram">
+                <Instagram size={14} />
+              </a>
+              <a href="https://linkedin.com/company/amkov" target="_blank" rel="noopener noreferrer" className="hover:text-[#023047] transition-colors" aria-label="LinkedIn">
+                <Linkedin size={14} />
+              </a>
+            </div>
+
           </div>
         </div>
       </div>
