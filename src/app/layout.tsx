@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-sync-scripts */
 import "./globals.css";
 import type { Metadata } from "next";
 import { Geist_Mono, Oswald } from "next/font/google";
@@ -8,6 +9,7 @@ import { Suspense } from "react";
 import NextTopLoader from 'nextjs-toploader';
 import MobileNavbar from "@/components/shared/Navbar/BottomNavbar";
 import SocialIcons from "@/components/shared/SocialIcons";
+import Head from "next/head";
 const geistOswald = Oswald({
   variable: "--font-geist-oswald",
   subsets: ["latin"],
@@ -76,6 +78,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+    <Head>
+      <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            Weglot.initialize({
+              api_key: 'wg_e2364e3fc63b35cad9baa2fdee53de952'
+            });
+          `,
+        }}
+      ></script>
+    </Head>
       <body
         className={`${geistOswald.variable} ${geistMono.variable} antialiased relative`}
       >
