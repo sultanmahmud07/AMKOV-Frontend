@@ -3,14 +3,12 @@ import ContactBanner from '@/components/pages/Contact/ContactBanner';
 import ContactSection from '@/components/pages/Contact/ContactSection';
 
 export const metadata: Metadata = {
-      title: "Contact Us | NativeWays Support & Inquiries",
-      description: "Have questions or need assistance? Get in touch with the NativeWays support team. We are here to help travelers and guides 24/7 with bookings, safety, and general inquiries.",
+      title: "Contact AMKOV for Camera Support, Queries, and Service",
+      description: "Reach out to AMKOV for camera inquiries, support, or service. Our team is here to assist you with any questions regarding your AMKOV products.",
       keywords: [
             "customer support",
-            "contact NativeWays",
-            "travel help",
-            "nativeways phone number",
-            "nativeways email",
+            "contact AMKOV",
+            "camera support",
             "help center"
       ],
 }

@@ -7,15 +7,13 @@ import Company from '@/components/pages/About/Company';
 import FactoryImages from '@/components/pages/About/FactoryImages';
 
 export const metadata: Metadata = {
-  title: "About | Our Mission to Connect the World",
-  description: "Learn about the NativeWays story. We are bridging the gap between curious travelers and passionate local experts to create authentic, unforgettable journeys.",
+  title: "About AMKOV - Leading Digital Camera Brand for Innovation",
+  description: "Learn more about AMKOV, a top digital camera brand known for cutting-edge technology and customer-focused solutions. Discover our mission and vision.",
   keywords: [
-    "about NativeWays",
-    "travel startup",
-    "sustainable tourism",
-    "cultural exchange",
-    "our story",
-    "local travel community"
+    "about AMKOV",
+    "digital cameras",
+    "innovation",
+    "technology",
   ]
 };
 

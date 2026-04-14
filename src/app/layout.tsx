@@ -20,38 +20,35 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.nativeways.com'),
   title: {
-    default: "AMKOV | Optical Camera-Sports Camera-Film Camera",
+    default: "Amkov Best Affordable Digital Cameras for Every Photographer",
     template: "%s | AMKOV",
   },
-  description: "Discover customizable private tours with local guides. Personalize your travel experience by messaging guides at your chosen destination.",
+  description: "Amkov is for the best affordable digital cameras. Shop top-rated options for beginners & professionals, featuring high-quality photography and budget-friendly prices.",
   keywords: [
-    "local guides",
-    "private tours",
-    "custom travel",
-    "NativeWays",
-    "tour booking platform",
-    "authentic travel experiences"
+    "digital cameras",
+    "affordable cameras",
+    "photography equipment",
   ],
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://www.nativeways.com",
-    siteName: "NativeWays",
-    title: "NativeWays - Travel Like a Local",
-    description: "Connect with passionate local guides and book customizable private tours worldwide.",
+    url: "https://www.amkov.com",
+    siteName: "AMKOV",
+    title: "AMKOV - Best Affordable Digital Cameras",
+    description: "Amkov is for the best affordable digital cameras. Shop top-rated options for beginners & professionals, featuring high-quality photography and budget-friendly prices.",
     images: [
       {
         url: "/images/og-main.jpg",
         width: 1200,
         height: 630,
-        alt: "NativeWays Platform Preview",
+        alt: "AMKOV Platform Preview",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "NativeWays - Local Guide & Tour Booking",
-    description: "Personalize your travel experience by messaging guides at your chosen destination.",
+    title: "AMKOV - Best Affordable Digital Cameras",
+    description: "Amkov is for the best affordable digital cameras. Shop top-rated options for beginners & professionals, featuring high-quality photography and budget-friendly prices.",
     images: ["/images/og-main.jpg"],
   },
   icons: {

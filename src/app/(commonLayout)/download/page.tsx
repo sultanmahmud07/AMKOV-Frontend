@@ -4,8 +4,8 @@ import { getInstruction } from '@/services/instruction/instruction.service';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Download | NativeWays",
-  description: "Learn about the NativeWays story. We are bridging the gap between curious travelers and passionate local experts to create authentic, unforgettable journeys.",
+  title: "AMKOV Camera Software & Manual Downloads",
+  description: "Get official AMKOV camera software, app files, and user guides in one place. Find quick downloads for setup, pairing, updates, and everyday camera support.Learn about the NativeWays story. We are bridging the gap between curious travelers and passionate local experts to create authentic, unforgettable journeys.",
 
 };
 

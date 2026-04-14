@@ -73,7 +73,6 @@ const BlogDetails = async ({ params }: IParams) => {
           </div>
           <div className="category_menu w-full md:w-1/3">
             <RecentBlogs></RecentBlogs>
-
             <SidebarQuoteBox></SidebarQuoteBox>
           </div>
         </div>

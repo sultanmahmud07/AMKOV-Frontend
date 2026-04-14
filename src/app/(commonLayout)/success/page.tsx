@@ -5,8 +5,8 @@ import { GoHome } from 'react-icons/go';
 import { IoIosArrowForward } from 'react-icons/io';
 
 export const metadata: Metadata = {
-      title: 'hank You! T-power Fast EV Charging Solutions Await You',
-      description: 'Thanks for visiting T-power! Check your SMS for our EV charger solutions: fast EV charging stations, home & electric car charger installation, plus reliable electric vehicle charging near me. Experience our EV charging solutions network. Join the green revolution today!',
+      title: 'AMKOV SMS Success – Confirmations & Digital Camera Alerts',
+      description: 'Check the success of your AMKOV SMS notifications. Receive updates, confirmations, and alerts related to your digital camera orders and services.',
 }
 
 export default function Page() {
