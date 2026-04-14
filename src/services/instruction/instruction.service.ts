@@ -2,9 +2,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { serverFetch } from "@/lib/server-fetch";
 
-export async function getTours(queryString?: string) {
+export async function getInstruction(queryString?: string) {
     try {
-        const response = await serverFetch.get(`/listing${queryString ? `?${queryString}` : ""}`);
+        const response = await serverFetch.get(`/instruction${queryString ? `?${queryString}` : ""}`);
         const result = await response.json();
         return {
             success: result.success,
@@ -20,9 +20,9 @@ export async function getTours(queryString?: string) {
         };
     }
 }
-export async function getTourBySlug(slug: string) {
+export async function getInstructionBySlug(slug: string) {
     try {
-        const response = await serverFetch.get(`/listing/${slug}`);
+        const response = await serverFetch.get(`/instruction/${slug}`);
         const result = await response.json();
         return result.data;
     } catch (error: any) {

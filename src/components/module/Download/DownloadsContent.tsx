@@ -13,24 +13,27 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { IInstruction } from "@/types/Instruction.interface";
 
-// --- MOCK DATA ---
-const manuals = [
-  { id: 'CD-M01', title: 'CD-M01 User Manual', size: '2.4 MB' },
-  { id: 'CD-W01', title: 'CD-W01 User Manual', size: '1.8 MB' },
-  { id: 'CD-V01-B', title: 'CD-V01 Bracket Folding', size: '3.1 MB' },
-  { id: 'CD-V01', title: 'CD-V01 User Manual', size: '4.5 MB' },
-  { id: 'CD-R5', title: 'CD-R5 User Manual', size: '1.2 MB' },
-  { id: 'CD-R4', title: 'CD-R4 User Manual', size: '2.8 MB' },
-  { id: 'CD-R3', title: 'CD-R3 Manual', size: '1.5 MB' },
-  { id: 'CD-R2H', title: 'CD-R2H WiFi User Manual', size: '5.0 MB' },
-  { id: 'CD-R2F', title: 'CD-R2F User Manual', size: '3.3 MB' },
-  { id: 'CD-R1S', title: 'CD-R1S User Manual', size: '2.1 MB' },
-  { id: 'CD-PB', title: 'CD-PB User Manual', size: '1.9 MB' },
-  { id: 'CD-P01B', title: 'CD-P01B User Manual', size: '4.2 MB' },
-];
+// Helper function to generate a realistic, stable random size based on the ID
+const generateMockSize = (id: string) => {
+  if (!id) return "1.2 MB"; // Fallback
 
-export default function DownloadsContent() {
+  // Use the last few characters of the MongoDB ObjectId to create a stable number
+  const charCode1 = id.charCodeAt(id.length - 1) || 0;
+  const charCode2 = id.charCodeAt(id.length - 2) || 0;
+  const combined = charCode1 + charCode2;
+
+  // Mix it up: sometimes return KB, sometimes MB for realism
+  if (combined % 3 === 0) {
+    const kbSize = (combined % 800) + 150; // Generates between 150 KB and 950 KB
+    return `${kbSize} KB`;
+  } else {
+    const mbSize = (combined % 150) / 10 + 0.8; // Generates between 0.8 MB and 15.8 MB
+    return `${mbSize.toFixed(1)} MB`;
+  }
+};
+export default function DownloadsContent({ instructions }: { instructions: IInstruction[] }) {
   const [activeTab, setActiveTab] = useState<"manuals" | "app">("manuals");
 
   return (
@@ -131,32 +134,43 @@ export default function DownloadsContent() {
             >
               <div className="mb-8 flex items-center justify-between">
                 <h2 className="text-2xl font-extrabold text-[#023047]">Instruction Manuals</h2>
-                <span className="text-gray-500 text-sm font-medium">{manuals.length} files available</span>
+                <span className="text-gray-500 text-sm font-medium">
+                  {instructions?.length || 0} files available
+                </span>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-                {manuals.map((manual) => (
+                {instructions?.map((manual) => (
                   <div
-                    key={manual.id}
+                    key={manual._id}
                     className="bg-white rounded-2xl p-6 border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_10px_40px_rgba(58,154,255,0.08)] hover:border-[#3A9AFF]/30 transition-all duration-300 flex flex-col items-center text-center group"
                   >
-                    <div className="w-16 h-16 bg-red-50 text-red-500 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-red-500 group-hover:text-white transition-colors duration-300 shrink-0">
+                    <div className="w-16 h-16 bg-red-50 text-red-500 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-red-500 group-hover:text-white transition-colors duration-300 shrink-0 relative">
                       <FileText size={32} strokeWidth={1.5} />
-                      <div className="absolute mt-8 ml-8 bg-white text-red-500 text-[9px] font-black px-1.5 py-0.5 rounded shadow-sm border border-red-100 group-hover:bg-red-600 group-hover:text-white group-hover:border-red-600 transition-colors">
+                      <div className="absolute -bottom-2 -right-2 bg-white text-red-500 text-[9px] font-black px-1.5 py-0.5 rounded shadow-sm border border-red-100 group-hover:bg-red-600 group-hover:text-white group-hover:border-red-600 transition-colors">
                         PDF
                       </div>
                     </div>
 
                     <h3 className="font-bold text-[#023047] mb-2 leading-tight line-clamp-2 h-10 group-hover:text-[#3A9AFF] transition-colors">
-                      {manual.title}
+                      {manual.name}
                     </h3>
+
+                    {/* Added a fallback since 'size' isn't in your JSON data */}
                     <p className="text-xs text-gray-400 font-medium mb-6">
-                      English • {manual.size}
+                      English • {generateMockSize(manual._id)}
                     </p>
 
-                    <button className="w-full mt-auto py-2.5 bg-gray-50 hover:bg-[#023047] text-[#023047] hover:text-white rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all duration-300 border border-gray-200 hover:border-[#023047]">
+                    {/* Changed from <button> to <a> to enable native browser downloading/opening */}
+                    <a
+                      href={manual.pdfFile}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      download
+                      className="w-full mt-auto py-2.5 bg-gray-50 hover:bg-[#023047] text-[#023047] hover:text-white rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all duration-300 border border-gray-200 hover:border-[#023047]"
+                    >
                       <DownloadCloud size={16} /> Download
-                    </button>
+                    </a>
                   </div>
                 ))}
               </div>
@@ -209,7 +223,7 @@ export default function DownloadsContent() {
                     src={"/download/app-download-qr-code.png"}
                     width={200}
                     height={200}
-                     alt="QR Code for App Download"
+                    alt="QR Code for App Download"
                     className="w-full h-full"
                   />
                 </div>

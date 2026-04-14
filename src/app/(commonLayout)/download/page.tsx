@@ -1,5 +1,6 @@
 
 import DownloadsContent from '@/components/module/Download/DownloadsContent';
+import { getInstruction } from '@/services/instruction/instruction.service';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -8,9 +9,10 @@ export const metadata: Metadata = {
 
 };
 
-const Download = () => {
+const Download = async () => {
+  const instructions = await getInstruction("page=1&limit=100");
   return (
-    <DownloadsContent />
+    <DownloadsContent instructions={instructions?.data} />
   );
 };
 
