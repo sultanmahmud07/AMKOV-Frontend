@@ -119,7 +119,7 @@ export default function Company() {
               
               {/* NOTE: Replace this image src with your actual AMKOV building image URL */}
               <Image 
-                src="/about/about-company.jpg" // Placeholder - replace with actual image URL
+                src="/about/about-image.jpg" // Placeholder - replace with actual image URL
                 alt="AMKOV Headquarters"
                 width={800}
                 height={600}

@@ -5,7 +5,7 @@ import { getCategories } from "@/services/category/category.service";
 import { ICategory } from "@/types/product.interface";
 
 const CategoryGrid = async () => {
-  const queryString = "limit=10";
+  const queryString = "limit=6";
   const categories = await getCategories(queryString);
   return (
     <section className="py-16 lg:py-24 bg-[#F4F7F9] relative overflow-hidden">
@@ -53,7 +53,7 @@ const CategoryGrid = async () => {
           </div>
 
           <Link
-            href="/categories"
+            href="/products"
             className="hidden md:flex items-center gap-2 text-sm font-bold text-[#023047] hover:text-[#3A9AFF] transition-all pb-1 border-b-2 border-transparent hover:border-[#3A9AFF]"
           >
             VIEW ALL CATEGORIES <ArrowRight size={16} />

@@ -71,7 +71,7 @@ export default function CaptureAndCreate() {
               </p>
 
               <Link
-                href="/explore"
+                href="/products"
                 className="group inline-flex items-center gap-3 text-[#023047] font-bold text-lg hover:text-[#3A9AFF] transition-colors duration-300"
               >
                 <span className="border-b-2 border-[#023047] group-hover:border-[#3A9AFF] pb-1 transition-colors">
