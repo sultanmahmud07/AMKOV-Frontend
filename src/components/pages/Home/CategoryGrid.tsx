@@ -44,19 +44,19 @@ const CategoryGrid = async () => {
             {/* Simple Title */}
             <div>
               <h2 className="text-2xl md:text-3xl font-extrabold text-[#023047] tracking-tight">
-                Shop By Categories
+                Imaging Solutions by Category
               </h2>
               <p className="text-gray-500 text-sm mt-1 font-medium">
-                Explore our specialized range of digital imaging solutions.
+                Seven specialized product lines. 22 years of manufacturing expertise. OEM, ODM & bulk supply available worldwide.
               </p>
             </div>
           </div>
 
           <Link
             href="/products"
-            className="hidden md:flex items-center gap-2 text-sm font-bold text-[#023047] hover:text-[#3A9AFF] transition-all pb-1 border-b-2 border-transparent hover:border-[#3A9AFF]"
+            className="hidden md:flex items-center gap-2 text-sm font-bold text-[#023047] hover:text-[#3A9AFF] transition-all pb-1 border-b-2 border-transparent hover:border-[#3A9AFF] uppercase"
           >
-            VIEW ALL CATEGORIES <ArrowRight size={16} />
+            Browse Full Product Catalog <ArrowRight size={16} />
           </Link>
         </div>
 

@@ -74,7 +74,7 @@ const Navbar = (props: Props) => {
       {/* ========================================= */}
       <div className="hidden lg:block bg-[#3A9AFF] text-white text-xs py-2">
         <div className="main-container flex justify-between items-center">
-          <p>OEM • ODM • Bulk Supply Available Worldwide</p>
+          <p>OEM Manufacturing • ODM Development • Bulk Supply — Serving 50+ Countries Worldwide</p>
           <div className="flex items-center gap-4 font-medium">
             <Link href="/news" className="hover:text-[#023047] transition">New Article</Link>
             <span className="w-px h-3 bg-white/50"></span>

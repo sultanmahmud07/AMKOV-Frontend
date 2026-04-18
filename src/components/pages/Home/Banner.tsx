@@ -19,42 +19,45 @@ const sliderData = [
       {
             id: 1,
             type: "video", // Set type to video
-            src: "/home/banner-video.mp4", // Path to your local video file
-            fallbackImage: "/home/main-banner-1.jpg", // Shows while video loads
-            tagline: "AMAZING TIME OFFER!",
-            title: "Upto 50% Discount \nOn New 5K V-Log Cameras",
+            src: "/home/banner/video-1.mp4", // Path to your local video file
+            fallbackImage: "/home/banner/banner-1.jpg", // Shows while video loads
+            tagline: "NEW PRODUCT LAUNCH",
+            title: "5K V-Log Cameras Now Available for Wholesale & Private Label",
             link: "/products",
-            btnText: "SHOP NOW",
+            subTitle: "Flexible MOQ • OEM/ODM Ready • Global Shipping",
+            btnText: "Request Wholesale Pricing",
       },
       {
             id: 2,
             type: "video",
             // Cinematic scenery - Perfect for "Travel V-Log" cameras
             src: "https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/1080/Big_Buck_Bunny_1080_10s_5MB.mp4",
-            fallbackImage: "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?q=80&w=2000&auto=format&fit=crop",
-            tagline: "AMAZING TIME OFFER!",
-            title: "Up to 50% Discount \nOn New 5K V-Log Cameras",
-            link: "/products",
-            btnText: "SHOP NOW",
+            fallbackImage: "/home/banner/banner-2.jpg",
+            tagline: "NEW PRODUCT LINE",
+            title: "48MP Waterproof Cameras — Bulk Supply & Private Label Available",
+            link: "/download",
+            subTitle: "IP68-rated • Dive-ready • Proven in Outdoor Retail Markets",
+            btnText: "Download Product Sheet",
       },
       {
             id: 3,
             type: "image",
-            src: "/home/main-banner-2.jpg",
+            src: "/home/banner/banner-3.jpg",
             tagline: "NEW ARRIVALS",
-            title: "Capture the Depths \nWith 48MP Waterproof Cameras",
+            title: "Top-Selling Models for Distributors",
             link: "/products",
-            btnText: "DISCOVER MORE",
+            subTitle: "High-demand SKUs with proven sell-through rates — available for OEM, ODM & bulk order.",
+            btnText: "View Specs & MOQ",
       },
       {
             id: 4,
-            type: "video", // Another video slide for variety
-            src: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
-            fallbackImage: "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?q=80&w=2000&auto=format&fit=crop",
-            tagline: "NEW ARRIVALS",
-            title: "Capture the Depths \nWith 48MP Waterproof Cameras",
+            type: "image", // Another image slide for variety
+            src: "/home/banner/banner-4.jpg",
+            tagline: "WHOLESALE SPOTLIGHT",
+            title: "5K V-Log Cameras — High-Margin SKU for Creator-Focused Retailers",
             link: "/products",
-            btnText: "DISCOVER MORE",
+            subTitle: "Private label ready. Flexible MOQ. Fast turnaround from Shenzhen.",
+            btnText: "Get Wholesale Pricing",
       },
 ];
 
@@ -159,6 +162,15 @@ export default function BannerSlider() {
                                                                   >
                                                                         {slide.title}
                                                                   </h1>
+                                                                  {/* Title */}
+                                                                  <p
+                                                                        className={`text-sm md:text-base lg:text-md text-white leading-[1.15] tracking-tight whitespace-pre-line transition-all duration-700 ease-out ${isActive
+                                                                              ? "opacity-100 translate-y-0 delay-500"
+                                                                              : "opacity-0 translate-y-8"
+                                                                              }`}
+                                                                  >
+                                                                        {slide.subTitle}
+                                                                  </p>
 
                                                                   {/* Button */}
                                                                   <div

@@ -10,32 +10,32 @@ import { motion } from "framer-motion";
 const featureCards = [
   {
     id: "vlog",
-    title: "Vlog Life",
-    subtitle: "Share your story with steady, high-res shots.",
+    title: "Content Creator Market",
+    subtitle: "High-demand V-Log SKUs for YouTube, TikTok & social-first retail segments.",
     image: "/home/capture/1.jpg",
   },
   {
     id: "underwater",
-    title: "Underwater Worlds",
-    subtitle: "Explore the depths with 4K waterproof gear.",
+    title: "Outdoor & Sports Retail",
+    subtitle: "IP68-rated waterproof cameras built for adventure, diving & extreme sports markets.",
     image: "/home/capture/6.jpg",
   },
   {
     id: "interface",
-    title: "Pro Interface",
-    subtitle: "Intuitive controls built for fast-paced creators.",
+    title: "Professional & Enterprise",
+    subtitle: "Camcorders and zoom cameras for corporate, institutional & broadcast buyers.",
     image: "/home/capture/3.jpg",
   },
   {
     id: "kids",
-    title: "First Adventures",
-    subtitle: "Easy-to-use, durable cameras for big discoveries.",
+    title: "Kids & Education Segment",
+    subtitle: "Durable, safety-tested cameras for toy retail, gifting & educational channels.",
     image: "/home/capture/4.jpg",
   },
   {
     id: "night",
-    title: "Night Mode Magic",
-    subtitle: "Vibrant cityscapes and clear starry nights.",
+    title: "Travel & Lifestyle Retail",
+    subtitle: "Compact cameras with low-light performance — built for travel, tourism & lifestyle brands.",
     image: "/home/capture/5.jpg",
   },
 ];
@@ -63,11 +63,11 @@ export default function CaptureAndCreate() {
               </div>
 
               <h2 className="text-4xl lg:text-6xl font-extrabold text-[#023047] mb-6 tracking-tight leading-[1.1]">
-                Capture <br className="hidden lg:block" /> & Create
+                Built for <br className="hidden lg:block" /> Every Market Segment
               </h2>
 
               <p className="text-lg text-gray-500 mb-10 leading-relaxed max-w-md">
-                Relive your best moments with innovative camera technology. Designed for every environment, from professional studio vlogs to extreme underwater dives.
+                AMKOV manufactures imaging solutions that serve every major consumer segment — giving your business a complete, scalable product portfolio from a single trusted supplier.
               </p>
 
               <Link
@@ -75,7 +75,7 @@ export default function CaptureAndCreate() {
                 className="group inline-flex items-center gap-3 text-[#023047] font-bold text-lg hover:text-[#3A9AFF] transition-colors duration-300"
               >
                 <span className="border-b-2 border-[#023047] group-hover:border-[#3A9AFF] pb-1 transition-colors">
-                  Explore Collection
+                  View Full Product Range
                 </span>
                 <div className="w-8 h-8 rounded-full bg-[#023047] group-hover:bg-[#3A9AFF] text-white flex items-center justify-center transition-all duration-300 group-hover:translate-x-2">
                   <ArrowRight size={16} />
