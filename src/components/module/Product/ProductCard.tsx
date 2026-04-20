@@ -8,12 +8,19 @@ export default function ProductCard({ product }: { product: IProduct }) {
 
   return (
     <div className="bg-white border border-gray-100 rounded-xl p-3 md:p-4 flex flex-col h-full group/card hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-300 relative overflow-hidden">
-      {/* Top Badges (Pulls from the first variation color) */}
+ {/* Top Badges (Shows all unique colors) */}
       {product.variations && product.variations.length > 0 && (
-        <div className="absolute top-4 left-4 z-20">
-          <span className="bg-[#023047] text-white text-[10px] font-bold px-2 py-1 rounded-sm tracking-wider uppercase shadow-sm">
-            {product.variations[0]?.color}
-          </span>
+        <div className="absolute top-4 left-4 z-20 flex flex-wrap gap-1.5">
+          {Array.from(new Set(product.variations.map((v) => v.color)))
+            .filter(Boolean) // Removes any undefined/null colors
+            .map((color, index) => (
+              <span 
+                key={index}
+                className={`w-4 h-2 rounded shadow-sm`}
+                style={{ backgroundColor: color }}
+              >
+              </span>
+          ))}
         </div>
       )}
 

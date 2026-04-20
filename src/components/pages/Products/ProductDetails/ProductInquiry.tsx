@@ -9,6 +9,7 @@ import { IProduct } from "@/types/product.interface";
 import axios from "axios";
 import { toast } from "sonner";
 import { BASEURL } from "@/utils/constant";
+import { useRouter } from "next/navigation";
 
 export default function ProductInquiry({ productId, allProducts }: { productId: string; allProducts: IProduct[] }) {
 
@@ -17,6 +18,7 @@ export default function ProductInquiry({ productId, allProducts }: { productId: 
     const defaultProduct = allProducts.find(p => p._id === productId);
     return defaultProduct ? [defaultProduct] : [];
   });
+  const router = useRouter()
 
   // Modal state
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -99,6 +101,7 @@ export default function ProductInquiry({ productId, allProducts }: { productId: 
         toast.success("Inquiry submitted successfully!");
         setFormData({ name: "", email: "", phone: "", message: "" });
         setSelectedProducts([]);
+        router.push('/success')
       }
     } catch (error) {
       console.log("Error submitting inquiry:", error);

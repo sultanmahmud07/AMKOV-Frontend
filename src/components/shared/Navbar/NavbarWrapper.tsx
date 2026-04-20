@@ -7,7 +7,7 @@ const NavbarWrapper = async () => {
   const accessToken = await getCookie("accessToken");
   const userInfo = await getUserInfo();
 
-  const queryString = `page=1&limit=8`;
+  const queryString = `page=1&limit=16&isMenu=true`;
   const allProducts = await getProductSortInfo(queryString);
   return (
     <Navbar products={allProducts?.data} accessToken={accessToken} userInfo={userInfo}></Navbar>

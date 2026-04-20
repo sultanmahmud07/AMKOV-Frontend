@@ -72,14 +72,14 @@ const ContactSection = () => {
           {/* Technical Support CTA Card */}
           <div className="bg-linear-to-br from-[#023047] to-[#044160] rounded-2xl shadow-lg p-8 md:p-10 text-white text-center relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-[#3A9AFF] rounded-full mix-blend-multiply filter blur-2xl opacity-40 translate-x-1/2 -translate-y-1/2" />
-            
+
             <div className="relative z-10 flex flex-col items-center">
               <HelpCircle className="w-12 h-12 text-[#3A9AFF] mb-4" />
               <h3 className="font-bold text-2xl mb-2">Need Tech Support?</h3>
               <p className="text-slate-300 text-sm mb-8 leading-relaxed">
                 Check out our comprehensive troubleshooting guide to find answers instantly.
               </p>
-              <Link 
+              <Link
                 href="/support"
                 className="w-full flex items-center justify-center gap-2 bg-white/10 hover:bg-[#3A9AFF] border border-white/20 hover:border-[#3A9AFF] text-white font-bold py-3.5 px-6 rounded-xl transition-all duration-300"
               >
@@ -108,7 +108,8 @@ const ContactSection = () => {
           {/* Map Embed */}
           <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden h-[350px] relative">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d116834.0097779313!2d90.33728807537617!3d23.780777744439077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa563bbdd5904c2!2sDhaka%2C%20Bangladesh!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+              // Using Google Maps embed tailored to your exact Baidu location name
+              src="https://maps.google.com/maps?q=%E8%89%BE%E5%8F%AF%E5%B7%A5%E4%B8%9A%E5%9B%ADC%E6%A0%8B&t=m&z=16&output=embed&iwloc=near"
               width="100%"
               height="100%"
               style={{ border: 0 }}

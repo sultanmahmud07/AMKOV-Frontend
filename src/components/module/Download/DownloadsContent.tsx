@@ -199,21 +199,33 @@ export default function DownloadsContent({ instructions }: { instructions: IInst
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                  <button className="flex items-center justify-center gap-3 bg-black hover:bg-gray-800 text-white px-6 py-3.5 rounded-xl transition-colors">
+
+                  {/* iOS Download (e.g., .zip file) */}
+                  <a
+                    href="/download/amkov.zip"
+                    download="AmkovApp-iOS.zip"
+                    className="flex items-center justify-center gap-3 bg-black hover:bg-gray-800 text-white px-6 py-3.5 rounded-xl transition-colors cursor-pointer"
+                  >
                     <Apple size={28} />
                     <div className="text-left">
                       <p className="text-[10px] leading-none text-gray-300">Download on the</p>
                       <p className="text-sm font-bold leading-tight">App Store</p>
                     </div>
-                  </button>
+                  </a>
 
-                  <button className="flex items-center justify-center gap-3 bg-black hover:bg-gray-800 text-white px-6 py-3.5 rounded-xl transition-colors">
+                  {/* Android Download (e.g., .apk file) */}
+                  <a
+                    href="/download/amkov.apk"
+                    download="AmkovApp-Android.apk"
+                    className="flex items-center justify-center gap-3 bg-black hover:bg-gray-800 text-white px-6 py-3.5 rounded-xl transition-colors cursor-pointer"
+                  >
                     <PlaySquare size={28} />
                     <div className="text-left">
                       <p className="text-[10px] leading-none text-gray-300">GET IT ON</p>
                       <p className="text-sm font-bold leading-tight">Google Play</p>
                     </div>
-                  </button>
+                  </a>
+
                 </div>
               </div>
 

@@ -7,7 +7,6 @@ import LogoutSuccessToast from "@/components/shared/LogoutSuccessToast";
 import { Toaster } from "sonner";
 import { Suspense } from "react";
 import NextTopLoader from 'nextjs-toploader';
-import MobileNavbar from "@/components/shared/Navbar/BottomNavbar";
 import SocialIcons from "@/components/shared/SocialIcons";
 import Head from "next/head";
 const geistOswald = Oswald({
@@ -98,7 +97,7 @@ export default function RootLayout({
           height={4}
         />
         {children}
-        <MobileNavbar />
+        {/* <MobileNavbar /> */}
         <SocialIcons />
         <Toaster position="bottom-right" richColors />
         <Suspense fallback={null}>

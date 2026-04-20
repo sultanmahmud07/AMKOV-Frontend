@@ -105,7 +105,7 @@ export default function CaptureAndCreate() {
                   }}
                   className={`flex flex-col group ${isEvenColumn ? "md:mt-16 lg:mt-32" : ""}`}
                 >
-                  <Link href={`/products/${card.id}`} className="block w-full">
+                  <Link href={`/products`} className="block w-full">
                     {/* Image Container with Parallax-style hover zoom */}
                     <div className="relative w-full aspect-4/5 overflow-hidden rounded-4xl bg-gray-100 mb-6 shadow-md transition-shadow duration-500 group-hover:shadow-2xl">
                       <Image

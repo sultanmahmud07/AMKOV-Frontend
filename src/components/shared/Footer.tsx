@@ -74,19 +74,22 @@ const Footer: React.FC = () => {
               />
             </Link>
             <p className="text-slate-400 text-sm leading-relaxed">
-              Pioneering digital imaging technology. From rugged 4K action cameras to professional 5K vlogging setups, we equip creators with the tools to realize their vision.
+              AMKOV manufactures optical zoom, digital zoom, V-Log, video, waterproof, instant print, and kids cameras — all available for OEM, ODM, or bulk supply.
+
             </p>
             {/* Social Icons */}
             <div className="flex items-center gap-4 pt-2">
               {[
-                { Icon: FaFacebookF, label: "Facebook" },
-                { Icon: IoLogoInstagram, label: "Instagram" },
-                { Icon: FaYoutube, label: "YouTube" },
-                { Icon: FaLinkedinIn, label: "LinkedIn" },
+                { Icon: FaFacebookF, label: "Facebook", href: "https:/acebook.com/amkovcameras" },
+                { Icon: IoLogoInstagram, label: "Instagram", href: "https://www.instagram.com/amkovekim" },
+                { Icon: FaYoutube, label: "YouTube", href: "https://www.youtube.com/amkov" },
+                { Icon: FaLinkedinIn, label: "LinkedIn", href: "https://www.linkedin.com/company/amkov" },
               ].map((social, idx) => (
                 <a
                   key={idx}
-                  href="#"
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={social.label}
                   className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:bg-[#3A9AFF] hover:text-white hover:border-[#3A9AFF] hover:-translate-y-1 transition-all duration-300 shadow-sm"
                 >
@@ -160,13 +163,15 @@ const Footer: React.FC = () => {
       <div className="relative z-10 border-t border-white/10 bg-black/20">
         <div className="main-container px-6 md:px-12 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-slate-500 font-medium">
-            © {currentYear} AMKOV Digital Imaging. All rights reserved.
+            {/* © {currentYear} AMKOV Digital Imaging. All rights reserved. */}
+            AMKOV Digital Imaging ·  <a href="mailto:services@amkov.com" className="group-hover:text-white transition-colors">services@amkov.com</a> · <a href="tel:+86 13713986978" className="group-hover:text-white transition-colors">+86 13713986978</a> · amkov.com
+
           </p>
 
           <div className="flex items-center gap-6 text-xs text-slate-500 font-medium">
-            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
-            <Link href="/sitemap" className="hover:text-white transition-colors">Sitemap</Link>
+            <Link href="/" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/" className="hover:text-white transition-colors">Terms of Service</Link>
+            <Link href="/" className="hover:text-white transition-colors">Sitemap</Link>
           </div>
         </div>
       </div>

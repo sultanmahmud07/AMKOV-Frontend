@@ -83,16 +83,16 @@ const Navbar = (props: Props) => {
 
             {/* Social Media Links */}
             <div className="flex items-center gap-3 ml-2">
-              <a href="https://facebook.com/amkov" target="_blank" rel="noopener noreferrer" className="hover:text-[#023047] transition-colors" aria-label="Facebook">
+              <a href="https://www.facebook.com/amkovcameras" target="_blank" rel="noopener noreferrer" className="hover:text-[#023047] transition-colors" aria-label="Facebook">
                 <Facebook size={14} />
               </a>
-              <a href="https://twitter.com/amkov" target="_blank" rel="noopener noreferrer" className="hover:text-[#023047] transition-colors" aria-label="Twitter">
+              <a href="https://x.com/Amkovery" target="_blank" rel="noopener noreferrer" className="hover:text-[#023047] transition-colors" aria-label="Twitter">
                 <Twitter size={14} />
               </a>
-              <a href="https://instagram.com/amkov" target="_blank" rel="noopener noreferrer" className="hover:text-[#023047] transition-colors" aria-label="Instagram">
+              <a href="https://www.instagram.com/amkovekim" target="_blank" rel="noopener noreferrer" className="hover:text-[#023047] transition-colors" aria-label="Instagram">
                 <Instagram size={14} />
               </a>
-              <a href="https://linkedin.com/company/amkov" target="_blank" rel="noopener noreferrer" className="hover:text-[#023047] transition-colors" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/company/shenzhen-amkovery-technology-co-ltd/" target="_blank" rel="noopener noreferrer" className="hover:text-[#023047] transition-colors" aria-label="LinkedIn">
                 <Linkedin size={14} />
               </a>
             </div>

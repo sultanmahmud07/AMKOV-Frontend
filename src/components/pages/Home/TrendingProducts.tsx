@@ -12,10 +12,10 @@ import { IProduct } from "@/types/product.interface";
 
 
 export default async function TrendingProducts() {
-  const queryString = "limit=10"; 
+  const queryString = "limit=10&isTrendy=true"; 
   const products = await getProducts(queryString);
   return (
-    <section className="py-10 bg-white">
+    <section className="py-16 bg-white">
       <div className="main-container">
 
         {/* Section Header */}
