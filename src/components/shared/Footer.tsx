@@ -169,8 +169,8 @@ const Footer: React.FC = () => {
           </p>
 
           <div className="flex items-center gap-6 text-xs text-slate-500 font-medium">
-            <Link href="/" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="/" className="hover:text-white transition-colors">Terms of Service</Link>
+            <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link>
             <Link href="/" className="hover:text-white transition-colors">Sitemap</Link>
           </div>
         </div>

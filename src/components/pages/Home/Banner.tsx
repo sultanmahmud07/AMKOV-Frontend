@@ -29,10 +29,8 @@ const sliderData = [
       },
       {
             id: 2,
-            type: "video",
-            // Cinematic scenery - Perfect for "Travel V-Log" cameras
-            src: "https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/1080/Big_Buck_Bunny_1080_10s_5MB.mp4",
-            fallbackImage: "/home/banner/banner-2.jpg",
+            type: "image",
+            src: "/home/banner/banner-2.jpg",
             tagline: "NEW PRODUCT LINE",
             title: "48MP Waterproof Cameras — Bulk Supply & Private Label Available",
             link: "/download",
@@ -52,7 +50,7 @@ const sliderData = [
       {
             id: 4,
             type: "image", // Another image slide for variety
-            src: "/home/banner/banner-4.jpg",
+            src: "/home/banner/banner-1.jpg",
             tagline: "WHOLESALE SPOTLIGHT",
             title: "5K V-Log Cameras — High-Margin SKU for Creator-Focused Retailers",
             link: "/products",

@@ -4,6 +4,30 @@
   line-height: 1.7;
   font-size: 16px;
   padding: 1rem 0;
+  
+  /* NEW RULES: Force text to stay inside the container */
+  width: 100%;
+  max-width: 100%;
+  overflow-wrap: break-word; /* Breaks long words/URLs */
+  word-wrap: break-word;
+  white-space: pre-wrap; /* Honors line breaks but wraps text */
+}
+
+/* Add this to ensure images and tables don't cause overflow either */
+.blog_content img, 
+.blog_content iframe, 
+.blog_content video {
+  max-width: 100%;
+  height: auto;
+}
+
+.blog_content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+  display: block;      /* Makes table scrollable on mobile */
+  overflow-x: auto;    /* Makes table scrollable on mobile */
 }
 
 /* Headings */

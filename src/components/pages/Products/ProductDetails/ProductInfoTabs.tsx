@@ -1,5 +1,5 @@
 "use client";
-
+import '../../../module/News/news-style.css'
 import { useState } from "react";
 import Image from "next/image";
 import ProductInquiry from "./ProductInquiry";
@@ -26,7 +26,7 @@ export default function ProductInfoTabs({ product, allProducts }: { product: IPr
   };
 
   // Optional: Update active tab on scroll (Intersection Observer logic can be added here if desired)
-
+ const cleanContent = product?.description?.replace(/&nbsp;/g, ' ') || "";
   return (
     <div className="w-full bg-white  border-t border-gray-100 rounded-b-3xl">
 
@@ -89,32 +89,16 @@ export default function ProductInfoTabs({ product, allProducts }: { product: IPr
         {/* ========================================= */}
         {/* DESCRIPTION SECTION */}
         {/* ========================================= */}
-        <div id="description" className="scroll-mt-24 pt-5 md:pt-16">
-          <h2 className="text-2xl md:text-3xl font-extrabold text-[#023047] mb-6 md:mb-8">
+        <div id="description" className="scroll-mt-24 pt-5 md:pt-10">
+          <h2 className="text-2xl md:text-3xl font-extrabold text-[#023047] mb-3 ">
             Product Highlights
           </h2>
 
           {product?.description ? (
-            <div
-              className="text-gray-600 text-base md:text-lg leading-relaxed 
-        /* Paragraph Spacing */
-        [&>p]:mb-5 
-        
-        /* List Styling (Makes the numbers look clean and aligns the text) */
-        [&>ol]:list-decimal [&>ol]:pl-6 [&>ol]:mb-8 [&>ol>li]:mb-3 [&>ol>li]:pl-2
-        
-        /* Bold Text (Forces bold text to use your brand blue/dark color instead of default black) */
-        [&_strong]:font-bold [&_strong]:text-[#023047]
-        
-        /* Image Styling (Makes images responsive, rounded, and adds a nice shadow) */
-        [&_img]:w-full [&_img]:max-w-4xl [&_img]:h-auto [&_img]:rounded-2xl [&_img]:shadow-[0_10px_40px_rgba(0,0,0,0.1)] [&_img]:my-10 [&_img]:mx-auto [&_img]:border [&_img]:border-gray-100
-        
-        /* Overriding inline editor colors (Forces the HTML to use our Tailwind text-gray-600) */
-        [&_span]:text-inherit!"
-
-              // This injects your HTML safely
-              dangerouslySetInnerHTML={{ __html: product.description }}
-            />
+             <div
+              className="blog_content"
+              dangerouslySetInnerHTML={{ __html: cleanContent }}
+            ></div>
           ) : (
             <p className="text-gray-400 italic">No description available for this product.</p>
           )}

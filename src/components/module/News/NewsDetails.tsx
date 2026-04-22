@@ -12,11 +12,14 @@ import { formattedDate } from '@/utils/dateFormated';
 import { getBlogBySlug } from '@/services/blog/blog.service';
 import SidebarQuoteBox from '@/components/pages/News/SidebarQuoteBox';
 
-
 const BlogDetails = async ({ params }: IParams) => {
-  const slug = (await params).slug
+  const slug = (await params).slug;
   const blogData = await getBlogBySlug(slug);
   const blog = blogData?.data;
+
+  // FIX: Replace all non-breaking spaces with normal spaces so the text can wrap
+  const cleanContent = blog?.content?.replace(/&nbsp;/g, ' ') || "";
+
   return (
     <div className="">
       <div className="category_top bg-base-100 py-4 md:py-6">
@@ -34,7 +37,9 @@ const BlogDetails = async ({ params }: IParams) => {
       </div>
       <div className="main-container ">
         <div className="flex flex-col md:flex-row gap-5 md:gap-6 py-4">
-          <div className="blog_details w-full md:w-2/3">
+          
+          {/* Added overflow-hidden here to ensure no horizontal scrolling escapes this column */}
+          <div className="blog_details w-full md:w-2/3 overflow-hidden">
             <div className="pb-4">
               <Image
                 src={blog?.thumbnail || "/default.png"}
@@ -42,7 +47,7 @@ const BlogDetails = async ({ params }: IParams) => {
                 width={1000}
                 height={700}
                 loading="lazy"
-                className="w-full"
+                className="w-full rounded-xl"
               />
             </div>
             <div className="blog_top flex items-center gap-2 md:gap-3 py-2">
@@ -65,12 +70,15 @@ const BlogDetails = async ({ params }: IParams) => {
             </div>
             <h1 className='text-2xl md:text-3xl my-1 md:py-3 font-bold text-[#191C1F]'>{blog?.title}</h1>
             <p>{blog?.description || blog?.metaDescription}</p>
+            
+            {/* Render the cleaned content */}
             <div
               className="blog_content py-4"
-              dangerouslySetInnerHTML={{ __html: blog?.content }}
+              dangerouslySetInnerHTML={{ __html: cleanContent }}
             ></div>
 
           </div>
+          
           <div className="category_menu w-full md:w-1/3">
             <RecentBlogs></RecentBlogs>
             <SidebarQuoteBox></SidebarQuoteBox>

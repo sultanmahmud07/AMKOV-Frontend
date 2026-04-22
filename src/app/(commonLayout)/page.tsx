@@ -1,4 +1,6 @@
 
+import CategorySolutionsLoading from "@/components/loaders/Products/CategoryLoader";
+import TrendyProductLoader from "@/components/loaders/Products/TrendyProductLoader";
 import AboutHero from "@/components/pages/Home/AboutHero";
 import BannerSlider from "@/components/pages/Home/Banner";
 import BlogWrapper from "@/components/pages/Home/BlogWraper";
@@ -14,11 +16,11 @@ export default function Home() {
   return (
     <div>
       <BannerSlider />
-      <Suspense fallback={<p>Loading trending products...</p>}>
+      <Suspense fallback={<TrendyProductLoader />}>
         <TrendingProducts />
       </Suspense>
       <PromoSection />
-      <Suspense fallback={<p>Loading categories...</p>}>
+      <Suspense fallback={<CategorySolutionsLoading />}>
         <CategoryGrid />
       </Suspense>
       <CaptureAndCreate />

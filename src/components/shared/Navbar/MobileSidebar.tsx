@@ -1,12 +1,7 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-
-import { useState } from "react";
 import Link from "next/link";
 import {
       X,
-      ChevronDown,
-      Camera,
       Package,
       Info,
       Phone,
@@ -14,42 +9,17 @@ import {
       MessageSquareDot,
       Download,
       HandHelping,
+      Newspaper,
 } from "lucide-react";
-import UserProfileMenu from "./UserProfileMenu"; // Adjust path if needed
 import Image from "next/image";
 
 interface MobileSidebarProps {
       isOpen: boolean;
       onClose: () => void;
-      accessToken?: string | null;
-      userInfo?: any;
 }
 
-const MobileSidebar = ({ isOpen, onClose, accessToken, userInfo }: MobileSidebarProps) => {
-      // State to handle which accordion menu is open
-      const [openAccordion, setOpenAccordion] = useState<string | null>(null);
-
-      const toggleAccordion = (menu: string) => {
-            setOpenAccordion((prev) => (prev === menu ? null : menu));
-      };
-
-      // Mock data mapping to your Amkov categories
-      const categories = [
-            { name: "All Categories", href: "/categories" },
-            { name: "Optical Zoom", href: "/products?category=optical-zoom" },
-            { name: "Digital Zoom", href: "/products?category=digital-zoom" },
-            { name: "V-Log Cameras", href: "/products?category=v-log" },
-            { name: "Video Cameras", href: "/products?category=video" },
-            { name: "Waterproof", href: "/products?category=waterproof" },
-            { name: "Instant Print", href: "/products?category=instant-print" },
-      ];
-
-      const productLinks = [
-            { name: "New Arrivals", href: "/products" },
-            { name: "Best Sellers", href: "/products" },
-            { name: "Accessories", href: "/products" },
-            { name: "View All Products", href: "/products" },
-      ];
+const MobileSidebar = ({ isOpen, onClose }: MobileSidebarProps) => {
+  
 
       return (
             <>
@@ -125,69 +95,14 @@ const MobileSidebar = ({ isOpen, onClose, accessToken, userInfo }: MobileSidebar
                                     Home
                               </Link>
 
-                              {/* Accordion: Categories */}
-                              <div className="rounded-xl overflow-hidden bg-white">
-                                    <button
-                                          onClick={() => toggleAccordion("categories")}
-                                          className={`w-full flex items-center justify-between p-3 text-base font-bold transition-colors rounded-xl ${openAccordion === "categories" ? "text-[#3A9AFF] bg-[#F4F7F9]" : "text-[#023047] hover:bg-[#F4F7F9]"}`}
-                                    >
-                                          <div className="flex items-center gap-3">
-                                                <Camera size={18} className={openAccordion === "categories" ? "text-[#3A9AFF]" : "text-gray-400"} />
-                                                Categories
-                                          </div>
-                                          <ChevronDown size={18} className={`transition-transform duration-300 ${openAccordion === "categories" ? "rotate-180" : ""}`} />
-                                    </button>
-
-                                    {/* Expanded Content */}
-                                    <div className={`grid transition-all duration-300 ease-in-out ${openAccordion === "categories" ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}>
-                                          <div className="overflow-hidden">
-                                                <div className="pl-11 pr-3 py-2 flex flex-col gap-1">
-                                                      {categories.map((cat, idx) => (
-                                                            <Link
-                                                                  key={idx}
-                                                                  href={cat.href}
-                                                                  onClick={onClose}
-                                                                  className="py-2.5 text-sm font-semibold text-gray-500 hover:text-[#3A9AFF] transition-colors"
-                                                            >
-                                                                  {cat.name}
-                                                            </Link>
-                                                      ))}
-                                                </div>
-                                          </div>
-                                    </div>
-                              </div>
-
-                              {/* Accordion: Products */}
-                              <div className="rounded-xl overflow-hidden bg-white">
-                                    <button
-                                          onClick={() => toggleAccordion("products")}
-                                          className={`w-full flex items-center justify-between p-3 text-base font-bold transition-colors rounded-xl ${openAccordion === "products" ? "text-[#3A9AFF] bg-[#F4F7F9]" : "text-[#023047] hover:bg-[#F4F7F9]"}`}
-                                    >
-                                          <div className="flex items-center gap-3">
-                                                <Package size={18} className={openAccordion === "products" ? "text-[#3A9AFF]" : "text-gray-400"} />
-                                                Products
-                                          </div>
-                                          <ChevronDown size={18} className={`transition-transform duration-300 ${openAccordion === "products" ? "rotate-180" : ""}`} />
-                                    </button>
-
-                                    {/* Expanded Content */}
-                                    <div className={`grid transition-all duration-300 ease-in-out ${openAccordion === "products" ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}>
-                                          <div className="overflow-hidden">
-                                                <div className="pl-11 pr-3 py-2 flex flex-col gap-1">
-                                                      {productLinks.map((link, idx) => (
-                                                            <Link
-                                                                  key={idx}
-                                                                  href={link.href}
-                                                                  onClick={onClose}
-                                                                  className="py-2.5 text-sm font-semibold text-gray-500 hover:text-[#3A9AFF] transition-colors"
-                                                            >
-                                                                  {link.name}
-                                                            </Link>
-                                                      ))}
-                                                </div>
-                                          </div>
-                                    </div>
-                              </div>
+                              <Link
+                                    href="/products"
+                                    onClick={onClose}
+                                    className="flex items-center gap-3 text-base font-bold text-[#023047] p-3 rounded-xl hover:bg-[#F4F7F9] hover:text-[#3A9AFF] transition-colors"
+                              >
+                                    <Package size={18} className="text-gray-400" />
+                                    Products
+                              </Link>
 
                               {/* Static Link: About */}
                               <Link
@@ -225,6 +140,15 @@ const MobileSidebar = ({ isOpen, onClose, accessToken, userInfo }: MobileSidebar
                               >
                                     <HandHelping size={18} className="text-gray-400" />
                                     Support
+                              </Link>
+                              {/* Static Link: Contact */}
+                              <Link
+                                    href="/news"
+                                    onClick={onClose}
+                                    className="flex items-center gap-3 text-base font-bold text-[#023047] p-3 rounded-xl hover:bg-[#F4F7F9] hover:text-[#3A9AFF] transition-colors"
+                              >
+                                    <Newspaper size={18} className="text-gray-400" />
+                                    News
                               </Link>
                               {/* Static Link: Contact */}
                               <Link

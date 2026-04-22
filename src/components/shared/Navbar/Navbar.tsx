@@ -242,8 +242,6 @@ const Navbar = (props: Props) => {
       <MobileSidebar
         isOpen={navToggle}
         onClose={() => setNavToggle(false)}
-        accessToken={accessToken}
-        userInfo={userInfo}
       />
 
       {/* Login Modal */}
