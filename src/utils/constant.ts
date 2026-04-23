@@ -1,2 +1,2 @@
 
-export const BASEURL = "https://api.devshimul.com/api/v1";
+export const BASEURL = "https://api.amkov.com/api/v1";
