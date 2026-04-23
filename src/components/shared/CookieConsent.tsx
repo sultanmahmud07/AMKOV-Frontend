@@ -37,7 +37,7 @@ export default function CookieConsent() {
           animate={{ y: 0, opacity: 1, scale: 1 }}
           exit={{ y: 50, opacity: 0, scale: 0.95, transition: { duration: 0.2 } }}
           transition={{ type: "spring", stiffness: 120, damping: 20 }}
-          className="fixed bottom-4 left-4 right-4 sm:left-6 sm:right-auto sm:w-[420px] z-9999"
+          className="fixed bottom-4 left-4 right-4 sm:left-6 sm:right-auto sm:w-[420px] md:w-[620px] z-9999"
         >
           <div className="bg-white rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.12)] border border-gray-100 p-6 relative">
             
@@ -71,13 +71,13 @@ export default function CookieConsent() {
                 <div className="flex items-center gap-3">
                   <button 
                     onClick={handleAccept}
-                    className="flex-1 bg-[#023047] hover:bg-[#3A9AFF] text-white text-sm font-bold py-2.5 rounded-lg transition-colors shadow-sm"
+                    className="flex-1 bg-[#023047] hover:bg-[#3A9AFF] text-white text-xs md:text-sm font-bold py-1 md:py-2.5 rounded md:rounded-lg cursor-pointer transition-colors shadow-sm"
                   >
                     Accept All
                   </button>
                   <button 
                     onClick={handleDecline}
-                    className="flex-1 bg-gray-50 hover:bg-gray-100 text-gray-600 text-sm font-bold py-2.5 rounded-lg border border-gray-200 transition-colors"
+                    className="flex-1 bg-gray-50 hover:bg-gray-100 text-gray-600 text-xs md:text-sm font-bold py-1 md:py-2.5 rounded md:rounded-lg cursor-pointer border border-gray-200 transition-colors"
                   >
                     Decline
                   </button>
