@@ -27,9 +27,6 @@ const TermsOfServicePage = () => {
           
           {/* Introduction */}
           <section>
-            <h2 className="text-2xl font-bold text-[#023047] mb-4 border-b border-gray-100 pb-2">
-              Introduction
-            </h2>
             <p className="leading-relaxed mb-4">
               Welcome to the AMKOV website.
             </p>

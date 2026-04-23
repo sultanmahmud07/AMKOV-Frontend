@@ -17,7 +17,7 @@ const PrivacyPage = () => {
           {/* Decorative subtle gradient */}
           <div className="absolute inset-0 bg-linear-to-r from-transparent via-[#3A9AFF]/20 to-transparent pointer-events-none"></div>
           <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight relative z-10">
-            Privacy Policy for AMKOV
+            Privacy Policy
           </h1>
         </div>
 

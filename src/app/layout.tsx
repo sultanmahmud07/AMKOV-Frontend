@@ -9,6 +9,7 @@ import { Suspense } from "react";
 import NextTopLoader from 'nextjs-toploader';
 import SocialIcons from "@/components/shared/SocialIcons";
 import Head from "next/head";
+import CookieConsent from "@/components/shared/CookieConsent";
 const geistOswald = Oswald({
   variable: "--font-geist-oswald",
   subsets: ["latin"],
@@ -77,18 +78,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-    <Head>
-      <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
+      <Head>
+        <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
             Weglot.initialize({
               api_key: 'wg_e2364e3fc63b35cad9baa2fdee53de952'
             });
           `,
-        }}
-      ></script>
-    </Head>
+          }}
+        ></script>
+      </Head>
       <body
         className={`${geistOswald.variable} ${geistMono.variable} antialiased relative`}
       >
@@ -104,6 +105,8 @@ export default function RootLayout({
           <LoginSuccessToast />
           <LogoutSuccessToast />
         </Suspense>
+        {/* Render the global cookie popup here */}
+        <CookieConsent />
       </body>
     </html>
   );

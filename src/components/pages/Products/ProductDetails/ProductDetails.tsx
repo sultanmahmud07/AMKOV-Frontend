@@ -15,7 +15,7 @@ export default function ProductDetails({ product }: { product?: IProduct }) {
     new Set(product?.variations.map((variation) => variation.color))
   );
   const [selectedColor, setSelectedColor] = useState(uniqueColors[0] || "");
-  // console.log("Product Details: ", product)
+  console.log("Product Details: ", product)
   return (
     <div className="bg-white min-h-screen">
       <div className="bg-[#F8FAFC] border-b border-gray-100">
@@ -24,12 +24,12 @@ export default function ProductDetails({ product }: { product?: IProduct }) {
             <Home size={16} /> Home
           </Link>
           <ChevronRight size={14} className="text-gray-400" />
-          <Link href="/shop" className="hover:text-[#3A9AFF] transition-colors">
-            Cameras
+          <Link href={`/products`} className="hover:text-[#3A9AFF] transition-colors">
+            Products
           </Link>
           <ChevronRight size={14} className="text-gray-400" />
-          <Link href="/shop/v-log" className="hover:text-[#3A9AFF] transition-colors">
-            V-Log Cameras
+          <Link href={`/category/${product?.category?.slug}`} className="hover:text-[#3A9AFF] transition-colors">
+            {product?.category?.name || "Category"}
           </Link>
           <ChevronRight size={14} className="text-gray-400" />
           <span className="text-[#023047] font-semibold">{product?.slug}</span>
