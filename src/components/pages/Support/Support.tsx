@@ -16,7 +16,8 @@ import {
       Maximize,
       Zap,
       PhoneCall,
-      Mail
+      Mail,
+      MessageCircleQuestionMark
 } from "lucide-react";
 import TechnicalBanner from "./TechnicalBanner";
 
@@ -89,8 +90,12 @@ const faqs = [
             answer: "Usually, cameras do not have fast charging, so under normal circumstances, it takes 2-3 hours to charge the camera."
       }
 ];
-
-export default function SupportPage() {
+interface ISupport {
+      _id: string;
+      title: string;
+      description: string;
+}
+export default function SupportPage({ support }: { support: ISupport[] }) {
       const [openIndex, setOpenIndex] = useState<number | null>(0); // First item open by default
 
       const toggleAccordion = (index: number) => {
@@ -114,13 +119,13 @@ export default function SupportPage() {
 
                               {/* Accordion List */}
                               <div className="space-y-4">
-                                    {faqs.map((faq, index) => {
+                                    {support.map((faq, index) => {
                                           const isOpen = openIndex === index;
-                                          const Icon = faq.icon;
+                                          const Icon = MessageCircleQuestionMark;
 
                                           return (
                                                 <div
-                                                      key={faq.id}
+                                                      key={faq._id}
                                                       className={`bg-white border rounded-2xl overflow-hidden transition-all duration-300 ${isOpen ? "border-primary shadow-[0_10px_30px_rgba(58,154,255,0.08)]" : "border-gray-200 hover:border-gray-300"
                                                             }`}
                                                 >
@@ -135,7 +140,7 @@ export default function SupportPage() {
                                                                   </div>
                                                                   <h3 className={`font-bold text-base md:text-lg transition-colors duration-300 ${isOpen ? "text-primary" : "text-[#023047] group-hover:text-primary"
                                                                         }`}>
-                                                                        {faq.question}
+                                                                        {faq.title}
                                                                   </h3>
                                                             </div>
                                                             <div className={`w-8 h-8 rounded-full border flex items-center justify-center shrink-0 transition-all duration-300 ${isOpen ? "border-primary bg-primary text-white rotate-180" : "border-gray-200 text-gray-400 group-hover:border-primary group-hover:text-primary"
@@ -154,7 +159,7 @@ export default function SupportPage() {
                                                                   >
                                                                         <div className="px-5 md:px-6 pb-6 pt-0">
                                                                               <div className="pl-14 text-gray-600 leading-relaxed text-sm md:text-base border-t border-gray-50 pt-4">
-                                                                                    {faq.answer}
+                                                                                    {faq.description}
                                                                               </div>
                                                                         </div>
                                                                   </motion.div>

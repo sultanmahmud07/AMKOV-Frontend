@@ -3,6 +3,7 @@
 import { BASEURL } from '@/utils/constant';
 import axios from 'axios';
 import { Send } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { toast } from 'sonner';
 
@@ -22,8 +23,9 @@ const ContactForm = () => {
     reset,
     formState: { errors, isSubmitting },
   } = useForm<ContactFormInputs>();
+  const router = useRouter()
 
-const onSubmit: SubmitHandler<ContactFormInputs> = async (data) => {
+  const onSubmit: SubmitHandler<ContactFormInputs> = async (data) => {
     try {
       const payload = {
         name: `${data.firstName} ${data.lastName}`.trim(),
@@ -31,19 +33,18 @@ const onSubmit: SubmitHandler<ContactFormInputs> = async (data) => {
         phone: data.phone,
         message: data.message,
         inquiryType: "GENERAL",
-        products: [] 
+        products: []
       };
 
-      const response = await axios.post(`${BASEURL || "https://api.devshimul.com/api/v1"}/contact/create`, payload);
+      const response = await axios.post(`${BASEURL || "https://api.amkov.com/api/v1"}/contact/create`, payload);
 
       if (response.data) {
         // Show Success Toast
         toast.success("Inquiry sent successfully!", {
           description: "Our B2B sales team will contact you within 24 hours.",
         });
-
-        // Reset react-hook-form inputs
         reset();
+        router.push('/success')
       }
     } catch (error) {
       console.error("Error submitting inquiry:", error);
@@ -55,7 +56,7 @@ const onSubmit: SubmitHandler<ContactFormInputs> = async (data) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-2">
           <label className="text-sm font-bold text-gray-700">First Name *</label>
@@ -66,7 +67,7 @@ const onSubmit: SubmitHandler<ContactFormInputs> = async (data) => {
           />
           {errors.firstName && <span className="text-xs text-red-500 font-medium">First Name is required</span>}
         </div>
-        
+
         <div className="space-y-2">
           <label className="text-sm font-bold text-gray-700">Last Name *</label>
           <input
@@ -74,7 +75,7 @@ const onSubmit: SubmitHandler<ContactFormInputs> = async (data) => {
             className={`w-full px-4 py-3 rounded-xl border bg-gray-50 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#3A9AFF] transition-all ${errors.lastName ? 'border-red-500' : 'border-gray-200 focus:border-[#3A9AFF]'}`}
             {...register("lastName", { required: true })}
           />
-           {errors.lastName && <span className="text-xs text-red-500 font-medium">Last Name is required</span>}
+          {errors.lastName && <span className="text-xs text-red-500 font-medium">Last Name is required</span>}
         </div>
       </div>
 
@@ -91,7 +92,7 @@ const onSubmit: SubmitHandler<ContactFormInputs> = async (data) => {
           />
           {errors.email && <span className="text-xs text-red-500 font-medium">Email is required</span>}
         </div>
-         <div className="space-y-2">
+        <div className="space-y-2">
           <label className="text-sm font-bold text-gray-700">Phone Number</label>
           <input
             type="tel"
@@ -141,8 +142,8 @@ const onSubmit: SubmitHandler<ContactFormInputs> = async (data) => {
       </div>
 
       {/* Submit Button */}
-      <button 
-        type="submit" 
+      <button
+        type="submit"
         disabled={isSubmitting}
         className="w-full flex items-center justify-center gap-2 bg-[#023047] hover:bg-[#3A9AFF] text-white font-bold py-4 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed mt-4"
       >

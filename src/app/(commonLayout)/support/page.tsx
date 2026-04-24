@@ -1,5 +1,6 @@
 
 import SupportPage from '@/components/pages/Support/Support';
+import { getSupport } from '@/services/support/support.service';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -8,9 +9,10 @@ export const metadata: Metadata = {
 
 };
 
-const Support = () => {
+const Support = async () => {
+  const support = await getSupport("page=1&limit=100");
   return (
-    <SupportPage />
+    <SupportPage support={support?.data} />
   );
 };
 

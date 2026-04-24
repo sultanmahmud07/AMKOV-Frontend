@@ -96,7 +96,7 @@ export default function ProductInquiry({ productId, allProducts }: { productId: 
         inquiryType: "PRODUCT",
         products: selectedProducts.map(p => p._id)
       };
-      const response = await axios.post(`${BASEURL || "https://api.devshimul.com/api/v1"}/contact/create`, payload);
+      const response = await axios.post(`${BASEURL || "https://api.amkov.com/api/v1"}/contact/create`, payload);
       if (response.data) {
         toast.success("Inquiry submitted successfully!");
         setFormData({ name: "", email: "", phone: "", message: "" });

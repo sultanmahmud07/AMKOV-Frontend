@@ -8,19 +8,21 @@ import Link from "next/link";
 const promoData = [
   {
     id: 1,
-    tagline: "BEST COLLECTION",
-    title: "Explore The World \nWith 5K V-Log Cameras",
+    tagline: "WHOLESALE SPOTLIGHT",
+    title: "5K V-Log Cameras — High-Margin SKU for Creator-Focused Retailers",
+    subTitle: "Private label ready. Flexible MOQ. Fast turnaround from Shenzhen.",
     image: "/home/sub-banner-3.jpg", // Replace with your actual image path
     link: "/products",
-    btnText: "SHOP NOW",
+    btnText: "Get Wholesale Pricing",
   },
   {
     id: 2,
-    tagline: "TODAY'S BEST DEAL",
-    title: "Underwater Mastery \n48MP Waterproof Gear",
+    tagline: "FEATURED PRODUCT LINE",
+    title: "48MP Waterproof Cameras — Built for Outdoor & Sports Retail",
+    subTitle: "Ruggedized construction. Bulk supply available. OEM configurations supported.",
     image: "/home/sub-banner-1.jpg", // Replace with your actual image path
     link: "/products",
-    btnText: "SHOP NOW",
+    btnText: "Request a Sample",
   },
 ];
 
@@ -64,14 +66,14 @@ const PromoSection = () => {
                 {item.tagline}
               </p>
               {/* whitespace-pre-line allows the \n in the data to create line breaks */}
-              <h3 className="text-2xl lg:text-3xl font-extrabold text-[#023047] mb-6 leading-tight whitespace-pre-line">
+              <h3 className="text-2xl w-full md:w-2/3 lg:text-3xl font-extrabold text-[#023047] mb-6 leading-tight whitespace-pre-line">
                 {item.title}
               </h3>
 
               {/* Styled Link matching the reference image */}
               <Link
                 href={item.link}
-                className="inline-block text-sm font-bold text-[#023047] border-b-2 border-[#023047]/30 pb-1 hover:text-[#3A9AFF] hover:border-[#3A9AFF] transition-all duration-300"
+                className="inline-block uppercase text-sm font-bold text-[#023047] border-b-2 border-[#023047]/30 pb-1 hover:text-[#3A9AFF] hover:border-[#3A9AFF] transition-all duration-300"
               >
                 {item.btnText}
               </Link>
