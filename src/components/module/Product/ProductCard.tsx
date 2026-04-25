@@ -48,7 +48,7 @@ export default function ProductCard({ product }: { product: IProduct }) {
 
       {/* Product Info */}
       <div className="flex flex-col grow">
-        <span className="text-xs text-gray-400 mb-1">{product.category?.name || "Category Name"}</span>
+        <span className="text-xs text-gray-400 mb-1">{product.categories?.[0]?.name || "Category Name"}</span>
 
         <Link  href={`/products/${product.slug}`}>
           <h3 className="text-sm font-semibold text-[#023047] line-clamp-2 hover:text-[#3A9AFF] transition-colors mb-2">

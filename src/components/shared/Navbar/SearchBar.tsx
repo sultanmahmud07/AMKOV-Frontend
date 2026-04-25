@@ -234,7 +234,7 @@ const SearchBar = () => {
                               <span className="text-sm font-bold text-gray-400">TBD</span>
                             )} */}
                             <span className='text-sm font-bold text-emerald-600'>
-                              {product?.category?.name || "Uncategorized"}
+                              {product?.categories?.[0]?.name || "Uncategorized"}
 
                             </span>
                           </div>

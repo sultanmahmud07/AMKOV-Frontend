@@ -1,95 +1,16 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
       ChevronDown,
-      Camera,
-      HardDrive,
-      BatteryMedium,
-      ThermometerSun,
-      Focus,
-      Image as ImageIcon,
-      ScanLine,
-      ZoomIn,
-      Maximize,
-      Zap,
       PhoneCall,
       Mail,
       MessageCircleQuestionMark
 } from "lucide-react";
 import TechnicalBanner from "./TechnicalBanner";
 
-// --- FAQ CONTENT PROVIDED BY YOU ---
-const faqs = [
-      {
-            id: 1,
-            icon: Camera,
-            question: "The camera looks blurry and unclear, is it broken?",
-            answer: "Please check if there is dust, fingerprints, or dirt on the lens or screen. If there is, gently wipe it with a clean and soft lens cleaning cloth. If the cloth is not soft enough, it may scratch the lens or display screen."
-      },
-      {
-            id: 2,
-            icon: HardDrive,
-            question: "What is the situation when the camera prompts an error when inserting a memory card? How to solve it?",
-            answer: "Please try formatting the memory card first. If it cannot be formatted, or if it still prompts to format after formatting, this is caused by a memory card error. Please replace the memory card with a new one for use in this camera. 4K cameras are recommended to use U2 or higher speed cards, while other cameras are recommended to use C10 or higher speed cards."
-      },
-      {
-            id: 3,
-            icon: BatteryMedium,
-            question: "If the camera is not used for a long time, do I need to remove the battery?",
-            answer: "Please remove the camera battery and place it in a dust-free, dry environment with a temperature not exceeding 30 ℃. To extend the battery life, please discharge it before storage. Please fully charge the battery and then fully discharge it at least once every 3 months."
-      },
-      {
-            id: 4,
-            icon: ThermometerSun,
-            question: "Is it normal for the camera body to heat up after a period of use?",
-            answer: "It is normal for the camera body to heat up after a period of use. If the heat is severe, it is recommended to remove the battery or immediately turn off the camera and return it to the seller for testing."
-      },
-      {
-            id: 5,
-            icon: Focus,
-            question: "What is the reason why the camera cannot take photos by lightly pressing the photo button?",
-            answer: "Usually, the camera's photo button has two gears. Lightly pressing it is the focus function, and then pressing down a few more buttons after focusing is the photo function."
-      },
-      {
-            id: 6,
-            icon: ImageIcon,
-            question: "What is the reason why the photos taken by the camera are more blurry and less clear?",
-            answer: "Generally, cameras do not have anti shake function or electronic anti shake function. Please try to keep the camera stable when taking photos, and do not immediately move the camera when storing photos. Moving the camera after the storage is completed will reduce the blurring situation."
-      },
-      {
-            id: 7,
-            icon: ScanLine,
-            question: "My camera may not be in focus in some scenes. Is there a problem with it?",
-            answer: "The contrast focusing algorithm currently used in general card cameras or mirrorless cameras is difficult to distinguish the data gap in some scenes, and may not be in focus. This is a phenomenon that occurs in these types of cameras. You can adjust the angle or use a background board to cover the background for improvement."
-      },
-      {
-            id: 8,
-            icon: ScanLine, // Reusing icon for focus/macro
-            question: "My camera works fine in the distance, but it's not clear up close. Is there a problem with it?",
-            answer: "This depends on whether the same camera you purchased has AF or macro function, usually only cameras with AF or macro function can capture closer objects clearly."
-      },
-      {
-            id: 9,
-            icon: ZoomIn,
-            question: "What is the reason for the poor zoom photography effect of my camera?",
-            answer: "If the camera is a digital zoom camera, theoretically the larger the zoom factor, the worse it will be."
-      },
-      {
-            id: 10,
-            icon: Maximize,
-            question: "Is it better to have a larger pixel size for taking photos and recording in the camera?",
-            answer: "It is recommended to set the camera to the same pixel size as its actual photosensitive chip for shooting. The larger the size, the more storage space it occupies during recording."
-      },
-      {
-            id: 11,
-            icon: Zap,
-            question: "What is the reason for the slow charging of the camera?",
-            answer: "Usually, cameras do not have fast charging, so under normal circumstances, it takes 2-3 hours to charge the camera."
-      }
-];
 interface ISupport {
       _id: string;
       title: string;

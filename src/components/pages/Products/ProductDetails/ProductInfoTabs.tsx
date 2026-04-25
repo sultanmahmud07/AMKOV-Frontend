@@ -147,7 +147,6 @@ export default function ProductInfoTabs({ product, allProducts }: { product: IPr
         {/* More Information SECTION */}
         {/* ========================================= */}
         <div id="more_info" className="scroll-mt-24 pt-6 md:pt-14">
-          {/* <h2 className="text-xl md:text-2xl font-bold text-[#023047] my-4">Product Features</h2> */}
           <div className="grid grid-cols-1 md:max-w-5xl mx-auto gap-6">
             {
               product?.featureImages && product?.featureImages?.length > 0 ? (

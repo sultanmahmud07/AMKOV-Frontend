@@ -13,7 +13,7 @@ import { MdEmail, MdArrowForward } from "react-icons/md";
 // import NewsletterForm from "./NewsLatterForm"; 
 
 const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear();
+  // const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-[#023047] text-white overflow-hidden relative">
@@ -80,10 +80,10 @@ const Footer: React.FC = () => {
             {/* Social Icons */}
             <div className="flex items-center gap-4 pt-2">
               {[
-                { Icon: FaFacebookF, label: "Facebook", href: "https:/acebook.com/amkovcameras" },
+                { Icon: FaFacebookF, label: "Facebook", href: "https://www.facebook.com/amkovcameras" },
                 { Icon: IoLogoInstagram, label: "Instagram", href: "https://www.instagram.com/amkovekim" },
-                { Icon: FaYoutube, label: "YouTube", href: "https://www.youtube.com/amkov" },
-                { Icon: FaLinkedinIn, label: "LinkedIn", href: "https://www.linkedin.com/company/amkov" },
+                { Icon: FaYoutube, label: "YouTube", href: "https://www.youtube.com/@amkov6947" },
+                { Icon: FaLinkedinIn, label: "LinkedIn", href: "https://www.linkedin.com/company/shenzhen-amkovery-technology-co-ltd" },
               ].map((social, idx) => (
                 <a
                   key={idx}
@@ -108,7 +108,7 @@ const Footer: React.FC = () => {
               <ul className="space-y-4 text-sm text-slate-400">
                 {["V-Log Cameras", "Waterproof Action", "Optical Zoom", "Instant Print", "Accessories"].map((item) => (
                   <li key={item}>
-                    <Link href="#" className="hover:text-[#3A9AFF] transition-colors inline-block relative group">
+                    <Link href="/products" className="hover:text-[#3A9AFF] transition-colors inline-block relative group">
                       {item}
                       <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#3A9AFF] transition-all duration-300 group-hover:w-full"></span>
                     </Link>
@@ -123,7 +123,7 @@ const Footer: React.FC = () => {
               <ul className="space-y-4 text-sm text-slate-400">
                 {["Help Center", "Firmware Downloads", "Warranty Registration", "Return Policy", "Find a Dealer"].map((item) => (
                   <li key={item}>
-                    <Link href="#" className="hover:text-white transition-colors inline-block relative group">
+                    <Link href="/contact" className="hover:text-white transition-colors inline-block relative group">
                       {item}
                       <span className="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full"></span>
                     </Link>

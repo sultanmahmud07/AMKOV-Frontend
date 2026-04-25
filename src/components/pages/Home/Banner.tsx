@@ -30,7 +30,7 @@ const sliderData = [
       {
             id: 2,
             type: "image",
-            src: "/home/banner/banner-2.jpg",
+            src: "/home/banner/testing-banner.jpeg",
             tagline: "NEW PRODUCT LINE",
             title: "48MP Waterproof Cameras — Bulk Supply & Private Label Available",
             link: "/download",

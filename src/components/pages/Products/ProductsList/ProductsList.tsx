@@ -10,7 +10,7 @@ import { getProducts } from '@/services/product/product.service';
 
 
 const ProductsList = async ({ searchParams }: ProductsProps) => {
-  const queryString = `${searchParams?.category_slug ? `category_slug=${searchParams?.category_slug}&` : ''}${searchParams?.q ? `searchTerm=${searchParams?.q}&` : ''}page=${searchParams?.page || "1"}&limit=${searchParams?.limit || "20"}`;
+  const queryString = `${searchParams?.category_slug ? `category_slug=${searchParams?.category_slug}&` : ''}${searchParams?.q ? `searchTerm=${searchParams?.q}&` : ''}page=${searchParams?.page || "1"}&limit=${searchParams?.limit || "20"}&sort=orderBy`;
   const allProducts = await getProducts(queryString);
   return (
     <div className="main-container py-3 md:py-5">

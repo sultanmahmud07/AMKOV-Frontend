@@ -60,9 +60,9 @@ export interface IProduct {
   featureImages: string[];
   basePrice: number;
   variations: IVariation[];
-  category: ICategory; 
-  createdAt: string; 
-  updatedAt: string; 
+  categories: ICategory[];
+  createdAt: string;
+  updatedAt: string;
   __v: number;
 }
 
