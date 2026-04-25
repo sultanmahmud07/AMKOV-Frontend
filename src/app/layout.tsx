@@ -10,6 +10,8 @@ import NextTopLoader from 'nextjs-toploader';
 import SocialIcons from "@/components/shared/SocialIcons";
 import Head from "next/head";
 import CookieConsent from "@/components/shared/CookieConsent";
+import Script from "next/script";
+import { GoogleTagManager } from '@next/third-parties/google'
 const geistOswald = Oswald({
   variable: "--font-geist-oswald",
   subsets: ["latin"],
@@ -20,7 +22,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.nativeways.com'),
+  metadataBase: new URL('https://amkov.com'),
   title: {
     default: "Amkov Best Affordable Digital Cameras for Every Photographer",
     template: "%s | AMKOV",
@@ -47,27 +49,43 @@ export const metadata: Metadata = {
       },
     ],
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "AMKOV - Best Affordable Digital Cameras",
-    description: "Amkov is for the best affordable digital cameras. Shop top-rated options for beginners & professionals, featuring high-quality photography and budget-friendly prices.",
-    images: ["/images/og-main.jpg"],
-  },
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
-  },
-  robots: {
+ robots: {
     index: true,
     follow: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,
+      noimageindex: false,
       'max-video-preview': -1,
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
+  },
+  icons: {
+    icon: '/assets/logo/logo.png',
+    shortcut: '/assets/logo/logo.png',
+    apple: '/apple-icon.png',
+    other: {
+      rel: 'apple-touch-icon-precomposed',
+      url: '/apple-touch-icon-precomposed.png',
+    },
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'AMKOV - Best Affordable Digital Cameras for Every Photographer',
+    description: 'Amkov is for the best affordable digital cameras. Shop top-rated options for beginners & professionals, featuring high-quality photography and budget-friendly prices.',
+    siteId: '1467726470533754880',
+    creator: '@nextjs',
+    creatorId: '1467726470533754880',
+    images: ['https://nextjs.org/og.png'], // Must be an absolute URL
+  },
+  verification: {
+    // google: '4ZX9CuFuA85qIneiid-Rf3CUuIMRPZQ0Z1TRa7sm_6Q',
+    yandex: 'c014ce9b80f619cc',
+    // other: {
+    //   "msvalidate.01": "EC339A7B409661CBD12EB4814BCFB6F9",
+    // },
   },
 };
 
@@ -76,6 +94,74 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "AMKOV",
+    "alternateName": "AMKOV",
+    "url": "https://amkov.com",
+    "logo": "https://amkov.com/logo.png",
+    "foundingDate": "2013",
+    "founders": [
+      {
+        "@type": "Person",
+        "name": "AMKOV Team"
+      }
+    ],
+    "description": "Shenzhen Amkovery Technology Co., Ltd is a company with 22 years' experience dealing with photo & video products. We are specialized in products design, development and production. Our main products are Optical Zoom Camera, Digital Camera, Instant Print Camera, Creative Camera for Kids, Outdoor Special Camera etc.",
+    // "sameAs": [
+    //   "https://www.linkedin.com/company/amkov-pty-ltd/",
+    //   "https://www.facebook.com/amkovau",
+    //   "https://x.com/AMKOVau",
+    //   "https://www.instagram.com/amkov.au"
+    // ],
+    // "address": {
+    //   "@type": "PostalAddress",
+    //   "streetAddress": "Your Business Address Here",
+    //   "addressLocality": "7 Technology Cct",
+    //   "addressRegion": "Hallam VIC 3803",
+    //   "postalCode": "1205",
+    //   "addressCountry": "Australia"
+    // },
+    // "contactPoint": {
+    //   "@type": "ContactPoint",
+    //   "telephone": "1300 772 678",
+    //   "contactType": "Customer Service",
+    //   "availableLanguage": ["English", "Chinese"]
+    // },
+    // "brand": {
+    //   "@type": "Brand",
+    //   "name": "T-Power",
+    //   "url": "https://amkov.com"
+    // },
+    // "slogan": "Empowering a smarter and more sustainable planet",
+    // "knowsAbout": [
+    //   "Renewable Energy",
+    //   "Energy Storage Systems",
+    //   "EV Charging Solutions",
+    //   "Clean Technology",
+    //   "Sustainable Energy Infrastructure"
+    // ],
+    // "makesOffer": [
+    //   {
+    //     "@type": "Offer",
+    //     "itemOffered": {
+    //       "@type": "Service",
+    //       "name": "Energy Storage Systems",
+    //       "description": "Custom-designed energy storage systems for commercial and industrial applications, ensuring reliability, efficiency, and sustainability."
+    //     }
+    //   },
+    //   {
+    //     "@type": "Offer",
+    //     "itemOffered": {
+    //       "@type": "Service",
+    //       "name": "EV Charging Solutions",
+    //       "description": "Public and private EV charging infrastructure with intelligent network management and seamless user experience."
+    //     }
+    //   }
+    // ]
+  }
   return (
     <html lang="en">
       <Head>
@@ -98,16 +184,22 @@ export default function RootLayout({
           height={4}
         />
         {children}
-        {/* <MobileNavbar /> */}
         <SocialIcons />
         <Toaster position="bottom-right" richColors />
         <Suspense fallback={null}>
           <LoginSuccessToast />
           <LogoutSuccessToast />
         </Suspense>
-        {/* Render the global cookie popup here */}
         <CookieConsent />
       </body>
+       <GoogleTagManager gtmId="GTM-K3RGLBD" />
+      <Script
+        id="json-ld-script"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
+        }}
+      />
     </html>
   );
 }

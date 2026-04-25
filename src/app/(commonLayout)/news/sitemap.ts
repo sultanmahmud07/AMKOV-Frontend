@@ -2,7 +2,6 @@
 import { INews } from "@/types/news.interface";
 import { BASEURL } from "@/utils/constant";
 
-// Function to fetch products from your API
 async function getBlogs() {
   const result = await fetch(`${BASEURL}/blog?page=1&limit=100`);
 
