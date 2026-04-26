@@ -2,18 +2,16 @@ import ProductsLoader from "@/components/loaders/Products/ProductsLoader";
 import CategoryMenubar from "@/components/pages/Products/CategoryMenubar";
 import ProductBanner from "@/components/pages/Products/ProductBanner";
 import ProductsList from "@/components/pages/Products/ProductsList/ProductsList";
-import getCategoriesForMetadata from "@/lib/getCategoriesForMetadata";
 import getCategoryProductsForMetadata from "@/lib/getCategoryProductForMetadata";
 import { getCategories } from "@/services/category/category.service";
-import { ICategory } from "@/types/product.interface";
 import { Suspense } from "react";
 
-export const generateStaticParams = async () => {
-  const categories = await getCategoriesForMetadata();
-  return categories.data.map((category: ICategory) => ({
-    slug: String(category.slug),
-  }));
-};
+// export const generateStaticParams = async () => {
+//   const categories = await getCategoriesForMetadata();
+//   return categories.data.map((category: ICategory) => ({
+//     slug: String(category.slug),
+//   }));
+// };
 
 export const generateMetadata = async ({
   params,

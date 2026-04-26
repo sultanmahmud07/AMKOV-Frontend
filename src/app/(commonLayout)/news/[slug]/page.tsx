@@ -1,10 +1,10 @@
 
 import BlogDetails from "@/components/module/News/NewsDetails";
-import { getBlogBySlug } from "@/services/blog/blog.service";
+import getNewsDetailsForMetadata from "@/lib/getNewsDetailsForMetadata";
 import { IParams } from "@/types/index.interface";
 
 // export const generateStaticParams = async () => {
-//   const blogs = await getAllBlogs(20);
+//   const blogs = await getNewsForMetadata();
 //   return blogs?.data?.map((blog: INews) => ({
 //     slug: String(blog.slug),
 //   }));
@@ -16,7 +16,7 @@ export const generateMetadata = async ({
   params: Promise<{ slug: string }>;
 }) => {
   const { slug } = await params;
-  const blog = await getBlogBySlug(slug);
+  const blog = await getNewsDetailsForMetadata(slug);
 
   return {
     title: blog?.data?.metaTitle,

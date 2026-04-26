@@ -1,21 +1,17 @@
-
 import ProductDetailLoader from "@/components/loaders/Products/ProductDetailLoader";
 import ProductDetails from "@/components/pages/Products/ProductDetails/ProductDetails";
 import ProductInformationWrapper from "@/components/pages/Products/ProductDetails/ProductInformationWrapper";
 import RelatedProducts from "@/components/pages/Products/ProductDetails/RelatedProducts";
-import getProductDetailsForMetadata from "@/lib/getProductDetails";
-import getProductsForMetadata from "@/lib/getProductsForMetadata";
-import { getProductBySlug } from "@/services/product/product.service";
+import getProductDetailsForMetadata from "@/lib/getProductDetailsForMetadata";
 import { IParams } from "@/types/index.interface";
-import { IProduct } from "@/types/product.interface";
 import { Suspense } from "react";
 
-export const generateStaticParams = async () => {
-  const projects = await getProductsForMetadata(20);
-  return projects.data.map((project: IProduct) => ({
-    slug: String(project.slug),
-  }));
-};
+// export const generateStaticParams = async () => {
+//   const projects = await getProductsForMetadata(20);
+//   return projects.data.map((project: IProduct) => ({
+//     slug: String(project.slug),
+//   }));
+// };
 
 export const generateMetadata = async ({
   params,
@@ -37,7 +33,7 @@ export const generateMetadata = async ({
 
 const page = async ({ params }: IParams) => {
   const { slug } = await params;
-  const productData = await getProductBySlug(slug)
+  const productData = await getProductDetailsForMetadata(slug)
   return (
     <div>
       <Suspense key={slug} fallback={<ProductDetailLoader></ProductDetailLoader>}>
