@@ -1,9 +1,9 @@
 import { BASEURL } from "@/utils/constant";
 
-export default async function getAllCategories(limit:number) {
+export default async function getCategoriesForMetadata() {
     try {
         const response = await fetch(
-            `${BASEURL}/category/retrieve/all?limit=${limit}`,
+            `${BASEURL}/category`,
             {
                 // cache: "no-store",
                  next: {
