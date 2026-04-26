@@ -2,33 +2,33 @@ import ProductsLoader from "@/components/loaders/Products/ProductsLoader";
 import CategoryMenubar from "@/components/pages/Products/CategoryMenubar";
 import ProductBanner from "@/components/pages/Products/ProductBanner";
 import ProductsList from "@/components/pages/Products/ProductsList/ProductsList";
-import { getCategories, getCategoryBySlug } from "@/services/category/category.service";
-import { ICategory } from "@/types/product.interface";
+import { getCategories } from "@/services/category/category.service";
+// import { ICategory } from "@/types/product.interface";
 import { Suspense } from "react";
 
-export const generateStaticParams = async () => {
-  const categories = await getCategories("limit=100");
-  return categories.data.map((category: ICategory) => ({
-    slug: String(category.slug),
-  }));
-};
+// export const generateStaticParams = async () => {
+//   const categories = await getCategories("limit=100");
+//   return categories.data.map((category: ICategory) => ({
+//     slug: String(category.slug),
+//   }));
+// };
 
-export const generateMetadata = async ({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) => {
-  const { slug } = await params;
-  const category = await getCategoryBySlug(slug);
+// export const generateMetadata = async ({
+//   params,
+// }: {
+//   params: Promise<{ slug: string }>;
+// }) => {
+//   const { slug } = await params;
+//   const category = await getCategoryBySlug(slug);
 
-  return {
-    title: category?.name,
-    description: category?.description,
-    openGraph: {
-      images: ['/some-specific-page-image.jpg', ...category?.thumbnail ? [category.thumbnail] : []],
-    },
-  };
-};
+//   return {
+//     title: category?.name,
+//     description: category?.description,
+//     openGraph: {
+//       images: ['/some-specific-page-image.jpg', ...category?.thumbnail ? [category.thumbnail] : []],
+//     },
+//   };
+// };
 
 
 const page = async ({ params, searchParams }: { params: { slug: string }, searchParams: { page?: string } }) => {
