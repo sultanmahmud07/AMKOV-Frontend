@@ -1,9 +1,9 @@
 import { BASEURL } from "@/utils/constant";
 
-export default async function getProductDetails(slug:string) {
+export default async function getProductDetailsForMetadata(slug:string) {
     try {
         const response = await fetch(
-            `${BASEURL}/product/retrieve/${slug}`,
+            `${BASEURL}/product/${slug}`,
             // {
             //     cache: "no-store"
             //     // next: {
