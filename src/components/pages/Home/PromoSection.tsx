@@ -11,7 +11,7 @@ const promoData = [
     tagline: "WHOLESALE SPOTLIGHT",
     title: "5K V-Log Cameras — High-Margin SKU for Creator-Focused Retailers",
     subTitle: "Private label ready. Flexible MOQ. Fast turnaround from Shenzhen.",
-    image: "/home/sub-banner-3.jpg", // Replace with your actual image path
+    image: "/home/banner/sub-banner-1.jpg", // Replace with your actual image path
     link: "/products",
     btnText: "Get Wholesale Pricing",
   },
@@ -20,7 +20,7 @@ const promoData = [
     tagline: "FEATURED PRODUCT LINE",
     title: "48MP Waterproof Cameras — Built for Outdoor & Sports Retail",
     subTitle: "Ruggedized construction. Bulk supply available. OEM configurations supported.",
-    image: "/home/sub-banner-1.jpg", // Replace with your actual image path
+    image: "/home/banner/sub-banner-2.jpg", // Replace with your actual image path
     link: "/products",
     btnText: "Request a Sample",
   },

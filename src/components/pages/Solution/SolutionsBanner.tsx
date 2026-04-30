@@ -18,7 +18,7 @@ const SolutionsBanner = () => {
   const contentY = useTransform(scrollY, [0, 300], ["0px", "50px"]);
 
   return (
-    <div className="relative w-full py-24 lg:py-32 flex flex-col items-center justify-center overflow-hidden bg-[#023047]">
+    <div className="relative w-full py-24 lg:py-32 flex flex-col items-center justify-center overflow-hidden bg-[#023047c6]">
       
       {/* ========================================= */}
       {/* ANIMATED BACKGROUND IMAGE */}
@@ -28,7 +28,7 @@ const SolutionsBanner = () => {
         className="absolute inset-0 w-full h-full origin-top"
       >
         <Image
-          src="/solution/solution-bg.jpg"
+          src="/solution/solution-banner.jpg"
           alt="Solutions Background"
           fill
           className="object-cover object-center opacity-20 mix-blend-overlay"
