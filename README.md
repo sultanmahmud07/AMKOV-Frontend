@@ -1,145 +1,54 @@
-# 🌍 Local Guide Frontend (Next.js 16 + TypeScript)
+# AMKOV Official Website - Frontend 📸
 
-A modern, high-performance frontend powering the **Local Guide Platform**, where travelers explore tours, book local guides, make payments, and share experiences through reviews.
+![Next.js](https://img.shields.io/badge/Next.js-14+-black?style=for-the-badge&logo=next.js)
+![React](https://img.shields.io/badge/React-18-blue?style=for-the-badge&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue?style=for-the-badge&logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-This repository contains the full UI/UX implementation for tourists, guides, and admin dashboards.
+The official B2B/B2C e-commerce and corporate platform for **AMKOV Digital Cameras**. This project is a modern, high-performance web application built with Next.js (App Router), React, and Tailwind CSS, designed to provide a premium browsing and purchasing experience for consumers and distributors worldwide.
 
----
+## ✨ Key Features
+
+* **Modern E-Commerce Experience:** Full product catalog with categories, advanced filtering, and dynamic product detail pages featuring image galleries and tabbed specifications.
+* **Premium UI/UX:** Built with Tailwind CSS and enhanced with `framer-motion` for smooth, professional animations.
+* **Optimized Performance:** Utilizes Next.js Server-Side Rendering (SSR) and Static Site Generation (SSG) alongside custom `react-loading-skeleton` loaders to eliminate layout shift and provide a snappy experience.
+* **Complete User Flow:** Includes authentication (Login/Register/Reset Password), User Dashboard, Cart, Checkout, and Wishlist functionalities.
+* **Content Management:** Dynamic News & Blog section, comprehensive Download/Resources center, and static legal pages (Privacy Policy, Terms of Service).
+* **Global Compliance:** Integrated Cookie Consent management system.
+
+## 🛠️ Tech Stack
+
+* **Framework:** [Next.js](https://nextjs.org/) (App Router)
+* **Library:** [React](https://reactjs.org/)
+* **Language:** [TypeScript](https://www.typescriptlang.org/)
+* **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+* **Animations:** [Framer Motion](https://www.framer.com/motion/)
+* **Icons:** [Lucide React](https://lucide.dev/) & [React Icons](https://react-icons.github.io/react-icons/)
+* **UI Utilities:** `react-loading-skeleton`, `react-confetti`
+
+## 📂 Project Structure
+
+The application follows the Next.js App Router architecture:
+
+```text
+src/
+├── app/                  # Next.js App Router pages (Home, Products, News, Dashboard, etc.)
+│   ├── (commonLayout)/   # Routes sharing the main header/footer
+│   ├── (dashboardLayout)/# Routes sharing the user dashboard sidebar
+│   └── layout.tsx        # Root layout including global components (e.g., Cookie Consent)
+├── components/           # Reusable UI components
+│   ├── loaders/          # Custom skeleton loaders
+│   ├── pages/            # Page-specific components (e.g., ProductDetails, NewsList)
+│   └── shared/           # Buttons, Inputs, Modals, Navbar, Footer
+├── lib/                  # Utility functions, helpers, and constants
+├── services/             # API calls (e.g., product.service.ts, blog.service.ts)
+├── types/                # TypeScript interfaces and types
+└── styles/               # Global CSS and Tailwind configurations
+
+```
 
 ## 🔗 Live Website  
-**Production:** https://local-guide-client-fz9u.vercel.app 
-**Explore Page:** https://local-guide-client-fz9u.vercel.app/explore  
-**Backend API:** https://native-ways-api.onrender.com  
+* **Production:** [https://amkov.com](https://amkov.com)
+* **Backend API:** [https://api.amkov.com](https://api.amkov.com) 
 
 ---
-
-## 🚀 Features  
-
-### 🧭 **Explore Tours & Guides**
-- Search by destination, city, category, language  
-- Filter by price range, rating, duration  
-- Real-time URL sync (`/explore?search=dhaka&category=Food`)  
-- Responsive grid view for tours & guides  
-- Review-based ranking
-
-### 🎒 **Tour System (Guide Panel)**
-- Create listings (thumbnail + multiple images)
-- Update listings section-by-section
-- Delete or replace uploaded images  
-- Status control: `PUBLIC / PRIVATE / HOLD / SUSPENDED`
-- Auto-generate slug from title  
-- Guide analytics:  
-  - Total tours  
-  - Recent bookings  
-  - Earnings  
-  - Ratings overview  
-
-### 📅 **Booking Workflow**
-- Tourist can book a tour with:
-  - Date & time selection  
-  - Group size  
-  - Notes  
-- Real-time calendar with disabled dates  
-- Booking detail modal  
-- Guide can confirm/decline  
-- Booking status timeline (UI optimized)  
-- Payment button showing only when eligible  
-
-### ⭐ **Reviews Module**
-- Tourist can review a tour after status → `COMPLETED`
-- Star rating + comment  
-- Display in tour details  
-- Auto-sliding review carousel section  
-- Guide profile shows aggregated ratings  
-
-### 💬 **Messaging / Custom Tour Request**
-- Tourist can send personalized tour request  
-- Guide receives structured message  
-- Clean modern form UI  
-
-### 💳 **Payment Integration**
-- Integrated **SSLCommerz Gateway**  
-- Redirects user to new payment tab  
-- Payment data stored in booking  
-- Admin can update payment status  
-
-### 📊 **Dashboard Analytics**
-#### **Tourist Dashboard**
-- Total bookings  
-- Completed/pending status  
-- Payment history  
-- Reviews overview  
-
-#### **Guide Dashboard**
-- Total earnings  
-- Tour performance  
-- Recent customer reviews  
-- Booking timeline  
-
-#### **Admin Dashboard**
-- Overview of:
-  - Users  
-  - Guides  
-  - Tours  
-  - Bookings  
-  - Payments  
-- Chart-ready analytics  
-- Role-based access  
-
----
-
-## 🛠️ Technology Stack
-
-### **Frontend**
-- **Next.js 16** (App Router)
-- **React 19**
-- **TypeScript**
-- **TailwindCSS**
-- **shadcn/ui**
-- **Zod Validation**
-- **React Hook Form (optional)**
-- **Next/Image**
-- **React Slick Carousel**
-- **Lucide Icons**
-
-### **Integrations**
-- Cloudinary — image hosting  
-- SSLCommerz — payment gateway  
-- REST API communication with backend  
-
----
-
-## ⚙️ Installation & Setup  
-
-### 1️⃣ Clone the repository
-```sh
-git clone https://github.com/sultanmahmud07/local-guide-client.git
-cd local-guide-client
-```
-
-### 2️⃣ Install dependencies
-```sh
-npm install
-```
-
-### 3️⃣ Create `.env`
-```
-JWT_SECRET= your_access_secret
-NODE_ENV=development
-
-NEXT_PUBLIC_BASE_API_URL=https://native-ways-api.onrender.com/api/v1
-```
-
-### 4️⃣ Run Development Server
-```sh
-npm run dev
-```
-
-### 5️⃣ Build for Production
-```sh
-npm run build
-npm start
-```
-
----
-
