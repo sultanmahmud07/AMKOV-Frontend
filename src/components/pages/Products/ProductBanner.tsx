@@ -13,11 +13,10 @@ interface ProductBannerSimpleProps {
 export default function ProductBanner({
   title = "Product",
   subtitle = "Discover the next generation of AMKOV camera technology.",
-  // Placeholder matching your dark, blue-tinted lens reference image
-  backgroundImage = "/product/product-banner.jpg",
+  backgroundImage = "/product/product-banner-image.jpg",
 }: ProductBannerSimpleProps) {
   return (
-    <section className="relative w-full h-[350px] md:h-[450px] overflow-hidden bg-[#0a0f16] flex flex-col items-center justify-center">
+    <section className="relative w-full h-[350px] md:h-[450px] overflow-hidden bg-[#0a0f169d] flex flex-col items-center justify-center">
       
       {/* ========================================= */}
       {/* 1. CONTINUOUS BACKGROUND ANIMATION */}

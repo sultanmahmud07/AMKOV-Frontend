@@ -20,7 +20,7 @@ const sliderData = [
             id: 1,
             type: "video", // Set type to video
             src: "/home/banner/video-1.mp4", // Path to your local video file
-            fallbackImage: "/home/banner/banner-1.jpg", // Shows while video loads
+            fallbackImage: "/home/banner/banner-img-1.jpg", // Shows while video loads
             tagline: "NEW PRODUCT LAUNCH",
             title: "5K V-Log Cameras Now Available for Wholesale & Private Label",
             link: "/products",
@@ -30,7 +30,7 @@ const sliderData = [
       {
             id: 2,
             type: "image",
-            src: "/home/banner/banner-1.jpg",
+            src: "/home/banner/banner-img-1.jpg",
             tagline: "NEW PRODUCT LINE",
             title: "48MP Waterproof Cameras — Bulk Supply & Private Label Available",
             link: "/download",
@@ -40,7 +40,7 @@ const sliderData = [
       {
             id: 3,
             type: "image",
-            src: "/home/banner/banner-2.jpg",
+            src: "/home/banner/banner-img-2.jpg",
             tagline: "NEW ARRIVALS",
             title: "Top-Selling Models for Distributors",
             link: "/products",
@@ -50,7 +50,7 @@ const sliderData = [
       {
             id: 4,
             type: "image", // Another image slide for variety
-            src: "/home/banner/banner-3.jpg",
+            src: "/home/banner/banner-img-3.jpg",
             tagline: "WHOLESALE SPOTLIGHT",
             title: "5K V-Log Cameras — High-Margin SKU for Creator-Focused Retailers",
             link: "/products",
