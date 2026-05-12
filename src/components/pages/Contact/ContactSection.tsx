@@ -37,8 +37,8 @@ const ContactSection = () => {
                 </div>
                 <div className="flex flex-col justify-center h-12">
                   <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-0.5">Call Us</p>
-                  <a href="tel:008613713986978" className="text-[#023047] font-semibold hover:text-[#3A9AFF] transition-colors">
-                    0086 13713986978
+                  <a href="tel:+86 18926413822" className="text-[#023047] font-semibold hover:text-[#3A9AFF] transition-colors">
+                    +86 18926413822
                   </a>
                 </div>
               </div>
