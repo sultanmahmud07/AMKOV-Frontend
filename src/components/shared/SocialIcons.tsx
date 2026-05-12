@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import { 
   FiPhone, 
@@ -52,7 +52,7 @@ const SocialIcons = () => {
   const contactData = [
     {
       icon: <FaWhatsapp />,
-      link: `https://wa.me/13713986978`,
+      link: `https://wa.me/18926413822`,
       label: "WhatsApp",
     },
     {
@@ -62,8 +62,8 @@ const SocialIcons = () => {
     },
     {
       icon: <FiPhone />,
-      link: `tel:0086-(0)755-83762022`,
-      label: "0086-(0)755-83762022",
+      link: `tel:+86 18926413822`,
+      label: "+86 18926413822",
     },
   ];
 

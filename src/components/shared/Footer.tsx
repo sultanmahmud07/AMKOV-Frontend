@@ -144,7 +144,7 @@ const Footer: React.FC = () => {
                 </li>
                 <li className="flex items-center gap-3 group">
                   <FaPhoneAlt size={16} className="text-[#3A9AFF] shrink-0" />
-                  <a href="tel:+8801327357894" className="group-hover:text-white transition-colors">0086 13713986978</a>
+                  <a href="tel:+8801327357894" className="group-hover:text-white transition-colors">+86 18926413822</a>
                 </li>
                 <li className="flex items-center gap-3 group">
                   <MdEmail size={18} className="text-[#3A9AFF] shrink-0" />
@@ -164,7 +164,7 @@ const Footer: React.FC = () => {
         <div className="main-container px-6 md:px-12 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-slate-500 font-medium">
             {/* © {currentYear} AMKOV Digital Imaging. All rights reserved. */}
-            AMKOV Digital Imaging ·  <a href="mailto:services@amkov.com" className="group-hover:text-white transition-colors">services@amkov.com</a> · <a href="tel:+86 13713986978" className="group-hover:text-white transition-colors">+86 13713986978</a> · amkov.com
+            AMKOV Digital Imaging ·  <a href="mailto:services@amkov.com" className="group-hover:text-white transition-colors">services@amkov.com</a> · <a href="tel:+86 18926413822" className="group-hover:text-white transition-colors">+86 18926413822</a> · amkov.com
 
           </p>
 

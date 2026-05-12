@@ -128,7 +128,7 @@ export default function RootLayout({
     },
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+86 13713986978",
+      "telephone": "+86 18926413822",
       "contactType": "Customer Service",
       "email": "services@amkov.com",
       "availableLanguage": ["English", "Chinese"]

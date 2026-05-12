@@ -1,21 +1,19 @@
 import { Mail, Phone, MapPin, Clock, HelpCircle, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
-import ContactForm from './ContactForm'; // Adjust path if needed
+import ContactForm from './ContactForm'; 
 
 const ContactSection = () => {
+
   return (
     <section className="container mx-auto px-4 py-16 lg:py-24 relative z-20">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
-
         {/* ========================================= */}
         {/* LEFT COLUMN: Contact Info & CTA */}
         {/* ========================================= */}
         <div className="lg:col-span-1 space-y-8">
-
           {/* Contact Information Card */}
           <div className="bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 p-8 md:p-10">
             <h3 className="text-2xl font-extrabold text-[#023047] mb-8">Contact Information</h3>
-
             <div className="space-y-8">
               {/* Email */}
               <div className="flex items-start gap-4 group">
@@ -42,7 +40,6 @@ const ContactSection = () => {
                   </a>
                 </div>
               </div>
-
               {/* Location */}
               <div className="flex items-start gap-4 group">
                 <div className="w-12 h-12 bg-[#3A9AFF]/10 text-[#3A9AFF] rounded-xl flex items-center justify-center shrink-0 group-hover:bg-[#3A9AFF] group-hover:text-white transition-colors duration-300">
@@ -87,14 +84,11 @@ const ContactSection = () => {
               </Link>
             </div>
           </div>
-
         </div>
-
         {/* ========================================= */}
         {/* RIGHT COLUMN: Form & Map */}
         {/* ========================================= */}
         <div className="lg:col-span-2 space-y-8">
-
           {/* Contact Form Wrapper */}
           <div className="bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 p-8 md:p-12">
             <h2 className="text-3xl font-extrabold text-[#023047] mb-2">Send an Inquiry</h2>
