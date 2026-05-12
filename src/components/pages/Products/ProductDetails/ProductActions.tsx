@@ -1,6 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
-
 import { useState } from "react";
 import {
       Facebook,
@@ -11,39 +9,17 @@ import {
 } from "lucide-react";
 import SendQuoteModal from "@/components/module/Product/SendQuoteModal";
 import { toast } from "sonner";
+import { IProduct } from "@/types/product.interface";
 
-const ProductActions = () => {
-      const [activeTab, setActiveTab] = useState("");
+const ProductActions = ({ product }: { product?: IProduct }) => {
       const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
-
-      const product = { _id: "123", name: "AMKOV 5K V-Log Camera" };
-
-
-      // Smooth scroll handler
-      const scrollToSection = (sectionId: string) => {
-            setActiveTab(sectionId);
-            const element = document.getElementById(sectionId);
-            if (element) {
-                  // The offset ensures the section isn't hidden behind the sticky menu
-                  const offset = 80;
-                  const bodyRect = document.body.getBoundingClientRect().top;
-                  const elementRect = element.getBoundingClientRect().top;
-                  const elementPosition = elementRect - bodyRect;
-                  const offsetPosition = elementPosition - offset;
-
-                  window.scrollTo({
-                        top: offsetPosition,
-                        behavior: "smooth"
-                  });
-            }
-      };
       // =========================================
       // SOCIAL SHARE HANDLER
       // =========================================
       const handleShare = async (platform: string) => {
             // Get current URL dynamically
             const currentUrl = window.location.href;
-            const shareText = `Check out this amazing product: ${product.name}`;
+            const shareText = `Check out this amazing product: ${product?.name} from AMKOV!`;
 
             switch (platform) {
                   case "facebook":
@@ -68,7 +44,7 @@ const ProductActions = () => {
                         if (navigator.share) {
                               try {
                                     await navigator.share({
-                                          title: product.name,
+                                          title: product?.name,
                                           text: shareText,
                                           url: currentUrl,
                                     });
@@ -95,9 +71,7 @@ const ProductActions = () => {
 
 
                   <button
-
-                        onClick={() => scrollToSection("inquiry")}
-                        // onClick={() => setIsQuoteModalOpen(true)}
+                        onClick={() => setIsQuoteModalOpen(true)}
                         className="relative flex items-center justify-center gap-2.5 bg-primary hover:bg-secondary text-white font-black px-6 h-10 rounded-md transition-all duration-300  border-primary group overflow-hidden"
                         style={{ animation: 'float-inquiry 3s ease-in-out infinite' }}
                   >
@@ -193,8 +167,7 @@ const ProductActions = () => {
                   {isQuoteModalOpen && (
                         <SendQuoteModal
                               onClose={() => setIsQuoteModalOpen(false)}
-                              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                              product={product as any}
+                              product={product}
                         />
                   )}
 

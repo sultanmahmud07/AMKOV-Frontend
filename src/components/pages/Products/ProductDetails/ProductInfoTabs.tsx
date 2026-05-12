@@ -5,7 +5,7 @@ import Image from "next/image";
 import ProductInquiry from "./ProductInquiry";
 import { IProduct } from "@/types/product.interface";
 
-export default function ProductInfoTabs({ product, allProducts }: { product: IProduct; allProducts: IProduct[] }) {
+export default function ProductInfoTabs({ product }: { product: IProduct }) {
   const [activeTab, setActiveTab] = useState("description");
   const scrollToSection = (sectionId: string) => {
     setActiveTab(sectionId);
@@ -164,7 +164,7 @@ export default function ProductInfoTabs({ product, allProducts }: { product: IPr
         {/* ========================================= */}
         {/* INQUIRY SECTION */}
         {/* ========================================= */}
-        <ProductInquiry productId={product._id} allProducts={allProducts} />
+        <ProductInquiry product={product} />
       </div>
     </div>
   );

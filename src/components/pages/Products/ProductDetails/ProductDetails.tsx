@@ -96,7 +96,7 @@ export default function ProductDetails({ product }: { product?: IProduct }) {
                 })}
               </div>
             </div>
-            <ProductActions />
+            <ProductActions product={product} />
           </div>
         </div>
       </div>
