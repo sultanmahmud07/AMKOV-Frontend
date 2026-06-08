@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import NavLink from "./NavLink";
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { IUser } from "@/types/user.interface";
 import UserProfileMenu from "./UserProfileMenu";
 import { Search, Menu, ChevronDown, User, X, Linkedin, Instagram, Twitter, Facebook } from "lucide-react";
@@ -12,7 +12,6 @@ import SearchBar from "./SearchBar";
 import { AnimatePresence, motion } from "framer-motion"; // Added motion import
 import LoginModal from "@/components/auth/login-modal";
 import MobileSidebar from "./MobileSidebar";
-import LanguageSwitcher from "./LanguageSwitcher";
 import SolutionSubmenu from "./SolutionSubmenu";
 import AboutSubmenu from "./AboutSubmenu";
 import { IProduct } from "@/types/product.interface";
