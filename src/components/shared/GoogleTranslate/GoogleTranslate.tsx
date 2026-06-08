@@ -1,0 +1,106 @@
+'use client';
+
+import { useEffect, useState, useRef } from 'react';
+import Script from 'next/script';
+import { ChevronDown } from 'lucide-react';
+
+// Define your supported languages here. 
+// Emojis are the most lightweight and reliable way to show flags!
+const languages = [
+  { code: 'en', name: 'English', flag: '🇺🇸' },
+  { code: 'zh-CN', name: 'Chinese', flag: '🇨🇳' },
+  { code: 'es', name: 'Spanish', flag: '🇪🇸' },
+  { code: 'fr', name: 'French', flag: '🇫🇷' },
+  { code: 'de', name: 'German', flag: '🇩🇪' },
+  { code: 'ja', name: 'Japanese', flag: '🇯🇵' },
+];
+
+const GoogleTranslate = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedLang, setSelectedLang] = useState('en');
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    window.googleTranslateElementInit = () => {
+      new window.google.translate.TranslateElement(
+        {
+          pageLanguage: 'en',
+          // Only load the languages we defined in our array
+          includedLanguages: languages.map(l => l.code).join(','), 
+          autoDisplay: false,
+        },
+        'google_translate_element'
+      );
+    };
+  }, []);
+
+  // Handle clicking outside the dropdown to close it
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  // Programmatically trigger the hidden Google Translate dropdown
+  const handleLangChange = (langCode: string) => {
+    setSelectedLang(langCode);
+    setIsOpen(false);
+
+    // Find the hidden Google select element
+    const select = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+    if (select) {
+      select.value = langCode;
+      select.dispatchEvent(new Event('change')); // Trigger the translation
+    }
+  };
+
+  // Find the currently selected language object
+  const currentLang = languages.find(l => l.code === selectedLang) || languages[0];
+
+  return (
+    <div className="relative inline-block text-left z-50" ref={dropdownRef}>
+      
+      {/* 1. The Hidden Google Widget */}
+      <div id="google_translate_element" className="hidden"></div>
+      <Script
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+        strategy="afterInteractive"
+      />
+
+      {/* 2. Custom Pill Button (Updated to show selected language and flag) */}
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex items-center gap-2 bg-[#f0f4f8] hover:bg-[#e2e8f0] text-[#475569] px-4 py-2 rounded-full text-sm font-semibold transition-colors border border-transparent shadow-sm"
+      >
+        <span className="text-base leading-none">{currentLang.flag}</span>
+        <span>{currentLang.name}</span>
+        <ChevronDown size={16} className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+      </button>
+
+      {/* 3. Custom Dropdown Menu with Flags */}
+      {isOpen && (
+        <div className="absolute right-0 sm:left-0 md:left-[-100px] mt-2 w-48 bg-white border border-gray-100 rounded-xl shadow-lg flex flex-col py-1 overflow-hidden transform origin-top-right sm:origin-top-left transition-all">
+          {languages.map((lang) => (
+            <button
+              key={lang.code}
+              onClick={() => handleLangChange(lang.code)}
+              className={`flex items-center gap-3 px-4 py-2.5 text-sm font-medium transition-colors hover:bg-gray-50 ${
+                selectedLang === lang.code ? 'text-[#3A9AFF] bg-[#3A9AFF]/5' : 'text-gray-600'
+              }`}
+            >
+              <span className="text-lg leading-none">{lang.flag}</span>
+              <span>{lang.name}</span>
+            </button>
+          ))}
+        </div>
+      )}
+      
+    </div>
+  );
+};
+
+export default GoogleTranslate;

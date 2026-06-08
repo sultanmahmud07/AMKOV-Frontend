@@ -16,6 +16,7 @@ import LanguageSwitcher from "./LanguageSwitcher";
 import SolutionSubmenu from "./SolutionSubmenu";
 import AboutSubmenu from "./AboutSubmenu";
 import { IProduct } from "@/types/product.interface";
+import GoogleTranslate from "../GoogleTranslate/GoogleTranslate";
 
 type Props = {
   products?: IProduct[] | null;
@@ -188,7 +189,9 @@ const Navbar = (props: Props) => {
             {/* ========================================= */}
             {/* NEW LANGUAGE SWITCHER COMPONENT */}
             {/* ========================================= */}
-            <LanguageSwitcher />
+            {/* <LanguageSwitcher /> */}
+
+        <GoogleTranslate />
           </div>
 
           {/* Action Icons - Mobile */}

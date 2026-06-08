@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-sync-scripts */
 import "./globals.css";
 import type { Metadata } from "next";
 import { Geist_Mono, Oswald } from "next/font/google";
@@ -8,7 +7,6 @@ import { Toaster } from "sonner";
 import { Suspense } from "react";
 import NextTopLoader from 'nextjs-toploader';
 
-import Head from "next/head";
 import SocialIcons from "@/components/shared/SocialIcons";
 import CookieConsent from "@/components/shared/CookieConsent";
 import Script from "next/script";
@@ -174,18 +172,6 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <Head>
-        <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-            Weglot.initialize({
-              api_key: 'wg_e911820c659a8b04a115fcc7f23f3fdb2'
-            });
-          `,
-          }}
-        ></script>
-      </Head>
       <body
         className={`${geistOswald.variable} ${geistMono.variable} antialiased relative`}
       >
