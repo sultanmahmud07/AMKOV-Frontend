@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from 'react';
 import Script from 'next/script';
 import { ChevronDown } from 'lucide-react';
+import Cookies from 'js-cookie';
 
 // Define your supported languages here. 
 // Emojis are the most lightweight and reliable way to show flags!
@@ -34,6 +35,22 @@ const GoogleTranslate = () => {
     };
   }, []);
 
+  // Restore language from cookie on mount to persist selection across reloads
+  useEffect(() => {
+    const googtrans = Cookies.get('googtrans');
+    if (googtrans) {
+      const parts = googtrans.split('/');
+      const langCode = parts[parts.length - 1];
+      if (langCode) {
+        const matched = languages.find(l => l.code === langCode);
+        if (matched) {
+          // eslint-disable-next-line react-hooks/set-state-in-effect
+          setSelectedLang(matched.code);
+        }
+      }
+    }
+  }, []);
+
   // Handle clicking outside the dropdown to close it
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -62,7 +79,7 @@ const GoogleTranslate = () => {
   const currentLang = languages.find(l => l.code === selectedLang) || languages[0];
 
   return (
-    <div className="relative inline-block text-left z-50" ref={dropdownRef}>
+    <div className="relative inline-block w-full sm:w-auto text-left z-50" ref={dropdownRef}>
 
       {/* 1. The Hidden Google Widget */}
       <div id="google_translate_element" className="hidden"></div>
@@ -74,22 +91,25 @@ const GoogleTranslate = () => {
       {/* 2. Custom Pill Button (Updated to show selected language and flag) */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 bg-[#f0f4f8] hover:bg-[#e2e8f0] text-[#475569] px-4 py-2 rounded-full text-sm font-semibold transition-colors border border-transparent shadow-sm"
+        className="flex items-center justify-between sm:justify-start w-full sm:w-auto gap-2 bg-[#f0f4f8] hover:bg-[#e2e8f0] text-[#475569] px-4 py-2 rounded-full text-sm font-semibold transition-colors border border-transparent shadow-sm"
       >
-        <span className="text-base leading-none">{currentLang.flag}</span>
-        <span>{currentLang.name}</span>
+        <div className="flex items-center gap-2">
+          <span className="text-base leading-none">{currentLang.flag}</span>
+          <span>{currentLang.name}</span>
+        </div>
         <ChevronDown size={16} className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
       </button>
 
       {/* 3. Custom Dropdown Menu with Flags */}
       {isOpen && (
-        <div className="absolute right-0 sm:left-0 md:left-[-5px] mt-2 w-48 bg-white border border-gray-100 rounded-xl shadow-lg flex flex-col py-1 overflow-hidden transform origin-top-right sm:origin-top-left transition-all">
+        <div className="absolute bottom-full mb-2 left-0 right-0 w-full sm:bottom-auto sm:top-full sm:mt-2 sm:mb-0 sm:left-[-5px] sm:right-auto sm:w-48 bg-white border border-gray-100 rounded-xl shadow-lg flex flex-col py-1 overflow-hidden transform origin-bottom sm:origin-top transition-all">
           {languages.map((lang) => (
             <button
               key={lang.code}
               onClick={() => handleLangChange(lang.code)}
-              className={`flex items-center gap-3 px-4 py-2.5 text-sm font-medium transition-colors hover:bg-gray-50 ${selectedLang === lang.code ? 'text-[#3A9AFF] bg-[#3A9AFF]/5' : 'text-gray-600'
-                }`}
+              className={`flex items-center gap-3 px-4 py-2.5 text-sm font-medium transition-colors hover:bg-gray-50 ${
+                selectedLang === lang.code ? 'text-[#3A9AFF] bg-[#3A9AFF]/5' : 'text-gray-600'
+              }`}
             >
               <span className="text-lg leading-none">{lang.flag}</span>
               <span>{lang.name}</span>
