@@ -26,7 +26,7 @@ const GoogleTranslate = () => {
         {
           pageLanguage: 'en',
           // Only load the languages we defined in our array
-          includedLanguages: languages.map(l => l.code).join(','), 
+          includedLanguages: languages.map(l => l.code).join(','),
           autoDisplay: false,
         },
         'google_translate_element'
@@ -63,7 +63,7 @@ const GoogleTranslate = () => {
 
   return (
     <div className="relative inline-block text-left z-50" ref={dropdownRef}>
-      
+
       {/* 1. The Hidden Google Widget */}
       <div id="google_translate_element" className="hidden"></div>
       <Script
@@ -83,14 +83,13 @@ const GoogleTranslate = () => {
 
       {/* 3. Custom Dropdown Menu with Flags */}
       {isOpen && (
-        <div className="absolute right-0 sm:left-0 md:left-[-100px] mt-2 w-48 bg-white border border-gray-100 rounded-xl shadow-lg flex flex-col py-1 overflow-hidden transform origin-top-right sm:origin-top-left transition-all">
+        <div className="absolute right-0 sm:left-0 md:left-[-5px] mt-2 w-48 bg-white border border-gray-100 rounded-xl shadow-lg flex flex-col py-1 overflow-hidden transform origin-top-right sm:origin-top-left transition-all">
           {languages.map((lang) => (
             <button
               key={lang.code}
               onClick={() => handleLangChange(lang.code)}
-              className={`flex items-center gap-3 px-4 py-2.5 text-sm font-medium transition-colors hover:bg-gray-50 ${
-                selectedLang === lang.code ? 'text-[#3A9AFF] bg-[#3A9AFF]/5' : 'text-gray-600'
-              }`}
+              className={`flex items-center gap-3 px-4 py-2.5 text-sm font-medium transition-colors hover:bg-gray-50 ${selectedLang === lang.code ? 'text-[#3A9AFF] bg-[#3A9AFF]/5' : 'text-gray-600'
+                }`}
             >
               <span className="text-lg leading-none">{lang.flag}</span>
               <span>{lang.name}</span>
@@ -98,7 +97,7 @@ const GoogleTranslate = () => {
           ))}
         </div>
       )}
-      
+
     </div>
   );
 };

@@ -12,6 +12,7 @@ import {
       Newspaper,
 } from "lucide-react";
 import Image from "next/image";
+import GoogleTranslate from "../GoogleTranslate/GoogleTranslate";
 
 interface MobileSidebarProps {
       isOpen: boolean;
@@ -19,7 +20,7 @@ interface MobileSidebarProps {
 }
 
 const MobileSidebar = ({ isOpen, onClose }: MobileSidebarProps) => {
-  
+
 
       return (
             <>
@@ -160,7 +161,9 @@ const MobileSidebar = ({ isOpen, onClose }: MobileSidebarProps) => {
                                     Contact
                               </Link>
                         </div>
-
+                        <div className="p-3">
+                              <GoogleTranslate />
+                        </div>
 
                   </div>
             </>
