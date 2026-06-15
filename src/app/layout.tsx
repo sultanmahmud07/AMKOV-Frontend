@@ -1,4 +1,5 @@
 import "./globals.css";
+export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import { Geist_Mono, Oswald } from "next/font/google";
 import LoginSuccessToast from "@/components/shared/LoginSuccessToast";
@@ -6,7 +7,6 @@ import LogoutSuccessToast from "@/components/shared/LogoutSuccessToast";
 import { Toaster } from "sonner";
 import { Suspense } from "react";
 import NextTopLoader from 'nextjs-toploader';
-
 import SocialIcons from "@/components/shared/SocialIcons";
 import CookieConsent from "@/components/shared/CookieConsent";
 import Script from "next/script";
