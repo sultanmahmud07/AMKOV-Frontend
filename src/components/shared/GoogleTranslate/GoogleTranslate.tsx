@@ -50,7 +50,7 @@ const GoogleTranslate = () => {
       }
     }
   }, []);
-
+  //Hello testing
   // Handle clicking outside the dropdown to close it
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -75,20 +75,15 @@ const GoogleTranslate = () => {
     }
   };
 
-  // Find the currently selected language object
   const currentLang = languages.find(l => l.code === selectedLang) || languages[0];
 
   return (
     <div className="relative inline-block w-full sm:w-auto text-left z-50" ref={dropdownRef}>
-
-      {/* 1. The Hidden Google Widget */}
       <div id="google_translate_element" className="hidden"></div>
       <Script
         src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
         strategy="afterInteractive"
       />
-
-      {/* 2. Custom Pill Button (Updated to show selected language and flag) */}
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center justify-between sm:justify-start w-full sm:w-auto gap-2 bg-[#f0f4f8] hover:bg-[#e2e8f0] text-[#475569] px-4 py-2 rounded-full text-sm font-semibold transition-colors border border-transparent shadow-sm"
@@ -107,9 +102,8 @@ const GoogleTranslate = () => {
             <button
               key={lang.code}
               onClick={() => handleLangChange(lang.code)}
-              className={`flex items-center gap-3 px-4 py-2.5 text-sm font-medium transition-colors hover:bg-gray-50 ${
-                selectedLang === lang.code ? 'text-[#3A9AFF] bg-[#3A9AFF]/5' : 'text-gray-600'
-              }`}
+              className={`flex items-center gap-3 px-4 py-2.5 text-sm font-medium transition-colors hover:bg-gray-50 ${selectedLang === lang.code ? 'text-[#3A9AFF] bg-[#3A9AFF]/5' : 'text-gray-600'
+                }`}
             >
               <span className="text-lg leading-none">{lang.flag}</span>
               <span>{lang.name}</span>
