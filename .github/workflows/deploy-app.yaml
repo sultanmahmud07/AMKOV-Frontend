@@ -41,7 +41,7 @@ jobs:
           EC2_USER: ${{ secrets.EC2_USER }}
         run: |
           # 1. Create a specific directory for the Next.js frontend
-          ssh -i ~/.ssh/id_rsa $EC2_USER@$EC2_HOST "mkdir -p ~/texas-frontend"
+          ssh -i ~/.ssh/id_rsa $EC2_USER@$EC2_HOST "mkdir -p ~/amkov-frontend"
 
           # 2. Create the .env file locally from GitHub Secrets (e.g., NEXT_PUBLIC_API_URL)
           cat << 'EOF' > .env
@@ -53,7 +53,7 @@ jobs:
             --exclude='.git' \
             --exclude='node_modules' \
             --exclude='.github' \
-            . $EC2_USER@$EC2_HOST:~/texas-frontend/
+            . $EC2_USER@$EC2_HOST:~/amkov-frontend/
 
           # 4. Execute deployment commands safely
           ssh -i ~/.ssh/id_rsa $EC2_USER@$EC2_HOST << 'EOF'
@@ -62,7 +62,7 @@ jobs:
             
             npm install -g pm2
             
-            cd ~/texas-frontend
+            cd ~/amkov-frontend
             
             # Install production dependencies
             npm install --production
