@@ -178,6 +178,7 @@ export default function RootLayout({
         <NextTopLoader
           color="#023047"
           height={4}
+          showSpinner={false}
         />
         {children}
         <SocialIcons />
@@ -196,24 +197,6 @@ export default function RootLayout({
           __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
         }}
       />
-      {/* Load the Weglot library */}
-      {/* <Script
-        src="https://cdn.weglot.com/weglot.min.js"
-        strategy="beforeInteractive"
-      />
-      <Script id="weglot-init" strategy="afterInteractive">
-        {`
-            Weglot.initialize({
-                api_key: 'wg_e911820c659a8b04a115fcc7f23f3fdb2'
-            });
-          `}
-      </Script> */}
-      {/* <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
-      <script>
-        Weglot.initialize({
-          api_key: 'wg_e911820c659a8b04a115fcc7f23f3fdb2'
-    });
-      </script> */}
     </html>
   );
 }
