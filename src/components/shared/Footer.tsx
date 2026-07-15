@@ -133,22 +133,54 @@ const Footer: React.FC = () => {
             </div>
 
             {/* Column 3: Contact Info */}
-            <div className="col-span-2 md:col-span-1">
+            <div 
+              className="col-span-2 md:col-span-1 vcard"
+              itemScope 
+              itemType="https://schema.org/Organization"
+            >
+              {/* Hidden tags to specify organization name and URLs for hCard/Schema validation */}
+              <span className="hidden org fn" itemProp="name">AMKOV</span>
+              <link itemProp="url" href="https://www.amkov.com/" />
+              <link itemProp="logo" href="https://www.amkov.com/logo/logo.png" />
+
               <h6 className="text-white font-bold mb-6 tracking-wider uppercase text-xs">Get in Touch</h6>
               <ul className="space-y-5 text-sm text-slate-400">
                 <li className="flex items-start gap-3 group">
                   <IoLocationSharp size={18} className="text-[#3A9AFF] mt-0.5 shrink-0" />
-                  <span className="leading-relaxed group-hover:text-white transition-colors">
-                    2/F, Building C, Aike Industrial Park, No.1, Lane 1, Dabao Road, Xin&apos;an Street, Bao&apos;an District, Shenzhen
-                  </span>
+                  <div 
+                    className="adr"
+                    itemProp="address" 
+                    itemScope 
+                    itemType="https://schema.org/PostalAddress"
+                  >
+                    <span className="leading-relaxed group-hover:text-white transition-colors street-address" itemProp="streetAddress">
+                      2/F, Building C, Aike Industrial Park, No.1, Lane 1, Dabao Road, Xin&apos;an Street, Bao&apos;an District, Shenzhen
+                    </span>
+                    <span className="hidden locality" itemProp="addressLocality">Shenzhen</span>
+                    <span className="hidden region" itemProp="addressRegion">Guangdong</span>
+                    <span className="hidden postal-code" itemProp="postalCode">518000</span>
+                    <span className="hidden country-name" itemProp="addressCountry">CN</span>
+                  </div>
                 </li>
                 <li className="flex items-center gap-3 group">
                   <FaPhoneAlt size={16} className="text-[#3A9AFF] shrink-0" />
-                  <a href="tel:+8801327357894" className="group-hover:text-white transition-colors">+86 18926413822</a>
+                  <a 
+                    href="tel:+8618926413822" 
+                    className="group-hover:text-white transition-colors tel"
+                    itemProp="telephone"
+                  >
+                    +86 18926413822
+                  </a>
                 </li>
                 <li className="flex items-center gap-3 group">
                   <MdEmail size={18} className="text-[#3A9AFF] shrink-0" />
-                  <a href="mailto:services@amkov.com" className="group-hover:text-white transition-colors">services@amkov.com</a>
+                  <a 
+                    href="mailto:services@amkov.com" 
+                    className="group-hover:text-white transition-colors email"
+                    itemProp="email"
+                  >
+                    services@amkov.com
+                  </a>
                 </li>
               </ul>
             </div>
