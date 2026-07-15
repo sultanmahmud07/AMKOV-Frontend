@@ -12,7 +12,16 @@ const ContactSection = () => {
         {/* ========================================= */}
         <div className="lg:col-span-1 space-y-8">
           {/* Contact Information Card */}
-          <div className="bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 p-8 md:p-10">
+          <div 
+            className="bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 p-8 md:p-10 vcard"
+            itemScope 
+            itemType="https://schema.org/Organization"
+          >
+            {/* Hidden metadata tags to validate schema/hCard specifications */}
+            <span className="hidden org fn" itemProp="name">AMKOV</span>
+            <link itemProp="url" href="https://www.amkov.com/" />
+            <link itemProp="logo" href="https://www.amkov.com/logo/logo.png" />
+
             <h3 className="text-2xl font-extrabold text-[#023047] mb-8">Contact Information</h3>
             <div className="space-y-8">
               {/* Email */}
@@ -22,7 +31,11 @@ const ContactSection = () => {
                 </div>
                 <div className="flex flex-col justify-center h-12">
                   <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-0.5">Global Sales</p>
-                  <a href="mailto:service@amkov.com" className="text-[#023047] font-semibold hover:text-[#3A9AFF] transition-colors">
+                  <a 
+                    href="mailto:service@amkov.com" 
+                    className="text-[#023047] font-semibold hover:text-[#3A9AFF] transition-colors email"
+                    itemProp="email"
+                  >
                     service@amkov.com
                   </a>
                 </div>
@@ -35,7 +48,11 @@ const ContactSection = () => {
                 </div>
                 <div className="flex flex-col justify-center h-12">
                   <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-0.5">Call Us</p>
-                  <a href="tel:+86 18926413822" className="text-[#023047] font-semibold hover:text-[#3A9AFF] transition-colors">
+                  <a 
+                    href="tel:+86 18926413822" 
+                    className="text-[#023047] font-semibold hover:text-[#3A9AFF] transition-colors tel"
+                    itemProp="telephone"
+                  >
                     +86 18926413822
                   </a>
                 </div>
@@ -45,11 +62,20 @@ const ContactSection = () => {
                 <div className="w-12 h-12 bg-[#3A9AFF]/10 text-[#3A9AFF] rounded-xl flex items-center justify-center shrink-0 group-hover:bg-[#3A9AFF] group-hover:text-white transition-colors duration-300">
                   <MapPin className="w-5 h-5" />
                 </div>
-                <div>
+                <div 
+                  className="adr"
+                  itemProp="address" 
+                  itemScope 
+                  itemType="https://schema.org/PostalAddress"
+                >
                   <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-0.5">Headquarters</p>
-                  <p className="text-[#023047] font-semibold leading-relaxed">
+                  <p className="text-[#023047] font-semibold leading-relaxed street-address" itemProp="streetAddress">
                     2/F, Building C, Aike Industrial Park, No.1, Lane 1, Dabao Road, Xin&apos;an Street, Bao&apos;an District, Shenzhen
                   </p>
+                  <span className="hidden locality" itemProp="addressLocality">Shenzhen</span>
+                  <span className="hidden region" itemProp="addressRegion">Guangdong</span>
+                  <span className="hidden postal-code" itemProp="postalCode">518000</span>
+                  <span className="hidden country-name" itemProp="addressCountry">CN</span>
                 </div>
               </div>
             </div>

@@ -5,7 +5,7 @@ import Script from 'next/script';
 
 export const metadata: Metadata = {
       title: "Contact AMKOV for OEM, ODM & Wholesale Camera Inquiries",
-      description: "Contact AMKOV for OEM and ODM camera manufacturing, wholesale pricing, product samples, distributor partnerships or technical support.",
+      description: "Contact AMKOV for OEM and ODM camera manufacturing, wholesale pricing, product samples, distributor partnerships or technical support. Get in touch with our team in Shenzhen today to discuss your project.",
       keywords: [
             "customer support",
             "contact AMKOV",

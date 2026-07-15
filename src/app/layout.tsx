@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     default: "ODM & OEM Camera Manufacturer | Wholesale Cameras | AMKOV",
     template: "%s | AMKOV",
   },
-  description: "AMKOV is a digital camera manufacturer offering wholesale cameras, OEM, ODM, private-label production and global supply for brands and distributors.",
+  description: "AMKOV is a digital camera manufacturer offering wholesale cameras, OEM, ODM, private-label production and global supply for brands and distributors. Discover our high-quality vlogging, waterproof, and kids cameras.",
   alternates: {
     canonical: 'https://www.amkov.com',
     languages: {
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     url: "https://www.amkov.com",
     siteName: "AMKOV",
     title: "ODM & OEM Camera Manufacturer | Wholesale Cameras | AMKOV",
-    description: "AMKOV is a digital camera manufacturer offering wholesale cameras, OEM, ODM, private-label production and global supply for brands and distributors.",
+    description: "AMKOV is a digital camera manufacturer offering wholesale cameras, OEM, ODM, private-label production and global supply for brands and distributors. Discover our high-quality vlogging, waterproof, and kids cameras.",
     images: [
       {
         url: "/images/og-main.jpg",
@@ -80,7 +80,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'ODM & OEM Camera Manufacturer | Wholesale Cameras | AMKOV',
-    description: 'AMKOV is a digital camera manufacturer offering wholesale cameras, OEM, ODM, private-label production and global supply for brands and distributors.',
+    description: 'AMKOV is a digital camera manufacturer offering wholesale cameras, OEM, ODM, private-label production and global supply for brands and distributors. Discover our high-quality vlogging, waterproof, and kids cameras.',
     siteId: '1467726470533754880',
     creator: '@nextjs',
     creatorId: '1467726470533754880',

@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
       title: 'Digital Cameras for Wholesale, OEM and Global Distribution',
-      description: "Explore AMKOV wholesale digital cameras, including vlogging, waterproof, optical zoom, video, instant-print and kids cameras for bulk and OEM orders.",
+      description: "Explore AMKOV wholesale digital cameras, including vlogging, waterproof, optical zoom, video, instant-print and kids cameras for bulk and OEM orders. Partner with a leading manufacturer for custom branding.",
 }
 
 export default async function Page({
