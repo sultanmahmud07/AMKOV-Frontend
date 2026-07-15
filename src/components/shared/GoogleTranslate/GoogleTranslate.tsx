@@ -50,7 +50,28 @@ const GoogleTranslate = () => {
       }
     }
   }, []);
-  //Hello testing
+
+  // Auto-translate if ?lang=... search parameter is set in the URL
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const lang = urlParams.get('lang');
+    if (lang) {
+      const matched = languages.find(l => l.code === lang || l.code.split('-')[0] === lang);
+      if (matched) {
+        const interval = setInterval(() => {
+          const select = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+          if (select) {
+            clearInterval(interval);
+            setSelectedLang(matched.code);
+            select.value = matched.code;
+            select.dispatchEvent(new Event('change'));
+          }
+        }, 100);
+        setTimeout(() => clearInterval(interval), 5000);
+      }
+    }
+  }, []);
+
   // Handle clicking outside the dropdown to close it
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {

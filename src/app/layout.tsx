@@ -30,8 +30,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.amkov.com',
     languages: {
-      'en-US': 'https://www.amkov.com',
-      'de-DE': 'https://www.amkov.com'
+      'en': 'https://www.amkov.com',
+      'es': 'https://www.amkov.com/?lang=es',
+      'fr': 'https://www.amkov.com/?lang=fr',
+      'de': 'https://www.amkov.com/?lang=de',
+      'ja': 'https://www.amkov.com/?lang=ja',
+      'zh-CN': 'https://www.amkov.com/?lang=zh-CN',
     }
   },
   keywords: [
@@ -105,6 +109,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": ["Organization", "Corporation"],
     "name": "AMKOV",
+    "inLanguage": ["en", "es", "fr", "de", "ja", "zh-CN"],
     "alternateName": "Shenzhen Amkovery Technology Co., Ltd",
     "url": "https://www.amkov.com/",
     "logo": "https://www.amkov.com/favicon.ico",

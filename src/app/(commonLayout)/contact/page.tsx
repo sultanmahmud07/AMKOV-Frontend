@@ -20,6 +20,7 @@ const ContactPage = () => {
             "name": "Contact AMKOV for OEM, ODM & Wholesale Camera Inquiries",
             "description": "Contact AMKOV for OEM and ODM camera manufacturing, wholesale pricing, product samples, distributor partnerships or technical support.",
             "url": "https://www.amkov.com/contact",
+            "inLanguage": ["en", "es", "fr", "de", "ja", "zh-CN"],
             "mainEntity": {
                   "@type": "Organization",
                   "name": "AMKOV",
@@ -32,7 +33,7 @@ const ContactPage = () => {
                               "telephone": "+86 18926413822",
                               "contactType": "customer service",
                               "email": "service@amkov.com",
-                              "availableLanguage": ["English", "Chinese"]
+                              "availableLanguage": ["English", "Chinese", "Spanish", "French", "German", "Japanese"]
                         }
                   ],
                   "address": {
