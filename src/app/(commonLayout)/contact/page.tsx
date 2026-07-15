@@ -3,8 +3,8 @@ import ContactBanner from '@/components/pages/Contact/ContactBanner';
 import ContactSection from '@/components/pages/Contact/ContactSection';
 
 export const metadata: Metadata = {
-      title: "Contact AMKOV for Camera Support, Queries, and Service",
-      description: "Reach out to AMKOV for camera inquiries, support, or service. Our team is here to assist you with any questions regarding your AMKOV products.",
+      title: "Contact AMKOV for OEM, ODM & Wholesale Camera Inquiries",
+      description: "Contact AMKOV for OEM and ODM camera manufacturing, wholesale pricing, product samples, distributor partnerships or technical support.",
       keywords: [
             "customer support",
             "contact AMKOV",

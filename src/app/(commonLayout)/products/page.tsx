@@ -2,8 +2,8 @@ import Products from '@/components/pages/Products/Products';
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-      title: 'Amkov Digital Cameras – Vlog, Waterproof & Zoom Cameras',
-      description: "Amkov offers digital cameras: high‑quality Vlog cameras, 4K zoom, waterproof, instant print & kids cameras for photography & video. Shop affordable options.",
+      title: 'Digital Cameras for Wholesale, OEM and Global Distribution',
+      description: "Explore AMKOV wholesale digital cameras, including vlogging, waterproof, optical zoom, video, instant-print and kids cameras for bulk and OEM orders.",
 }
 
 export default async function Page({

@@ -5,8 +5,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: "AMKOV Camera Software & Manual Downloads",
-  description: "Get official AMKOV camera software, app files, and user guides in one place. Find quick downloads for setup, pairing, updates, and everyday camera support.Learn about the NativeWays story. We are bridging the gap between curious travelers and passionate local experts to create authentic, unforgettable journeys.",
-
+  description: "Download official AMKOV camera user manuals, firmware updates, companion apps and product resources. Search by camera model for the correct files.",
 };
 
 const Download = async () => {

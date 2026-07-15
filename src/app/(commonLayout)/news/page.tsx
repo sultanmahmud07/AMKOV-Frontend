@@ -5,7 +5,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
       title: 'AMKOV Latest News – Digital Camera Updates & Innovations',
-      description: 'Stay updated with AMKOV’s latest news on digital cameras, innovations, product updates, and photography trends. Explore exciting developments and announcements.',
+      description: 'Explore AMKOV camera buying guides, product comparisons, wholesale sourcing advice, OEM insights, reviews and digital imaging industry updates.',
 }
 
 export default async function Page() {

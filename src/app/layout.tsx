@@ -23,10 +23,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://amkov.com'),
   title: {
-    default: "Amkov Best Affordable Digital Cameras for Every Photographer",
+    default: "ODM & OEM Camera Manufacturer | Wholesale Cameras | AMKOV",
     template: "%s | AMKOV",
   },
-  description: "Amkov is for the best affordable digital cameras. Shop top-rated options for beginners & professionals, featuring high-quality photography and budget-friendly prices.",
+  description: "AMKOV is a digital camera manufacturer offering wholesale cameras, OEM, ODM, private-label production and global supply for brands and distributors.",
   keywords: [
     "digital cameras",
     "affordable cameras",
@@ -37,8 +37,8 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://www.amkov.com",
     siteName: "AMKOV",
-    title: "AMKOV - Best Affordable Digital Cameras",
-    description: "Amkov is for the best affordable digital cameras. Shop top-rated options for beginners & professionals, featuring high-quality photography and budget-friendly prices.",
+    title: "ODM & OEM Camera Manufacturer | Wholesale Cameras | AMKOV",
+    description: "AMKOV is a digital camera manufacturer offering wholesale cameras, OEM, ODM, private-label production and global supply for brands and distributors.",
     images: [
       {
         url: "/images/og-main.jpg",
@@ -72,8 +72,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AMKOV - Best Affordable Digital Cameras for Every Photographer',
-    description: 'Amkov is for the best affordable digital cameras. Shop top-rated options for beginners & professionals, featuring high-quality photography and budget-friendly prices.',
+    title: 'ODM & OEM Camera Manufacturer | Wholesale Cameras | AMKOV',
+    description: 'AMKOV is a digital camera manufacturer offering wholesale cameras, OEM, ODM, private-label production and global supply for brands and distributors.',
     siteId: '1467726470533754880',
     creator: '@nextjs',
     creatorId: '1467726470533754880',

@@ -7,8 +7,10 @@ import Company from '@/components/pages/About/Company';
 import FactoryImages from '@/components/pages/About/FactoryImages';
 
 export const metadata: Metadata = {
-  title: "About AMKOV - Leading Digital Camera Brand for Innovation",
-  description: "Learn more about AMKOV, a top digital camera brand known for cutting-edge technology and customer-focused solutions. Discover our mission and vision.",
+  title: {
+    absolute: "About AMKOV | Digital Camera Brand & Manufacturer",
+  },
+  description: "Learn about AMKOV’s camera manufacturing experience, global brand history, R&D capabilities, quality control and digital imaging product development.",
   keywords: [
     "about AMKOV",
     "digital cameras",
