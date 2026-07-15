@@ -152,15 +152,27 @@ export default function BannerSlider() {
                                                                   </p>
 
                                                                   {/* Title */}
-                                                                  <h1
-                                                                        className={`text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-[1.15] tracking-tight whitespace-pre-line transition-all duration-700 ease-out ${isActive
-                                                                              ? "opacity-100 translate-y-0 delay-500"
-                                                                              : "opacity-0 translate-y-8"
-                                                                              }`}
-                                                                  >
-                                                                        {slide.title}
-                                                                  </h1>
-                                                                  {/* Title */}
+                                                                  {index === 0 ? (
+                                                                        <h1
+                                                                              className={`text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-[1.15] tracking-tight whitespace-pre-line transition-all duration-700 ease-out ${isActive
+                                                                                    ? "opacity-100 translate-y-0 delay-500"
+                                                                                    : "opacity-0 translate-y-8"
+                                                                                    }`}
+                                                                        >
+                                                                              {slide.title}
+                                                                        </h1>
+                                                                  ) : (
+                                                                        <h2
+                                                                              className={`text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-[1.15] tracking-tight whitespace-pre-line transition-all duration-700 ease-out ${isActive
+                                                                                    ? "opacity-100 translate-y-0 delay-500"
+                                                                                    : "opacity-0 translate-y-8"
+                                                                                    }`}
+                                                                        >
+                                                                              {slide.title}
+                                                                        </h2>
+                                                                  )}
+                                                                  
+                                                                  {/* Subtitle */}
                                                                   <p
                                                                         className={`text-sm md:text-base lg:text-md text-white leading-[1.15] tracking-tight whitespace-pre-line transition-all duration-700 ease-out ${isActive
                                                                               ? "opacity-100 translate-y-0 delay-500"

@@ -1,6 +1,6 @@
 import { Mail, Phone, MapPin, Clock, HelpCircle, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
-import ContactForm from './ContactForm'; 
+import ContactForm from './ContactForm';
 
 const ContactSection = () => {
 
@@ -102,6 +102,7 @@ const ContactSection = () => {
           {/* Map Embed */}
           <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden h-[350px] relative">
             <iframe
+              title="AMKOV HQ Google Maps Location"
               // Using Google Maps embed tailored to your exact Baidu location name
               src="https://maps.google.com/maps?q=%E8%89%BE%E5%8F%AF%E5%B7%A5%E4%B8%9A%E5%9B%ADC%E6%A0%8B&t=m&z=16&output=embed&iwloc=near"
               width="100%"
@@ -111,7 +112,9 @@ const ContactSection = () => {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               className="grayscale hover:grayscale-0 transition-all duration-700"
-            ></iframe>
+            >
+              Your browser does not support inline frames. Please visit Google Maps directly to view the location.
+            </iframe>
             <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg shadow-md text-xs font-bold text-[#023047] border border-gray-100">
               📍 AMKOV Global HQ
             </div>

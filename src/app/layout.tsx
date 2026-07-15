@@ -27,6 +27,13 @@ export const metadata: Metadata = {
     template: "%s | AMKOV",
   },
   description: "AMKOV is a digital camera manufacturer offering wholesale cameras, OEM, ODM, private-label production and global supply for brands and distributors.",
+  alternates: {
+    canonical: 'https://www.amkov.com',
+    languages: {
+      'en-US': 'https://www.amkov.com',
+      'de-DE': 'https://www.amkov.com'
+    }
+  },
   keywords: [
     "digital cameras",
     "affordable cameras",
