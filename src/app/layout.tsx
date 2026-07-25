@@ -184,6 +184,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+      <GoogleTagManager gtmId="GTM-K3RGLBD" />
       <body
         className={`${geistOswald.variable} ${geistMono.variable} antialiased relative`}
       >
@@ -200,15 +201,14 @@ export default function RootLayout({
           <LogoutSuccessToast />
         </Suspense>
         <CookieConsent />
+        <Script
+          id="json-ld-script"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
+          }}
+        />
       </body>
-      <GoogleTagManager gtmId="GTM-K3RGLBD" />
-      <Script
-        id="json-ld-script"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
-        }}
-      />
     </html>
   );
 }
