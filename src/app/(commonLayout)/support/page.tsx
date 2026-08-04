@@ -6,7 +6,9 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: "Digital Camera Support | Troubleshooting & FAQs | AMKOV",
   description: "Get expert camera support at AMKOV. Troubleshooting, product setup, FAQ assistance, repair services, and user guides for all AMKOV digital camera products.",
-
+  alternates: {
+    canonical: '/support',
+  },
 };
 
 const Support = async () => {

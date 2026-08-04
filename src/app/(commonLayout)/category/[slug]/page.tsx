@@ -27,6 +27,9 @@ export const generateMetadata = async ({
     openGraph: {
       images: ['/some-specific-page-image.jpg', ...category?.data?.thumbnail ? [category.data.thumbnail] : []],
     },
+    alternates: {
+      canonical: `/category/${slug}`,
+    },
   };
 };
 

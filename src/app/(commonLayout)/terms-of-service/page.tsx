@@ -4,6 +4,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Terms of Service | AMKOV Digital Camera Website.",
   description: "Read the AMKOV Terms of Service for website use, accounts, orders, support, intellectual property, changes, governing law, and contact details.",
+  alternates: {
+    canonical: '/terms-of-service',
+  },
 };
 
 const TermsOfServicePage = () => {

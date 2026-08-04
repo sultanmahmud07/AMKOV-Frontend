@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     absolute: "About AMKOV | Digital Camera Brand & Manufacturer",
   },
   description: "Learn about AMKOV’s camera manufacturing experience, global brand history, R&D capabilities, quality control and digital imaging product development. Partner with a trusted industry leader since 2013.",
+  alternates: {
+    canonical: '/about',
+  },
   keywords: [
     "about AMKOV",
     "digital cameras",

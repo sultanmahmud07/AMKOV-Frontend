@@ -7,6 +7,9 @@ export const metadata: Metadata = {
     absolute: "OEM and ODM Camera Manufacturing Solutions | Amkov",
   },
   description: "Build custom and private-label cameras with AMKOV’s OEM and ODM manufacturing, R&D, mold development, quality control and global supply support. We offer complete camera production solutions for global brands.",
+  alternates: {
+    canonical: '/solution',
+  },
 };
 
 const Solution = () => {

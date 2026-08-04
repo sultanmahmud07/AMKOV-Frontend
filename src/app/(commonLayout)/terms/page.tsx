@@ -1,4 +1,14 @@
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "AMKOV Terms of Service | Digital Camera Brand & Manufacturer",
+  description: "Read the terms and conditions for using the AMKOV website and services for B2B digital camera manufacturing and wholesale supply.",
+  alternates: {
+    canonical: '/terms',
+  },
+};
+
 const TermsPage = () => {
 
 

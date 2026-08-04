@@ -27,26 +27,54 @@ export const generateMetadata = async ({
     openGraph: {
       images: ['/some-specific-page-image.jpg', ...project?.data?.images],
     },
+    alternates: {
+      canonical: `/products/${slug}`,
+    },
   };
 };
 
 
 const page = async ({ params }: IParams) => {
   const { slug } = await params;
-  const productData = await getProductDetailsForMetadata(slug)
+  const productData = await getProductDetailsForMetadata(slug);
+  const product = productData?.data;
+
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": product?.name || "",
+    "image": product?.images?.[0] || "/default.png",
+    "brand": {
+      "@type": "Brand",
+      "name": "AMKOV"
+    },
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "USD",
+      "price": product?.basePrice || 0,
+      "availability": "https://schema.org/InStock"
+    }
+  };
+
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(productJsonLd).replace(/</g, '\\u003c'),
+        }}
+      />
       <Suspense key={slug} fallback={<ProductDetailLoader></ProductDetailLoader>}>
-        <ProductDetails product={productData?.data}></ProductDetails>
+        <ProductDetails product={product}></ProductDetails>
         <Suspense fallback={
           <div className="h-96 flex items-center justify-center"><span className="text-gray-500">Loading product information...</span></div>}
         >
-          <ProductInformationWrapper product={productData?.data} />
+          <ProductInformationWrapper product={product} />
         </Suspense>
         <Suspense fallback={
           <div className="h-96 flex items-center justify-center"><span className="text-gray-500">Loading related products...</span></div>}
         >
-          <RelatedProducts productId={productData?.data?._id} CategoryId={productData?.data?.categories?.[0]?._id} />
+          <RelatedProducts productId={product?._id} CategoryId={product?.categories?.[0]?._id} />
         </Suspense>
       </Suspense>
 

@@ -21,6 +21,9 @@ export const generateMetadata = async ({
   return {
     title: blog?.data?.metaTitle,
     description: blog?.data?.metaDescription,
+    alternates: {
+      canonical: `/news/${slug}`,
+    },
   };
 };
 

@@ -2,9 +2,11 @@ import Checkout from '@/components/pages/Checkout/Checkout';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Checkout | NativeWays",
-  description: "Learn about the NativeWays story. We are bridging the gap between curious travelers and passionate local experts to create authentic, unforgettable journeys.",
-
+  title: "Checkout | AMKOV Digital Cameras",
+  description: "Secure checkout page to complete your AMKOV camera purchase.",
+  alternates: {
+    canonical: '/checkout',
+  },
 };
 
 const CheckoutPage = () => {

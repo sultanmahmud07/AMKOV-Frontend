@@ -6,11 +6,10 @@ import LogoutSuccessToast from "@/components/shared/LogoutSuccessToast";
 import { Toaster } from "sonner";
 import { Suspense } from "react";
 import NextTopLoader from 'nextjs-toploader';
-
 import SocialIcons from "@/components/shared/SocialIcons";
 import CookieConsent from "@/components/shared/CookieConsent";
-import Script from "next/script";
 import { GoogleTagManager } from '@next/third-parties/google'
+
 const geistOswald = Oswald({
   variable: "--font-geist-oswald",
   subsets: ["latin"],
@@ -21,23 +20,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://amkov.com'),
+  metadataBase: new URL('https://www.amkov.com'),
   title: {
     default: "ODM & OEM Camera Manufacturer | Wholesale Cameras | AMKOV",
     template: "%s | AMKOV",
   },
   description: "AMKOV is a digital camera manufacturer offering wholesale cameras, OEM, ODM, private-label production and global supply for brands and distributors. Discover our high-quality vlogging, waterproof, and kids cameras.",
-  alternates: {
-    canonical: 'https://www.amkov.com',
-    languages: {
-      'en': 'https://www.amkov.com',
-      'es': 'https://www.amkov.com/?lang=es',
-      'fr': 'https://www.amkov.com/?lang=fr',
-      'de': 'https://www.amkov.com/?lang=de',
-      'ja': 'https://www.amkov.com/?lang=ja',
-      'zh-CN': 'https://www.amkov.com/?lang=zh-CN',
-    }
-  },
   keywords: [
     "digital cameras",
     "affordable cameras",
@@ -105,82 +93,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": ["Organization", "Corporation"],
-    "name": "AMKOV",
-    "inLanguage": ["en", "es", "fr", "de", "ja", "zh-CN"],
-    "alternateName": "Shenzhen Amkovery Technology Co., Ltd",
-    "url": "https://www.amkov.com/",
-    "logo": "https://www.amkov.com/favicon.ico",
-    "foundingDate": "2013",
-    "founders": [
-      {
-        "@type": "Person",
-        "name": "AMKOV Team"
-      }
-    ],
-    "description": "Shenzhen Amkovery Technology Co., Ltd is a company with 22 years' experience dealing with photo & video products. We are specialized in products design, development and production. Our main products are Optical Zoom Camera, Digital Camera, Instant Print Camera, Creative Camera for Kids, Outdoor Special Camera etc. The company also provides OEM, ODM and bulk supply solutions for global partners.",
-    "sameAs": [
-      "https://www.linkedin.com/company/107824231/admin/page-posts/published/",
-      "https://www.facebook.com/amkovcameras",
-      "https://x.com/Amkovery",
-      "https://www.instagram.com/amkovekim",
-      "https://www.pinterest.com/aamkovery"
-    ],
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "2/F, Building C, Aike Industrial Park, No.1, Lane 1, Dabao Road, Xin'an Street, Bao'an District, Shenzhen",
-      "addressLocality": "Shenzhen",
-      "addressRegion": "Guangdong",
-      "postalCode": "518000",
-      "addressCountry": "CN"
-    },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+86 18926413822",
-      "contactType": "Customer Service",
-      "email": "services@amkov.com",
-      "availableLanguage": ["English", "Chinese"]
-    },
-    "brand": {
-      "@type": "Brand",
-      "name": "AMKOV",
-      "url": "https://www.amkov.com"
-    },
-    "slogan": "Reliable Camera Manufacturing for Growing Brands.",
-    "knowsAbout": [
-      "Optical Zoom Camera",
-      "Digital Zoom Camera",
-      "V-Log Camera",
-      "Video Camera",
-      "Waterproof Camera",
-      "Instant Print Camera",
-      "Kids Camera",
-      "OEM Camera Manufacturing",
-      "ODM Camera Development",
-      "Bulk Camera Supply",
-    ],
-    "makesOffer": [
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "OfferCatalog",
-          "name": "AMKOV Camera Products and Manufacturing Solutions",
-          "description": "AMKOV provides B2B camera products and manufacturing solutions, including optical zoom cameras, digital cameras, V-Log cameras, waterproof cameras, instant print cameras and kids cameras, along with OEM, ODM and bulk supply services for global brands, distributors and business partners."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "OEM Camera Manufacturing",
-          "description": "AMKOV provides OEM camera manufacturing services for B2B clients, helping brands, wholesalers and distributors produce customized digital cameras, video cameras, waterproof cameras, instant print cameras and kids cameras with reliable production support."
-        }
-      }
-    ]
-  }
-
 
   return (
     <html lang="en">
@@ -201,13 +113,6 @@ export default function RootLayout({
           <LogoutSuccessToast />
         </Suspense>
         <CookieConsent />
-        <Script
-          id="json-ld-script"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
-          }}
-        />
       </body>
     </html>
   );

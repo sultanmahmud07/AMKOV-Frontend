@@ -3,6 +3,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "AMKOV Privacy Policy | B2B Digital Camera Manufacturer",
   description: "See how AMKOV manages contact, order, cookie, and account data for B2B buyers seeking digital camera manufacturing, OEM, and wholesale support.",
+  alternates: {
+    canonical: '/privacy-policy',
+  },
 };
 
 const PrivacyPage = () => {

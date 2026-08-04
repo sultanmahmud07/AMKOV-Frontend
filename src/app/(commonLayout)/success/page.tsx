@@ -7,6 +7,9 @@ import { IoIosArrowForward } from 'react-icons/io';
 export const metadata: Metadata = {
       title: 'AMKOV SMS Success – Confirmations & Digital Camera Alerts',
       description: 'Check the success of your AMKOV SMS notifications. Receive updates, confirmations, and alerts related to your digital camera orders and services.',
+      alternates: {
+            canonical: '/success',
+      },
 }
 
 export default function Page() {
