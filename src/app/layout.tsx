@@ -22,7 +22,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.amkov.com'),
   title: {
-    default: "ODM & OEM Camera Manufacturer | Wholesale Cameras | AMKOV",
+    default: "AMKOV Best Camera Brand | ODM & OEM Camera Manufacturer",
     template: "%s | AMKOV",
   },
   description: "AMKOV is a digital camera manufacturer offering wholesale cameras, OEM, ODM, private-label production and global supply for brands and distributors. Discover our high-quality vlogging, waterproof, and kids cameras.",
