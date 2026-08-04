@@ -39,11 +39,16 @@ const page = async ({ params }: IParams) => {
   const productData = await getProductDetailsForMetadata(slug);
   const product = productData?.data;
 
+  const getAbsoluteImageUrl = (img?: string) => {
+    if (!img) return "https://www.amkov.com/logo/logo.png";
+    if (img.startsWith("http")) return img;
+    return `https://www.amkov.com${img.startsWith("/") ? "" : "/"}${img}`;
+  };
   const productJsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
     "name": product?.name || "",
-    "image": product?.images?.[0] || "/default.png",
+    "image": getAbsoluteImageUrl(product?.images?.[0]),
     "brand": {
       "@type": "Brand",
       "name": "AMKOV"
@@ -51,7 +56,7 @@ const page = async ({ params }: IParams) => {
     "offers": {
       "@type": "Offer",
       "priceCurrency": "USD",
-      "price": product?.basePrice || 0,
+      "price": product?.basePrice ? product.basePrice.toString() : "0.00",
       "availability": "https://schema.org/InStock"
     }
   };
