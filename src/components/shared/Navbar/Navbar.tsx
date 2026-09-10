@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import NavLink from "./NavLink";
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { IUser } from "@/types/user.interface";
 import UserProfileMenu from "./UserProfileMenu";
 import { Search, Menu, ChevronDown, User, X, Linkedin, Instagram, Twitter, Facebook } from "lucide-react";
@@ -190,7 +190,7 @@ const Navbar = (props: Props) => {
             {/* ========================================= */}
             {/* <LanguageSwitcher /> */}
 
-        <GoogleTranslate />
+            <GoogleTranslate />
           </div>
 
           {/* Action Icons - Mobile */}
