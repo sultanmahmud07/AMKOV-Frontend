@@ -1,69 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Core Pages -->
     <url>
         <loc>https://amkov.com</loc>
-        <lastmod>2025-11-27T09:56:07+00:00</lastmod>
-        <changefreq>yearly</changefreq>
+        <lastmod>2026-09-10T00:00:00+00:00</lastmod>
+        <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
         <loc>https://amkov.com/products</loc>
-        <lastmod>2025-11-27T09:56:07+00:00</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <lastmod>2026-09-10T00:00:00+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://amkov.com/category</loc>
-        <lastmod>2025-11-27T09:56:07+00:00</lastmod>
+        <loc>https://amkov.com/categories</loc>
+        <lastmod>2026-09-10T00:00:00+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- OEM & B2B Manufacturer Landing Pages -->
+    <url>
+        <loc>https://amkov.com/oem-camera-manufacturer</loc>
+        <lastmod>2026-09-10T00:00:00+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://amkov.com/action-camera-oem</loc>
+        <lastmod>2026-09-10T00:00:00+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://amkov.com/instant-camera-oem</loc>
+        <lastmod>2026-09-10T00:00:00+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://amkov.com/kids-camera-manufacturer</loc>
+        <lastmod>2026-09-10T00:00:00+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Solutions & Information -->
+    <url>
+        <loc>https://amkov.com/solution</loc>
+        <lastmod>2026-09-10T00:00:00+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://amkov.com/about</loc>
-        <lastmod>2025-11-27T09:56:07+00:00</lastmod>
+        <lastmod>2026-09-10T00:00:00+00:00</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://amkov.com/solution</loc>
-        <lastmod>2025-11-27T09:56:07+00:00</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://amkov.com/download</loc>
-        <lastmod>2025-11-27T09:56:07+00:00</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.7</priority>
     </url>
     <url>
         <loc>https://amkov.com/news</loc>
-        <lastmod>2025-11-27T09:56:07+00:00</lastmod>
-        <changefreq>monthly</changefreq>
+        <lastmod>2026-09-10T00:00:00+00:00</lastmod>
+        <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://amkov.com/contact</loc>
-        <lastmod>2025-11-27T09:56:07+00:00</lastmod>
+        <lastmod>2026-09-10T00:00:00+00:00</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.7</priority>
     </url>
     <url>
         <loc>https://amkov.com/support</loc>
-        <lastmod>2025-11-27T09:56:07+00:00</lastmod>
+        <lastmod>2026-09-10T00:00:00+00:00</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://amkov.com/privacy-policy</loc>
-        <lastmod>2025-11-27T09:56:07+00:00</lastmod>
+        <loc>https://amkov.com/download</loc>
+        <lastmod>2026-09-10T00:00:00+00:00</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- Legal Pages -->
+    <url>
+        <loc>https://amkov.com/privacy-policy</loc>
+        <lastmod>2026-09-10T00:00:00+00:00</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
     </url>
     <url>
         <loc>https://amkov.com/terms-of-service</loc>
-        <lastmod>2025-11-27T09:56:07+00:00</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <lastmod>2026-09-10T00:00:00+00:00</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
     </url>
 </urlset>
